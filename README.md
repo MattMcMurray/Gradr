@@ -14,6 +14,7 @@ I'm going to be using a VM and it's recommended that everyone working on the pro
 - run `./get_started`
     - you may have to modify the permissions on this file; if it doesn't run, try `chmod +x ./get_started && ./get_started`
 - Node.js and all dependencies should now be installed. If you run into any issues, talk to Matt and he can probably walk you through it.
+- The VM is set to forward network traffic, when you want to run the web app, `cd` into the proper directory and run `node server.js`. You can access the API/web app by sending requests to `192.168.33.10:8080`.
 
 ### Working on a new feature (using the command line):
 - Make sure you have pulled the latest changes from the current iteration branch
