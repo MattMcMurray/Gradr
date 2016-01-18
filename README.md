@@ -13,6 +13,7 @@ I'm going to be using a VM and it's recommended that everyone working on the pro
     - This is a shared folder, basically it is mirroring the folder that the Vagrantfile is located in on your local machine, which also happens to be the repository
 - run `./get_started.sh`
     - you may have to modify the permissions on this file; if it doesn't run, try `chmod +x ./get_started.sh && ./get_started.sh`
+    - if the script ends with a stack trace, run `npm install --no-bin-links`; this is an issue with VMs on Windows
 - Node.js and all dependencies should now be installed. If you run into any issues, talk to Matt and he can probably walk you through it.
 - The VM is set to forward network traffic, when you want to run the web app, `cd` into the proper directory and run `node server.js`. You can access the API/web app by sending requests to `192.168.33.10:8080`.
 - _Note: If you'd rather use a different virtual machine setup or install locally on your Ubuntu machine, you can skip all the steps up to the point where you run the setup script. You will also connect to `localhost:8080` instead of the VM's IP._
