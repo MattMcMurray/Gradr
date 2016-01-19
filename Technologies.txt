@@ -1,11 +1,11 @@
 Client Side
 	Javascript
-		- because most web browser support it
-		- it is easy to learn 
-		- there are a lot of libraries available that will make development easier
+		- Most web browsers support it
+		- Easy to learn 
+		- There are a lot of libraries available that will make development easier
 
 	SASS
-		- Sass allows us to structure our styles code in a more logical manner.
+		- Allows us to structure our style code in a more logical manner
 		
 Server Side
 	NodeJS
@@ -13,24 +13,26 @@ Server Side
 
 Dependency Management 
 	npm
-		- Because it already comes with NodeJS and it does a good job keeping track of the projects current dependencies in a package.json file.
+		- Does a good job keeping track of the projects current dependencies in a package.json file
+		- Already comes with NodeJS and it 
 
 Continuous integration
 	Travis CI
-		- integrates with Git
-		- project testing is free
+		- Integrates with Git
+		- Project testing is free
 		- Supports multiple languages
-		- able to test pull requests
+		- Able to test pull requests
 		- Can be deployed in S3 and Heroku
 
 
 Database
-	-SQLITE3
+	SQLITE3
 
 Design Templates
-	- Materialize CSS
-		- looks nice
-		- handles most the css heavy lifting and will work on different devices.
+	Materialize CSS
+		- Has the features we want to achieve our vision for how the project will look
+		- Handles most the css heavy lifting
+		- Works on different devices
 
 
 
