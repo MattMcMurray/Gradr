@@ -1,0 +1,40 @@
+Iteration 1
+	
+	Accounts 
+	Big User Story: I would like to make an account.  There should be two sections, one for public information and one for information only visible to matched study partners.
+
+	Matches 
+	Big User Story: I would like to see a list of all matches when both me and the study partner both accepted a match.
+	
+	Viewing Profiles 
+	Big User Story: I want to see more in-depth information on matched study partners.
+	
+
+Iteration 2
+	
+	Rating System
+	Big User Story: I want a way to rate study partners, depending on how they performed during our session.  
+
+	Deletion
+	Big User Story: I would like to delete my account, and have it actually deleted.
+
+	Settings
+	Big User Story: I would like to manage settings for my account like notifications and themes.
+		
+
+Iteration 3
+	
+	IQ Test
+	Big User Story: I would like all new applicants to do an integrated IQ test.  The results should be stored in the in-depth information section of the profile.
+	
+	Picture
+	Big User Story: I would like to upload a picture to my profile so matched study partners can recognize me.
+
+	Leaderboard
+	Big User Story: I want a leaderboard so I can compete with friends for most matches.
+
+Iteration 4
+	
+	Communication
+	Big User Story: I would like a way to communicate with matched study partners after we both accepted each other.  Preferably it would be a built-in chat window.
+

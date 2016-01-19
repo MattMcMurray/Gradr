@@ -1,0 +1,22 @@
+
+Accounts (8 hours)
+Big User Story: I would like to make an account.  There should be two sections, one for public information and one for information only visible to matched study partners.
+Detailed User Stories:
+	- I want to be able to set up a new account (4 hours | HIGH)
+	- I want to be able to edit details on my account (3 hours | Medium)
+	- I want to be able to link my account to my Facebook/LinkedIn (1 hours | LOW)
+
+Matches (11 hours)
+Big User Story: I would like to see a list of all matches when both me and the study partner both accepted a match.
+Detailed User Stories:
+	- I want to be able to pass/fail potential study matches (5 hours | HIGH)
+	- I want to be able to see a list of my final matches (3 hours | Medium)
+	- I want to be notified when someone matches with me (3 Hours | Low)
+
+Viewing Profiles (10.5 hours)
+Big User Story: I want to see more in-depth information on matched study partners.
+Detailed User Stories:
+	- I want to see a breakdown of a user's ratings (3 hours | High)
+	- I want to see a picture of the user (4 hours | Medium)
+	- I want to be able to see the user's information (3.5 | HIGH)
+
