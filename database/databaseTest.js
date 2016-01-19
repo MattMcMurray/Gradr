@@ -46,20 +46,8 @@ School.hasMany(Student)
 sequelize.sync({force: true}).then(function() {
         
         School.create({
-            name: "uofm"
-        }).then(function(school) {
-            Student.create({
-                firstName: "jorell",
-                lastName: "linsangan",
-                schoolId: school.dataValues.id
-            }).then(function() {
-              Student.create({
-                    firstName: "joshua",
-                    lastName: "linsangan",
-                    schoolId: school.dataValues.id
-                })  
-            });    
-        })
+            name: "University of Manitoba"
+        });
         
 
 }).catch(function(error) {
