@@ -1,54 +1,32 @@
-Rating System
+Rating System:
+I want a way to rate study partners, depending on how they performed during our session.  
 
-As a user, I want a way to rate study partners, depending on how they performed during our session.  
-Potential Iteration: 
+Communicate:
+I would like a way to communicate with matched study partners after we both accepted each other.  Preferably it would be a built-in chat window.
 
-Communicate
+Viewing Profiles:
+I want to see more in-depth information on matched study partners.  
 
-As a user, I would like a way to communicate with matched study partners after we both accepted each other.  Preferably it would be a built-in chat window.
-Potential Iteration: 
+IQ Test:
+I would like all new applicants to do an integrated IQ test.  The results should be stored in the in-depth information section of the profile.
 
-Viewing Profiles
+Accounts:
+I would like to make an account.  There should be two sections, one for public information and one for information only visible to matched study partners.
 
-As a user, I want to see more in-depth information on matched study partners.  
-Potential Iteration: 
+Matches:
+I would like to see a list of all matches when both me and the study partner both accepted a match.
 
-IQ Test
+Rejection:
+I would like to see a list of all matches where I matched with a potential study partner, but they didn’t match.
 
-As an admin, I would like all new applicants to do an integrated IQ test.  The results should be stored in the in-depth information section of the profile.
-Potential Iteration: 
+Picture:
+I would like to upload a picture to my profile so matched study partners can recognize me.
 
-Accounts
+Settings:
+I would like to manage settings for my account like notifications and themes.
 
-As a user, I would like to make an account.  There should be two sections, one for public information and one for information only visible to matched study partners.
-Potential Iteration: 
+Deletion:
+I would like to delete my account, and have it actually deleted.
 
-Matches
-
-As a user, I would like to see a list of all matches when both me and the study partner both accepted a match.
-Potential Iteration: 
-
-Rejection
-
-As a user, I would like to see a list of all matches where I matched with a potential study partner, but they didn’t match.
-Potential Iteration: 
-
-Picture
-
-As a user, I would like to upload a picture to my profile so matched study partners can recognize me.
-Potential Iteration: 
-
-Settings
-
-As a user, I would like to manage settings for my account like notifications and themes.
-Potential Iteration: 
-
-Deletion
-
-As an unhappy user, I would like to delete my account, and have it actually deleted.
-Potential Iteration: 
-
-Leaderboard
-
-As a user I want a leaderboard so I can compete with friends for most matches.
-Potential Iteration:
+Leaderboard:
+I want a leaderboard so I can compete with friends for most matches.
