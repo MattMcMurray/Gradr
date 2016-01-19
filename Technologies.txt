@@ -13,7 +13,6 @@ Server Side
 		- Allows us to use the same language for client side and server side code
 		- Easy to create a lightweight server quickly
 		- The Node Package Manager (npm) provides built-in support for a vast amount of pre-existing node modules to easily plug into our application
-		- Sequelize (ORM)
 
 Dependency Management 
 	npm
