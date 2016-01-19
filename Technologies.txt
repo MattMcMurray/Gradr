@@ -3,18 +3,23 @@ Client Side
 		- Most web browsers support it
 		- Easy to learn 
 		- There are a lot of libraries available that will make development easier
+		- It's the de facto standard for client side web development
 
 	SASS
 		- Allows us to structure our style code in a more logical manner
 		
 Server Side
 	NodeJS
-		-Sequelize (ORM)
+		- Allows us to use the same language for client side and server side code
+		- Easy to create a lightweight server quickly
+		- The Node Package Manager (npm) provides built-in support for a vast amount of pre-existing node modules to easily plug into our application
+		- Sequelize (ORM)
 
 Dependency Management 
 	npm
 		- Does a good job keeping track of the projects current dependencies in a package.json file
-		- Already comes with NodeJS and it 
+		- Already comes with NodeJS 
+		- Provides access to many node.JS modules that can be used in our application
 
 Continuous integration
 	Travis CI
@@ -24,9 +29,10 @@ Continuous integration
 		- Able to test pull requests
 		- Can be deployed in S3 and Heroku
 
-
 Database
 	SQLITE3
+		- Extremely lightweight
+		- File-based database provides simplicity in our database design that is sufficient for the needs of our application
 
 Design Templates
 	Materialize CSS
