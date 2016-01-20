@@ -1,22 +1,10 @@
 ### Getting started and setting up the dev environment:
-I'm going to be using a VM and it's recommended that everyone working on the project should, so that we all use the same environment
-
-- To ease the process of creating and maintaining a virtual machine, I highly recommend [Vagrant](https://www.vagrantup.com/)
-    - Vagrant uses VirtualBox to quickly set up and tear down virtual machines, and by including the `Vagrantfile` in the repo, we can all use the exact same configuration
-    - Vagrant is cross-platform
-    - Install Vagrant from the link above (you'll also need VirtualBox, but I believe the Vagrant installer handles that)
-- Once you've installed vagrant, `cd` into your local version of the repo
-- Run `vagrant up`
-- Once that's done, run `vagrant ssh`
-    - BAM! You've SSH'd into your VM
-- `cd` into `/vagrant`
-    - This is a shared folder, basically it is mirroring the folder that the Vagrantfile is located in on your local machine, which also happens to be the repository
+- Use VirtualBox, VMWare, or whatever software you're comfortable with to set up an Ubuntu (or Lubuntu if your system is light on resources) virtual machine
 - run `./get_started.sh`
     - you may have to modify the permissions on this file; if it doesn't run, try `chmod +x ./get_started.sh && ./get_started.sh`
     - if the script ends with a stack trace, run `npm install --no-bin-links`; this is an issue with VMs on Windows
 - Node.js and all dependencies should now be installed. If you run into any issues, talk to Matt and he can probably walk you through it.
-- The VM is set to forward network traffic, when you want to run the web app, `cd` into the proper directory and run `node server.js`. You can access the API/web app by sending requests to `192.168.33.10:8080`.
-- _Note: If you'd rather use a different virtual machine setup or install locally on your Ubuntu machine, you can skip all the steps up to the point where you run the setup script. You will also connect to `localhost:8080` instead of the VM's IP._
+- To access the server, you'll have to set your VM's networking to 'bridge mode'
 
 ### Working on a new feature (using the command line):
 - Make sure you have pulled the latest changes from the current iteration branch
