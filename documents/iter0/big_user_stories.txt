@@ -1,0 +1,32 @@
+Rating System:
+I want a way to rate study partners, depending on how they performed during our session.  
+
+Communicate:
+I would like a way to communicate with matched study partners after we both accepted each other.  Preferably it would be a built-in chat window.
+
+Viewing Profiles:
+I want to see more in-depth information on matched study partners.  
+
+IQ Test:
+I would like all new applicants to do an integrated IQ test.  The results should be stored in the in-depth information section of the profile.
+
+Accounts:
+I would like to make an account.  There should be two sections, one for public information and one for information only visible to matched study partners.
+
+Matches:
+I would like to see a list of all matches when both me and the study partner both accepted a match.
+
+Rejection:
+I would like to see a list of all matches where I matched with a potential study partner, but they didn’t match.
+
+Picture:
+I would like to upload a picture to my profile so matched study partners can recognize me.
+
+Settings:
+I would like to manage settings for my account like notifications and themes.
+
+Deletion:
+I would like to delete my account, and have it actually deleted.
+
+Leaderboard:
+I want a leaderboard so I can compete with friends for most matches.
