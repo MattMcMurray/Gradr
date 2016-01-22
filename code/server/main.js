@@ -6,7 +6,8 @@ var body_parser = require('body-parser');
 app.use(body_parser.urlencoded({ extended: true }));
 app.use(body_parser.json());
 
-var port = process.env.PORT || 8080;
+// PORT 80 is reserved for the system; make sure you run 'sudo node main.js'
+var port = process.env.PORT || 80;
 
 app.use('/api', api.router);
 
