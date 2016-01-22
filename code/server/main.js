@@ -9,6 +9,8 @@ var body_parser = require('body-parser');
 
 app.use(body_parser.urlencoded({ extended: true })); // tell node how we want to parse form data
 app.use(body_parser.json()); // tell node to use json for form parsing
+app.use(express.static(__dirname + '/public')); // tell express where the clientside files are
+
 app.set('view engine', 'jade'); // tell node to use jade templating
 
 // PORT 80 is reserved for the system; make sure you run 'sudo node main.js'
