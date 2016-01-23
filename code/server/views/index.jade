@@ -31,8 +31,8 @@ html(lang='en')
         p.lead
             | Gradr is a study buddy finder based on current dating applications.
     
-    .container.center
-        form#login(role=form)
+    .container
+        form(role=form)
             .form-group
                 label(for="username")
                     | Username
@@ -45,7 +45,10 @@ html(lang='en')
                 label
                     input(type="checkbox") 
                     | Remember me
-            button.btn.btn-primary.login(type="submit") Login
+
+            
+            button.btn.btn-primary.login-buttons(type="submit") Login
+            button.btn.btn-warning.login-buttons(type="button") Sign up
     // Bootstrap core JavaScript
     // ==================================================
     // Placed at the end of the document so the pages load faster

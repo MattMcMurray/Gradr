@@ -3,9 +3,11 @@ body {
     background-image: url(src="")
 }
 
-.login {
+.login-buttons {
 	float:right;
+	margin: 3px;
 }
+
 
 
 #username, #password {
