@@ -1,3 +1,14 @@
 body {
-    color: white
+    color: white;
+    background-image: url(src="")
 }
+
+.login {
+	float:right;
+}
+
+
+#username, #password {
+	border-radius: 20px;
+}
+
