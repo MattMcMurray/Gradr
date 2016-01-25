@@ -6,17 +6,18 @@ block stylesheets
 
 block content
     .row.vcenter
-        .thumbnail
-            img(src="http://thecatapi.com/api/images/get?format=src&type=gif").img-thumbnail
-            .caption
-                    p
-                        a(href="#", role="button").btn.btn-primary Like
-                        a(href="#", role="button").btn.btn-danger.pull-right Dislike 
+        .container 
+            .thumbnail
+                img(src="http://thecatapi.com/api/images/get?format=src&type=gif").img-thumbnail
+                .caption
+                        p
+                            a(href="/main" role="button").btn.btn-primary Like
+                            a(href="/main" role="button").btn.btn-danger.pull-right Dislike 
 
-                    h3 Joe Schmoe
-                    p 
-                        ul
-                            li GPA: 3.4
-                            li Major: Computer Science
-                            li Study habits: 4 days a week for a few hours each time
+                        h3 Joe Schmoe
+                        p 
+                            ul
+                                li GPA: 3.4
+                                li Major: Computer Science
+                                li Study habits: 4 days a week for a few hours each time
 
