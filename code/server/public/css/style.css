@@ -1,0 +1,7 @@
+.vcenter {
+    min-height: 100%; /* Fallback for legacy browsers */
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+}
