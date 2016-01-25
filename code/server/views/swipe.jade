@@ -7,17 +7,21 @@ block stylesheets
 block content
     .row.vcenter
         .container 
-            .thumbnail
-                img(src="http://thecatapi.com/api/images/get?format=src&type=gif").img-thumbnail
+            .thumbnail#userCard
+                img(src="").img-thumbnail#userImage
                 .caption
                         p
-                            a(href="/main" role="button").btn.btn-danger Dislike 
-                            a(href="/main" role="button").btn.btn-success.pull-right Like
+                            a(href="/main" role="button").btn.btn-danger#dislikeButton Dislike 
+                            a(href="/main" role="button").btn.btn-success.pull-right#likeButton Like
 
-                        h3 Joe Schmoe
+                        h3#userFullName 
                         p 
                             ul
-                                li GPA: 3.4
-                                li Major: Computer Science
-                                li Study habits: 4 days a week for a few hours each time
+                                //- li#gpa GPA: 3.4
+                                //- li#major Major: Computer Science
+                                //- li#habits Study habits: 4 days a week for a few hours each time
+                                li#gender
+                                li#location
 
+block scripts
+   script(src='/js/swipe.js') 
