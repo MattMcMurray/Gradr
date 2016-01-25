@@ -1,3 +1,6 @@
+### For the marker:
+    - Our Trello page for iteration 1 (task tracking): https://trello.com/b/mpbIdgMg/iteration-1
+
 ### Getting started and setting up the dev environment:
 I'm going to be using a VM and it's recommended that everyone working on the project should, so that we all use the same environment
 
