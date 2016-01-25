@@ -25,6 +25,14 @@ html(lang='en')
     script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
 
   body(background="/img/footer_lodyas.png")
+    nav.navbar.navbar-inverse.navbar-fixed-top
+        .container-fluid
+            button(type='button' data-toggle='collapse' data-target='navbar-collapse' aria-expanded='false').navbar-toggle.collapsed
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            a.navbar-brand(href='#') Gradr
     block content
 
     // Bootstrap core JavaScript
