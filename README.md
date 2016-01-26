@@ -2,21 +2,11 @@
 - Our Trello page for iteration 1 (task tracking): https://trello.com/b/mpbIdgMg/iteration-1
 
 ### Getting started and setting up the dev environment:
-I'm going to be using a VM and it's recommended that everyone working on the project should, so that we all use the same environment
-
-- To ease the process of creating and maintaining a virtual machine, I highly recommend [Vagrant](https://www.vagrantup.com/)
-    - Vagrant uses VirtualBox to quickly set up and tear down virtual machines, and by including the `Vagrantfile` in the repo, we can all use the exact same configuration
-    - Vagrant is cross-platform
-    - Install Vagrant from the link above (you'll also need VirtualBox, but I believe the Vagrant installer handles that)
-- Once you've installed vagrant, `cd` into your local version of the repo
-- Run `vagrant up`
-- Once that's done, run `vagrant ssh`
-    - BAM! You've SSH'd into your VM
-- `cd` into `/vagrant`
-    - This is a shared folder, basically it is mirroring the folder that the Vagrantfile is located in on your local machine, which also happens to be the repository
-- run `./get_started`
+- Set up a virtual machine running Ubuntu (or use your Ubuntu machine)
+- `cd` into the `softeng2/code/server` directory and run `./get_started`
     - you may have to modify the permissions on this file; if it doesn't run, try `chmod +x ./get_started && ./get_started`
 - Node.js and all dependencies should now be installed. If you run into any issues, talk to Matt and he can probably walk you through it.
+- To start the sever, run `sudo node main.js`
 
 ### Working on a new feature (using the command line):
 - Make sure you have pulled the latest changes from the current iteration branch
