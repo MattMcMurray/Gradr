@@ -3,8 +3,8 @@
 
 ### Getting started and setting up the dev environment:
 - Set up a virtual machine running Ubuntu (or use your Ubuntu machine)
-- `cd` into the `softeng2/code/server` directory and run `./get_started`
-    - you may have to modify the permissions on this file; if it doesn't run, try `chmod +x ./get_started && ./get_started`
+- `cd` into the `softeng2/code/server` directory and run `./get_started.sh`
+    - you may have to modify the permissions on this file; if it doesn't run, try `chmod +x ./get_started.sh && ./get_started.sh`
 - Node.js and all dependencies should now be installed. If you run into any issues, talk to Matt and he can probably walk you through it.
 - To start the sever, run `sudo node main.js`
 
