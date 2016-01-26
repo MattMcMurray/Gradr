@@ -16,9 +16,5 @@ var sequelize = new Sequelize('study_database', 'softeng2', 'thisisencrypted', {
     storage: './study_database.sqlite'
 });
 
-User = sequelize.define('user', {
-	username: {
-		type: Sequelize.String,
-	}
-});
 
+module.exports = sequelize
