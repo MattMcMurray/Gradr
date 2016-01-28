@@ -1,5 +1,4 @@
-$.ajax({
-	type: 'POST',
-	url: 'http://localhost:80/api/NewUser',
-	data: {username: 'timbo', password:'12345'}
+$('#signUpButton').click(function(e) {
+	e.preventDefault();
+    console.log('clicked sign up');
 });

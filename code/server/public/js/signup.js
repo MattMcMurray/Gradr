@@ -1,12 +1,17 @@
 $('#registerButton').click(function(e) {
     e.preventDefault();
+    console.log('clicked register');
     resgisterUser();
 });
 
 $('#cancelButton').click(function(e) {
     e.preventDefault();
-    getNewUser();
+    console.log('clicked cancel');
 });
+
+function registerUser() {
+	console.log('registering');
+}
 
 $("form").on('submit', function(event) {
 	event.preventDefault();
@@ -26,4 +31,4 @@ $("form").on('submit', function(event) {
 			console.log('error saving ' + sendData.username);
 		}
 	})
-})
+});
