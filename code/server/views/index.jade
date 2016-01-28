@@ -12,8 +12,14 @@ block content
         p.lead
             | Gradr is a study buddy finder based on current dating applications.
     
+    .container.alert.alert-danger#login-error(role="alert")
+        span.glyphicon.glyphicon-exclamation-sign
+        span.sr-only
+            |Error:
+        | Invalid username/password.
+
     .container
-        form(role=form)
+        form#login-form(role=form)
             .form-group
                 label(for="username")
                     | Username
