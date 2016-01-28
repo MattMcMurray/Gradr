@@ -1,7 +1,4 @@
 function validatePasswords(pw1, pw2) {
-	console.log('validating password');
-	console.log(pw1);
-	console.log(pw2);
 	return pw1 == pw2;
 }
 
