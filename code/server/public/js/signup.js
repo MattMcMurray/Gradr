@@ -1,34 +1,33 @@
-$('#registerButton').click(function(e) {
-    e.preventDefault();
-    console.log('clicked register');
-    resgisterUser();
-});
-
-$('#cancelButton').click(function(e) {
-    e.preventDefault();
-    console.log('clicked cancel');
-});
-
-function registerUser() {
-	console.log('registering');
+function validatePasswords(pw1, pw2) {
+	console.log('validating password');
+	console.log(pw1);
+	console.log(pw2);
+	return pw1 == pw2;
 }
 
 $("form").on('submit', function(event) {
 	event.preventDefault();
 
 	var sendData = {
-		username: $('#username').val();
-		password: $('password').val();
-		confirmPassword: $('confirmPassword').val();
+		username: $('#username').val(),
+		password: $('#password').val(),
+		confirmPassword: $('#confirmPassword').val()
+	};
+	if(validatePasswords(sendData.password, sendData.confirmPassword)) {
+
+		$.ajax({
+			type: 'POST',
+			url: 'http://localhost:80/api/NewUser',
+			data: sendData,
+			success: function() {
+				console.log('saved ' + sendData.username);
+			},
+			error: function() {
+				console.log('error saving ' + sendData.username);
+			}
+		})
 	}
-	$.ajax({
-		type: 'POST',
-		url: 'http://localhost:80/api/NewUser',
-		success: function() {
-			console.log('saved ' + sendData.username);
-		}
-		error: function() {
-			console.log('error saving ' + sendData.username);
-		}
-	})
+	else {
+		console.log('passwords no match');
+	}
 });

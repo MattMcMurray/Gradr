@@ -24,11 +24,11 @@ block content
             .form-group
                 label(for="confirmPassword")
                     |Confirm Password
-                input.form-control#password(type="password")
+                input.form-control#confirmPassword(type="password")
 
             
             button.btn.btn-primary.login-buttons#registerButton(type="submit") Register
-            a(href="/" role="button").btn.btn-warning.login-buttons#cancelButton Cancel
+            button.btn.btn-warning.login-buttons#cancelButton(type="button") Cancel
 
 block scripts
    script(src='/js/signup.js') 
