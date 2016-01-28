@@ -21,6 +21,7 @@ $("form").on('submit', function(event) {
 			data: sendData,
 			success: function() {
 				console.log('saved ' + sendData.username);
+				location.href = 'http://localhost:80/'
 			},
 			error: function() {
 				console.log('error saving ' + sendData.username);
