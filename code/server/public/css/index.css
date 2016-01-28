@@ -8,7 +8,9 @@ body {
 	margin: 3px;
 }
 
-
+.logo {
+	padding-top: 60px;
+}
 
 #username, #password {
 	border-radius: 20px;
