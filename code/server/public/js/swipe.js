@@ -13,9 +13,11 @@ $('#dislikeButton').click(function(e) {
 });
 
 var userCallback = function(data) {
-    $('#userFullName').html(toTitleCase(data['results'][0]['user']['name']['first'] + ' ' + data['results'][0]['user']['name']['last']));
-    $('#gender').html(toTitleCase(data['results'][0]['user']['gender']));
-    $('#location').html(toTitleCase(data['results'][0]['user']['location']['city'] + ', ' + data['results'][0]['user']['location']['state']));
+    $('#userFullName').html(toTitleCase(data.username));
+    $("#location").html(toTitleCase(data.school));
+    // $('#userFullName').html(toTitleCase(data['results'][0]['user']['name']['first'] + ' ' + data['results'][0]['user']['name']['last']));
+    // $('#gender').html(toTitleCase(data['results'][0]['user']['gender']));
+    // $('#location').html(toTitleCase(data['results'][0]['user']['location']['city'] + ', ' + data['results'][0]['user']['location']['state']));
 }
 
 // Capitalizes the first letter of each word
@@ -28,7 +30,7 @@ function getNewUser() {
     $('#userImage').attr('src', 'http://thecatapi.com/api/images/get?format=src&type=jpg&' + Math.random());
 
     $.ajax({
-        url: 'https://randomuser.me/api/',
+        url: '/api/randomUser',
         dataType: 'json',
         success: userCallback
     });

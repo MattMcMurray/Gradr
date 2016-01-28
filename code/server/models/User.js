@@ -1,5 +1,6 @@
 var Sequelize = require("sequelize");
 var connection = require("../database.js");
+var bcrypt = require("bcrypt")
 
 UserConnection = connection.define('users', {
 	username: {
@@ -24,17 +25,27 @@ var getUser = function(username) {
 	});
 }
 
-var createUser = function(username, password) {
+var createUser = function(credentials) {
 	
-	return UserConnection.create({
-		username: username,
-		password: password
+	bcrypt.genSalt(10, function(err, salt){
+		bcrypt.hash(credentials.password, salt, function(err,hash){
+			UserConnection.create({
+				username: credentials.username,
+				password: hash
+			});
+		});
+	});
+}
+
+var getRandom = function() {
+	return UserConnection.findAll().then(function(users){
+		return users[Math.floor(Math.random() * users.length)];var rand = users[Math.floor(Math.random() * users.length)];
 	});
 }
 
 
-
 module.exports = {
 	getUser: getUser,
-	createUser: createUser
+	createUser: createUser,
+	getRandom: getRandom
 }
