@@ -20,8 +20,8 @@ $("form").on('submit', function(event) {
 				console.log('saved ' + sendData.username);
 				location.href = 'http://localhost:80/'
 			},
-			error: function() {
-				console.log('error saving ' + sendData.username);
+			error: function(xhr, status, error) {
+			    console.log(error);
 			}
 		})
 	}
