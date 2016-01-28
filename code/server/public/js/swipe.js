@@ -4,7 +4,6 @@ $(function() {
 
 $('#likeButton').click(function(e) {
     e.preventDefault();
-    console.log('LIKED');
     getNewUser();
 });
 
