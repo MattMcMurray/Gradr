@@ -17,17 +17,15 @@ router.post('/NewUser', function (req, res) {
 
 router.post("/login", function(req,res) {
 	
-	console.log("logging in ");
 	credentials = getCredentials(req)
 	
 	User.getUser(credentials.username).then(function(user){
 
-		var authenticated = authenticator.authenticate(credentials.password, user.dataValues.password);
-		if (authenticated){
+		if (user != null && authenticator.authenticate(credentials.password, user.dataValues.password)){
 			res.json({url: "/main"});
 		} else {
 			res.status(500)
-			res.json({message: "Oops! Something went wrong."});
+			res.json({message: "Oops! Something went wrong. Invalid username/password."});
 		}
 	});
 });
@@ -36,7 +34,6 @@ router.post("/login", function(req,res) {
 router.get('/randomUser', function(req, res){
 
 	User.getRandom().then(function(user) {
-		console.log(user);
 		if (user != null) {
 			res.json({username: user.username, school: "University of Manitoba"})	
 		} else {

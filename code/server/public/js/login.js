@@ -9,7 +9,7 @@ $("#login-form").on('submit', function(event){
 			console.log(data.url);
 			location.href= data.url;
 		},
-		error: function() {
+		error: function(data) {
 			$("#login-error").show();
 		}
 	});
