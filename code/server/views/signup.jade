@@ -22,14 +22,14 @@ block content
                 label(for="password")
                     |Password
                 input.form-control#password(type="password")
-            .checkbox
-                label
-                    input(type="checkbox") 
-                    | Remember me
+            .form-group
+                label(for="confirmPassword")
+                    |Confirm Password
+                input.form-control#confirmPassword(type="password")
 
             
-            button.btn.btn-primary.login-buttons(type="submit") Login
-            a(role="button" href='/signup').btn.btn-warning.login-buttons Sign up
+            button.btn.btn-primary.login-buttons#registerButton(type="submit") Register
+            button.btn.btn-warning.login-buttons#cancelButton(type="button") Cancel
 
 block scripts
-   script(src='/js/login.js') 
+   script(src='/js/signup.js') 
