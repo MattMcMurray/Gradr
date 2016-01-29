@@ -1,3 +1,8 @@
+$('#cancelButton').click(function(event) {
+    event.preventDefault();
+    location.replace('/');
+});
+
 $("form").on('submit', function(event) {
 	event.preventDefault();
 
