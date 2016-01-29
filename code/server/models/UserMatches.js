@@ -3,49 +3,47 @@ var connection = require("../database.js");
 var User = require("./User.js");
 
 UserMatches = connection.define('user_matches', {
-	liker_id: {
-		type: Sequelize.INTEGER,
-		primaryKey: true,
-		references: {
-			model: User.model,
-			key: 'id'
-		},
-		allowNull: false
-	},
-	likee_id: {
-		type: Sequelize.INTEGER,
-		primaryKey: true,
-		references: {
-			model: User.model,
-			key: 'id'
-		},
-		allowNull: false
-	},
-	likes: {
-		type: Sequelize.BOOLEAN,
-		allowNull: false
-	}
+    liker_id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        references: {
+            model: User.model,
+            key: 'id'
+        },
+        allowNull: false
+    },
+    likee_id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        references: {
+            model: User.model,
+            key: 'id'
+        },
+        allowNull: false
+    },
+    likes: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false
+    }
 });
 
 UserMatches.sync();
 
-var likeUser = function(liker, likee) {
-	UserMatches.upsert({
-		liker_id: liker,
-		likee_id: likee,
-		likes: true
-	});
-};
-
-var dislikeUser = function(liker_id, likee_id) {
-	UserMatches.upsert({
-		liker_id: liker,
-		likee_id: likee,
-		likes: false
-	});
+var addUserMatch = function(_liker_id, _likee_id, _likes) {
+    UserMatches.findOrCreate({
+        where: {
+            liker_id: _liker_id,
+            likee_id: _likee_id
+        },
+        defaults: {
+            likes: !!_likes
+        }
+    }).spread(function(result, created) {
+        // console.log(result);
+        // console.log(created);
+    });
 };
 
 module.exports = {
-	likeUser: likeUser,
-	dislikeUser: dislikeUser
-}
+    addUserMatch: addUserMatch
+};

@@ -49,19 +49,15 @@ router.get('/randomUser', function(req, res){
 });
 
 router.post('/likeUser', function(req, res){
-	UserMatches.likeUser(req.body.liker_id, req.body.likee_id);
+	UserMatches.setUserPreference(req.body.liker_id, req.body.likee_id, true);
 });
 
 router.post('/dislikeUser', function(req, res){
-	UserMatches.dislikeUser(req.body.liker_id, req.body.likee_id);
+	UserMatches.setUserPreference(req.body.liker_id, req.body.likee_id, false);
 });
 
 function getCredentials(req){
 	return {username: req.body.username, password: req.body.password};
 }
-
-
-
-
 
 module.exports = {router};
