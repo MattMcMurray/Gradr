@@ -2,7 +2,7 @@ $(function() {
     getNewUser();
 
     // Super secure security :D
-    var username = localStorage.ge$localstorag:
+    var username = localStorage.getItem('username');
     var user_id = localStorage.getItem('user_id');
 
     if (!username || !user_id) {
