@@ -26,7 +26,6 @@ var getUser = function(username) {
 }
 
 var createUser = function(credentials) {
-	
 	bcrypt.genSalt(10, function(err, salt){
 		bcrypt.hash(credentials.password, salt, function(err,hash){
 			UserConnection.create({
@@ -34,6 +33,11 @@ var createUser = function(credentials) {
 				password: hash
 			});
 		});
+	});
+	return UserConnection.findOne({
+		where:{
+			username: credentials.username
+		}
 	});
 }
 

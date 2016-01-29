@@ -10,13 +10,30 @@ router.get('/', function (req, res) {
 });
 
 router.post('/NewUser', function (req, res) {
-	User.createUser(getCredentials(req));
-	console.log('New user ' + req.body.username + ' created');
-	//res.status(101).send('Username already exists!');
-	res.json({url:"/", message: 'New user created'});
+
+	credentials = getCredentials(req);
+	if(User.getUser(credentials) == null) {
+		User.createUser(credentials.username).then(function(user){
+			if (user != null){
+				res.json({
+		        	url: "/main",
+		        	user: user
+	        	});
+			} else {
+				console.log('still friggin here');
+				res.status(500);
+				res.json({message: 'Something went wrong'});
+			}
+
+		});
+	} else {
+		console.log('user already exists')
+		res.status(500);
+		res.json({message: 'Username already exists'});
+	}
 });
 
-router.post("/login", function(req,res) {
+router.post('/login', function(req, res) {
 	
 	credentials = getCredentials(req)
 	
