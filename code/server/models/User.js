@@ -1,6 +1,6 @@
 var Sequelize = require("sequelize");
 var connection = require("../database.js");
-var bcrypt = require("bcrypt")
+var authenticator = require("../mixins/authenticator.js")
 
 UserConnection = connection.define('users', {
 	username: {
@@ -27,14 +27,24 @@ var getUser = function(username) {
 
 var createUser = function(credentials) {
 	
-	bcrypt.genSalt(10, function(err, salt){
-		bcrypt.hash(credentials.password, salt, function(err,hash){
-			UserConnection.create({
+	var hashed = authenticator.encrypt(credentials.password);
+
+	return UserConnection.create({
 				username: credentials.username,
-				password: hash
+				password: hashed
 			});
-		});
-	});
+	// bcrypt.genSalt(10, function(err, salt){
+	// 	bcrypt.hash(credentials.password, salt, function(err,hash){
+	// 		return UserConnection.create({
+	// 			username: credentials.username,
+	// 			password: hash
+	// 		}).then(function(data){
+	// 			console.log(data)
+	// 		}).catch(function(error){
+	// 			return error
+	// 		});
+	// 	});
+	// });
 }
 
 var getRandom = function() {

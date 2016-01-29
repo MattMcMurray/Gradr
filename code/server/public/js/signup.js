@@ -1,7 +1,3 @@
-function validatePasswords(pw1, pw2) {
-	return pw1 == pw2;
-}
-
 $("form").on('submit', function(event) {
 	event.preventDefault();
 
@@ -10,7 +6,8 @@ $("form").on('submit', function(event) {
 		password: $('#password').val(),
 		confirmPassword: $('#confirmPassword').val()
 	};
-	if(validatePasswords(sendData.password, sendData.confirmPassword)) {
+	var validationObject = validate(sendData);
+	if(validationObject.valid) {
 
 		$.ajax({
 			type: 'POST',
@@ -21,11 +18,53 @@ $("form").on('submit', function(event) {
 				location.href = data.url
 			},
 			error: function() {
-				console.log('error saving ' + sendData.username);
+				// $("#error").append("Username already taken.");
+				// $("#error").show();
+				validationObject.errors.username = "Username is already taken."
+				toggleError(validationObject.errors);
 			}
 		})
 	}
 	else {
-		console.log('passwords no match');
+		toggleError(validationObject.errors)
 	}
 });
+
+
+function toggleError(message){
+	console.log(message);
+	$("#error").html(message.username + " " + message.password);
+	$("#error").show();
+
+}
+
+function validate(sendData){
+
+	var validationObject = {
+		valid: true,
+		errors: {
+			username: "",
+			password: ""
+		}
+	};
+	
+	
+	if(sendData.username == ""){
+		validationObject.valid = false;
+		validationObject.errors.username = "Username must be filled in."
+	}
+
+	if(sendData.password != sendData.confirmPassword){
+		validationObject.valid = false;
+		validationObject.errors.password = "Passwords must match. ";
+	}
+
+	if(sendData.password === ""){
+		validationObject.valid = false;
+		validationObject.errors.password += "Password must be filled in."
+	}
+
+	return validationObject;
+
+}
+
