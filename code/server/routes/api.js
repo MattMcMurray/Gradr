@@ -35,6 +35,7 @@ router.post("/login", function(req,res) {
 });
 
 
+// Get a random user; useful for matching process
 router.get('/randomUser', function(req, res){
 
 	User.getRandom().then(function(user) {
@@ -45,6 +46,24 @@ router.get('/randomUser', function(req, res){
 		}
 		
 	});
+});
+
+// Getting a specific user
+// Specify username in GET variable
+router.get('/getUser', function(req, res) {
+
+    if (req.query.user) {
+        User.getUser(req.query.user).then(function(user) {
+            if (user) {
+              delete user.dataValues.password; // probably not the best idea to send this over the wire
+              res.json({user: user});
+            } else {
+              res.json({user: null});
+            }
+        });
+    } else {
+        res.sendStatus(401); // bad request; no user included in GET vars
+    }
 });
 
 function getCredentials(req){
