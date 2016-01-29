@@ -2,8 +2,9 @@ var _express = require('express');
 
 var router = _express.Router();
 var app = _express();
-var User = require('../models/User.js')
-var authenticator = require("../mixins/authenticator.js")
+var User = require('../models/User.js');
+var UserMatches = require('../models/UserMatches.js');
+var authenticator = require("../mixins/authenticator.js");
 
 router.get('/', function (req, res) {
 	res.json({message: 'Hello world!'});
@@ -45,6 +46,14 @@ router.get('/randomUser', function(req, res){
 		}
 		
 	});
+});
+
+router.post('/likeUser', function(req, res){
+	UserMatches.likeUser(req.body.liker_id, req.body.likee_id);
+});
+
+router.post('/dislikeUser', function(req, res){
+	UserMatches.dislikeUser(req.body.liker_id, req.body.likee_id);
 });
 
 function getCredentials(req){

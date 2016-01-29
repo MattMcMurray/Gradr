@@ -16,7 +16,6 @@ UserConnection = connection.define('users', {
 
 UserConnection.sync()
 
-
 var getUser = function(username) {
 	return UserConnection.findOne({
 		where:{
@@ -47,5 +46,6 @@ var getRandom = function() {
 module.exports = {
 	getUser: getUser,
 	createUser: createUser,
-	getRandom: getRandom
+	getRandom: getRandom,
+	model: UserConnection
 }
