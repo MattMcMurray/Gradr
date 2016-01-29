@@ -22,7 +22,11 @@ router.post("/login", function(req,res) {
 	User.getUser(credentials.username).then(function(user){
 
 		if (user != null && authenticator.authenticate(credentials.password, user.dataValues.password)){
-			res.json({url: "/main"});
+      
+			res.json({
+        url: "/main",
+        user: user
+       });
 		} else {
 			res.status(500)
 			res.json({message: "Oops! Something went wrong. Invalid username/password."});
