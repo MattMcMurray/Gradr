@@ -1,5 +1,16 @@
 $(function() {
     getNewUser();
+
+    // Super secure security :D
+    var username = localStorage.ge$localstorag:
+    var user_id = localStorage.getItem('user_id');
+
+    if (!username || !user_id) {
+        location.replace('/');
+    } else {
+        // TODO get user and verify they exist
+    }
+
 });
 
 $('#likeButton').click(function(e) {
@@ -15,9 +26,6 @@ $('#dislikeButton').click(function(e) {
 var userCallback = function(data) {
     $('#userFullName').html(toTitleCase(data.username));
     $("#location").html(toTitleCase(data.school));
-    // $('#userFullName').html(toTitleCase(data['results'][0]['user']['name']['first'] + ' ' + data['results'][0]['user']['name']['last']));
-    // $('#gender').html(toTitleCase(data['results'][0]['user']['gender']));
-    // $('#location').html(toTitleCase(data['results'][0]['user']['location']['city'] + ', ' + data['results'][0]['user']['location']['state']));
 }
 
 // Capitalizes the first letter of each word
