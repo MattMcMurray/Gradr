@@ -9,41 +9,41 @@ var User = require('../models/User.js');
 var Rating = require('../models/Rating.js');
 
 router.get('/', function (req, res) {
-	res.json({message: 'Hello world!'});
+  res.json({message: 'Hello world!'});
 });
 
 router.post('/NewUser', function (req, res) {
-	User.createUser(getCredentials(req));
-	console.log('New user ' + req.body.username + ' created');
-	res.json({url:"/", message: 'New user created'});
+  User.createUser(getCredentials(req));
+  console.log('New user ' + req.body.username + ' created');
+  res.json({url:"/", message: 'New user created'});
 });
 
 router.post("/login", function(req,res) {
-	
-	credentials = getCredentials(req)
-	
-	User.getUser(credentials.username).then(function(user){
+  
+  credentials = getCredentials(req)
+  
+  User.getUser(credentials.username).then(function(user){
 
-		if (user != null && authenticator.authenticate(credentials.password, user.dataValues.password)){
-			res.json({url: "/main"});
-		} else {
-			res.status(401); // Unauthorized
-			res.json({message: "Oops! Something went wrong. Invalid username/password."});
-		}
-	});
+    if (user != null && authenticator.authenticate(credentials.password, user.dataValues.password)){
+      res.json({url: "/main"});
+    } else {
+      res.status(401); // Unauthorized
+      res.json({message: "Oops! Something went wrong. Invalid username/password."});
+    }
+  });
 });
 
 
 router.get('/randomUser', function(req, res){
 
-	User.getRandom().then(function(user) {
-		if (user != null) {
-			res.json({username: user.username, school: "University of Manitoba"})	
-		} else {
-			res.json({message: "Something went wrong"});
-		}
-		
-	});
+  User.getRandom().then(function(user) {
+    if (user != null) {
+      res.json({username: user.username, school: "University of Manitoba"}) 
+    } else {
+      res.json({message: "Something went wrong"});
+    }
+    
+  });
 });
 
 router.get('/getUserScore', function(req, res) {
@@ -70,7 +70,7 @@ router.post('/addUserScore', function(req, res) {
 });
 
 function getCredentials(req){
-	return {username: req.body.username, password: req.body.password};
+  return {username: req.body.username, password: req.body.password};
 }
 
 
