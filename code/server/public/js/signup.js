@@ -18,8 +18,6 @@ $("form").on('submit', function(event) {
 				location.href = data.url
 			},
 			error: function() {
-				// $("#error").append("Username already taken.");
-				// $("#error").show();
 				validationObject.errors.username = "Username is already taken."
 				toggleError(validationObject.errors);
 			}
