@@ -45,7 +45,7 @@ router.get('/randomUser', function(req, res){
 });
 
 // Getting a specific user
-// Specify userID in GET variable
+// Specify username in GET variable
 router.get('/getUser', function(req, res) {
 
     if (req.query.user) {
