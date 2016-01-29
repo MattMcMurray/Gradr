@@ -14,11 +14,11 @@ $("form").on('submit', function(event) {
 
 		$.ajax({
 			type: 'POST',
-			url: 'http://localhost:80/api/NewUser',
+			url: 'api/NewUser',
 			data: sendData,
-			success: function() {
+			success: function(data) {
 				console.log('saved ' + sendData.username);
-				location.href = 'http://localhost:80/'
+				location.href = data.url
 			},
 			error: function(xhr, status, error) {
 			    console.log(error);
