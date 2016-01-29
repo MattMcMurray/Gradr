@@ -1,0 +1,62 @@
+extends ./base.jade
+
+block stylesheets
+    link(href='/css/index.css', rel='stylesheet')
+
+
+block content
+    .container.text-center
+        .logo
+            img(src="/img/gradr_logo.png")
+        hr
+        p.lead
+            | Gradr is a study buddy finder based on current dating applications.
+    
+    .container
+        form(role=form)
+            .form-group
+                label(for="firstname")
+                    | First Name
+                input.form-control#firstname(type="text")
+            .form-group
+                label(for="lastname")
+                    | Last Name
+                input.form-control#lastname(type="text")
+            .form-group
+                label(for="address")
+                    | Address
+                input.form-control#address(type="text")
+            .form-group
+                label(for="city")
+                    | City
+                input.form-control#city(type="text")
+            .form-group
+                label(for="country")
+                    | Country
+                input.form-control#country(type="text")
+            .form-group
+                label(for="school")
+                    | School
+                input.form-control#school(type="text")
+            .form-group
+                label(for="courses")
+                    | Courses
+                input.form-control#courses(type="text")
+            .form-group
+                label(for="generalDescription")
+                    | Other details
+                input.form-control#generalDescription(type="text")
+            .form-group
+                label(for="helpDescription")
+                    | Description of what you are looking for help with
+                input.form-control#helpDescription(type="text")
+            .form-group
+                label(for="dateOfBirth")
+                    | Date Of Birth (YYYY-MM-DD)
+                input.form-control#dateOfBirth(type="text")
+            
+            button.btn.btn-primary.login-buttons#registerButton(type="submit") Update Profile
+            button.btn.btn-warning.login-buttons#cancelButton(type="button") Cancel
+
+block scripts
+   script(src='/js/profileForm.js') 

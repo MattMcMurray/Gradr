@@ -1,6 +1,6 @@
 var Sequelize = require("sequelize");
 var connection = require("../database.js")
-
+//Probably needs a better name, since the table is used for both likes and dislikes
 LikeConnection = connection.define('likes', {
 	username: {
 		type: Sequelize.STRING,

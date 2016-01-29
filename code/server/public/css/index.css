@@ -8,9 +8,15 @@ body {
 	margin: 3px;
 }
 
+.logo {
+	padding-top: 60px;
+}
 
-
-#username, #password {
+#username, #password, #confirmPassword {
 	border-radius: 20px;
 }
 
+
+#login-error {
+	display: none;
+}
