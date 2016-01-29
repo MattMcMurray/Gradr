@@ -50,7 +50,12 @@ router.get('/getUser', function(req, res) {
 
     if (req.query.user) {
         User.getUser(req.query.user).then(function(user) {
-            res.json({user: user});
+            if (user) {
+              delete user.dataValues.password // probably not the best idea to send this over the wire
+              res.json({user: user});
+            } else {
+              res.json({user: null});
+            }
         });
     } else {
         res.sendStatus(401); // bad request; no user included in GET vars
