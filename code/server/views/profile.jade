@@ -1,0 +1,29 @@
+extends ./base.jade
+
+block stylesheets
+    link(href='/css/style.css', rel='stylesheet')
+    link(href='/css/profile.css', rel='stylesheet')
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', rel='stylesheet')
+
+block content
+    .row.vcenter
+        .container 
+            .thumbnail#userCard
+                .caption
+                    h3#userFullName #[a.pull-right#editButton #[i.fa.fa-pencil]]
+                    form
+                        .form-group
+                            label(for="generalDescription")
+                                | About You
+                            textarea.form-control.user-entry#generalDescription(type='text' disabled='disabled')
+                        .form-group
+                            label(for="helpDescription")
+                                | I Need Help With
+                            textarea.form-control.user-entry#generalDesctiption(type='text' disabled='disabled')
+                        .form-group
+                            label(for="school")
+                                | Location
+                            input.form-control.user-entry#school(type='text' disabled='disabled')
+
+block scripts
+   script(src='/js/profile.js') 

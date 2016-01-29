@@ -13,5 +13,9 @@ router.get("/main", function(req, res) {
     res.render('../views/swipe', {});
 });
 
+router.get("/profile", function(req, res) {
+	res.render('../views/profile', {});
+});
+
 module.exports = {router};
 
