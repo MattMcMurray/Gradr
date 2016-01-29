@@ -22,7 +22,7 @@ UserMatches = connection.define('user_matches', {
 		allowNull: false
 	},
 	likes: {
-		type: Sequelize.STRING,
+		type: Sequelize.BOOLEAN,
 		allowNull: false
 	}
 });
