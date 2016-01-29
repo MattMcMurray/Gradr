@@ -2,8 +2,11 @@ var _express = require('express');
 
 var router = _express.Router();
 var app = _express();
-var User = require('../models/User.js')
-var authenticator = require("../mixins/authenticator.js")
+var authenticator = require("../mixins/authenticator.js");
+
+// Models
+var User = require('../models/User.js');
+var Rating = require('../models/Rating.js');
 
 router.get('/', function (req, res) {
 	res.json({message: 'Hello world!'});
@@ -24,7 +27,7 @@ router.post("/login", function(req,res) {
 		if (user != null && authenticator.authenticate(credentials.password, user.dataValues.password)){
 			res.json({url: "/main"});
 		} else {
-			res.status(500)
+			res.status(401); // Unauthorized
 			res.json({message: "Oops! Something went wrong. Invalid username/password."});
 		}
 	});
@@ -41,6 +44,29 @@ router.get('/randomUser', function(req, res){
 		}
 		
 	});
+});
+
+router.get('/getUserScore', function(req, res) {
+  if (req.query.user) {
+    Rating.getUserScore(req.query.user).then(function(score) {
+      if (score) {
+        res.json({'score': score});
+      } else {
+        res.json({'score': null});
+      }
+    });
+  } else {
+    res.status(400).send('Bad request');
+  }
+});
+
+router.post('/addUserScore', function(req, res) {
+  if (req.query.user && req.query.score) {
+    Rating.addUserScore(req.query.user, req.query.score);
+    res.status(200).send('OK');
+  } else {
+    res.status(400).send('Bad request');
+  }
 });
 
 function getCredentials(req){
