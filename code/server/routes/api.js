@@ -2,8 +2,9 @@ var _express = require('express');
 
 var router = _express.Router();
 var app = _express();
-var User = require('../models/User.js')
-var authenticator = require("../mixins/authenticator.js")
+var User = require('../models/User.js');
+var UserMatches = require('../models/UserMatches.js');
+var authenticator = require("../mixins/authenticator.js");
 
 router.get('/', function (req, res) {
 	res.json({message: 'Hello world!'});
@@ -45,12 +46,20 @@ router.get('/randomUser', function(req, res){
 
 	User.getRandom().then(function(user) {
 		if (user != null) {
-			res.json({username: user.username, school: "University of Manitoba"})	
+			res.json({username: user.username, userID: user.id, school: "University of Manitoba"})	
 		} else {
 			res.json({message: "Something went wrong"});
 		}
 		
 	});
+});
+
+router.post('/likeUser', function(req, res){
+	UserMatches.addUserMatch(req.body.liker_id, req.body.likee_id, true);
+});
+
+router.post('/dislikeUser', function(req, res){
+	UserMatches.addUserMatch(req.body.liker_id, req.body.likee_id, false);
 });
 
 // Getting a specific user
@@ -74,9 +83,5 @@ router.get('/getUser', function(req, res) {
 function getCredentials(req){
 	return {username: req.body.username, password: req.body.password};
 }
-
-
-
-
 
 module.exports = {router};
