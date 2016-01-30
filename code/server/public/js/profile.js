@@ -9,19 +9,19 @@ $(function() {
 function getUser(username) {
     $.ajax({
         type: 'GET',
-        url: '/api/user?username=' + username,
+        url: '/api/getUser?user=' + username,
         success: userCallback
     });
 }
 
 var userCallback = function(data) {
-    $('#firstnameData').html(data.firstname);
-    $("#lastnameData").html(data.lastname);
-    $("#cityData").html(data.city);
-    $("#countryData").html(data.country);
-    $("#schoolData").html(data.school);
-    $("#coursesData").html(data.courses);
-    $("#generalDescriptionData").html(data.generalDescription);
-    $("#helpDescriptionData").html(data.helpDescription);
-    $("#dateOfBirthData").html(data.dateOfBirth);
+    $('#firstnameData').html(data.user.firstname);
+    $("#lastnameData").html(data.user.lastname);
+    $("#cityData").html(data.user.city);
+    $("#countryData").html(data.user.country);
+    $("#schoolData").html(data.user.school);
+    $("#coursesData").html(data.user.courses);
+    $("#generalDescriptionData").html(data.user.generalDescription);
+    $("#helpDescriptionData").html(data.user.helpDescription);
+    $("#dateOfBirthData").html(data.user.dateOfBirth);
 }

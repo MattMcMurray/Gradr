@@ -1,6 +1,6 @@
 var Sequelize = require("sequelize");
 var connection = require("../database.js");
-var bcrypt = require("bcrypt")
+var authenticator = require("../mixins/authenticator.js")
 
 UserConnection = connection.define('users', {
 	username: {
@@ -46,13 +46,12 @@ UserConnection = connection.define('users', {
 //UserConnection.sync({force:true})
 UserConnection.sync();
 
-
 var getUser = function(username) {
-	return UserConnection.findOne({
-		where:{
-			username: username
-		}
-	});
+    return UserConnection.findOne({
+        where:{
+            username: username
+        }
+    });
 }
 
 var getAllUsers = function() {
@@ -60,12 +59,11 @@ var getAllUsers = function() {
 }
 
 var createUser = function(credentials) {
-	
-	bcrypt.genSalt(10, function(err, salt){
-		bcrypt.hash(credentials.password, salt, function(err,hash){
-			UserConnection.create({
-				username: credentials.username,
-				password: hash,
+    var hashed = authenticator.encrypt(credentials.password);
+
+    return UserConnection.create({
+        username: credentials.username,
+        password: hashed,
 				firstname: '',
 				lastname: '',
 				city: '',
@@ -75,9 +73,7 @@ var createUser = function(credentials) {
 				generalDescription: '',
 				helpDescription: '',
 				dateOfBirth: null
-			});
-		});
-	});
+    });
 }
 
 var createUserProfile = function(data) {
@@ -98,9 +94,9 @@ var createUserProfile = function(data) {
 }
 
 var getRandom = function() {
-	return UserConnection.findAll().then(function(users){
-		return users[Math.floor(Math.random() * users.length)];var rand = users[Math.floor(Math.random() * users.length)];
-	});
+    return UserConnection.findAll().then(function(users){
+        return users[Math.floor(Math.random() * users.length)];var rand = users[Math.floor(Math.random() * users.length)];
+    });
 }
 
 module.exports = {
@@ -108,5 +104,6 @@ module.exports = {
 	createUser: createUser,
 	getRandom: getRandom,
 	getAllUsers: getAllUsers,
-	createUserProfile:createUserProfile
+	createUserProfile:createUserProfile,
+	model: UserConnection
 }
