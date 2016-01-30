@@ -21,6 +21,21 @@ router.post('/ProfileUpdate', function (req, res) {
 	res.json({url:"/", message: 'User profile updated'});
 });
 
+router.get('/user', function(req, res) {
+	console.log(req.query.username);
+	var username = req.query.username;
+	User.getUser(username).then(function(user) {
+		if (user != null) {
+			res.json({firstname: user.firstname, lastname: user.lastname, country: user.country, 
+				courses: user.courses, city: user.city, school: user.school, generalDescription: user.generalDescription, 
+				helpDescription: user.helpDescription, dateOfBirth: user.dateOfBirth});
+		}
+		else {
+			res.json({message: "Something went wrong"});
+		}
+	});
+});
+
 router.post("/login", function(req,res) {
 	
 	credentials = getCredentials(req)
@@ -45,7 +60,7 @@ router.get('/randomUser', function(req, res){
 
 	User.getRandom().then(function(user) {
 		if (user != null) {
-			res.json({username: user.username, school: "University of Manitoba"})	
+			res.json({username: user.username, school: user.school})	
 		} else {
 			res.json({message: "Something went wrong"});
 		}

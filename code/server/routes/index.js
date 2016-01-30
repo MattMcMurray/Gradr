@@ -14,7 +14,11 @@ router.get("/main", function(req, res) {
 });
 
 router.get("/profileUpdate", function(req, res) {
-	res.render('../views/profileForm', {});
+	res.render('../views/profileForm');
+})
+
+router.get("/profile", function(req, res) {
+	res.render('../views/profile');
 })
 
 module.exports = {router};

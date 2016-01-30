@@ -18,10 +18,6 @@ UserConnection = connection.define('users', {
 	lastname: {
 		type: Sequelize.STRING
 	}, 
-	//Did we want to split the address into address/country/city, have all three fields in one string, or have no address at all and just rely on school
-	address: {
-		type: Sequelize.STRING
-	}, 
 	city: {
 		type: Sequelize.STRING
 	}, 
@@ -72,7 +68,6 @@ var createUser = function(credentials) {
 				password: hash,
 				firstname: '',
 				lastname: '',
-				address: '',
 				city: '',
 				country: '',
 				school: '',
@@ -89,7 +84,6 @@ var createUserProfile = function(data) {
 	UserConnection.update({
 		firstname: data.firstname,
 		lastname: data.lastname,
-		address: data.address,
 		city: data.city,
 		country: data.country,
 		school: data.school,

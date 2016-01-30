@@ -1,10 +1,8 @@
 extends ./base.jade
 
 block stylesheets
-    link(href='/css/swipe.css', rel='stylesheet')
-    link(href='/css/style.css', rel='stylesheet')
+    link(href='/css/style.css', rel='stylesheet')    
     link(href='/css/index.css', rel='stylesheet')
-
 
 block content
     .container.text-center
@@ -19,42 +17,41 @@ block content
             .form-group
                 label(for="firstname")
                     | First Name
-                input.form-control#firstname(type="text", value = '')
+                p#firstnameData
             .form-group
                 label(for="lastname")
                     | Last Name
-                input.form-control#lastname(type="text", value = '')
+                p#lastnameData
             .form-group
                 label(for="city")
                     | City
-                input.form-control#city(type="text", value = '')
+                p#cityData
             .form-group
                 label(for="country")
                     | Country
-                input.form-control#country(type="text", value = '')
+                p#countryData
             .form-group
                 label(for="school")
                     | School
-                input.form-control#school(type="text", value = '')
+                p#schoolData
             .form-group
                 label(for="courses")
                     | Courses
-                input.form-control#courses(type="text", value = '')
+                p#coursesData
             .form-group
                 label(for="generalDescription")
                     | Other details
-                input.form-control#generalDescription(type="text", value = '')
+                p#generalDescriptionData
             .form-group
                 label(for="helpDescription")
                     | Description of what you are looking for help with
-                input.form-control#helpDescription(type="text", value = '')
+                p#helpDescriptionData
             .form-group
                 label(for="dateOfBirth")
                     | Date Of Birth (YYYY-MM-DD)
-                input.form-control#dateOfBirth(type="text", value = '')
+                p#dateOfBirthData
 
-            button.btn.btn-success.pull-right#registerButton(type="submit") Update Profile
-            a(href="/profile" role="button").btn.btn-warning.pull-right Cancel
-   
+            a(href="/profileUpdate" role="button").btn.btn-primary.pull-right Update Profile
+            a(href="/main" role="button").btn.btn-warning.pull-right Back to Main
 block scripts
-   script(src='/js/profileForm.js') 
+   script(src='/js/profile.js') 
