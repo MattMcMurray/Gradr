@@ -40,7 +40,7 @@ router.get('/randomUser', function(req, res){
 
 	User.getRandom().then(function(user) {
 		if (user != null) {
-			res.json({username: user.username, school: "University of Manitoba"})	
+			res.json({username: user.username, userID: user.id, school: "University of Manitoba"})	
 		} else {
 			res.json({message: "Something went wrong"});
 		}
@@ -49,11 +49,11 @@ router.get('/randomUser', function(req, res){
 });
 
 router.post('/likeUser', function(req, res){
-	UserMatches.setUserPreference(req.body.liker_id, req.body.likee_id, true);
+	UserMatches.addUserMatch(req.body.liker_id, req.body.likee_id, true);
 });
 
 router.post('/dislikeUser', function(req, res){
-	UserMatches.setUserPreference(req.body.liker_id, req.body.likee_id, false);
+	UserMatches.addUserMatch(req.body.liker_id, req.body.likee_id, false);
 });
 
 function getCredentials(req){
