@@ -2,7 +2,6 @@ extends ./base.jade
 
 block stylesheets
     link(href='/css/style.css', rel='stylesheet')
-    link(href='/css/profile.css', rel='stylesheet')
     link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', rel='stylesheet')
 
 block content
@@ -10,7 +9,7 @@ block content
         .container 
             .thumbnail#userCard
                 .caption
-                    h3#userFullName #[a.pull-right#editButton #[i.fa.fa-pencil]]
+                    h3#username #[a.pull-right#editButton #[i.clickable.fa.fa-pencil#editIcon]]
                     form
                         .form-group
                             label(for="generalDescription")

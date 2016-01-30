@@ -1,20 +1,29 @@
 var edit_mode = false;
 
 $(function() {
-	// var button = $('#userFullName').val();
-	// console.log(button);
-	$('#userFullName').append("Steve Bairos-Novak ");
 	$('#location').val("University Of Manitoba");
+	console.log(sessionStorage.getItem('username'));
+	$.ajax({
+		type: 'GET',
+		url: 'api/getUser?user=' + sessionStorage.getItem('username'),
+	}).then(function(resp) {
+		$('#username').append(resp.user.username);
+		console.log(resp);
+	});
 });
 
 $('#editButton').click(function(e) {
 	e.preventDefault();
 	console.log(edit_mode);
 	if (edit_mode) {
-		//Might want to instead, make an ajax call to update DB and then refresh page instead of doing this
+		//May want to instead, make an ajax call to update DB and then refresh page instead of doing this
 		toggleDisable('.user-entry', edit_mode);
+		swapClass('#editIcon', 'fa-check', 'fa-pencil');
+
+		//Do a user update here.
 	} else {
 		toggleDisable('.user-entry', edit_mode);
+		swapClass('#editIcon', 'fa-pencil', 'fa-check');
 	}
 	edit_mode = !edit_mode;
 });
@@ -27,7 +36,8 @@ function toggleDisable(tag, toggle) {
 	});
 }
 
-// $('#editButton').click(function(e) {
-// 	e.preventDefault();
-
-// });
+//Function that will remove oldClass and apply newClass to an HTML element
+function swapClass(tag, oldClass, newClass) {
+	$(tag).removeClass(oldClass);
+	$(tag).addClass(newClass);
+}

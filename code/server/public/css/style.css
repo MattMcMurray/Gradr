@@ -5,3 +5,9 @@
     display: flex;
     align-items: center;
 }
+
+.clickable {
+	cursor: pointer;
+	cursor: hand; /* Apparently some browsers use hand instead of pointer*/
+}
+ use different na
