@@ -41,6 +41,9 @@ var addUserMatch = function(_liker_id, _likee_id, _likes) {
     }).spread(function(result, created) {
         // console.log(result);
         // console.log(created);
+    }).catch(function(errors) {
+        console.log("ERROR: Sequelize errors occured while adding match for userIDs %d and %d", 
+                _liker_id, _likee_id);
     });
 };
 
