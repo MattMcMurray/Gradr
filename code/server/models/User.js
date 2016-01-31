@@ -44,7 +44,8 @@ UserConnection = connection.define('users', {
 });
 //If you get missing column errors, run the commented sync once to rebuild the tables
 //UserConnection.sync({force:true})
-UserConnection.sync();
+
+// UserConnection.sync()
 
 var getUser = function(username) {
     return UserConnection.findOne({
@@ -98,6 +99,7 @@ var getRandom = function() {
         return users[Math.floor(Math.random() * users.length)];var rand = users[Math.floor(Math.random() * users.length)];
     });
 }
+// 
 
 module.exports = {
 	getUser: getUser,
@@ -107,3 +109,5 @@ module.exports = {
 	createUserProfile:createUserProfile,
 	model: UserConnection
 }
+
+
