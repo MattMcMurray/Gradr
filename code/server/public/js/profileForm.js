@@ -37,19 +37,19 @@ $("form").on('submit', function(event) {
 		})
 	
 });
-
+/*
 $(function() {
 	console.log('profileForm.js function session username');
 	console.log(sessionStorage.getItem('username'));
     getUser(sessionStorage.getItem('username'));
 });
-
+*/
 function getUser(username) {
 	console.log('profileForm.js getUser username')
 	console.log(username);
     $.ajax({
     	type: 'GET',
-        url: '/api/user?username=' + username,
+        url: '/api/getUser?user=' + username,
         success: userCallback
     });
 }
@@ -68,8 +68,8 @@ var userCallback = function(data) {
 	console.log('profileForm.js getCallback Data');
 	console.log(data);
 
-	/*
-	firstnameData = data.firstname;
+	
+	//firstnameData = data.user.firstname;
 	lastnameData = data.lastname;
 	cityData = data.city;
 	countryData = data.country;
@@ -78,10 +78,10 @@ var userCallback = function(data) {
 	generalDescriptionData = data.generalDescription;
 	helpDescriptionData = data.helpDescription;
 	dateOfBirthData = data.dateOfBirth;
-*/
 
 
-    $('#firstname').html(data.firstname);
+
+    $('#firstnameData').html(data.user.firstname);
     $("#lastnameData").html(data.lastname);
     $("#cityData").html(data.city);
     $("#countryData").html(data.country);
