@@ -22,9 +22,6 @@ router.post('/NewUser', function (req, res) {
 });
 
 router.post('/ProfileUpdate', function (req, res) {
-	console.log("Request : \n\n\n");
-	console.log(req);
-	console.log("\n\n\n");
 	User.createUserProfile(getProfileDate(req));
 	console.log('User ' + req.body.username + ' profile updated');
 	res.json({url:"/", message: 'User profile updated'});
@@ -38,10 +35,7 @@ router.post("/login", function(req,res) {
 
 		if (user != null && authenticator.authenticate(credentials.password, user.dataValues.password)){
       
-			res.json({
-        url: "/main",
-        user: user
-       });
+			res.json({ url: "/main", user: user });
 		} else {
 			res.status(500)
 			res.json({message: "Oops! Something went wrong. Invalid username/password."});
@@ -55,7 +49,7 @@ router.get('/randomUser', function(req, res){
 
 	User.getRandom().then(function(user) {
 		if (user != null) {
-			res.json({username: user.username, userID: user.id, school: user.school})	
+			res.json({username: user.username, userID: user.id, school: user.school, firstname: user.firstname, lastname: user.lastname, helpDescription: user.helpDescription})	
 		} else {
 			res.json({message: "Something went wrong"});
 		}

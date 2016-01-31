@@ -14,18 +14,9 @@ $(function() {
 	});
 });
 
-var userCallback = function(data) {
-	if (data == null) {
-		//Do something about this
-		return;
-	}
-	username = data.user.username;
-	$('#username').append(username);
-	$('#generalDescription').html(data.user.generalDescription);
-	$("#helpDescription").html(data.user.helpDescription);
-	$('#school').val(data.user.school); //Inputs prefer when you set there value through val
-	console.log(data);
-}
+$('#profileButton').click(function(e) {
+    e.preventDefault();
+});
 
 $('#editButton').click(function(e) {
 	e.preventDefault();
@@ -57,6 +48,19 @@ $('#editButton').click(function(e) {
 	edit_mode = !edit_mode;
 });
 
+var userCallback = function(data) {
+	if (data == null) {
+		//Do something about this
+		return;
+	}
+	username = data.user.username;
+	$('#username').append(username);
+	$('#generalDescription').html(data.user.generalDescription);
+	$("#helpDescription").html(data.user.helpDescription);
+	$('#school').val(data.user.school); //Inputs prefer when you set there value through val
+	console.log(data);
+}
+
 //Function that takes in the tag of all elements you want toggled and then sets them to disabled=toggle
 function toggleDisable(tag, toggle) {
 	$(tag).each(function(i, obj) {
@@ -71,6 +75,7 @@ function swapClass(tag, oldClass, newClass) {
 	$(tag).addClass(newClass);
 }
 
+//Get all the info about the user, so it may be updated.
 function getUserInfo() {
 	var user = {'username': username};
 	$('.user-entry').each(function(i, obj) {
@@ -78,31 +83,3 @@ function getUserInfo() {
 	});
 	return user;
 }
-
-$('#profileButton').click(function(e) {
-    e.preventDefault();
-});
-
-// $(function() {
-//     getUser(sessionStorage.getItem('username'));
-// });
-
-// function getUser(username) {
-//     $.ajax({
-//         type: 'GET',
-//         url: '/api/getUser?user=' + username,
-//         success: userCallback
-//     });
-// }
-
-// var userCallback = function(data) {
-//     $('#firstnameData').html(data.user.firstname);
-//     $("#lastnameData").html(data.user.lastname);
-//     $("#cityData").html(data.user.city);
-//     $("#countryData").html(data.user.country);
-//     $("#schoolData").html(data.user.school);
-//     $("#coursesData").html(data.user.courses);
-//     $("#generalDescriptionData").html(data.user.generalDescription);
-//     $("#helpDescriptionData").html(data.user.helpDescription);
-//     $("#dateOfBirthData").html(data.user.dateOfBirth);
-// }
