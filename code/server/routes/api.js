@@ -21,6 +21,12 @@ router.post('/NewUser', function (req, res) {
 	
 });
 
+router.post('/ProfileUpdate', function (req, res) {
+	User.createUserProfile(getProfileDate(req));
+	console.log('User ' + req.body.username + ' profile updated');
+	res.json({url:"/", message: 'User profile updated'});
+});
+
 router.post("/login", function(req,res) {
 	
 	credentials = getCredentials(req)
@@ -43,7 +49,7 @@ router.get('/randomUser', function(req, res){
 
 	User.getRandom().then(function(user) {
 		if (user != null) {
-			res.json({username: user.username, userID: user.id, school: "University of Manitoba"})	
+			res.json({username: user.username, userID: user.id, school: user.school, firstname: user.firstname, lastname: user.lastname, helpDescription: user.helpDescription})	
 		} else {
 			res.json({message: "Something went wrong"});
 		}
@@ -54,6 +60,7 @@ router.get('/randomUser', function(req, res){
 router.post('/likeUser', function(req, res){
 	UserMatches.addUserMatch(req.body.liker_id, req.body.likee_id, true);
 });
+
 
 router.post('/dislikeUser', function(req, res){
 	UserMatches.addUserMatch(req.body.liker_id, req.body.likee_id, false);
@@ -76,9 +83,31 @@ router.get('/getUser', function(req, res) {
         res.sendStatus(401); // bad request; no user included in GET vars
     }
 });
-
+/*
+router.get('/user', function(req, res) {
+	console.log(req.query.username);
+	var username = req.query.username;
+	User.getUser(username).then(function(user) {
+		if (user != null) {
+			res.json({firstname: user.firstname, lastname: user.lastname, country: user.country, 
+				courses: user.courses, city: user.city, school: user.school, generalDescription: user.generalDescription, 
+				helpDescription: user.helpDescription, dateOfBirth: user.dateOfBirth});
+		}
+		else {
+			res.json({message: "Something went wrong"});
+		}
+	});
+});
+*/
 function getCredentials(req){
 	return {username: req.body.username, password: req.body.password};
+}
+
+function getProfileDate(req) {
+	return {username: req.body.username, firstname: req.body.firstname, lastname: req.body.lastname, 
+		address: req.body.address, city: req.body.city, country: req.body.country, school: req.body.school, 
+		courses: req.body.courses, generalDescription: req.body.generalDescription, helpDescription: req.body.helpDescription, 
+		dateOfBirth: req.body.dateOfBirth};
 }
 
 module.exports = {router};

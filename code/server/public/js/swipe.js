@@ -18,6 +18,10 @@ var userCallback = function(data) {
     $('#userFullName').html(toTitleCase(data.username));
     $('#userID').val(data.userID);
     $("#location").html(toTitleCase(data.school));
+    $('#firstName').html(toTitleCase(data.firstname));
+    $('#lastName').html(toTitleCase(data.lastname));
+    $('#helpDescript').html(toTitleCase(data.helpDescription));
+
     // $('#userFullName').html(toTitleCase(data['results'][0]['user']['name']['first'] + ' ' + data['results'][0]['user']['name']['last']));
     // $('#gender').html(toTitleCase(data['results'][0]['user']['gender']));
     // $('#location').html(toTitleCase(data['results'][0]['user']['location']['city'] + ', ' + data['results'][0]['user']['location']['state']));
@@ -37,6 +41,11 @@ function getNewUser() {
         dataType: 'json',
         success: userCallback
     });
+}
+
+// Capitalizes the first letter of each word
+function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
 }
 
 function setUserMatch(_liker_id, _likee_id, _likes) {
