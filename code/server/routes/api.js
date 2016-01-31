@@ -29,10 +29,7 @@ router.post("/login", function(req,res) {
 
 		if (user != null && authenticator.authenticate(credentials.password, user.dataValues.password)){
       
-			res.json({
-        url: "/main",
-        user: user
-       });
+			res.json({ url: "/main", user: user });
 		} else {
 			res.status(500)
 			res.json({message: "Oops! Something went wrong. Invalid username/password."});

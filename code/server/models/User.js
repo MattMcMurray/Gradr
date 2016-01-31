@@ -14,7 +14,7 @@ UserConnection = connection.define('users', {
     }
 });
 
-UserConnection.sync()
+// UserConnection.sync()
 
 var getUser = function(username) {
     return UserConnection.findOne({
@@ -39,11 +39,14 @@ var getRandom = function() {
         return users[Math.floor(Math.random() * users.length)];var rand = users[Math.floor(Math.random() * users.length)];
     });
 }
+// 
 
 
 module.exports = {
 	getUser: getUser,
 	createUser: createUser,
 	getRandom: getRandom,
-	model: UserConnection
+	model: UserConnection,
 }
+
+

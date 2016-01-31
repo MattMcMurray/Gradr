@@ -12,7 +12,7 @@ $("#login-form").on('submit', function(event){
       location.href= data.url;
     },
     error: function(data) {
-      $("#login-error").show();
+      $("#error").show();
     }
   });
 });

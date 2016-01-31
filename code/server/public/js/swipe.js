@@ -30,7 +30,7 @@ function toTitleCase(str) {
 
 function getNewUser() {
     // Have to append random numbers at the end of URI to force img refresh
-    $('#userImage').attr('src', 'http://thecatapi.com/api/images/get?format=src&type=jpg&' + Math.random());
+    $('#userImage').attr('src', 'http://thecatapi.com/api/images/get?format=src&type=jpg&size=small' + Math.random());
 
     $.ajax({
         url: '/api/randomUser',

@@ -27,7 +27,7 @@ UserMatches = connection.define('user_matches', {
     }
 });
 
-UserMatches.sync();
+// UserMatches.sync();
 
 var addUserMatch = function(_liker_id, _likee_id, _likes) {
     UserMatches.findOrCreate({

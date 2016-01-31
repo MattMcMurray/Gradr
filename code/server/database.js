@@ -17,4 +17,5 @@ var sequelize = new Sequelize('study_database', 'softeng2', 'thisisencrypted', {
 });
 
 
+
 module.exports = sequelize
