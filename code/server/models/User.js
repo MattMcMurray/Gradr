@@ -2,20 +2,51 @@ var Sequelize = require("sequelize");
 var connection = require("../database.js");
 var authenticator = require("../mixins/authenticator.js")
 
+//IF YOU DARE RENAME ONE OF THESE FIELDS, YOU MUST UPDATE THE EQUIVALENT FIELD IN profile.jade
+//IF YOU DON'T KNOW WHAT THIS ENTAILS ASK STEVE, HE KNOWS AND CARES
 UserConnection = connection.define('users', {
-    username: {
-        type: Sequelize.STRING,
-        unique: true,
-        allowNull: false
-    },
-    password: {
-        type: Sequelize.STRING,
-        allowNull: false
-    }
+	username: {
+		type: Sequelize.STRING,
+		unique: true,
+		allowNull: false
+	},
+	password: {
+		type: Sequelize.STRING,
+		allowNull: false
+	}, 
+	firstname: {
+		type: Sequelize.STRING
+	}, 
+	lastname: {
+		type: Sequelize.STRING
+	}, 
+	city: {
+		type: Sequelize.STRING
+	}, 
+	country: {
+		type: Sequelize.STRING
+	}, 
+	school: {
+		type: Sequelize.STRING
+	}, 
+	courses: {
+		type: Sequelize.STRING
+	}, 
+	//A string for information not captured by the other fields.
+	generalDescription: {
+		type: Sequelize.STRING
+	}, 
+	//A string for describing what courses/subject you are looking for help with
+	helpDescription: {
+		type: Sequelize.STRING
+	}, 
+	dateOfBirth: {
+		type: Sequelize.DATE
+	}
 });
-
-UserConnection.sync()
-
+//If you get missing column errors, run the commented sync once to rebuild the tables
+//UserConnection.sync({force:true})
+UserConnection.sync();
 
 var getUser = function(username) {
     return UserConnection.findOne({
@@ -25,14 +56,43 @@ var getUser = function(username) {
     });
 }
 
+var getAllUsers = function() {
+	return UserConnection.findAll();
+}
+
 var createUser = function(credentials) {
-    
     var hashed = authenticator.encrypt(credentials.password);
 
     return UserConnection.create({
         username: credentials.username,
-        password: hashed
+        password: hashed,
+				firstname: '',
+				lastname: '',
+				city: '',
+				country: '',
+				school: '',
+				courses: '',
+				generalDescription: '',
+				helpDescription: '',
+				dateOfBirth: null
     });
+}
+
+var createUserProfile = function(data) {
+	UserConnection.update({
+		firstname: data.firstname,
+		lastname: data.lastname,
+		city: data.city,
+		country: data.country,
+		school: data.school,
+		courses: data.courses,
+		generalDescription: data.generalDescription,
+		helpDescription: data.helpDescription,
+		dateOfBirth: data.dateOfBirth
+	},
+	{
+		where: { username: data.username}
+	});
 }
 
 var getRandom = function() {
@@ -41,9 +101,11 @@ var getRandom = function() {
     });
 }
 
-
 module.exports = {
-    getUser: getUser,
-    createUser: createUser,
-    getRandom: getRandom
+	getUser: getUser,
+	createUser: createUser,
+	getRandom: getRandom,
+	getAllUsers: getAllUsers,
+	createUserProfile:createUserProfile,
+	model: UserConnection
 }

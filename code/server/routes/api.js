@@ -2,8 +2,9 @@ var _express = require('express');
 
 var router = _express.Router();
 var app = _express();
-var User = require('../models/User.js')
-var authenticator = require("../mixins/authenticator.js")
+var User = require('../models/User.js');
+var UserMatches = require('../models/UserMatches.js');
+var authenticator = require("../mixins/authenticator.js");
 
 router.get('/', function (req, res) {
 	res.json({message: 'Hello world!'});
@@ -18,6 +19,15 @@ router.post('/NewUser', function (req, res) {
 		res.json(error);
 	});
 	
+});
+
+router.post('/ProfileUpdate', function (req, res) {
+	console.log("Request : \n\n\n");
+	console.log(req);
+	console.log("\n\n\n");
+	User.createUserProfile(getProfileDate(req));
+	console.log('User ' + req.body.username + ' profile updated');
+	res.json({url:"/", message: 'User profile updated'});
 });
 
 router.post("/login", function(req,res) {
@@ -45,12 +55,21 @@ router.get('/randomUser', function(req, res){
 
 	User.getRandom().then(function(user) {
 		if (user != null) {
-			res.json({username: user.username, school: "University of Manitoba"})	
+			res.json({username: user.username, userID: user.id, school: user.school})	
 		} else {
 			res.json({message: "Something went wrong"});
 		}
 		
 	});
+});
+
+router.post('/likeUser', function(req, res){
+	UserMatches.addUserMatch(req.body.liker_id, req.body.likee_id, true);
+});
+
+
+router.post('/dislikeUser', function(req, res){
+	UserMatches.addUserMatch(req.body.liker_id, req.body.likee_id, false);
 });
 
 // Getting a specific user
@@ -70,13 +89,31 @@ router.get('/getUser', function(req, res) {
         res.sendStatus(401); // bad request; no user included in GET vars
     }
 });
-
+/*
+router.get('/user', function(req, res) {
+	console.log(req.query.username);
+	var username = req.query.username;
+	User.getUser(username).then(function(user) {
+		if (user != null) {
+			res.json({firstname: user.firstname, lastname: user.lastname, country: user.country, 
+				courses: user.courses, city: user.city, school: user.school, generalDescription: user.generalDescription, 
+				helpDescription: user.helpDescription, dateOfBirth: user.dateOfBirth});
+		}
+		else {
+			res.json({message: "Something went wrong"});
+		}
+	});
+});
+*/
 function getCredentials(req){
 	return {username: req.body.username, password: req.body.password};
 }
 
-
-
-
+function getProfileDate(req) {
+	return {username: req.body.username, firstname: req.body.firstname, lastname: req.body.lastname, 
+		address: req.body.address, city: req.body.city, country: req.body.country, school: req.body.school, 
+		courses: req.body.courses, generalDescription: req.body.generalDescription, helpDescription: req.body.helpDescription, 
+		dateOfBirth: req.body.dateOfBirth};
+}
 
 module.exports = {router};
