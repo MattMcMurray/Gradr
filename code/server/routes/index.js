@@ -15,28 +15,20 @@ router.get("/main", function(req, res) {
 });
 
 router.get("/profileUpdate", function(req, res) {
-	res.render('../views/profileForm', { data: getUser(req.query.user) });
+	var username = req.query.user;
+	if (username) {
+        User.getUser(username).then(function(user) {
+            if (user) {
+              delete user.dataValues.password; 
+              res.render('../views/profileForm', { data: user.dataValues });
+            } 
+        });
+    } 
 })
 
 router.get("/profile", function(req, res) {
 	res.render('../views/profile');
 })
-
-function getUser(username) {
-	console.log('Getting data');
-    if (username) {
-        User.getUser(username).then(function(user) {
-            if (user) {
-              delete user.dataValues.password; // probably not the best idea to send this over the wire
-              return user;
-            } else {
-              return null;
-            }
-        });
-    } else {
-        return null;
-    }
-}
 
 module.exports = {router};
 
