@@ -1,58 +1,28 @@
 extends ./base.jade
 
 block stylesheets
-    link(href='/css/style.css', rel='stylesheet')    
-    link(href='/css/index.css', rel='stylesheet')
+    link(href='/css/style.css', rel='stylesheet')
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', rel='stylesheet')
 
 block content
-    .container.text-center
-        .logo
-            img(src="/img/gradr_logo.png")
-        hr
-        p.lead
-            | Gradr is a study buddy finder based on current dating applications.
-    
-    .container
-        form(role=form)
-            .form-group
-                label(for="firstname")
-                    | First Name
-                p#firstnameData
-            .form-group
-                label(for="lastname")
-                    | Last Name
-                p#lastnameData
-            .form-group
-                label(for="city")
-                    | City
-                p#cityData
-            .form-group
-                label(for="country")
-                    | Country
-                p#countryData
-            .form-group
-                label(for="school")
-                    | School
-                p#schoolData
-            .form-group
-                label(for="courses")
-                    | Courses
-                p#coursesData
-            .form-group
-                label(for="generalDescription")
-                    | Other details
-                p#generalDescriptionData
-            .form-group
-                label(for="helpDescription")
-                    | Description of what you are looking for help with
-                p#helpDescriptionData
-            .form-group
-                label(for="dateOfBirth")
-                    | Date Of Birth (YYYY-MM-DD)
-                p#dateOfBirthData
+    .row.vcenter
+        .container 
+            .thumbnail#userCard
+                .caption
+                    h3#username #[a.pull-right#editButton #[i.clickable.fa.fa-pencil#editIcon]]
+                    form
+                        .form-group
+                            label(for="generalDescription")
+                                | About You
+                            textarea.form-control.user-entry#generalDescription(type='text' disabled='disabled')
+                        .form-group
+                            label(for="helpDescription")
+                                | I Need Help With
+                            textarea.form-control.user-entry#helpDescription(type='text' disabled='disabled')
+                        .form-group
+                            label(for="school")
+                                | School
+                            input.form-control.user-entry#school(type='text' disabled='disabled')
 
-            a(href="/profileUpdate" role="button").btn.btn-primary.pull-right#profileButton Update Profile
-            a(href="/main" role="button").btn.btn-warning.pull-right Back to Main
 block scripts
    script(src='/js/profile.js') 
-
