@@ -62,3 +62,9 @@ function setUserMatch(_liker_id, _likee_id, _likes) {
         data: postData
     });
 }
+
+$("#logout").on("click", function() {
+    sessionStorage.clear();
+});
+
+$("#home").attr("href", "/main");

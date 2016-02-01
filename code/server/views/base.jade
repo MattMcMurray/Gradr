@@ -32,8 +32,9 @@ html(lang='en')
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-            a.navbar-brand(href='/') Gradr
-            a.navbar-brand(href='/profile') Profile  
+            a.navbar-brand#home(href='/') Gradr
+            a.navbar-brand.anonymous(href='/profile') Profile
+            a.navbar-brand.navbar-right.anonymous#logout(href="/") Logout
     block content
 
     // Bootstrap core JavaScript
