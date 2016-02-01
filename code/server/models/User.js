@@ -57,6 +57,14 @@ var getUser = function(username) {
     });
 }
 
+var getUsersById = function(ids) {
+    return UserConnection.findAll({
+        where:{
+            id: ids
+        }
+    });
+}
+
 var getAllUsers = function() {
 	return UserConnection.findAll();
 }
@@ -105,6 +113,7 @@ var getRandom = function() {
 
 module.exports = {
 	getUser: getUser,
+    getUsersById: getUsersById,
 	createUser: createUser,
 	getRandom: getRandom,
 	getAllUsers: getAllUsers,
