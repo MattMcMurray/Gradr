@@ -25,6 +25,10 @@
   - At *least* one other person should look through your code
     - If they think everything looks good, they are free to merge!
     - Sometimes auto-merging is possible. Other times, you're not so lucky. See the section "Fixing Merge Conflicts"
+
+### Running Tests
+- Make sure you have all packages installed by running `sudo npm install` in the `/code/server` directory
+- run the run_tests script -- `./run_tests.sh`
     
     
 ### Fixing Merge Conflicts
