@@ -23,3 +23,6 @@ app.use('/', pages.router); // tell node to use index.js for front facing pages
 var server = app.listen(port, function() {
 	console.log("App running on port " + server.address().port);
 });
+
+// for importing into tests
+module.exports = app;
