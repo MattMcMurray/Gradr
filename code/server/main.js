@@ -25,29 +25,29 @@ var args = parseArgs(process.argv.slice(2));
 processOptions(args);
 
 var server = app.listen(port, function() {
-	console.log("App running on port " + server.address().port);
+    console.log("App running on port " + server.address().port);
 });
 
 function processOptions(args) {
-	var options = ['fill_database', 'clear_database'];
-	var db = require('./database.js');
+    var options = ['fill_database', 'clear_database'];
+    var db = require('./database.js');
 
-	// minimist uses '_' to hold any arguments not associated with an option, not needed
-	delete args._;
+    // minimist uses '_' to hold any arguments not associated with an option, not needed
+    delete args._;
 
-	for (var arg in args) {
-		switch (arg) {
-			case options[0]:
-				db.fillDatabase();
-				break;
-			case options[1]:
-				db.clearDatabase();
-				break;
-			default:
-				console.log("Invalid option name specified. [%s]", arg);
-				break;
-		}
-	}
+    for (var arg in args) {
+        switch (arg) {
+            case options[0]:
+                db.fillDatabase();
+                break;
+            case options[1]:
+                db.clearDatabase();
+                break;
+            default:
+                console.log("Invalid option name specified. [%s]", arg);
+                break;
+        }
+    }
 }
 
 // for importing into tests
