@@ -57,6 +57,14 @@ router.get('/randomUser', function(req, res){
 	});
 });
 
+router.get('/getPotentialMatches', function(req, res){
+	UserMatches.getMatches(req.query.userId).then(function(ids){
+		User.getUsersById(ids).then(function(users) {
+			res.json({matches: users});
+		});
+	});
+});
+
 router.post('/likeUser', function(req, res){
 	UserMatches.addUserMatch(req.body.liker_id, req.body.likee_id, true);
 });
