@@ -2,13 +2,13 @@ $(function() {
     getNewUser();
 
     // Super secure security :D
-    var username = localStorage.getItem('username');
-    var user_id = localStorage.getItem('user_id');
+    var username = sessionStorage.getItem('username');
+    var user_id = sessionStorage.getItem('user_id');
 
     if (!username || !user_id) {
         location.replace('/');
     } else {
-        // TODO get user and verify they exist
+        // TODO iteration2: verify authenticity of logged in user; right now security basically doesn't exist
     }
 
 });
