@@ -30,21 +30,22 @@ describe('api', function() {
 
     describe ('GET /api/getPotentialMatches', function() {
         it('requests a list of users that are a match for a provided userID', function(done) {
-            request(app)
+            var agent = request(app);
+            agent
             .post('/api/likeUser')
             .send({ liker_id: 1, likee_id: 2})
             .expect(200)
             .expect('Content-Type', 'application/json; charset=utf-8')
-            .end(function(err, res) {
-                if (err) done(err); // exit if there's an error
-                request(app)
+            .end(function(done) {
+                agent
                 .post('/api/likeUser')
                 .send({ liker_id: 2, likee_id: 1})
                 .expect(200)
                 .expect('Content-Type', 'application/json; charset=utf-8')
-                .end(function(err,res) {
-                    request(app)
-                    .get('/api/getPotentialMatches?userId=1')
+                .end(function(done) {
+                    agent
+                    .get('/api/getPotentialMatches')
+                    .send({'userId': 1})
                     .expect(200)
                     .expect('Content-Type', 'application/json; charset=utf-8')
                     .end(function(err, res) {
@@ -54,7 +55,9 @@ describe('api', function() {
                         done();
                     });
                 });
+                done();
             }); 
+            done();
         });
     });
 
