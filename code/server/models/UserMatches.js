@@ -1,5 +1,5 @@
 var Sequelize = require("sequelize");
-var connection = require("../database.js");
+var connection = require("../database.js").sequelize;
 var User = require("./User.js");
 
 UserMatches = connection.define('user_matches', {
