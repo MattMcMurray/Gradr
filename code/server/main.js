@@ -6,7 +6,11 @@ var pages = require('./routes/index.js');
 var express = require('express');
 var app = express();
 var body_parser = require('body-parser');
-var parseArgs = require('minimist')
+var parseArgs = require('minimist');
+
+// stub models
+var stubUser = require('./stub_models/StubUser.js');
+var user = require('./models/User.js');
 
 app.use(body_parser.urlencoded({ extended: true })); // tell node how we want to parse form data
 app.use(body_parser.json()); // tell node to use json for form parsing
@@ -29,6 +33,20 @@ var server = app.listen(port, function() {
 });
 
 function processOptions(args) {
+    api.injectUser(stubUser);
+    // user.getUser("bairosns").then(function(user) {
+    //         console.log(user);
+    //         if (user) {
+    //           console.log("user exists");
+    //           delete user.dataValues.password; // probably not the best idea to send this over the wire
+    //           res.json({user: user});
+    //         } else {
+    //           console.log("user doesn't exists");
+    //           res.json({user: null});
+    //         }
+    //     });
+
+    
     var options = ['fill_database', 'clear_database'];
     var db = require('./database.js');
 

@@ -6,6 +6,12 @@ var User = require('../models/User.js');
 var UserMatches = require('../models/UserMatches.js');
 var authenticator = require("../mixins/authenticator.js");
 
+var injectUser = function(user) {
+	if (user) {
+		User = user;
+	}
+};
+
 router.get('/', function (req, res) {
 	res.json({message: 'Hello world!'});
 });
@@ -103,4 +109,7 @@ function getProfileDate(req) {
 		dateOfBirth: req.body.dateOfBirth};
 }
 
-module.exports = {router};
+module.exports = {
+	router,
+	injectUser: injectUser,
+};
