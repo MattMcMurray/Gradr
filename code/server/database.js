@@ -1,15 +1,10 @@
 var Sequelize = require("sequelize");
-var sqlite3 = require("sqlite3");
 var fs = require('fs');
 
 //connect to the sqlite database   
 var sequelize = new Sequelize('study_database', 'softeng2', 'thisisencrypted', {
     host: 'localhost',
     dialect: 'sqlite',
-
-    dialectOptions: {
-        multipleStatements: true
-    },
 
     pool: {
         max: 5,
