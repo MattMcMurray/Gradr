@@ -28,6 +28,15 @@ describe('api', function() {
 
   // PUT NEXT API TESTS HERE:
 
+describe('api', function()) {
+  describe ('GET /api/getPotentialMatches', function() {
+    it('requests a list of users that are a match for a provided userID', function(done) {
+        request(app)
+        .get('/api/getPotentialMatches?userId=1')
+    })
+  })
+}
+
   // describe('GET /api/blah', function(){
   //    it('say what it does here', function() {
   //
