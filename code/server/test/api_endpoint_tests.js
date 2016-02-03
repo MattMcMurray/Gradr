@@ -28,14 +28,27 @@ describe('api', function() {
 
   // PUT NEXT API TESTS HERE:
 
-describe('api', function()) {
   describe ('GET /api/getPotentialMatches', function() {
     it('requests a list of users that are a match for a provided userID', function(done) {
-        request(app)
-        .get('/api/getPotentialMatches?userId=1')
-    })
-  })
-}
+        request(app).post('/api/likeUser').send({ liker_id: 1, likee_id: 2})
+        .end(function(err, res) {
+          if (err) done(err); // exit if there's an error
+          request(app).post('/api/likeUser').send({ liker_id: 2, likee_id: 1})
+          .end(function(err,res) {
+            request(app)
+            .get('/api/getPotentialMatches?userId=1')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+            if (err) done(err); // exit if there's an error
+              assert.that(res.body.matches).is.not.null();
+              assert.that(res.body.matches.length).is.equalTo(1);
+              done();
+            });
+        });
+      }); 
+    });
+  });
 
   // describe('GET /api/blah', function(){
   //    it('say what it does here', function() {
