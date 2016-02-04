@@ -67,6 +67,9 @@ router.get('/getPotentialMatches', function(req, res){
 
 router.post('/likeUser', function(req, res){
 	UserMatches.addUserMatch(req.body.liker_id, req.body.likee_id, true).then(function(result) {
+		if (result.error) 
+			res.status(500);
+
 		res.json(result);
 	});
 });
@@ -74,6 +77,9 @@ router.post('/likeUser', function(req, res){
 
 router.post('/dislikeUser', function(req, res){
 	UserMatches.addUserMatch(req.body.liker_id, req.body.likee_id, false).then(function(result) {
+		if (result.error) 
+			res.status(500);
+		
 		res.json(result);
 	});
 });
