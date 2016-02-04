@@ -24,7 +24,21 @@ describe('api', function() {
                 assert.that(res.body.msg).is.equalTo('Passwords do not match');
                 done();
             });
-        
+
+            request(app)
+            .post('/api/newUser')
+            .type('form')
+            .send({'username': username, 'password': password, 'confirmPassword': password})
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8') // self explanatory
+            .end(function(err, res) {
+                if (err) done(err);
+                // assert.that(res.body.msg).is.equalTo('Passwords do not match');
+                assert.that(res.body.url).is.equalTo('/');
+                assert.that(res.body.message).is.equalTo('New user created');
+                done();
+            });
+
 //      .get('/api/getUser?user=npeters3t') // change to one of the users actually in the test db data
 //      .expect(200) 
 //      .expect('Content-Type', 'application/json; charset=utf-8') // self explanatory
