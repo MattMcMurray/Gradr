@@ -8,14 +8,14 @@ block content
     .row.vcenter
         .container 
             .thumbnail#userCard
-                img(src="").img-thumbnail#userImage
+                img(src='').img-thumbnail#userImage
                 .caption
                         p
-                            a(href="/main" role="button").btn.btn-danger#dislikeButton Dislike 
-                            a(href="/main" role="button").btn.btn-success.pull-right#likeButton Like
+                            a(href='/main' role='button').btn.btn-danger#dislikeButton Dislike 
+                            a(href='/main' role='button').btn.btn-success.pull-right#likeButton Like
 
                         h3#userFullName
-                        input(type="hidden")#userID 
+                        input(type='hidden')#userID 
                         p 
                             ul
                                 //- li#gpa GPA: 3.4
