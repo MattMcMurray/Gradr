@@ -80,26 +80,33 @@ var getAllUsers = function() {
 }
 
 var createUser = function(credentials) {
-    var hashed = authenticator.encrypt(credentials.password);
-    var user = {
-        username: credentials.username,
-        password: hashed,
-                firstname: '',
-                lastname: '',
-                city: '',
-                country: '',
-                school: '',
-                courses: '',
-                generalDescription: '',
-                helpDescription: '',
-                dateOfBirth: null
-    };
-    return new Promise(function(resolve, reject) {
-        newUser = {
-            dataValues: user,
+    found = findUser('username', credentials.username);
+    if (found)
+        return new Promise(function(resolve, reject) {
+            reject(credentials);
+        });
+    else {
+        var hashed = authenticator.encrypt(credentials.password);
+        var user = {
+            username: credentials.username,
+            password: hashed,
+                    firstname: '',
+                    lastname: '',
+                    city: '',
+                    country: '',
+                    school: '',
+                    courses: '',
+                    generalDescription: '',
+                    helpDescription: '',
+                    dateOfBirth: null
         };
-        resolve(newUser);
-    });
+        return new Promise(function(resolve, reject) {
+            newUser = {
+                dataValues: user,
+            };
+            resolve(newUser);
+        });
+    }
 }
 
 var createUserProfile = function(data) {
