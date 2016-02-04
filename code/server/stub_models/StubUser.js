@@ -1,22 +1,30 @@
-var authenticator = require("../mixins/authenticator.js")
+var authenticator = require('../mixins/authenticator.js');
+var StubUserMatches = require('./StubUserMatches.js');
 
 var user1 = {
-    username: "bairosns",
+    username: 'bairosns',
     password: 'wlkslkjaiusddhf7yq98pyrh43hh', //Not actually a password, mashed the keyboard
     school: 'University of Manitoba',
     generalDescription: 'Hi I love homework',
 }
 
 var user2 = {
-    username: "mattmcmurray",
-    password: ";lkjsda;ljifsd;jlfsd;ljksda;jlkdsa", //Not actually a password, mashed the keyboard
+    username: 'mattmcmurray',
+    password: ';lkjsda;ljifsd;jlfsd;ljksda;jlkdsa', //Not actually a password, mashed the keyboard
     school: 'University of Manitoba',
     generalDescription: 'I like doing schoolwork',
 }
 
-var userList = [];
-userList.push(user1);
-userList.push(user2);
+var user3 = {
+    username: 'calebmueller',
+    password: 'askjdfhskjdfhkdjlhfununnnnnnnnnnn2', //Not actually a password, mashed the keyboard
+    school: 'University of Winnipeg',
+    generalDescription: 'I hate everyone'
+}
+
+var matchList = [];
+matchList.push(match1);
+matchList.push(match2);
 
 //This is an internal function.
 function findUser(field, value) {

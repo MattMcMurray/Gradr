@@ -3,7 +3,7 @@ $('#cancelButton').click(function(event) {
     location.replace('/');
 });
 
-$("form").on('submit', function(event) {
+$('form').on('submit', function(event) {
 	event.preventDefault();
 
 	var sendData = {
@@ -23,7 +23,7 @@ $("form").on('submit', function(event) {
 				location.href = data.url
 			},
 			error: function() {
-				validationObject.errors.username = "Username is already taken."
+				validationObject.errors.username = 'Username is already taken.'
 				toggleError(validationObject.errors);
 			}
 		})
@@ -36,8 +36,8 @@ $("form").on('submit', function(event) {
 
 function toggleError(message){
 	console.log(message);
-	$("#error").html(message.username + " " + message.password);
-	$("#error").show();
+	$('#error').html(message.username + ' ' + message.password);
+	$('#error').show();
 
 }
 
@@ -46,25 +46,25 @@ function validate(sendData){
 	var validationObject = {
 		valid: true,
 		errors: {
-			username: "",
-			password: ""
+			username: '',
+			password: ''
 		}
 	};
 	
 	
-	if(sendData.username == ""){
+	if(sendData.username == ''){
 		validationObject.valid = false;
-		validationObject.errors.username = "Username must be filled in."
+		validationObject.errors.username = 'Username must be filled in.'
 	}
 
 	if(sendData.password != sendData.confirmPassword){
 		validationObject.valid = false;
-		validationObject.errors.password = "Passwords must match. ";
+		validationObject.errors.password = 'Passwords must match. ';
 	}
 
-	if(sendData.password === ""){
+	if(sendData.password === ''){
 		validationObject.valid = false;
-		validationObject.errors.password += "Password must be filled in."
+		validationObject.errors.password += 'Password must be filled in.'
 	}
 
 	return validationObject;

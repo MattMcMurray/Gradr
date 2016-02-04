@@ -1,11 +1,7 @@
 var userMatches = [];
-userMatches.push({liker_id: 111, likee_id: 222, likes: true});
-userMatches.push({liker_id: 222, likee_id: 111, likes: true});
-userMatches.push({liker_id: 222, likee_id: 333, likes: true});
-userMatches.push({liker_id: 333, likee_id: 222, likes: false});
-userMatches.push({liker_id: 444, likee_id: 111, likes: true});
-userMatches.push({liker_id: 555, likee_id: 111, likes: false});
-
+userMatches.push({liker_id: 1, likee_id: 2, likes: true});
+userMatches.push({liker_id: 2, likee_id: 1, likes: true});
+userMatches.push({liker_id: 3, likee_id: 2, likes: false});
 
 //Internal function
 function getMatch(liker_id, likee_id) {
