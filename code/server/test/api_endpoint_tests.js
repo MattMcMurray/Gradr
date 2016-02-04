@@ -195,4 +195,118 @@ describe('api', function() {
             });
         });
     });
+
+    describe('POST /api/likeUser', function() {
+        it('creates a new \'like\' record with two different, valid ids', function(done) {
+            request(app)
+            .post('/api/likeUser')
+            .send({liker_id: 111, likee_id: 333})
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body).is.not.null();
+                assert.that(res.body.liker_id).is.equalTo(111);
+                assert.that(res.body.likee_id).is.equalTo(333);
+                assert.that(res.body.likes).is.equalTo(true);
+                done();
+            });
+        });
+
+        it('creates a new \'like\' record with empty ids', function(done) {
+            request(app)
+            .post('/api/likeUser')
+            .send({liker_id: null, likee_id: null})
+            .expect(500)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.error).is.not.null();
+                done();
+            });
+        });
+
+        it('creates a new \'like\' record with non-existant ids', function(done) {
+            request(app)
+            .post('/api/likeUser')
+            .send({liker_id: -1, likee_id: -2})
+            .expect(500)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.error).is.not.null();
+                done();
+            });
+        });
+
+        it('creates a new \'like\' record with non-numerical ids', function(done) {
+            request(app)
+            .post('/api/likeUser')
+            .send({liker_id: 'liker', likee_id: 'likee'})
+            .expect(500)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.error).is.not.null();
+                done();
+            });
+        });
+    });
+
+    describe('POST /api/dislikeUser', function() {
+        it('creates a new \'dislike\' record with two different, valid ids', function(done) {
+            request(app)
+            .post('/api/dislikeUser')
+            .send({liker_id: 111, likee_id: 444})
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body).is.not.null();
+                assert.that(res.body.liker_id).is.equalTo(111);
+                assert.that(res.body.likee_id).is.equalTo(444);
+                assert.that(res.body.likes).is.equalTo(false);
+                done();
+            });
+        });
+
+        it('creates a new \'dislike\' record with empty ids', function(done) {
+            request(app)
+            .post('/api/dislikeUser')
+            .send({liker_id: null, likee_id: null})
+            .expect(500)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.error).is.not.null();
+                done();
+            });
+        });
+
+        it('creates a new \'like\' record with non-existant ids', function(done) {
+            request(app)
+            .post('/api/dislikeUser')
+            .send({liker_id: -1, likee_id: -2})
+            .expect(500)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.error).is.not.null();
+                done();
+            });
+        });
+
+        it('creates a new \'like\' record with non-numerical ids', function(done) {
+            request(app)
+            .post('/api/dislikeUser')
+            .send({liker_id: 'liker', likee_id: 'likee'})
+            .expect(500)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.error).is.not.null();
+                done();
+            });
+        });
+    });
 });

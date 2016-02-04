@@ -28,21 +28,20 @@ UserMatches = connection.define('user_matches', {
 
 UserMatches.sync();
 
-var addUserMatch = function(likerId, likeeId, likes) {
-    UserMatches.findOrCreate({
+var addUserMatch = function(_liker_id, _likee_id, _likes) {
+    return UserMatches.findOrCreate({
         where: {
-            liker_id: likerId,
-            likee_id: likeeId
+            liker_id: _liker_id,
+            likee_id: _likee_id
         },
         defaults: {
-            likes: !!likes
+            likes: !!_likes
         }
     }).spread(function(result, created) {
-        // console.log(result);
-        // console.log(created);
+        return result.dataValues;
     }).catch(function(errors) {
-        console.log('ERROR: Sequelize errors occured while adding match for userIDs %d and %d', 
-                _liker_id, _likee_id);
+        console.log("ERROR: Sequelize errors occured while adding match for userIDs %d and %d", _liker_id, _likee_id);
+        return { error: { name: errors.name, message: errors.message } };
     });
 };
 

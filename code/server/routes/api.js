@@ -78,12 +78,22 @@ router.get('/getPotentialMatches', function(req, res){
 });
 
 router.post('/likeUser', function(req, res){
-	UserMatches.addUserMatch(req.body.liker_id, req.body.likee_id, true);
+	UserMatches.addUserMatch(req.body.liker_id, req.body.likee_id, true).then(function(result) {
+		if (result.error) 
+			res.status(500);
+
+		res.json(result);
+	});
 });
 
 
 router.post('/dislikeUser', function(req, res){
-	UserMatches.addUserMatch(req.body.liker_id, req.body.likee_id, false);
+	UserMatches.addUserMatch(req.body.liker_id, req.body.likee_id, false).then(function(result) {
+		if (result.error) 
+			res.status(500);
+		
+		res.json(result);
+	});
 });
 
 // Getting a specific user
