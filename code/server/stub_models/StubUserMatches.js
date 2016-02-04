@@ -6,7 +6,7 @@ userMatches.push({liker_id: 333, likee_id: 222, likes: false});
 userMatches.push({liker_id: 444, likee_id: 111, likes: true});
 userMatches.push({liker_id: 555, likee_id: 111, likes: false});
 
-var users = [111, 222, 333];
+var users = [111, 222, 333, 444, 555];
 
 
 //Internal function
@@ -23,7 +23,7 @@ var addUserMatch = function(_liker_id, _likee_id, _likes) {
     var res = getMatch(_liker_id, _likee_id, _likes);
     var returnValue;
 
-    if (!res && Number.isInteger(_liker_id) && Number.isInteger(_likee_id) && users.indexOf(_liker_id) > 0 && users.indexOf(_likee_id) > 0) {
+    if (!res && Number.isInteger(_liker_id) && Number.isInteger(_likee_id) && users.indexOf(_liker_id) >= 0 && users.indexOf(_likee_id) >= 0) {
         var match = {
             liker_id: _liker_id,
             likee_id: _likee_id,
