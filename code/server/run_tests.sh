@@ -8,6 +8,8 @@ fi
 echo "[STARTING SERVER TO INIT DATABASE""]"
 echo
 rm study_database.sqlite
+rm -rf test_output
+mkdir test_output
 node main.js --stub_all &
 echo "[PLEASE WAIT... PREPOPULATING DATABASE""]"
 echo
@@ -16,8 +18,8 @@ pkill node # kill the node process; mocha restarts it and will fail if there's s
 sqlite3 study_database.sqlite < dbscripts/testusers.sql
 echo "[RUNNING UNIT TESTS NOW""]"
 echo
-mocha test/api_endpoint_tests.js
-mocha test/User_unit_tests.js
+mocha test/api_endpoint_tests.js > test_output/api_endpoint_test.log
+mocha test/User_unit_tests.js > test_output/user_unit_test.log
 
 echo "[RESETING ENV FOR INTEGRATION TESTS]"
 echo
@@ -30,6 +32,9 @@ pkill node # kill the node process; mocha restarts it and will fail if there's s
 sqlite3 study_database.sqlite < dbscripts/testusers.sql
 echo "[RUNNING INTEGRATION TESTS NOW""]"
 echo
-mocha test/integration_tests.js
+mocha test/integration_tests.js > test_output/integration_test.log
+
+echo "[TEST RESULTS PLACED IN test_output DIRECTORY]"
+echo
 
 
