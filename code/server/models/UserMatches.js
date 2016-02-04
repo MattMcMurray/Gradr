@@ -31,11 +31,11 @@ UserMatches.sync();
 var addUserMatch = function(_liker_id, _likee_id, _likes) {
     return UserMatches.findOrCreate({
         where: {
-            liker_id: likerId,
-            likee_id: likeeId
+            liker_id: _liker_id,
+            likee_id: _likee_id
         },
         defaults: {
-            likes: !!likes
+            likes: !!_likes
         }
     }).spread(function(result, created) {
         return result.dataValues;
