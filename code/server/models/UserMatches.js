@@ -1,13 +1,12 @@
 var Sequelize = require('sequelize');
 var connection = require('../database.js').sequelize;
-var User = require('./User.js');
 
 UserMatches = connection.define('user_matches', {
     liker_id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         references: {
-            model: User.model,
+            model: 'users',
             key: 'id'
         },
         allowNull: false
@@ -16,7 +15,7 @@ UserMatches = connection.define('user_matches', {
         type: Sequelize.INTEGER,
         primaryKey: true,
         references: {
-            model: User.model,
+            model: 'users',
             key: 'id'
         },
         allowNull: false

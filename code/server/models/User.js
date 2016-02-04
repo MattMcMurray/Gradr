@@ -135,6 +135,5 @@ module.exports = {
     createUser: createUser,
     getRandom: getRandom,
     getAllUsers: getAllUsers,
-    createUserProfile:createUserProfile,
-    model: UserConnection
+    createUserProfile:createUserProfile
 }
