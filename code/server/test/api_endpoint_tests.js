@@ -151,6 +151,7 @@ describe('api', function() {
         it('gets a random user', function(done) {
             request(app)
             .get('/api/randomUser')
+            .send({'currUserId': 1})
             .expect(200)
             .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function(err, res) {

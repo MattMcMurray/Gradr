@@ -48,7 +48,6 @@ var addUserMatch = function(likerId, likeeId, likes) {
 };
 
 var getMatches = function(userId) {
-    console.log('userID: ' + userId);
     return connection.query(
         'SELECT um2.liker_id as userId FROM user_matches um2 WHERE um2.liker_id IN (SELECT um1.likee_id FROM user_matches um1 WHERE um1.liker_id = :userId AND um1.likes) AND um2.likee_id = :userId AND um2.likes',
         { replacements: { userId: userId }, type: connection.QueryTypes.SELECT } ).then(function(users) {
@@ -59,9 +58,25 @@ var getMatches = function(userId) {
             }
             return ids;
     });
-}
+};
+
+var getPreviouslyRatedIds = function(userId) {
+    return UserMatches.findAll({
+        where: {
+            liker_id: userId
+        }
+    }).then(function(users) {
+        var ids = [];
+        for(var i=0; i < users.length; i++)
+        {
+            ids[i] = users[i].likee_id;
+        }
+        return ids;
+    });
+};
 
 module.exports = {
     addUserMatch: addUserMatch,
-    getMatches: getMatches
+    getMatches: getMatches,
+    getPreviouslyRatedIds: getPreviouslyRatedIds
 };
