@@ -28,7 +28,7 @@ $('#dislikeButton').click(function(e) {
 var userCallback = function(data) {
     $('#userFullName').html(toTitleCase(data.username));
     $('#userID').val(data.userID);
-    $("#location").html(toTitleCase(data.school));
+    $('#location').html(toTitleCase(data.school));
     $('#firstName').html(toTitleCase(data.firstname));
     $('#lastName').html(toTitleCase(data.lastname));
     $('#helpDescript').html(toTitleCase(data.helpDescription));
@@ -66,14 +66,14 @@ function setUserMatch(_liker_id, _likee_id, _likes) {
 
     $.ajax({
         url: postUrl,
-        type: "POST",
+        type: 'POST',
         dataType: 'json',
         data: postData
     });
 }
 
-$("#logout").on("click", function() {
+$('#logout').on('click', function() {
     sessionStorage.clear();
 });
 
-$("#home").attr("href", "/main");
+$('#home').attr('href', '/main');
