@@ -5,7 +5,10 @@ if [ $EUID != 0 ]; then
     exit $?
 fi
 
-touch study_database.sqlite
+rm study_database.sqlite
+node main.js &
+sleep 2 # allow the node app to create tables before killing process
+pkill node
 sqlite3 study_database.sqlite < dbscripts/testusers.sql
 mocha
 
