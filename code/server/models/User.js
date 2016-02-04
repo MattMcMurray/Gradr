@@ -106,15 +106,17 @@ var createUserProfile = function(data) {
 }
 
 var getRandom = function(currUserId) {
+    console.log('currUserId: ' + currUserId);
     return UserMatches.getPreviouslyRatedIds(currUserId).then(function(prevRatedUsers) {
+        console.log('previous ratings:' + prevRatedUsers);
         return UserConnection.findAll({
                 where: {
                     id: {
-                        $ne: currUserId,
-                        $notIn: prevRatedUsers
+                        $ne: currUserId
                     }
                 }
             }).then(function(users){
+                console.log('end good users: ' + users);
                 return users[Math.floor(Math.random() * users.length)];var rand = users[Math.floor(Math.random() * users.length)];
         });
     });
