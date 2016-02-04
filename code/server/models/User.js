@@ -108,15 +108,22 @@ var createUserProfile = function(data) {
 var getRandom = function(currUserId) {
     console.log('currUserId: ' + currUserId);
     return UserMatches.getPreviouslyRatedIds(currUserId).then(function(prevRatedUsers) {
-        console.log('previous ratings:' + prevRatedUsers);
+        var idCondition;
+        if(prevRatedUsers.legnth == 0) {
+            idCondition = {
+                $ne: currUserId
+            };
+        } else {
+            idCondition = {
+                $ne: currUserId,
+                $notIn: prevRatedUsers
+            };
+        }
         return UserConnection.findAll({
                 where: {
-                    id: {
-                        $ne: currUserId
-                    }
+                    id: idCondition
                 }
             }).then(function(users){
-                console.log('end good users: ' + users);
                 return users[Math.floor(Math.random() * users.length)];var rand = users[Math.floor(Math.random() * users.length)];
         });
     });

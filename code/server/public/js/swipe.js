@@ -49,7 +49,6 @@ function getNewUser() {
     postData = {
         currUserId: sessionStorage.getItem('user_id')
     };
-    console.log('sending user id ' + postData.currUserId);
     $.ajax({
         url: '/api/randomUser',
         dataType: 'json',
