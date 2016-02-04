@@ -7,30 +7,30 @@ block stylesheets
 block content
     .container.text-center
         .logo
-            img(src="/img/gradr_logo.png")
+            img(src='/img/gradr_logo.png')
         hr
         p.lead
             | Gradr is a study buddy finder based on current dating applications.
-    .container.alert.alert-danger#error(role="alert")
+    .container.alert.alert-danger#error(role='alert')
         
     .container
         form(role=form)
             .form-group
-                label(for="username")
+                label(for='username')
                     | Username
-                input#username.form-control(type="username")
+                input#username.form-control(type='username')
             .form-group
-                label(for="password")
+                label(for='password')
                     |Password
-                input.form-control#password(type="password")
+                input.form-control#password(type='password')
             .form-group
-                label(for="confirmPassword")
+                label(for='confirmPassword')
                     |Confirm Password
-                input.form-control#confirmPassword(type="password")
+                input.form-control#confirmPassword(type='password')
 
             
-            button.btn.btn-primary.login-buttons#registerButton(type="submit") Register
-            button.btn.btn-warning.login-buttons#cancelButton(type="button") Cancel
+            button.btn.btn-primary.login-buttons#registerButton(type='submit') Register
+            button.btn.btn-warning.login-buttons#cancelButton(type='button') Cancel
 
 block scripts
    script(src='/js/signup.js') 
