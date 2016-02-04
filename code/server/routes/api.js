@@ -58,7 +58,7 @@ router.get('/randomUser', function(req, res){
 });
 
 router.get('/getPotentialMatches', function(req, res){
-	UserMatches.getMatches(req.query.userId).then(function(ids){
+	UserMatches.getMatches(req.body.userId).then(function(ids){
 		User.getUsersById(ids).then(function(users) {
 			res.json({matches: users});
 		});
