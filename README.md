@@ -38,6 +38,8 @@
 ### Running Tests
 - Make sure you have all packages installed by running `sudo npm install` in the `/code/server` directory
 - run the run_tests script -- `./run_tests.sh`
+- To stub the user table and the matches table, run `sudo node main.js --stub_all`.
+  - You can also stub the user or matches tables individually by replacing `--stub_all` with `--stub_users` or `--stub_likes` respectively
     
     
 ### Fixing Merge Conflicts
