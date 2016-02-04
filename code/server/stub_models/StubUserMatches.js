@@ -71,7 +71,7 @@ var getMatches = function(userId) {
 
     return new Promise(function(resolve, reject) {
         var matches = {users: ids};
-        resolve(matches);
+        resolve(ids);
     });
 }
 

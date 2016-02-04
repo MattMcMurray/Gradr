@@ -5,6 +5,9 @@ var user1 = {
     password: 'wlkslkjaiusddhf7yq98pyrh43hh', //Not actually a password, mashed the keyboard
     school: 'University of Manitoba',
     generalDescription: 'Hi I love homework',
+    firstname: 'steve',
+    lastname: 'bairosns',
+    id: 111,
 }
 
 var user2 = {
@@ -12,6 +15,9 @@ var user2 = {
     password: ";lkjsda;ljifsd;jlfsd;ljksda;jlkdsa", //Not actually a password, mashed the keyboard
     school: 'University of Manitoba',
     generalDescription: 'I like doing schoolwork',
+    id: 222,
+    firstname: 'matt',
+    lastname: 'mcmurray',
 }
 
 var userList = [];
@@ -60,7 +66,7 @@ var getUsersById = function(ids) {
         users = {
             dataValues: results
         };
-        resolve(users);
+        resolve(results);
     });
 }
 
@@ -74,26 +80,33 @@ var getAllUsers = function() {
 }
 
 var createUser = function(credentials) {
-    var hashed = authenticator.encrypt(credentials.password);
-    var user = {
-        username: credentials.username,
-        password: hashed,
-                firstname: '',
-                lastname: '',
-                city: '',
-                country: '',
-                school: '',
-                courses: '',
-                generalDescription: '',
-                helpDescription: '',
-                dateOfBirth: null
-    };
-    return new Promise(function(resolve, reject) {
-        newUser = {
-            dataValues: user,
+    found = findUser('username', credentials.username);
+    if (found)
+        return new Promise(function(resolve, reject) {
+            reject(credentials);
+        });
+    else {
+        var hashed = authenticator.encrypt(credentials.password);
+        var user = {
+            username: credentials.username,
+            password: hashed,
+                    firstname: '',
+                    lastname: '',
+                    city: '',
+                    country: '',
+                    school: '',
+                    courses: '',
+                    generalDescription: '',
+                    helpDescription: '',
+                    dateOfBirth: null
         };
-        resolve(newUsers);
-    });
+        return new Promise(function(resolve, reject) {
+            newUser = {
+                dataValues: user,
+            };
+            resolve(newUser);
+        });
+    }
 }
 
 var createUserProfile = function(data) {

@@ -1,4 +1,4 @@
-$("#login-form").on('submit', function(event){
+$('#login-form').on('submit', function(event){
   event.preventDefault();
   
   $.ajax({
@@ -8,13 +8,13 @@ $("#login-form").on('submit', function(event){
     success: function(data){
       sessionStorage.setItem('username', data.user.username);
       sessionStorage.setItem('user_id', data.user.id);
-      $(".anonymous").show();
+      $('.anonymous').show();
 
       location.href = data.url;
 
     },
     error: function(data) {
-      $("#error").show();
+      $('#error').show();
     }
   });
 });
@@ -23,8 +23,8 @@ $("#login-form").on('submit', function(event){
 
 
 if (! sessionStorage.getItem('username') ) {
-    $("#home").attr("href", "/");
-    $(".anonymous").hide();
+    $('#home').attr('href', '/');
+    $('.anonymous').hide();
 }
 
 

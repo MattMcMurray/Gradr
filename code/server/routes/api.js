@@ -58,8 +58,8 @@ router.post("/login", function(req,res) {
 
 // Get a random user; useful for matching process
 router.get('/randomUser', function(req, res){
-
-	User.getRandom().then(function(user) {
+	console.log('api received ' + req.query.currUserId);
+	User.getRandom(req.query.currUserId).then(function(user) {
 		if (user != null) {
 			res.json({username: user.username, userID: user.id, school: user.school, firstname: user.firstname, lastname: user.lastname, helpDescription: user.helpDescription})	
 		} else {
@@ -102,7 +102,7 @@ router.get('/getUser', function(req, res) {
 
     if (req.query.user) {
         User.getUser(req.query.user).then(function(user) {
-            if (user) {
+            if (user.dataValues) {
               delete user.dataValues.password; // probably not the best idea to send this over the wire
               res.json({user: user.dataValues});
             } else {

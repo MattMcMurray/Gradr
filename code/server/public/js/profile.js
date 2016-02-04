@@ -1,8 +1,8 @@
 var edit_mode = false;
-var username = "";
+var username = '';
 
 $(function() {
-	$('#location').val("University Of Manitoba");
+	$('#location').val('University Of Manitoba');
 	//I should really check here if the sessionStorage is null and redirect if it is...
 	if (sessionStorage.getItem('username') == null) {
 		window.location.replace('/');
@@ -37,7 +37,7 @@ $('#editButton').click(function(e) {
 			},
 			error: function(error) {
 				//TODO: Tell the user about the error.
-				console.log("couldn't update");
+				console.log('couldn't update');
 				console.log(error);
 			}
 		});
@@ -56,7 +56,7 @@ var userCallback = function(data) {
 	username = data.user.username;
 	$('#username').append(username);
 	$('#generalDescription').html(data.user.generalDescription);
-	$("#helpDescription").html(data.user.helpDescription);
+	$('#helpDescription').html(data.user.helpDescription);
 	$('#school').val(data.user.school); //Inputs prefer when you set there value through val
 	console.log(data);
 }
