@@ -60,7 +60,7 @@ describe('api', function() {
             request(app)
             .post('/api/NewUser')
             .send({'username': 'TestingUsername', 'password': 'password'})
-            .expect(500)
+            .expect(400)
             .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function(err, res) {
                 if(err) done(err);
@@ -165,8 +165,7 @@ describe('api', function() {
     describe ('GET /api/getPotentialMatches', function() {
         it('requests a list of users that are a match for a provided userID', function(done) {
             request(app)
-            .get('/api/getPotentialMatches')
-            .send({'userId': 1})
+            .get('/api/getPotentialMatches?userId=1')
             .expect(200)
             .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function(err, res) {
@@ -180,8 +179,7 @@ describe('api', function() {
         });
         it('requests a list of matches when none exist', function(done) {
             request(app)
-            .get('/api/getPotentialMatches')
-            .send({userId: 3})
+            .get('/api/getPotentialMatches?userId=3')
             .expect(200)
             .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function(err, res) {
