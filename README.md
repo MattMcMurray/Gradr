@@ -1,5 +1,14 @@
 ### For the marker:
 - Our Trello page for iteration 1 (task tracking): https://trello.com/b/mpbIdgMg/iteration-1
+- To run the server:
+    - `cd` into `Gradr/code/server`
+    - run `sudo ./get_started.sh` to install all dependencies
+    - run `sudo node main.js`
+- To run tests:
+    - `cd` into `Gradr/code/server`
+    - install mocha testing framework with `npm install -g mocha`
+    - Make sure you've run the server once (this creates all tables for database and initializes things properly)
+    - run `sudo ./run_tests.sh`
 
 ### Getting started and setting up the dev environment:
 - Set up a virtual machine running Ubuntu (or use your Ubuntu machine)
@@ -29,6 +38,8 @@
 ### Running Tests
 - Make sure you have all packages installed by running `sudo npm install` in the `/code/server` directory
 - run the run_tests script -- `./run_tests.sh`
+- To stub the user table and the matches table, run `sudo node main.js --stub_all`.
+  - You can also stub the user or matches tables individually by replacing `--stub_all` with `--stub_users` or `--stub_likes` respectively
     
     
 ### Fixing Merge Conflicts

@@ -6,6 +6,18 @@ var User = require('../models/User.js');
 var UserMatches = require('../models/UserMatches.js');
 var authenticator = require("../mixins/authenticator.js");
 
+var injectUser = function(user) {
+	if (user) {
+		User = user;
+	}
+};
+
+var injectLikes = function(likes) {
+	if (likes) {
+		UserMatches = likes;
+	}
+};
+
 router.get('/', function (req, res) {
 	res.json({message: 'Hello world!'});
 });
@@ -58,7 +70,7 @@ router.get('/randomUser', function(req, res){
 });
 
 router.get('/getPotentialMatches', function(req, res){
-	UserMatches.getMatches(req.query.userId).then(function(ids){
+	UserMatches.getMatches(req.body.userId).then(function(ids){
 		User.getUsersById(ids).then(function(users) {
 			res.json({matches: users});
 		});
@@ -82,7 +94,7 @@ router.get('/getUser', function(req, res) {
         User.getUser(req.query.user).then(function(user) {
             if (user) {
               delete user.dataValues.password; // probably not the best idea to send this over the wire
-              res.json({user: user});
+              res.json({user: user.dataValues});
             } else {
               res.json({user: null});
             }
@@ -103,4 +115,8 @@ function getProfileDate(req) {
 		dateOfBirth: req.body.dateOfBirth};
 }
 
-module.exports = {router};
+module.exports = {
+	router,
+	injectUser: injectUser,
+	injectLikes: injectLikes,
+};

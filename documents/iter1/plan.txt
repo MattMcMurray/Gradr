@@ -1,0 +1,57 @@
+Schedule Updates:
+
+For Iteration 1, we planned the following:
+
+Accounts (8 hours)
+Big User Story: I would like to make an account.  There should be two sections, one for public information and one for information only visible to matched study partners.
+Detailed User Stories:
+	- I want to be able to set up a new account (4 hours | HIGH)  - COMPLETE
+	- I want to be able to edit details on my account (3 hours | Medium) -  COMPLETE
+	- I want to be able to link my account to my Facebook/LinkedIn (1 hours | LOW) - INCOMPLETE
+
+Matches (11 hours)
+Big User Story: I would like to see a list of all matches when both me and the study partner both accepted a match.
+Detailed User Stories:
+	- I want to be able to pass/fail potential study matches (5 hours | HIGH) - COMPLETE
+	- I want to be able to see a list of my final matches (3 hours | Medium) - PARTIAL (UI is not ready yet)
+	- I want to be notified when someone matches with me (3 Hours | Low) - INCOMPLETE
+
+Viewing Profiles (10.5 hours)
+Big User Story: I want to see more in-depth information on matched study partners.
+Detailed User Stories:
+	- I want to see a breakdown of a user's ratings (3 hours | High) - INCOMPLETE
+	- I want to see a picture of the user (4 hours | Medium) - INCOMPLETE
+	- I want to be able to see the user's information (3.5 | HIGH) - INCOMPLETE
+
+
+
+We clearly weren't able to complete all of our tasks this iteration. Like with any project, there's a lot of overhead with ramping up. We were definitely way overambitious with our estimates, as we likely went way over for pretty much every story.
+Some things that were added to our backlog, which didn't appear in our stories were:
+	- Having persistent sign-in status
+	- Logging out of your account
+	- Cat photos as a placeholder for actual profile pictures (and because they're fun)
+	- Input validation and password hashing on sign-in page
+
+
+For Iteration 2, we'd like to do the following big stories:
+
+Viewing Profiles (10.5 hours) (CARRIED OVER FROM Iteration 1)
+Big User Story: I want to see more in-depth information on matched study partners.
+Detailed User Stories:
+	- I want to see a breakdown of a user's ratings (3 hours | Medium)
+	- I want to see a picture of the user (4 hours | Low)
+	- I want to be able to see the user's information (3.5 | High)
+
+Rating System (16 hours)
+Big User Story: I want a way to rate study partners, depending on how they performed during our session.
+Detailed User Stories:
+	- I want to be able to rate a past study partner (6 hours | High)
+	- I want to be able to see what other people have rated a user (5 hours | Medium)
+	- I want to see what my rating is on my profile page (5 hours | Low)
+
+Deletion (7 hours)
+Big User Story: I would like to delete my account, and have it actually deleted.
+	- I want to be able to delete my account (4 hours | Medium)
+	- I want to be able to log out (3 hours | High) - We actually did this in Iteration 1 because we needed it for testing purposes
+
+	
