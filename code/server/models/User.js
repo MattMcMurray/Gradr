@@ -109,7 +109,7 @@ var getRandom = function(currUserId) {
     console.log('currUserId: ' + currUserId);
     return UserMatches.getPreviouslyRatedIds(currUserId).then(function(prevRatedUsers) {
         var idCondition;
-        if(prevRatedUsers.legnth == 0) {
+        if(prevRatedUsers.length == 0) {
             idCondition = {
                 $ne: currUserId
             };
@@ -124,7 +124,7 @@ var getRandom = function(currUserId) {
                     id: idCondition
                 }
             }).then(function(users){
-                return users[Math.floor(Math.random() * users.length)];var rand = users[Math.floor(Math.random() * users.length)];
+                return users[Math.floor(Math.random() * users.length)];
         });
     });
 }
