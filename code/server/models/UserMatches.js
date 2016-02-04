@@ -61,13 +61,12 @@ var getMatches = function(userId) {
 };
 
 var getPreviouslyRatedIds = function(userId) {
-    console.log('finding previous reviews for ' + userId);
     return UserMatches.findAll({
         where: {
             liker_id: userId
         }
     }).then(function(users) {
-        var ids = []
+        var ids = [];
         for(var i=0; i < users.length; i++)
         {
             ids[i] = users[i].likee_id;
