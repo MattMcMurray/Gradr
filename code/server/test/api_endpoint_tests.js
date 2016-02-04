@@ -103,8 +103,8 @@ describe('api', function() {
             });
         });
     });
-
-   /* describe('POST /login', function() {
+/*
+    describe('POST /login', function() {
         it('logins in a user', function(done) {
             request(app)
             .post('/api/login')
@@ -147,19 +147,21 @@ describe('api', function() {
                 done();
             });
         });
-    });*/
+    });
+*/
 
     describe('GET /randomUser', function() {
         it('gets a random user', function(done) {
             request(app)
             .get('/api/randomUser')
-            .send({'currUserId': 1})
+            .send({'currUserId': 111})
             .expect(200)
             .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function(err, res) {
                 if(err) done(err);
                 assert.that(res.body.username).is.not.null();
-                assert.that(res.body.userID).is.not.null();
+                assert.that(res.body.userId).is.not.null();
+                assert.that(res.body.userId).is.not.equalTo(111);
                 done();
             });
         });

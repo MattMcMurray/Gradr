@@ -1,4 +1,5 @@
-var authenticator = require("../mixins/authenticator.js")
+var authenticator = require("../mixins/authenticator.js");
+var StubUserMatches = require('./StubUserMatches.js');
 
 var user1 = {
     username: "bairosns",
@@ -20,9 +21,20 @@ var user2 = {
     lastname: 'mcmurray',
 }
 
+var user3 = {
+    username: 'calebmueller',
+    password: 'fjefienfuerliuwhrlkjwehrl23h333333',
+    school: 'University of Winnipeg',
+    generalDescription: 'I hate everyone',
+    firstname: 'caleb',
+    lastname: 'mueller',
+    id: 333
+}
+
 var userList = [];
 userList.push(user1);
 userList.push(user2);
+userList.push(user3);
 
 //This is an internal function.
 function findUser(field, value) {
@@ -122,9 +134,15 @@ var createUserProfile = function(data) {
     user.dateOfBirth = data.dateOfBirth;
 }
 
-var getRandom = function() {
-    var rand = Math.floor(Math.random()*userList.length);
+var getRandom = function(currUserId) {
+    //achieves expectable results for unit tests
+    //it is a stub, after all
     return new Promise(function(resolve, reject) {
+        if (currUserId == 111) {
+            rand = 2;
+        } else {
+            rand = 1;
+        }
         users = {
             dataValues: userList[rand],
         };
