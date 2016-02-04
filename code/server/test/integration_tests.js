@@ -41,7 +41,7 @@ describe('Integration Tests', function() {
         it('Create valid user', function(done) {
             // now create a VALID user and expect a 200 response
             request(app)
-            .post('/api/newUser')
+            .post('/api/NewUser')
             .type('form')
             .send({'username': username, 'password': password, 'confirmPassword': password})
             .expect(200)
