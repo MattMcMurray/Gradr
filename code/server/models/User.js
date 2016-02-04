@@ -1,6 +1,6 @@
-var Sequelize = require("sequelize");
-var connection = require("../database.js").sequelize;
-var authenticator = require("../mixins/authenticator.js")
+var Sequelize = require('sequelize');
+var connection = require('../database.js').sequelize;
+var authenticator = require('../mixins/authenticator.js')
 
 //IF YOU DARE RENAME ONE OF THESE FIELDS, YOU MUST UPDATE THE EQUIVALENT FIELD IN profile.jade
 //IF YOU DON'T KNOW WHAT THIS ENTAILS ASK STEVE, HE KNOWS AND CARES
@@ -106,7 +106,7 @@ var createUserProfile = function(data) {
 
 var getRandom = function() {
     return UserConnection.findAll().then(function(users){
-        return users[Math.floor(Math.random() * users.length)];var rand = users[Math.floor(Math.random() * users.length)];
+        return users[Math.floor(Math.random() * users.length)];
     });
 }
 // 
