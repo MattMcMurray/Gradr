@@ -168,7 +168,7 @@ describe('api', function() {
     describe ('GET /api/getPotentialMatches', function() {
         it('requests a list of users that are a match for a provided userID', function(done) {
             request(app)
-            .get('/api/getPotentialMatches?userId=1')
+            .get('/api/getPotentialMatches?userId=111')
             .expect(200)
             .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function(err, res) {
