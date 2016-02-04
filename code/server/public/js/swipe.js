@@ -1,5 +1,16 @@
 $(function() {
     getNewUser();
+
+    // Super secure security :D
+    var username = sessionStorage.getItem('username');
+    var user_id = sessionStorage.getItem('user_id');
+
+    if (!username || !user_id) {
+        location.replace('/');
+    } else {
+        // TODO iteration2: verify authenticity of logged in user; right now security basically doesn't exist
+    }
+
 });
 
 $('#likeButton').click(function(e) {
@@ -22,9 +33,6 @@ var userCallback = function(data) {
     $('#lastName').html(toTitleCase(data.lastname));
     $('#helpDescript').html(toTitleCase(data.helpDescription));
 
-    // $('#userFullName').html(toTitleCase(data['results'][0]['user']['name']['first'] + ' ' + data['results'][0]['user']['name']['last']));
-    // $('#gender').html(toTitleCase(data['results'][0]['user']['gender']));
-    // $('#location').html(toTitleCase(data['results'][0]['user']['location']['city'] + ', ' + data['results'][0]['user']['location']['state']));
 }
 
 // Capitalizes the first letter of each word

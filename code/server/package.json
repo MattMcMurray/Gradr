@@ -17,13 +17,17 @@
   },
   "homepage": "https://github.com/MattMcMurray/softeng2#readme",
   "dependencies": {
+    "assertthat": "^0.6.0",
     "bcrypt": "^0.8.5",
     "body-parser": "^1.14.2",
     "cookie-parser": "^1.4.1",
     "express": "^4.13.3",
     "jade": "^1.11.0",
+    "minimist": "^1.2.0",
+    "mocha": "^2.4.5",
     "multer": "^1.1.0",
     "sequelize": "^3.17.1",
-    "sqlite3": "^3.1.1"
+    "sqlite3": "^3.1.1",
+    "supertest": "^1.1.0"
   }
 }
