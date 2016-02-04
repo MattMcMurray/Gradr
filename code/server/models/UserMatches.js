@@ -1,6 +1,6 @@
-var Sequelize = require("sequelize");
-var connection = require("../database.js").sequelize;
-var User = require("./User.js");
+var Sequelize = require('sequelize');
+var connection = require('../database.js').sequelize;
+var User = require('./User.js');
 
 UserMatches = connection.define('user_matches', {
     liker_id: {
@@ -42,7 +42,7 @@ var addUserMatch = function(_liker_id, _likee_id, _likes) {
         // console.log(result);
         // console.log(created);
     }).catch(function(errors) {
-        console.log("ERROR: Sequelize errors occured while adding match for userIDs %d and %d", 
+        console.log('ERROR: Sequelize errors occured while adding match for userIDs %d and %d', 
                 _liker_id, _likee_id);
     });
 };
