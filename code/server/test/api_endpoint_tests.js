@@ -58,20 +58,20 @@ describe('api', function() {
           });
       });
 
-      it('fails to creates a new user', function(done) {
-        request(app)
-        .post('/api/NewUser')
-        .send({'username': 'mattmcmurray', 'password': 'password'})
-        .expect(500)
-        .expect('Content-Type', 'application/json; charset=utf-8')
-        .end(function(err, res) {
-          if (err) done(err);
-          else {
-            assert.that(res.body.error).is.not.null();
-            done();
-          }
+        it('fails to creates a new user', function(done) {
+            request(app)
+            .post('/api/NewUser')
+            .send({'username': 'TestingUsername', 'password': 'password'})
+            .expect(400)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                else {
+                    assert.that(res.body.error).is.not.null();
+                    done();
+                }
+            });
         });
-      });
     });
 
     describe('POST /ProfileUpdate', function() {
@@ -168,8 +168,7 @@ describe('api', function() {
     describe ('GET /api/getPotentialMatches', function() {
         it('requests a list of users that are a match for a provided userID', function(done) {
             request(app)
-            .get('/api/getPotentialMatches')
-            .send({'userId': 111})
+            .get('/api/getPotentialMatches?userId=111')
             .expect(200)
             .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function(err, res) {
@@ -183,8 +182,7 @@ describe('api', function() {
         });
         it('requests a list of matches when none exist', function(done) {
             request(app)
-            .get('/api/getPotentialMatches')
-            .send({userId: 3})
+            .get('/api/getPotentialMatches?userId=3')
             .expect(200)
             .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function(err, res) {

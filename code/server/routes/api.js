@@ -23,14 +23,17 @@ router.get('/', function (req, res) {
 });
 
 router.post('/NewUser', function (req, res) {
-	User.createUser(getCredentials(req)).then(function(data){
-		console.log('New user ' + req.body.username + ' created');
-		res.json({url:"/", message: 'New user created'});
-	}).catch(function(error){
-		res.status(500);
-		res.json(error);
-	});
-	
+    if (req.body.password === req.body.confirmPassword) {
+        User.createUser(getCredentials(req)).then(function(data){
+            console.log('New user ' + req.body.username + ' created');
+            res.json({url:"/", message: 'New user created'});
+        }).catch(function(error){
+            res.status(500);
+            res.json(error);
+        });
+    } else {
+        res.status(400).json({'msg': 'Passwords do not match'});
+    }
 });
 
 router.post('/ProfileUpdate', function (req, res) {
@@ -70,7 +73,7 @@ router.get('/randomUser', function(req, res){
 });
 
 router.get('/getPotentialMatches', function(req, res){
-	UserMatches.getMatches(req.body.userId).then(function(ids){
+	UserMatches.getMatches(req.query.userId).then(function(ids){
 		User.getUsersById(ids).then(function(users) {
 			res.json({matches: users});
 		});
@@ -102,7 +105,7 @@ router.get('/getUser', function(req, res) {
 
     if (req.query.user) {
         User.getUser(req.query.user).then(function(user) {
-            if (user.dataValues) {
+            if (user && user.dataValues) {
               delete user.dataValues.password; // probably not the best idea to send this over the wire
               res.json({user: user.dataValues});
             } else {

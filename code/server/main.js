@@ -58,7 +58,7 @@ function processOptions(args) {
             case options[4]:
                 api.injectLikes(stubUser);
                 api.injectLikes(stubLikes);
-                console.log("EVERYTHING IS A STUB!!!!!!!!!!!!!");
+                console.log("EVERYTHING IS A STUB!");
                 break;
             default:
                 console.log("Invalid option name specified. [%s]", arg);
