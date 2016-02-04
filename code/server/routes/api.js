@@ -12,6 +12,12 @@ var injectUser = function(user) {
 	}
 };
 
+var injectLikes = function(likes) {
+	if (likes) {
+		UserMatches = likes;
+	}
+};
+
 router.get('/', function (req, res) {
 	res.json({message: 'Hello world!'});
 });
@@ -112,4 +118,5 @@ function getProfileDate(req) {
 module.exports = {
 	router,
 	injectUser: injectUser,
+	injectLikes: injectLikes,
 };
