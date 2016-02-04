@@ -194,7 +194,7 @@ describe('api', function() {
     });
 
     describe('POST /api/likeUser', function() {
-        it('creates a new \'like\' record', function(done) {
+        it('creates a new \'like\' record with two different, valid ids', function(done) {
             request(app)
             .post('/api/likeUser')
             .send({liker_id: 10, likee_id: 20})
@@ -207,12 +207,54 @@ describe('api', function() {
                 assert.that(res.body.likee_id).is.equalTo(20);
                 assert.that(res.body.likes).is.equalTo(true);
                 done();
-            })
-        })
+            });
+        });
+
+        it('creates a new \'like\' record with empty ids', function(done) {
+            request(app)
+            .post('/api/likeUser')
+            .send({liker_id: null, likee_id: null})
+            .expect(500)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.error).is.not.null();
+                assert.that(res.body.error.name).is.equalTo('SequelizeValidationError');
+                done();
+            });
+        });
+
+        it('creates a new \'like\' record with non-existant ids', function(done) {
+            request(app)
+            .post('/api/likeUser')
+            .send({liker_id: -1, likee_id: -2})
+            .expect(500)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.error).is.not.null();
+                assert.that(res.body.error.name).is.equalTo('SequelizeForeignKeyConstraintError');
+                done();
+            });
+        });
+
+        it('creates a new \'like\' record with non-numerical ids', function(done) {
+            request(app)
+            .post('/api/likeUser')
+            .send({liker_id: 'liker', likee_id: 'likee'})
+            .expect(500)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.error).is.not.null();
+                assert.that(res.body.error.name).is.equalTo('SequelizeForeignKeyConstraintError');
+                done();
+            });
+        });
     });
 
     describe('POST /api/dislikeUser', function() {
-        it('creates a new \'dislike\' record', function(done) {
+        it('creates a new \'dislike\' record with two different, valid ids', function(done) {
             request(app)
             .post('/api/dislikeUser')
             .send({liker_id: 10, likee_id: 30})
@@ -225,7 +267,49 @@ describe('api', function() {
                 assert.that(res.body.likee_id).is.equalTo(30);
                 assert.that(res.body.likes).is.equalTo(false);
                 done();
-            })
-        })
+            });
+        });
+
+        it('creates a new \'dislike\' record with empty ids', function(done) {
+            request(app)
+            .post('/api/dislikeUser')
+            .send({liker_id: null, likee_id: null})
+            .expect(500)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.error).is.not.null();
+                assert.that(res.body.error.name).is.equalTo('SequelizeValidationError');
+                done();
+            });
+        });
+
+        it('creates a new \'like\' record with non-existant ids', function(done) {
+            request(app)
+            .post('/api/dislikeUser')
+            .send({liker_id: -1, likee_id: -2})
+            .expect(500)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.error).is.not.null();
+                assert.that(res.body.error.name).is.equalTo('SequelizeForeignKeyConstraintError');
+                done();
+            });
+        });
+
+        it('creates a new \'like\' record with non-numerical ids', function(done) {
+            request(app)
+            .post('/api/dislikeUser')
+            .send({liker_id: 'liker', likee_id: 'likee'})
+            .expect(500)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.error).is.not.null();
+                assert.that(res.body.error.name).is.equalTo('SequelizeForeignKeyConstraintError');
+                done();
+            });
+        });
     });
 });
