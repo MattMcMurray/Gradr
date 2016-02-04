@@ -91,22 +91,7 @@ router.get('/getUser', function(req, res) {
         res.sendStatus(401); // bad request; no user included in GET vars
     }
 });
-/*
-router.get('/user', function(req, res) {
-	console.log(req.query.username);
-	var username = req.query.username;
-	User.getUser(username).then(function(user) {
-		if (user != null) {
-			res.json({firstname: user.firstname, lastname: user.lastname, country: user.country, 
-				courses: user.courses, city: user.city, school: user.school, generalDescription: user.generalDescription, 
-				helpDescription: user.helpDescription, dateOfBirth: user.dateOfBirth});
-		}
-		else {
-			res.json({message: "Something went wrong"});
-		}
-	});
-});
-*/
+
 function getCredentials(req){
 	return {username: req.body.username, password: req.body.password};
 }

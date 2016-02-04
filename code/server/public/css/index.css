@@ -20,3 +20,8 @@ body {
 #error {
 	display: none;
 }
+
+.anonymous {
+	display: none;
+}
+
