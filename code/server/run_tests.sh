@@ -5,11 +5,14 @@ if [ $EUID != 0 ]; then
     exit $?
 fi
 
+echo "[STARTING SERVER TO INIT DATABASE]"
 rm study_database.sqlite
 node main.js &
-sleep 2 # allow the node app to create tables before killing process
+echo "[PLEASE WAIT... PREPOPULATING DATABASE]"
+sleep 5 # allow the node app to create tables before killing process
 pkill node
 sqlite3 study_database.sqlite < dbscripts/testusers.sql
+echo "[RUNNING TESTS NOW]"
 mocha
 
 
