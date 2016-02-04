@@ -5,6 +5,9 @@ var user1 = {
     password: 'wlkslkjaiusddhf7yq98pyrh43hh', //Not actually a password, mashed the keyboard
     school: 'University of Manitoba',
     generalDescription: 'Hi I love homework',
+    firstname: 'steve',
+    lastname: 'bairosns',
+    id: 111,
 }
 
 var user2 = {
@@ -12,6 +15,9 @@ var user2 = {
     password: ";lkjsda;ljifsd;jlfsd;ljksda;jlkdsa", //Not actually a password, mashed the keyboard
     school: 'University of Manitoba',
     generalDescription: 'I like doing schoolwork',
+    id: 222,
+    firstname: 'matt',
+    lastname: 'mcmurray',
 }
 
 var userList = [];
@@ -60,7 +66,7 @@ var getUsersById = function(ids) {
         users = {
             dataValues: results
         };
-        resolve(users);
+        resolve(results);
     });
 }
 
@@ -92,7 +98,7 @@ var createUser = function(credentials) {
         newUser = {
             dataValues: user,
         };
-        resolve(newUsers);
+        resolve(newUser);
     });
 }
 

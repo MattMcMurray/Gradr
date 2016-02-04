@@ -1,23 +1,23 @@
 var app = require('../main.js');
 var request = require('supertest');
 var assert = require('assertthat'); // View README for documentation https://github.com/thenativeweb/assertthat
-var user = require('../models/User.js');
+var user = require('../stub_models/StubUser.js');
 
 describe('User', function() {
   describe('User getUser', function() {
     it('requests a user', function(done) {
-      user.getUser('npeters3t').then(function(data) {
+      user.getUser('bairosns').then(function(data) {
         assert.that(data).is.not.null();
-        assert.that(data.username).is.equalTo('npeters3t');
-        assert.that(data.firstname).is.equalTo('Nicole');
-        assert.that(data.lastname).is.equalTo('Peters');
+        assert.that(data.dataValues.username).is.equalTo('bairosns');
+        assert.that(data.dataValues.firstname).is.equalTo('steve');
+        assert.that(data.dataValues.lastname).is.equalTo('bairosns');
         done();
       });
     });
 
     it('requests a user that doesn\'t exists', function(done) {
       user.getUser('MichaelMcDoesntExist').then(function(data) {
-        assert.that(data).is.null();
+        assert.that(data.dataValues).is.null();
         done();
       });
     });
@@ -25,10 +25,11 @@ describe('User', function() {
 
   describe('User getUsersById', function() {
     it('requests a list of users', function(done) {
-      user.getUsersById([337, 400]).then(function(data) {
+      user.getUsersById([111, 222]).then(function(data) {
         assert.that(data).is.not.null();
         assert.that(data.length).is.equalTo(2);
-        //add asserts to verify user data after stubs are added
+        assert.that(data[0].username).is.equalTo('bairosns');
+        assert.that(data[1].username).is.equalTo('mattmcmurray');
         done();
       });
     });
@@ -37,7 +38,6 @@ describe('User', function() {
       user.getUsersById([]).then(function(data) {
         assert.that(data).is.not.null();
         assert.that(data.length).is.equalTo(0);
-        //add asserts to verify user data after stubs are added
         done();
       });
     });
@@ -46,9 +46,8 @@ describe('User', function() {
   describe('User getAllUsers', function() {
     it('requests a list of all users', function(done) {
       user.getAllUsers().then(function(data) {
-        assert.that(data).is.not.null();
-        //for stubs
-        //assert.that(data.length).is.equalTo();
+        assert.that(data.dataValues).is.not.null();
+        assert.that(data.dataValues.length).is.atLeast(2);
         done();
       });
     });
@@ -57,9 +56,9 @@ describe('User', function() {
   describe('User createUser', function() {
     it('creates a new user', function(done) {
       user.createUser({'username': 'Testing', 'password': 'password'}).then(function(data) {
-        assert.that(data).is.not.null();
-        assert.that(data.username).is.equalTo('Testing');
-        assert.that(data.password).is.not.equalTo('password');
+        assert.that(data.dataValues).is.not.null();
+        assert.that(data.dataValues.username).is.equalTo('Testing');
+        assert.that(data.dataValues.password).is.not.equalTo('password');
         done();
       });
     });
@@ -67,18 +66,31 @@ describe('User', function() {
 
   describe('User createUserProfile', function() {
     it('fills out a profile fields', function(done) {
-      user.createUserProfile({}).then(function(data) {
-        assert.that()
-      })
-    })
-  })
-});
-
-/*
-var getUsersById = function(ids) {
-    return UserConnection.findAll({
-        where:{
-            id: ids
-        }
+      user.createUserProfile({'username':'bairosns', 'firstname': 'steve', 'lastname': 'bairosns' , 'city': 'Winnipeg', 'country': 'Canada', 'school': 'uofm', 'courses': '4350', 'generalDescription': 'test', 'helpDescription': 'test', 'dateOfBirth': null});
+      user.getUser('bairosns').then(function(data) {
+        assert.that(data.dataValues).is.not.null();
+        assert.that(data.dataValues.username).is.equalTo('bairosns');
+        assert.that(data.dataValues.firstname).is.equalTo('steve');
+        assert.that(data.dataValues.lastname).is.equalTo('bairosns');
+        assert.that(data.dataValues.country).is.equalTo('Canada');
+        assert.that(data.dataValues.school).is.equalTo('uofm');
+        assert.that(data.dataValues.courses).is.equalTo('4350');
+        assert.that(data.dataValues.generalDescription).is.equalTo('test');
+        assert.that(data.dataValues.helpDescription).is.equalTo('test');
+        assert.that(data.dataValues.city).is.equalTo('Winnipeg');
+        assert.that(data.dataValues.dateOfBirth).is.null();
+        done();
+      });
     });
-}*/
+  });
+
+  describe('User getRandom', function() {
+    it('gets a random user', function(done) {
+      user.getRandom().then(function(data) {
+        assert.that(data.dataValues).is.not.null();
+        assert.that(data.dataValues.username).is.not.null();
+        done();
+      });
+    });
+  });
+});
