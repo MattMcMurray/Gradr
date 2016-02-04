@@ -219,7 +219,6 @@ describe('api', function() {
             .end(function(err, res) {
                 if(err) done(err);
                 assert.that(res.body.error).is.not.null();
-                assert.that(res.body.error.name).is.equalTo('SequelizeValidationError');
                 done();
             });
         });
@@ -233,7 +232,6 @@ describe('api', function() {
             .end(function(err, res) {
                 if(err) done(err);
                 assert.that(res.body.error).is.not.null();
-                assert.that(res.body.error.name).is.equalTo('SequelizeForeignKeyConstraintError');
                 done();
             });
         });
@@ -247,7 +245,6 @@ describe('api', function() {
             .end(function(err, res) {
                 if(err) done(err);
                 assert.that(res.body.error).is.not.null();
-                assert.that(res.body.error.name).is.equalTo('SequelizeForeignKeyConstraintError');
                 done();
             });
         });
@@ -279,7 +276,6 @@ describe('api', function() {
             .end(function(err, res) {
                 if(err) done(err);
                 assert.that(res.body.error).is.not.null();
-                assert.that(res.body.error.name).is.equalTo('SequelizeValidationError');
                 done();
             });
         });
@@ -293,7 +289,6 @@ describe('api', function() {
             .end(function(err, res) {
                 if(err) done(err);
                 assert.that(res.body.error).is.not.null();
-                assert.that(res.body.error.name).is.equalTo('SequelizeForeignKeyConstraintError');
                 done();
             });
         });
@@ -307,7 +302,6 @@ describe('api', function() {
             .end(function(err, res) {
                 if(err) done(err);
                 assert.that(res.body.error).is.not.null();
-                assert.that(res.body.error.name).is.equalTo('SequelizeForeignKeyConstraintError');
                 done();
             });
         });
