@@ -47,7 +47,7 @@ router.post("/login", function(req,res) {
 // Get a random user; useful for matching process
 router.get('/randomUser', function(req, res){
 
-	User.getRandom().then(function(user) {
+	User.getRandom(req.body.currUserId).then(function(user) {
 		if (user != null) {
 			res.json({username: user.username, userID: user.id, school: user.school, firstname: user.firstname, lastname: user.lastname, helpDescription: user.helpDescription})	
 		} else {
