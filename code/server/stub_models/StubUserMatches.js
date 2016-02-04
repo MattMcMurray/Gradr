@@ -54,7 +54,10 @@ var getMatches = function(userId) {
         }
     }
 
-    return ids;
+    return new Promise(function(resolve, reject) {
+        var matches = {users: ids};
+        resolve(matches);
+    });
 }
 
 module.exports = {
