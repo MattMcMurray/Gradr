@@ -16,7 +16,7 @@ echo
 sleep 5 # allow the node app to create tables before killing process
 pkill node # kill the node process; mocha restarts it and will fail if there's something bound to port 80
 sqlite3 study_database.sqlite < dbscripts/testusers.sql
-echo "[RUNNING UNIT TESTS NOW""]"
+echo "[RUNNING UNIT TESTS NOW]"
 echo
 mocha test/api_endpoint_tests.js > test_output/api_endpoint_test.log
 mocha test/User_unit_tests.js > test_output/user_unit_test.log
