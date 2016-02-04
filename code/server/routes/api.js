@@ -11,14 +11,17 @@ router.get('/', function (req, res) {
 });
 
 router.post('/NewUser', function (req, res) {
-	User.createUser(getCredentials(req)).then(function(data){
-		console.log('New user ' + req.body.username + ' created');
-		res.json({url:"/", message: 'New user created'});
-	}).catch(function(error){
-		res.status(500);
-		res.json(error);
-	});
-	
+    if (req.body.password === req.body.confirmPassword) {
+        User.createUser(getCredentials(req)).then(function(data){
+            console.log('New user ' + req.body.username + ' created');
+            res.json({url:"/", message: 'New user created'});
+        }).catch(function(error){
+            res.status(500);
+            res.json(error);
+        });
+    } else {
+        res.status(400).json({'msg': 'Passwords do not match'});
+    }
 });
 
 router.post('/ProfileUpdate', function (req, res) {
