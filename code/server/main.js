@@ -33,21 +33,8 @@ var server = app.listen(port, function() {
 });
 
 function processOptions(args) {
-    api.injectUser(stubUser);
-    // user.getUser("bairosns").then(function(user) {
-    //         console.log(user);
-    //         if (user) {
-    //           console.log("user exists");
-    //           delete user.dataValues.password; // probably not the best idea to send this over the wire
-    //           res.json({user: user});
-    //         } else {
-    //           console.log("user doesn't exists");
-    //           res.json({user: null});
-    //         }
-    //     });
-
     
-    var options = ['fill_database', 'clear_database'];
+    var options = ['fill_database', 'clear_database', 'stub_users'];
     var db = require('./database.js');
 
     // minimist uses '_' to hold any arguments not associated with an option, not needed
@@ -60,6 +47,10 @@ function processOptions(args) {
                 break;
             case options[1]:
                 db.clearDatabase();
+                break;
+            case options[2]:
+                api.injectUser(stubUser);
+                console.log("RUNNING WITH USER DB STUBBED");
                 break;
             default:
                 console.log("Invalid option name specified. [%s]", arg);

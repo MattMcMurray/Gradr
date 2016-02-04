@@ -88,7 +88,7 @@ router.get('/getUser', function(req, res) {
         User.getUser(req.query.user).then(function(user) {
             if (user) {
               delete user.dataValues.password; // probably not the best idea to send this over the wire
-              res.json({user: user});
+              res.json({user: user.dataValues});
             } else {
               res.json({user: null});
             }
