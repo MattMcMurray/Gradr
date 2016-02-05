@@ -37,7 +37,7 @@ $('#editButton').click(function(e) {
 			},
 			error: function(error) {
 				//TODO: Tell the user about the error.
-				console.log('couldn't update');
+				console.log('couldn\'t update');
 				console.log(error);
 			}
 		});
