@@ -43,6 +43,7 @@ function processOptions(args) {
     for (var arg in args) {
         switch (arg) {
             case options[0]:
+                console.log("filling db");
                 db.fillDatabase(args.env);
                 break;
             case options[1]:

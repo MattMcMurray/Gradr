@@ -34,6 +34,11 @@ echo "[RUNNING INTEGRATION TESTS NOW]"
 echo
 mocha test/integration_tests.js > test_output/integration_test.log
 
+echo "[Running DATABASE UNIT TESTS]"
+echo
+cd test
+mocha DB_unit_tests.js > ../test_output/unit_tests.log
+
 echo "[TEST RESULTS PLACED IN test_output DIRECTORY]"
 echo
 

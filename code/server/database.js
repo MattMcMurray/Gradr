@@ -26,7 +26,7 @@ var clearDatabase = function(env) {
 
 
 function setPath(env) {
-    var path = 'dbscripts/testusers.sql';
+    var path ='/dbscripts/testusers.sql';
     if (env == 'test') {
         path = "../" + path;
     }

@@ -4,6 +4,7 @@ var User = require('../models/User.js');
 var request = require('supertest');
 var assert = require('assertthat'); // View README for documentation https://github.com/thenativeweb/assertthat
 
+
 describe('Database query tests', function() {
 
 	describe('UserMatches queries', function() {
@@ -11,6 +12,7 @@ describe('Database query tests', function() {
 		describe('addUserMatch', function() {
 			it('adds a new like or dislike to the table', function(done) {
 				userMatches.addUserMatch(1,2,true).then(function(data){
+					console.log(data);
 					assert.that(data).is.not.null();
 					assert.that(data.liker_id).is.equalTo(1);
 					assert.that(data.likee_id).is.equalTo(2);
@@ -60,7 +62,7 @@ describe('Database query tests', function() {
 		describe('getUsersById', function() {
 
 			it ('returns user data of the give userid', function(done) {
-				User.getUsersById(2).then(function(user){
+				User.getUsersById(1).then(function(user){
 					
 					assert.that(user).is.not.null();
 					assert.that(user.length).is.equalTo(1);
