@@ -104,50 +104,51 @@ describe('api', function() {
         });
     });
 
-   /* describe('POST /login', function() {
-        it('logins in a user', function(done) {
-            request(app)
-            .post('/api/login')
-            .send({'username': 'mattmcmurray', 'password': 'kraus'})
-            .expect(200)
-            .expect('Content-Type', 'application/json; charset=utf-8')
-            .end(function(err, res) {
-                if(err) done(err);
-                assert.that(res.body.user).is.not.null();
-                assert.that(res.body.user.username).is.equalTo('KeaneKraus');
-                assert.that(res.body.url).is.equalTo('/main');
-                done();
-            });
-        });
+    // describe('POST /login', function() {
 
-        it('fails logins in a user because of username', function(done) {
-            request(app)
-            .post('/api/login')
-            .send({'username': 'MichaelMcDoesntExist', 'password': 'kraus'})
-            .expect(500)
-            .expect('Content-Type', 'application/json; charset=utf-8')
-            .end(function(err, res) {
-                if(err) done(err);
-                assert.that(res.body.message).is.not.null();
-                assert.that(res.body.message).is.equalTo('Oops! Something went wrong. Invalid username/password.');
-                done();
-            });
-        });
+    //     it('logins in a user', function(done) {
+    //         request(app)
+    //         .post('/api/login')
+    //         .send({'username': 'jjorell', 'password': 'hello1'})
+    //         .expect(200)
+    //         .expect('Content-Type', 'application/json; charset=utf-8')
+    //         .end(function(err, res) {
+    //             if(err) done(err);
+    //             assert.that(res.body.user).is.not.null();
+    //             assert.that(res.body.user.username).is.equalTo('jjorell');
+    //             assert.that(res.body.url).is.equalTo('/main');
+    //             done();
+    //         });
+    //     });
 
-        it('fails logins in a user because of password', function(done) {
-            request(app)
-            .post('/api/login')
-            .send({'username': 'mattmcmurray', 'password': 'this password'})
-            .expect(500)
-            .expect('Content-Type', 'application/json; charset=utf-8')
-            .end(function(err, res) {
-                if(err) done(err);
-                assert.that(res.body.message).is.not.null();
-                assert.that(res.body.message).is.equalTo('Oops! Something went wrong. Invalid username/password.');
-                done();
-            });
-        });
-    });*/
+    //     it('fails logins in a user because of username', function(done) {
+    //         request(app)
+    //         .post('/api/login')
+    //         .send({'username': 'MichaelMcDoesntExist', 'password': 'kraus'})
+    //         .expect(500)
+    //         .expect('Content-Type', 'application/json; charset=utf-8')
+    //         .end(function(err, res) {
+    //             if(err) done(err);
+    //             assert.that(res.body.message).is.not.null();
+    //             assert.that(res.body.message).is.equalTo('Oops! Something went wrong. Invalid username/password.');
+    //             done();
+    //         });
+    //     });
+
+    //     it('fails logins in a user because of password', function(done) {
+    //         request(app)
+    //         .post('/api/login')
+    //         .send({'username': 'jjorell', 'password': 'this password'})
+    //         .expect(500)
+    //         .expect('Content-Type', 'application/json; charset=utf-8')
+    //         .end(function(err, res) {
+    //             if(err) done(err);
+    //             assert.that(res.body.message).is.not.null();
+    //             assert.that(res.body.message).is.equalTo('Oops! Something went wrong. Invalid username/password.');
+    //             done();
+    //         });
+    //     });
+    // });
 
     describe('GET /randomUser', function() {
         it('gets a random user', function(done) {
