@@ -36,16 +36,18 @@ function processOptions(args) {
     var options = ['fill_database', 'clear_database', 'stub_users', 'stub_likes', 'stub_all'];
     var db = require('./database.js');
 
+
     // minimist uses '_' to hold any arguments not associated with an option, not needed
-    delete args._;
+    delete args._; 
 
     for (var arg in args) {
         switch (arg) {
             case options[0]:
-                db.fillDatabase();
+                console.log("filling db");
+                db.fillDatabase(args.env);
                 break;
             case options[1]:
-                db.clearDatabase();
+                db.clearDatabase(args.env);
                 break;
             case options[2]:
                 api.injectUser(stubUser);

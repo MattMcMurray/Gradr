@@ -47,7 +47,6 @@ router.post("/login", function(req,res) {
 	credentials = getCredentials(req)
 	
 	User.getUser(credentials.username).then(function(user){
-
 		if (user != null && authenticator.authenticate(credentials.password, user.dataValues.password)){
       
 			res.json({ url: "/main", user: user });
