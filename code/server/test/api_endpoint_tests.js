@@ -9,8 +9,8 @@ var stubLikes = require('../stub_models/StubUserMatches.js');
 //////////////////////////////////////////
 
 describe('api', function() {
-          api.injectUser(stubUser);
-          api.injectLikes(stubLikes);
+    api.injectUser(stubUser);
+    api.injectLikes(stubLikes);
     // This is just a description, not the actual route the test will use
     describe('GET /api/getUser', function() {
         it('requests a user from the api', function(done) {
@@ -42,21 +42,21 @@ describe('api', function() {
     });
 
     describe('POST /NewUser', function() {
-      it('creates a new user', function(done) {
-          request(app)
-          .post('/api/NewUser')
-          .type('form')
-          .send({'username': 'TestingUsername', 'password': 'password', 'confirmPassword': 'password'})
-          .expect(200)
-          .expect('Content-Type', 'application/json; charset=utf-8')
-          .end(function(err, res) {
-              if(err) done(err);
-              assert.that(res.body.message).is.not.null();
-              assert.that(res.body.message).is.equalTo('New user created');
-              assert.that(res.body.url).is.equalTo('/');
-              done();
-          });
-      });
+        it('creates a new user', function(done) {
+            request(app)
+            .post('/api/NewUser')
+            .type('form')
+            .send({'username': 'TestingUsername', 'password': 'password', 'confirmPassword': 'password'})
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.message).is.not.null();
+                assert.that(res.body.message).is.equalTo('New user created');
+                assert.that(res.body.url).is.equalTo('/');
+                done();
+            });
+        });
 
         it('fails to creates a new user', function(done) {
             request(app)

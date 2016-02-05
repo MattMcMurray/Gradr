@@ -106,7 +106,6 @@ var createUserProfile = function(data) {
 }
 
 var getRandom = function(currUserId) {
-    console.log('currUserId: ' + currUserId);
     return UserMatches.getPreviouslyRatedIds(currUserId).then(function(prevRatedUsers) {
         var idCondition;
         if(prevRatedUsers.length == 0) {
