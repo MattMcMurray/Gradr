@@ -1,0 +1,132 @@
+[
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "<!channel>: Does anyone want a guide to using node.js are you guys okay using the internet?",
+        "ts": "1453320209.000009"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "It would be nice to see how to interact with our particular setup, at least for me",
+        "ts": "1453320402.000010"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I'll write some example api routes and a simple hello world welcome page. Probably tonight or tomorrow night ",
+        "ts": "1453320477.000011"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Once the boiler plate is done, nodejs is dead simple ",
+        "ts": "1453320499.000012"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I'll prolly get a dbwrapper module ready as well ",
+        "ts": "1453320533.000013"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "what do you mean?",
+        "ts": "1453320550.000014"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Hard to explain, but basically prof said we need a clear divide between layers so it would make the dB layer distinct",
+        "ts": "1453320615.000015"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "ahh",
+        "ts": "1453320623.000016"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Basically an \"api\" for our db",
+        "ts": "1453320632.000017"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I thought you were going to write a ORM for mysql =))",
+        "ts": "1453320635.000018"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "or sqlite",
+        "ts": "1453320639.000019"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Fuck that noise ",
+        "ts": "1453320644.000020"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I just pushed something to the iter1 branch",
+        "ts": "1453321234.000021"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "main.js. Basically setups up the endpoints and starts the server.  Our only rest url right now is GET \/api which will give you {message: \u201cHello World\u201d}",
+        "ts": "1453321295.000022"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I might merge in `project_setup` or I might scrap it, since I'm not huge on there being no folder structure",
+        "ts": "1453321507.000023"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Are we meeting today?",
+        "ts": "1453321612.000024"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "we are not.",
+        "ts": "1453321637.000025"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "<@U0HUKEYE5>: I prefer that you just set up the folder structure.",
+        "ts": "1453321668.000026"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Cool, I'll do that ",
+        "ts": "1453321708.000027"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "actually, I\u2019ll try to start a folder struct right now. You can just change it if you think there\u2019s a better way to do it.",
+        "edited": {
+            "user": "U0HUH2B1R",
+            "ts": "1453321754.000000"
+        },
+        "ts": "1453321740.000028"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Cool. Use lowercase and underscores if you don't mind",
+        "ts": "1453321828.000030"
+    }
+]

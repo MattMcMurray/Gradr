@@ -89,7 +89,7 @@ var createUser = function(credentials) {
 }
 
 var createUserProfile = function(data) {
-    UserConnection.update({
+    return UserConnection.update({
         firstname: data.firstname,
         lastname: data.lastname,
         city: data.city,
@@ -134,6 +134,5 @@ module.exports = {
     createUser: createUser,
     getRandom: getRandom,
     getAllUsers: getAllUsers,
-    createUserProfile:createUserProfile,
-    model: UserConnection
+    createUserProfile:createUserProfile
 }

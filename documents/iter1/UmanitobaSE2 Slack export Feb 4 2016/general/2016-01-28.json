@@ -1,0 +1,803 @@
+[
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "<!channel>: I have a pull request for user creation, so that should be merged into itr1 soon. FYI there's currently no feedback with regards to if it succeeded or not",
+        "ts": "1453992117.000042"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Cool! I'll take a look this afternoon. Good job, man",
+        "ts": "1453992621.000043"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "^_^",
+        "ts": "1453992631.000044"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "<@U0J08TYGL> please make sure you aren't hardcoding localhost as a URL",
+        "ts": "1454002798.000045"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I said it was okay",
+        "ts": "1454002811.000046"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U0HUKEYE5|mattmcmurray> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/mattmcmurray\/F0KLVUFMM\/screenshot_2016-01-28-11-39-10.png|Slack for Android Upload>",
+        "file": {
+            "id": "F0KLVUFMM",
+            "created": 1454002808,
+            "timestamp": 1454002808,
+            "name": "Screenshot_2016-01-28-11-39-10.png",
+            "title": "Slack for Android Upload",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U0HUKEYE5",
+            "editable": false,
+            "size": 336377,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0KLVUFMM\/screenshot_2016-01-28-11-39-10.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0KLVUFMM\/download\/screenshot_2016-01-28-11-39-10.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KLVUFMM-9b045aa5b9\/screenshot_2016-01-28-11-39-10_64.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KLVUFMM-9b045aa5b9\/screenshot_2016-01-28-11-39-10_80.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KLVUFMM-9b045aa5b9\/screenshot_2016-01-28-11-39-10_360.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360_w": 203,
+            "thumb_360_h": 360,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KLVUFMM-9b045aa5b9\/screenshot_2016-01-28-11-39-10_480.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_480_w": 270,
+            "thumb_480_h": 480,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KLVUFMM-9b045aa5b9\/screenshot_2016-01-28-11-39-10_160.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KLVUFMM-9b045aa5b9\/screenshot_2016-01-28-11-39-10_720.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_720_w": 405,
+            "thumb_720_h": 720,
+            "thumb_960": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KLVUFMM-9b045aa5b9\/screenshot_2016-01-28-11-39-10_960.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_960_w": 540,
+            "thumb_960_h": 960,
+            "thumb_1024": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KLVUFMM-9b045aa5b9\/screenshot_2016-01-28-11-39-10_1024.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_1024_w": 576,
+            "thumb_1024_h": 1024,
+            "image_exif_rotation": 1,
+            "original_w": 1440,
+            "original_h": 2560,
+            "permalink": "https:\/\/umanitobase2.slack.com\/files\/mattmcmurray\/F0KLVUFMM\/screenshot_2016-01-28-11-39-10.png",
+            "permalink_public": "https:\/\/slack-files.com\/T0HUE4C04-F0KLVUFMM-4323d34ad4",
+            "channels": [
+                "C0HUKJ1RQ"
+            ],
+            "groups": [
+
+            ],
+            "ims": [
+
+            ],
+            "comments_count": 0
+        },
+        "user": "U0HUKEYE5",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U0HUKEYE5|mattmcmurray>",
+        "bot_id": null,
+        "ts": "1454002813.000047"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "What would be a better solution, <@U0HUKEYE5> ?",
+        "ts": "1454002831.000048"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "can that url be made a relative one?",
+        "ts": "1454002844.000049"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Why not just use relative path? `url: '\/api\/NewUser'`",
+        "ts": "1454002867.000050"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "That way we don't have to do a ton of refactoring when we deploy to server ",
+        "ts": "1454002886.000051"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "That is true.",
+        "ts": "1454002891.000052"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I'll submit the issue to github. Close it once the paths have been fixed",
+        "ts": "1454002915.000053"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I\u2019ll make the fixes",
+        "ts": "1454002925.000054"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I\u2019m about to make a pull request",
+        "ts": "1454002931.000055"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "But for the url that we\u2019re sendign the requests to, localhost is fine?",
+        "ts": "1454002965.000056"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "pretty sure that would need to change as well",
+        "ts": "1454002985.000057"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "well",
+        "ts": "1454002994.000058"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "No, that won't work. If the client isn't in the same machine as the server, it'll fail",
+        "ts": "1454002995.000059"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I mean for now.",
+        "ts": "1454003004.000060"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "I guess ideally, we need it to know if it's running locally or not",
+        "ts": "1454003020.000061"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "but I guess we can do that later, when we deploy",
+        "ts": "1454003030.000062"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "But why not just eliminate technical debt right away?",
+        "ts": "1454003034.000063"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Using relative path is standard ",
+        "ts": "1454003045.000064"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I understand that.",
+        "ts": "1454003046.000065"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Alright, will make the change.",
+        "ts": "1454003056.000066"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Thank you ",
+        "ts": "1454003077.000067"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Actually, what\u2019s a good way to handle the url to the server?",
+        "ts": "1454003095.000068"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "O",
+        "ts": "1454003103.000069"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "What do you mean?",
+        "ts": "1454003228.000070"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "because for the ajax call, we have $.ajax({ url: <http:\/\/localhost:80\/api\/something> \u2026.}",
+        "ts": "1454003266.000071"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "since this is happening client side, how do we indicate that where the server is?",
+        "ts": "1454003287.000072"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "so we can just do \u2026.url:\u201d\/api\/something\u201d...",
+        "ts": "1454003308.000073"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "JS knows what location its at already",
+        "ts": "1454003390.000074"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "It\u2019ll know where the server is?",
+        "ts": "1454003412.000075"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "So it will append `\/api\/something` to the domain",
+        "ts": "1454003414.000076"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "ahhh",
+        "ts": "1454003420.000077"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "did not know that. haha",
+        "ts": "1454003434.000078"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "So if its running local, itll append it to localhost. If its running remote, itll append it to the server's IP",
+        "ts": "1454003451.000079"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "makes sense.",
+        "ts": "1454003467.000080"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "And if you want to be explicit, you can do `window.location + '\/api\/something'`\n\nNot 100% sure about that syntax though, so maybe Google it if it doesn't work ",
+        "ts": "1454003535.000081"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "will do.",
+        "ts": "1454003633.000082"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Thanks guys ",
+        "ts": "1454003694.000083"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "<!channel> meet tomorrow at the usual time to discuss progress? ",
+        "ts": "1454004606.000084"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "yup",
+        "ts": "1454004929.000085"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Made a pull request",
+        "ts": "1454004945.000086",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0HUKEYE5"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Yup I can make that",
+        "ts": "1454005043.000087"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "<@U0J0A2MTL>: you said yesterday that you added fields to the users table. Did you commit push that?",
+        "ts": "1454005455.000088"
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "I'll grab the new changes and merge them into my user table first.",
+        "ts": "1454007523.000089"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "<@U0HUH2B1R> <@U0J08TYGL> : when a user logs in, is session stored anywhere? Like, is there a way for me to check that a user is logged in on the 'swiping' page",
+        "ts": "1454010530.000090"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Not yet.",
+        "ts": "1454010729.000091"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "K cool. I merged the login pull request. Looks really good man",
+        "ts": "1454010748.000092"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Just wanted to get something out.",
+        "ts": "1454010775.000093"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Yeah, makes sense.",
+        "ts": "1454010805.000094"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "has anyone been able to get AUTOINCREMENT to work for primary keys? Sequelize keeps inserting NULL instead of an int value for me",
+        "ts": "1454032570.000095"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "since usernames need to be unique anyway, it's not a huge issue for now, but this could be a problem in the near future",
+        "ts": "1454032871.000096"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I'll look at it when I get home. ",
+        "ts": "1454033464.000097"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "sounds good. Just submitted a pull request for getUser(). It's like 6 lines of code lol",
+        "ts": "1454033511.000098"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "ship it",
+        "ts": "1454033715.000099"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "how are we doing pull requests? should i merge it or what?",
+        "ts": "1454033741.000100"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Actually I have to make another quick change first. But yeah, when I resubmit, if you think it looks good, just go ahead and merge",
+        "ts": "1454033795.000101"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Ship it!",
+        "ts": "1454033816.000102"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Why?",
+        "ts": "1454034210.000106"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "forget you saw anything",
+        "ts": "1454034218.000107"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "i was confused why there was no message \"site running on port ___\" when i ran sudo node main.js",
+        "ts": "1454034274.000108"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "been sitting here waiting for it for like 5 minutes lol",
+        "ts": "1454034285.000109"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Haha",
+        "ts": "1454034306.000110"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Our app isn't that slow. :p",
+        "ts": "1454034316.000111"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "lol yeah, its just that we don't have a message",
+        "ts": "1454034359.000112"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "we had that at amazon, that's why i was so confused",
+        "ts": "1454034382.000113"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "also, are our cat pictures not just cats anymore?",
+        "ts": "1454034406.000114"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "What are they? Boobies?",
+        "ts": "1454034432.000115"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Also, I'm dumb. Sequelize DOES insert a primary key, it's just not listed in the statement that's printed to the console",
+        "ts": "1454034481.000116"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "crisis averted",
+        "ts": "1454034483.000117"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "<@U0J0D1KE3>: should still be cats unless someone changed it",
+        "ts": "1454034505.000118"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U0J0D1KE3|steve> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/steve\/F0KN1R2SG\/screenshot_from_2016-01-28_20_27_37.png|wtf kind of cat is this>",
+        "file": {
+            "id": "F0KN1R2SG",
+            "created": 1454034513,
+            "timestamp": 1454034513,
+            "name": "Screenshot from 2016-01-28 20:27:37.png",
+            "title": "wtf kind of cat is this",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U0J0D1KE3",
+            "editable": false,
+            "size": 173629,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0KN1R2SG\/screenshot_from_2016-01-28_20_27_37.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0KN1R2SG\/download\/screenshot_from_2016-01-28_20_27_37.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KN1R2SG-fed82d5717\/screenshot_from_2016-01-28_20_27_37_64.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KN1R2SG-fed82d5717\/screenshot_from_2016-01-28_20_27_37_80.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KN1R2SG-fed82d5717\/screenshot_from_2016-01-28_20_27_37_360.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360_w": 360,
+            "thumb_360_h": 202,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KN1R2SG-fed82d5717\/screenshot_from_2016-01-28_20_27_37_480.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_480_w": 480,
+            "thumb_480_h": 270,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KN1R2SG-fed82d5717\/screenshot_from_2016-01-28_20_27_37_160.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KN1R2SG-fed82d5717\/screenshot_from_2016-01-28_20_27_37_720.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_720_w": 720,
+            "thumb_720_h": 405,
+            "thumb_960": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KN1R2SG-fed82d5717\/screenshot_from_2016-01-28_20_27_37_960.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_960_w": 960,
+            "thumb_960_h": 540,
+            "thumb_1024": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KN1R2SG-fed82d5717\/screenshot_from_2016-01-28_20_27_37_1024.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_1024_w": 1024,
+            "thumb_1024_h": 576,
+            "image_exif_rotation": 1,
+            "original_w": 1366,
+            "original_h": 768,
+            "permalink": "https:\/\/umanitobase2.slack.com\/files\/steve\/F0KN1R2SG\/screenshot_from_2016-01-28_20_27_37.png",
+            "permalink_public": "https:\/\/slack-files.com\/T0HUE4C04-F0KN1R2SG-d6eabcc3b2",
+            "channels": [
+                "C0HUKJ1RQ"
+            ],
+            "groups": [
+
+            ],
+            "ims": [
+
+            ],
+            "comments_count": 0
+        },
+        "user": "U0J0D1KE3",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U0J0D1KE3|steve>",
+        "bot_id": null,
+        "ts": "1454034516.000119"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Lol ",
+        "ts": "1454034521.000120"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "typical jorrell breaking all the rules",
+        "ts": "1454034538.000121"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "lolol I think it just pulls things tagged with 'cat' on google search tbh",
+        "ts": "1454034539.000122"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "The api goofed. But the message is oddly appropriate.",
+        "ts": "1454034543.000123"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "yeah, looks like the api is just trolling",
+        "ts": "1454034554.000124"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "ok fixed my goof <https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/24>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "Api get user by MattMcMurray \u00b7 Pull Request #24 \u00b7 MattMcMurray\/Gradr \u00b7 GitHub",
+                "title_link": "https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/24",
+                "text": "Simple RESTful api method. To get a user: <http:\/\/domain\/api\/getUser?user=username_you_want_to_lookup>",
+                "fallback": "GitHub: Api get user by MattMcMurray \u00b7 Pull Request #24 \u00b7 MattMcMurray\/Gradr",
+                "thumb_url": "https:\/\/avatars3.githubusercontent.com\/u\/10404392?v=3&s=400",
+                "from_url": "https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/24",
+                "thumb_width": 420,
+                "thumb_height": 420,
+                "id": 1
+            }
+        ],
+        "ts": "1454034663.000125"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "nobody looked into the session stuff yet eh?",
+        "ts": "1454035451.000127"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "i realize now that i kind of need that lol",
+        "ts": "1454035459.000128"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "not yet, I was thinking of doing that soon though. For now maybe we should just save a cookie with user id on login?",
+        "ts": "1454035489.000129"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I'm gonna actually switch from what I was doing to session stuff",
+        "ts": "1454035537.000130"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Work on making a stub for now with fake (static) data, and I'll let you know as soon as I'm done",
+        "ts": "1454035569.000131"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "user data will look something like \n```\n{\n  \"user\": {\n    \"id\": 1,\n    \"username\": \"mattmcmurray\",\n    \"createdAt\": \"2016-01-29T02:20:25.966Z\",\n    \"updatedAt\": \"2016-01-29T02:20:25.966Z\"\n  }\n}\n```\nWith some more keys in the future. Look at Keane's branch to see what he's got in the works as far as user data goes",
+        "ts": "1454035610.000132"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "okay, that was easy lol",
+        "ts": "1454036261.000133"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Submitting a pull request for session storage right meow",
+        "ts": "1454036274.000134"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Noice",
+        "ts": "1454036414.000135"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "K done and done",
+        "ts": "1454036591.000136"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "definitely not even close to secure, but YOLO",
+        "ts": "1454036608.000137"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Fuck security. We like to live dangerously.",
+        "ts": "1454038477.000138"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "OWASP can lick my balls",
+        "ts": "1454038505.000139"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": " Hahaha",
+        "ts": "1454038559.000140"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Mostly done the backend stuff for user rating system",
+        "ts": "1454040703.000141"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "_another one bites the dust plays softly_",
+        "edited": {
+            "user": "U0HUKEYE5",
+            "ts": "1454040725.000000"
+        },
+        "ts": "1454040713.000142"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "very nice",
+        "ts": "1454040738.000144"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "<@U0HUKEYE5>: Just looked at the session storage",
+        "ts": "1454042029.000145"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "=))",
+        "ts": "1454042030.000146"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "hey guys, about our whole concept, are people going to only be able to match if they're in the same class or can anyone match with anyone?",
+        "ts": "1454043883.000147"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I had the idea that they can match with anyone.",
+        "ts": "1454043915.000148"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "They just decide who might be a good study partner.",
+        "ts": "1454043934.000149"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "do people actually study with people who aren't even in the same class???",
+        "ts": "1454044149.000150"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "im a solo studier, i don't understand study buddies at all tbh",
+        "ts": "1454044163.000151"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "haha",
+        "ts": "1454044167.000152"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Maybe? Probably like people with the same study habits.",
+        "ts": "1454044185.000153"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I\u2019m adding validation to user sign up.",
+        "ts": "1454044993.000154"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "<!channel>: made a pull request",
+        "ts": "1454046255.000155"
+    }
+]

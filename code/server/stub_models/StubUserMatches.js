@@ -6,6 +6,8 @@ userMatches.push({liker_id: 333, likee_id: 222, likes: false});
 userMatches.push({liker_id: 444, likee_id: 111, likes: true});
 userMatches.push({liker_id: 555, likee_id: 111, likes: false});
 
+var users = [111, 222, 333, 444, 555];
+
 
 //Internal function
 function getMatch(liker_id, likee_id) {
@@ -19,17 +21,30 @@ function getMatch(liker_id, likee_id) {
 
 var addUserMatch = function(_liker_id, _likee_id, _likes) {
     var res = getMatch(_liker_id, _likee_id, _likes);
-    if (res) {
-        res.match.likes = _likes;
-        userMatches[res.ind] = res.match;
-    } else {
+    var returnValue;
+
+    if (!res && Number.isInteger(_liker_id) && Number.isInteger(_likee_id) && users.indexOf(_liker_id) >= 0 && users.indexOf(_likee_id) >= 0) {
         var match = {
             liker_id: _liker_id,
             likee_id: _likee_id,
             likes: _likes
         };
         userMatches.push(match);
+
+        returnValue = match;
     }
+    else {
+        returnValue = { 
+            error: {
+                name: 'UserMatchesError',
+                message: 'Unable to save UserMatch for users ' + _liker_id + ' and ' + _likee_id 
+            }
+        };
+    }
+
+    return new Promise(function(resolve) {
+        resolve(returnValue);
+    });
 };
 
 var getMatches = function(userId) {

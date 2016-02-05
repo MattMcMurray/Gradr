@@ -1,0 +1,49 @@
+[
+    {
+        "user": "U0J08TYGL",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0J08TYGL|caleb> has joined the channel",
+        "ts": "1454437165.000002"
+    },
+    {
+        "user": "U0HULF5R6",
+        "inviter": "U0J08TYGL",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0HULF5R6|evan> has joined the channel",
+        "ts": "1454437166.000003"
+    },
+    {
+        "user": "U0HUH2B1R",
+        "inviter": "U0J08TYGL",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0HUH2B1R|jorell> has joined the channel",
+        "ts": "1454437166.000004"
+    },
+    {
+        "user": "U0J0A2MTL",
+        "inviter": "U0J08TYGL",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0J0A2MTL|keanek> has joined the channel",
+        "ts": "1454437166.000005"
+    },
+    {
+        "user": "U0HUKEYE5",
+        "inviter": "U0J08TYGL",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0HUKEYE5|mattmcmurray> has joined the channel",
+        "ts": "1454437166.000006"
+    },
+    {
+        "user": "U0J0D1KE3",
+        "inviter": "U0J08TYGL",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0J0D1KE3|steve> has joined the channel",
+        "ts": "1454437166.000007"
+    }
+]

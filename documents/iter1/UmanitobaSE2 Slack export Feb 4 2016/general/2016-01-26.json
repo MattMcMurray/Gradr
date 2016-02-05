@@ -1,0 +1,151 @@
+[
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I won't be in class today, could anyone please let me know if I miss anything?",
+        "ts": "1453827649.000028"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Will do",
+        "ts": "1453827736.000029"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Thanks man",
+        "ts": "1453827908.000030"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "You should Skype us in. Hah",
+        "ts": "1453828918.000031"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Lol <@U0HUH2B1R> have you even come to this class more than once?!",
+        "ts": "1453829011.000032"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Im going today. Just going to be late.",
+        "ts": "1453829150.000033"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I need my booster juice.",
+        "ts": "1453829155.000034"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Gotta get that bj",
+        "ts": "1453829249.000035"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I was tempted to text my girlfriend that I was going to get a bj. Realized that it might not go so well.",
+        "ts": "1453829341.000036",
+        "reactions": [
+            {
+                "name": "clap",
+                "users": [
+                    "U0J08TYGL"
+                ],
+                "count": 1
+            },
+            {
+                "name": "eggplant",
+                "users": [
+                    "U0HUKEYE5"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U0HUKEYE5|mattmcmurray> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/mattmcmurray\/F0KE3U2P7\/screenshot_2016-01-26-11-33-10.png|Slack for Android Upload> and commented: Sultry",
+        "file": {
+            "id": "F0KE3U2P7",
+            "created": 1453829608,
+            "timestamp": 1453829608,
+            "name": "Screenshot_2016-01-26-11-33-10.png",
+            "title": "Slack for Android Upload",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U0HUKEYE5",
+            "editable": false,
+            "size": 743904,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0KE3U2P7\/screenshot_2016-01-26-11-33-10.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0KE3U2P7\/download\/screenshot_2016-01-26-11-33-10.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KE3U2P7-f3b5aa7b15\/screenshot_2016-01-26-11-33-10_64.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KE3U2P7-f3b5aa7b15\/screenshot_2016-01-26-11-33-10_80.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KE3U2P7-f3b5aa7b15\/screenshot_2016-01-26-11-33-10_360.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360_w": 203,
+            "thumb_360_h": 360,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KE3U2P7-f3b5aa7b15\/screenshot_2016-01-26-11-33-10_480.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_480_w": 270,
+            "thumb_480_h": 480,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KE3U2P7-f3b5aa7b15\/screenshot_2016-01-26-11-33-10_160.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KE3U2P7-f3b5aa7b15\/screenshot_2016-01-26-11-33-10_720.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_720_w": 405,
+            "thumb_720_h": 720,
+            "thumb_960": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KE3U2P7-f3b5aa7b15\/screenshot_2016-01-26-11-33-10_960.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_960_w": 540,
+            "thumb_960_h": 960,
+            "thumb_1024": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KE3U2P7-f3b5aa7b15\/screenshot_2016-01-26-11-33-10_1024.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_1024_w": 576,
+            "thumb_1024_h": 1024,
+            "image_exif_rotation": 1,
+            "original_w": 1440,
+            "original_h": 2560,
+            "permalink": "https:\/\/umanitobase2.slack.com\/files\/mattmcmurray\/F0KE3U2P7\/screenshot_2016-01-26-11-33-10.png",
+            "permalink_public": "https:\/\/slack-files.com\/T0HUE4C04-F0KE3U2P7-ee5d09defb",
+            "channels": [
+                "C0HUKJ1RQ"
+            ],
+            "groups": [
+
+            ],
+            "ims": [
+
+            ],
+            "comments_count": 1,
+            "initial_comment": {
+                "id": "Fc0KE1GS9J",
+                "created": 1453829608,
+                "timestamp": 1453829608,
+                "user": "U0HUKEYE5",
+                "comment": "Sultry"
+            }
+        },
+        "user": "U0HUKEYE5",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U0HUKEYE5|mattmcmurray>",
+        "bot_id": null,
+        "ts": "1453829613.000037"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "scandelous",
+        "ts": "1453829629.000038"
+    }
+]

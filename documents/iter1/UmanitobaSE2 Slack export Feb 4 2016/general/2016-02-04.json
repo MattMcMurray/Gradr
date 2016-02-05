@@ -1,0 +1,940 @@
+[
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "<!channel>: who set up sequelize?",
+        "edited": {
+            "user": "U0J08TYGL",
+            "ts": "1454604013.000000"
+        },
+        "ts": "1454604003.000294"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I did. What's up? <@U0J08TYGL> ",
+        "ts": "1454604787.000296"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "we need something that pulls it all together",
+        "ts": "1454604947.000297"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "sequelize doesn't like requiring whichever other data models one particular model happens to require",
+        "ts": "1454604972.000298"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "we don't have any index like they describe we should have here: <http:\/\/docs.sequelizejs.com\/en\/1.7.0\/articles\/express\/>",
+        "ts": "1454604994.000299"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Oh i didnt even see this page.",
+        "ts": "1454605096.000300"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I can just work on this today. ",
+        "ts": "1454605113.000301"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "Okay. My only current problem on the issue i'm working on relies on that, so I'll shelve it until you're done",
+        "ts": "1454605151.000302"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "What is your issue?",
+        "ts": "1454605176.000303"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "I showed you last night",
+        "ts": "1454605187.000304"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "that screencap happens when I have two models requiring each other",
+        "ts": "1454605202.000305"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U0J08TYGL|caleb> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/caleb\/F0L9VE5S6\/pasted_image_at_2016_02_04_11_00_am.png|sadness>",
+        "file": {
+            "id": "F0L9VE5S6",
+            "created": 1454605222,
+            "timestamp": 1454605222,
+            "name": "Pasted image at 2016_02_04 11_00 AM.png",
+            "title": "sadness",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U0J08TYGL",
+            "editable": false,
+            "size": 58896,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0L9VE5S6\/pasted_image_at_2016_02_04_11_00_am.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0L9VE5S6\/download\/pasted_image_at_2016_02_04_11_00_am.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0L9VE5S6-9135b5fb96\/pasted_image_at_2016_02_04_11_00_am_64.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0L9VE5S6-9135b5fb96\/pasted_image_at_2016_02_04_11_00_am_80.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0L9VE5S6-9135b5fb96\/pasted_image_at_2016_02_04_11_00_am_360.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360_w": 360,
+            "thumb_360_h": 252,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0L9VE5S6-9135b5fb96\/pasted_image_at_2016_02_04_11_00_am_480.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_480_w": 480,
+            "thumb_480_h": 336,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0L9VE5S6-9135b5fb96\/pasted_image_at_2016_02_04_11_00_am_160.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "image_exif_rotation": 1,
+            "original_w": 664,
+            "original_h": 465,
+            "permalink": "https:\/\/umanitobase2.slack.com\/files\/caleb\/F0L9VE5S6\/pasted_image_at_2016_02_04_11_00_am.png",
+            "permalink_public": "https:\/\/slack-files.com\/T0HUE4C04-F0L9VE5S6-f0dd1194bc",
+            "channels": [
+                "C0HUKJ1RQ"
+            ],
+            "groups": [
+
+            ],
+            "ims": [
+
+            ],
+            "comments_count": 0
+        },
+        "user": "U0J08TYGL",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U0J08TYGL|caleb>",
+        "bot_id": null,
+        "ts": "1454605225.000306"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Ahh ",
+        "ts": "1454605239.000307"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Alright. I'll restructure sequelize asap.",
+        "ts": "1454605262.000308"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I'm skipping class to work on the project. I'll prolly be in the resource room or CSSA ",
+        "ts": "1454605337.000309"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "i'm in the resource room right now",
+        "ts": "1454605348.000310"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "come there",
+        "ts": "1454605349.000311"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "empty except for max",
+        "ts": "1454605361.000312"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Kk. I'll come right after HCI",
+        "ts": "1454605432.000313"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Im also skipping class because I'm sick and going to work on the project.",
+        "ts": "1454605451.000314"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "guys, we need to submit logs of what we're saying in this external tool. id recommend deleting anything you don't want the prof to see now",
+        "ts": "1454605526.000317"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "do we have a way to easily export from slack?",
+        "ts": "1454605582.000320"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "i have no clue",
+        "ts": "1454605600.000321"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "<https:\/\/get.slack.help\/hc\/en-us\/articles\/201658943-Exporting-your-team-s-Slack-history>",
+        "attachments": [
+            {
+                "service_name": "Slack Help Center",
+                "title": "Exporting your team's Slack history",
+                "title_link": "https:\/\/get.slack.help\/hc\/en-us\/articles\/201658943-Exporting-your-team-s-Slack-history",
+                "text": "Team Owners and Admins can access data exports from the Export Data page at <http:\/\/my.slack.com\/services\/export|my.slack.com\/services\/export>. Downloading an export When you request an export, Slack will generate a .zip file contain...",
+                "fallback": "Slack Help Center: Exporting your team's Slack history",
+                "from_url": "https:\/\/get.slack.help\/hc\/en-us\/articles\/201658943-Exporting-your-team-s-Slack-history",
+                "thumb_url": "http:\/\/p6.zdassets.com\/hc\/settings_assets\/138842\/200037786\/N2Dxbjdd5yeaOkoQn6B0xw-slackbot_192.png",
+                "thumb_width": 192,
+                "thumb_height": 192,
+                "id": 1
+            }
+        ],
+        "ts": "1454605633.000322"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I'll come to, resource room?",
+        "ts": "1454605666.000325"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "yee",
+        "ts": "1454605674.000326"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "K, I'm still at home, but I'll be there a bit after 1130",
+        "ts": "1454605698.000327"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Can I skype in?",
+        "ts": "1454605713.000328"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Missed my bus... I'll be a little late",
+        "ts": "1454606469.000329"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "<@U0HUH2B1R>: sure, once people get here I'll call you",
+        "ts": "1454606499.000330"
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "We got 15\/15 on iter0!!!",
+        "ts": "1454607535.000331"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "woooooooo!",
+        "ts": "1454607547.000332"
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "We are supposed to draw our arch sketch in class right now.",
+        "ts": "1454608621.000333"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "have fun!!!!!! ^_^",
+        "ts": "1454608642.000334"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "why?",
+        "ts": "1454608645.000335"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "like as an exercise?",
+        "ts": "1454608649.000336"
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "prof wants to see if it is being done right.",
+        "ts": "1454608673.000337"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "is steve there?",
+        "ts": "1454608690.000338"
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "No, he skipped cause doc appoint",
+        "ts": "1454608710.000339"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "kk I'll come down and help",
+        "ts": "1454608718.000340"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "yeah sorry, im going to the doctor soon",
+        "ts": "1454609032.000341"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Ok, UML is 80% complete. I'll finish it up, scan it, and put it in the docs tonight",
+        "ts": "1454610072.000342"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "So I have the 3 integration tests and UML diagrams tonight. My plate is pretty full, but that's a good chunk of what we have left to do",
+        "ts": "1454610096.000343"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "you da real mvp.",
+        "ts": "1454610115.000344"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "As for integration tests, basically I'm just going to test the API communicating with the DB. So it's only one seam (which is technically what integration tests are supposed to be). I believe the only unit tests that are left are logout() api method and direct DB interaction unit tests. Does that make sense?",
+        "ts": "1454610253.000345"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Yeah, I\u2019m doing logout api and db interactions",
+        "ts": "1454610282.000346"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "perf",
+        "ts": "1454610344.000347"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "everyone come up after class",
+        "ts": "1454611530.000348"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "we're going to discuss a few major changes",
+        "ts": "1454611540.000349"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "<@U0HUH2B1R>: figured out what caused that red wall of text from caleb's branch",
+        "ts": "1454618640.000350"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "hot fixing and merging straight into iteration 1 now",
+        "ts": "1454618651.000351"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": ":confetti_ball:",
+        "ts": "1454618671.000352"
+    },
+    {
+        "type": "message",
+        "subtype": "pinned_item",
+        "user": "U0HUKEYE5",
+        "item_type": "C",
+        "attachments": [
+            {
+                "color": "D0D0D0",
+                "fallback": "[February 4th, 2016 9:07 AM] jorell: <https:\/\/get.slack.help\/hc\/en-us\/articles\/201658943-Exporting-your-team-s-Slack-history>",
+                "author_subname": "jorell",
+                "ts": "1454605633.000322",
+                "text": "<https:\/\/get.slack.help\/hc\/en-us\/articles\/201658943-Exporting-your-team-s-Slack-history>",
+                "title": "Exporting your team's Slack history",
+                "title_link": "https:\/\/get.slack.help\/hc\/en-us\/articles\/201658943-Exporting-your-team-s-Slack-history",
+                "author_link": "https:\/\/umanitobase2.slack.com\/team\/jorell",
+                "author_icon": "https:\/\/secure.gravatar.com\/avatar\/15e63ab3bde004f85ecbc14a7a8101d9.jpg?s=48&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F66f9%2Fimg%2Favatars%2Fava_0003-48.png",
+                "mrkdwn_in": [
+                    "text"
+                ]
+            }
+        ],
+        "text": "<@U0HUKEYE5|mattmcmurray> pinned a message to this channel.",
+        "ts": "1454618725.000353"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Just a head's up everyone, I won't be available after 7pm tonight",
+        "ts": "1454624389.000354"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "<@U0HUH2B1R>: I think you created the slack, ya? You'll need to export the messages and add them to the `\/docs\/iteration1` folder",
+        "ts": "1454625380.000355"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Fo shizzi",
+        "ts": "1454625394.000356"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Thanks snoop dawg",
+        "ts": "1454625399.000357"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "If someone can take a look at this before I leave at 7, that would be ideal. That way I can make changes if necessary. <https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/45>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "Integration Tests (and some minor changes elsewhere) by MattMcMurray \u00b7 Pull Request #45 \u00b7 MattMcMurray\/Gradr \u00b7 GitHub",
+                "title_link": "https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/45",
+                "text": "Test output is now piped to log files in test_output directory run_tests.sh does all appropriate set up and tear down for both unit and integrations tests",
+                "fallback": "GitHub: Integration Tests (and some minor changes elsewhere) by MattMcMurray \u00b7 Pull Request #45 \u00b7 MattMcMurray\/Gradr",
+                "thumb_url": "https:\/\/avatars3.githubusercontent.com\/u\/10404392?v=3&s=400",
+                "from_url": "https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/45",
+                "thumb_width": 420,
+                "thumb_height": 420,
+                "id": 1
+            }
+        ],
+        "ts": "1454629047.000358"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "Looking ",
+        "ts": "1454629823.000360"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Forgot to say, I merged it alreay.",
+        "ts": "1454629845.000361"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "That's why I couldn't find it l",
+        "ts": "1454629895.000362"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "ol",
+        "ts": "1454629900.000363"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "lmao",
+        "ts": "1454629906.000364"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Just finishing UML diagram rn",
+        "ts": "1454629912.000365"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "So I\u2019m running into a problem where I\u2019m getting a foreign key constraint failed",
+        "ts": "1454629924.000366"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "this is adding to the usermatches table <@U0HULF5R6>",
+        "ts": "1454629939.000367"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "do you have the latest version of iteration 1? That sounds like the problem I patched earlier",
+        "ts": "1454630074.000368"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "i do.",
+        "ts": "1454630324.000369"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "committing UML directly to iteration1 branch",
+        "ts": "1454630538.000370"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "<https:\/\/i.imgur.com\/vRF9b47.jpg>",
+        "attachments": [
+            {
+                "fallback": "1200x800px image",
+                "image_url": "https:\/\/i.imgur.com\/vRF9b47.jpg",
+                "image_width": 1200,
+                "image_height": 800,
+                "image_bytes": 38112,
+                "from_url": "https:\/\/i.imgur.com\/vRF9b47.jpg",
+                "id": 1
+            }
+        ],
+        "ts": "1454631094.000371"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I can\u2019t edit my user profile.",
+        "ts": "1454631421.000373"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Lemme take a look",
+        "ts": "1454631449.000374"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "is the server spitting out any errors?",
+        "ts": "1454631474.000375"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "nope",
+        "ts": "1454631485.000376"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I just can\u2019t enable the fields",
+        "ts": "1454631500.000377"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "here's the error in the chrome console `Uncaught SyntaxError: missing ) after argument list`, I'm sure it's an easy fix",
+        "ts": "1454631661.000378"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "give me 2 seconds",
+        "ts": "1454631664.000379"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "lol `\tconsole.log('couldn't update');` There's the error",
+        "ts": "1454631690.000380"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "lol yeah, I should have checked the console.",
+        "ts": "1454631703.000381"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "When caleb did a search and replace for `\"` to `'`, it messed that up",
+        "ts": "1454631711.000382"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "just need to escape the `'` --&gt; `\\'`",
+        "ts": "1454631727.000383"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "yeah",
+        "ts": "1454631732.000384"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I need evaaan haha",
+        "ts": "1454631740.000385"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I'll leave that up to you mang",
+        "ts": "1454631744.000386"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I think he's in class or something? He should be back soon enough",
+        "ts": "1454631757.000387"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "oh that sounds horrible",
+        "ts": "1454631765.000388"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I'm here, what did you do get the error?",
+        "ts": "1454632211.000389"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "just adding a match",
+        "ts": "1454632231.000390"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "in my test",
+        "ts": "1454632233.000391"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "hmmm",
+        "ts": "1454632305.000392"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "im just realizing that it might not be the models fault",
+        "ts": "1454632313.000393"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Are the users you're adding in the users table?",
+        "ts": "1454632386.000394"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "yup",
+        "ts": "1454632390.000395"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I\u2019m now trying to just add users",
+        "ts": "1454632394.000396"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Its not the models fault.",
+        "ts": "1454632408.000397"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Not sure why else you would get that constraint error...",
+        "ts": "1454632411.000398"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "exactly",
+        "ts": "1454632414.000399"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "What is it?",
+        "ts": "1454632416.000400"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I think its the test",
+        "ts": "1454632422.000401"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "because I also am failing \u2018getUser'",
+        "ts": "1454632429.000402"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "User.getUser();",
+        "ts": "1454632436.000403"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "can anyone try writing a mocha test for db queries",
+        "ts": "1454632495.000404"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "even just one, I just want to see if its my dependencies",
+        "ts": "1454632505.000405"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I'll try",
+        "ts": "1454632529.000406"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "this is what I currently have.",
+        "edited": {
+            "user": "U0HUH2B1R",
+            "ts": "1454632570.000000"
+        },
+        "ts": "1454632566.000407"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U0HUH2B1R|jorell> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/jorell\/F0LB3AX6Z\/screen_shot_2016-02-04_at_6.35.44_pm.png|Screen Shot 2016-02-04 at 6.35.44 PM.png>",
+        "file": {
+            "id": "F0LB3AX6Z",
+            "created": 1454632563,
+            "timestamp": 1454632563,
+            "name": "Screen Shot 2016-02-04 at 6.35.44 PM.png",
+            "title": "Screen Shot 2016-02-04 at 6.35.44 PM.png",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U0HUH2B1R",
+            "editable": false,
+            "size": 230167,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0LB3AX6Z\/screen_shot_2016-02-04_at_6.35.44_pm.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0LB3AX6Z\/download\/screen_shot_2016-02-04_at_6.35.44_pm.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0LB3AX6Z-168c6b442c\/screen_shot_2016-02-04_at_6.35.44_pm_64.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0LB3AX6Z-168c6b442c\/screen_shot_2016-02-04_at_6.35.44_pm_80.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0LB3AX6Z-168c6b442c\/screen_shot_2016-02-04_at_6.35.44_pm_360.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360_w": 360,
+            "thumb_360_h": 225,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0LB3AX6Z-168c6b442c\/screen_shot_2016-02-04_at_6.35.44_pm_480.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_480_w": 480,
+            "thumb_480_h": 300,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0LB3AX6Z-168c6b442c\/screen_shot_2016-02-04_at_6.35.44_pm_160.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0LB3AX6Z-168c6b442c\/screen_shot_2016-02-04_at_6.35.44_pm_720.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_720_w": 720,
+            "thumb_720_h": 450,
+            "thumb_960": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0LB3AX6Z-168c6b442c\/screen_shot_2016-02-04_at_6.35.44_pm_960.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_960_w": 960,
+            "thumb_960_h": 600,
+            "thumb_1024": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0LB3AX6Z-168c6b442c\/screen_shot_2016-02-04_at_6.35.44_pm_1024.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_1024_w": 1024,
+            "thumb_1024_h": 640,
+            "image_exif_rotation": 1,
+            "original_w": 1920,
+            "original_h": 1200,
+            "permalink": "https:\/\/umanitobase2.slack.com\/files\/jorell\/F0LB3AX6Z\/screen_shot_2016-02-04_at_6.35.44_pm.png",
+            "permalink_public": "https:\/\/slack-files.com\/T0HUE4C04-F0LB3AX6Z-84b1c7bee0",
+            "channels": [
+                "C0HUKJ1RQ"
+            ],
+            "groups": [
+
+            ],
+            "ims": [
+
+            ],
+            "comments_count": 0
+        },
+        "user": "U0HUH2B1R",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U0HUH2B1R|jorell>",
+        "bot_id": null,
+        "ts": "1454632566.000408"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I'm getting that error too",
+        "ts": "1454633079.000410"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I'll investigate",
+        "ts": "1454633084.000411"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Stupid sqlite",
+        "ts": "1454633086.000412"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "or sequelize haha",
+        "ts": "1454633090.000413"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "not gonna lie, sequelize has been nothing but a pain in my ass lol",
+        "ts": "1454633106.000414"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "yup",
+        "ts": "1454633110.000415"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "sorry",
+        "ts": "1454633114.000416"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "no worries man, there was no way we could have known beforehand",
+        "ts": "1454633130.000417"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I copied the SQL statement that it failed on and executed it in my sqlite client with no issue..",
+        "ts": "1454633230.000418"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "yeah, I tried liking and disliking using the app",
+        "ts": "1454633243.000419"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "with no issue",
+        "ts": "1454633248.000420"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "So mocha and sequelize doesn\u2019t play nice.",
+        "ts": "1454633556.000421"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I can't figure it out",
+        "ts": "1454633821.000422"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "The weird thing is that if I add that same record and run the test again, it still executes both a SELECT and an INSERT. If the data is in there already, the INSERT should never happen.",
+        "ts": "1454634148.000423"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "FUCK I figured it out",
+        "ts": "1454634328.000424"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "sequelize is creating the database off a relative path, an empty database is being generated in the \/test directory, and the tests are using that, so there isn't any data in it",
+        "ts": "1454634398.000425"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Lol",
+        "ts": "1454634512.000426"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "When in doubt, check relative paths ",
+        "ts": "1454634520.000427"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "lol",
+        "ts": "1454634649.000428"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Good job <@U0HULF5R6>",
+        "ts": "1454634657.000429"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "that\u2019s why that .sqlite file is there.",
+        "ts": "1454634697.000430"
+    }
+]

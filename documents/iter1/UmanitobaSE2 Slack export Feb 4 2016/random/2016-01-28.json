@@ -1,0 +1,75 @@
+[
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U0HUKEYE5|mattmcmurray> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/mattmcmurray\/F0KN374FN\/capture.jpg|Capture.JPG> and commented: This is my new favourite passtime",
+        "file": {
+            "id": "F0KN374FN",
+            "created": 1454035970,
+            "timestamp": 1454035970,
+            "name": "Capture.JPG",
+            "title": "Capture.JPG",
+            "mimetype": "image\/jpeg",
+            "filetype": "jpg",
+            "pretty_type": "JPEG",
+            "user": "U0HUKEYE5",
+            "editable": false,
+            "size": 149482,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0KN374FN\/capture.jpg?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0KN374FN\/download\/capture.jpg?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KN374FN-0d92a61889\/capture_64.jpg?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KN374FN-0d92a61889\/capture_80.jpg?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KN374FN-0d92a61889\/capture_360.jpg?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360_w": 360,
+            "thumb_360_h": 195,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KN374FN-0d92a61889\/capture_480.jpg?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_480_w": 480,
+            "thumb_480_h": 260,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KN374FN-0d92a61889\/capture_160.jpg?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KN374FN-0d92a61889\/capture_720.jpg?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_720_w": 720,
+            "thumb_720_h": 390,
+            "thumb_960": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KN374FN-0d92a61889\/capture_960.jpg?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_960_w": 960,
+            "thumb_960_h": 520,
+            "thumb_1024": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KN374FN-0d92a61889\/capture_1024.jpg?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_1024_w": 1024,
+            "thumb_1024_h": 555,
+            "image_exif_rotation": 1,
+            "original_w": 1920,
+            "original_h": 1040,
+            "permalink": "https:\/\/umanitobase2.slack.com\/files\/mattmcmurray\/F0KN374FN\/capture.jpg",
+            "permalink_public": "https:\/\/slack-files.com\/T0HUE4C04-F0KN374FN-02d5499e3a",
+            "channels": [
+                "C0HUE4CRJ"
+            ],
+            "groups": [
+
+            ],
+            "ims": [
+
+            ],
+            "comments_count": 1,
+            "initial_comment": {
+                "id": "Fc0KN6EHU3",
+                "created": 1454035970,
+                "timestamp": 1454035970,
+                "user": "U0HUKEYE5",
+                "comment": "This is my new favourite passtime"
+            }
+        },
+        "user": "U0HUKEYE5",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U0HUKEYE5|mattmcmurray>",
+        "bot_id": null,
+        "ts": "1454035973.000002"
+    }
+]

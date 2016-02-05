@@ -1,0 +1,69 @@
+[
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Same here ",
+        "ts": "1452265609.000002"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Where did we want to meet?",
+        "ts": "1452280236.000003"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Resource room?",
+        "ts": "1452280316.000004"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Works for me",
+        "ts": "1452280472.000005"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Grabbing coffee and I'll be up in 5 mins",
+        "ts": "1452284682.000006"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Student ids please.",
+        "ts": "1452287144.000007"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "<!everyone>:  give me student ID plz",
+        "ts": "1452287149.000008"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "7695520",
+        "ts": "1452287232.000009"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "7712818",
+        "ts": "1452287410.000010"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "7618382",
+        "ts": "1452287690.000011"
+    },
+    {
+        "text": "set up a reminder to \u201cResearch meteor framework and flask framework\u201d in this channel at 5pm Sunday, January 10th, Central Standard Time. ",
+        "type": "message",
+        "subtype": "reminder_add",
+        "user": "U0HUKEYE5",
+        "ts": "1452291809.000012"
+    }
+]

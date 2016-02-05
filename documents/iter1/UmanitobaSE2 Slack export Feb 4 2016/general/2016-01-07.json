@@ -1,0 +1,92 @@
+[
+    {
+        "user": "U0HUH2B1R",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0HUH2B1R|jorell> has joined the channel",
+        "ts": "1452189785.701683"
+    },
+    {
+        "user": "U0HULF5R6",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0HULF5R6|evan> has joined the channel",
+        "ts": "1452189946.000002"
+    },
+    {
+        "user": "U0HUKEYE5",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0HUKEYE5|mattmcmurray> has joined the channel",
+        "ts": "1452190051.000003"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Wuddup",
+        "ts": "1452190065.000004"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "We should probably try and have legit sprint planning meetings once a week. That was my group's downfall in SE1",
+        "ts": "1452190338.000002"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "<!channel> I\u2019m down with that. Are you guys free anytime tomorrow so we can just get a head start on this?",
+        "ts": "1452222340.000002"
+    },
+    {
+        "user": "U0J0A2MTL",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0J0A2MTL|keanek> has joined the channel",
+        "ts": "1452223448.380514"
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "I've got class from 1:30-2:20pm tomorrow, I could hang around afterwards.",
+        "ts": "1452223592.000002"
+    },
+    {
+        "user": "U0J0D1KE3",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0J0D1KE3|steve> has joined the channel",
+        "ts": "1452228532.435416"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "im free at that time as well.",
+        "ts": "1452228658.000002"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Cool. I'll be there for that time then. Hopefully <@U0HUKEYE5> and <@U0HULF5R6> will both be free as well :simple_smile:",
+        "ts": "1452231225.000003"
+    },
+    {
+        "user": "U0J08TYGL",
+        "type": "message",
+        "subtype": "channel_join",
+        "text": "<@U0J08TYGL|caleb> has joined the channel",
+        "ts": "1452231315.000004"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "Yup, I have an hour free at 2:20",
+        "ts": "1452231384.000005"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I can meet at 220 too",
+        "ts": "1452234203.000006"
+    }
+]

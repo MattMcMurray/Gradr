@@ -1,0 +1,161 @@
+[
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I have to take off a bit early today, are you guys okay with meeting tomorrow at 2:30 to discuss vision statement and tasks?",
+        "ts": "1452620414.000002"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "I think that's okay with me",
+        "ts": "1452620655.000003"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Yeah that works for me too",
+        "ts": "1452621277.000004"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Perf",
+        "ts": "1452621462.000005"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I'm gonna set up the github tonight, so when you all have the chance, send me your usernames in a direct message ",
+        "ts": "1452621952.000006"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "<!channel> ",
+        "ts": "1452621962.000007"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Since we\u2019re using NodeJS we have to agree on a programming pattern.",
+        "edited": {
+            "user": "U0HUH2B1R",
+            "ts": "1452622735.000000"
+        },
+        "ts": "1452622723.000008"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "*design patterns. haha",
+        "ts": "1452622757.000010"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "As in like MVC vs. 3 layer, etc?",
+        "ts": "1452622763.000011"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Nope. That\u2019s more of architecture. Like how we\u2019re actually writing the code.",
+        "ts": "1452622787.000012"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Gotcha. Yeah, let's talk about that at tomorrow's meeting as well. ",
+        "ts": "1452622811.000013"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "<https:\/\/addyosmani.com\/resources\/essentialjsdesignpatterns\/book\/#designpatternsjavascript>",
+        "attachments": [
+            {
+                "text": "An open-source book on JavaScript Design Patterns",
+                "fallback": "An open-source book on JavaScript Design Patterns",
+                "from_url": "https:\/\/addyosmani.com\/resources\/essentialjsdesignpatterns\/book\/#designpatternsjavascript",
+                "id": 1
+            }
+        ],
+        "ts": "1452622813.000014"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I'll read through that tonight ",
+        "ts": "1452622854.000016",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0HULF5R6"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Did we want to outline a structured git workflow based off of sprint iterations, or are we just gonna pull out of master and merge back?",
+        "ts": "1452623666.000017"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "I think we're at least going to have a dev branch for each iteration, and will get merged with master each iteration",
+        "ts": "1452623712.000018"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "beyond that not sure",
+        "ts": "1452623716.000019"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I was thinking similar to Norima, <@U0HULF5R6> ",
+        "ts": "1452623778.000020"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Another topic for tomorrow.",
+        "ts": "1452623784.000021"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "A branch for each iteration and feature branches are merged in. ",
+        "ts": "1452623792.000022"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "But yeah, something to talk about tomorrow for sure ",
+        "ts": "1452623803.000023"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Yeah, that makes the most sense to me if we have to revert to a previous version for some reason . But yeah we can talk about it tomorrow.",
+        "ts": "1452623885.000024"
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "Meeting at the resource room again tomorrow?",
+        "ts": "1452639071.000002"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Yup yup",
+        "ts": "1452639524.000003"
+    }
+]

@@ -1,0 +1,644 @@
+[
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Make sure you've cleaned out the database. I had the same issue last night. ",
+        "ts": "1454596805.000044"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "<!channel> I'm a little fuzzy on what was decided at yesterday's meeting. If I understand correctly, whoever is doing the integration tests should actually make them unit tests using the stub? I'm gonna bring my laptop and try to get those done this afternoon at school",
+        "ts": "1454597189.000045"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "Pretty sure we realized that we THOUGHT were unit tests were actually integration tests, due to our lack of a stub database. <@U0J0D1KE3>  was tasked with creating the stub database, which he did last night",
+        "ts": "1454597249.000046"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "<@U0HUKEYE5>:",
+        "ts": "1454597255.000047"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Right. K so I'll try and hammer out some unit tests",
+        "ts": "1454597367.000048"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "The only thing I'm unclear on right now is how to run the tests with the stub. He documented how to run main.js with it, but not with running the tests with Mocha",
+        "ts": "1454597399.000049"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "also, make sure you check what's already there. We've got most of the api ones done",
+        "ts": "1454597421.000050"
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "I'll push what I've done to a remote branch.  The --stub commands don't work with mocha, unfortunately.",
+        "ts": "1454597466.000051"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "so how do you run the tests using the stub?",
+        "ts": "1454597488.000052"
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "You need to inject the api in the test.  You can look at the branch once I push it.",
+        "ts": "1454597576.000053",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0J08TYGL"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "Okay, I created a pull request with my test code.",
+        "ts": "1454598309.000054"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "<@U0J0A2MTL> I posted a comment on your pull request, I'm just wondering how something works",
+        "ts": "1454602375.000055"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "It seems weird to me but it works, so I'm just curious is all",
+        "ts": "1454602414.000056"
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "Heading to school, won't have access to the chat for the next hour or so.  Walking sucks.",
+        "ts": "1454603451.000057"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "We can't figure it out, can anyone else chime in? <https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/41\/files#r51898237>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "Kk testing by KeaneTK \u00b7 Pull Request #41 \u00b7 MattMcMurray\/Gradr \u00b7 GitHub",
+                "title_link": "https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/41\/files#r51898237",
+                "text": "Further testing.",
+                "fallback": "GitHub: Kk testing by KeaneTK \u00b7 Pull Request #41 \u00b7 MattMcMurray\/Gradr",
+                "thumb_url": "https:\/\/avatars2.githubusercontent.com\/u\/16666375?v=3&s=400",
+                "from_url": "https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/41\/files#r51898237",
+                "thumb_width": 420,
+                "thumb_height": 420,
+                "id": 1
+            }
+        ],
+        "ts": "1454603710.000058"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Never mind I figured it out",
+        "ts": "1454604438.000060"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "Is it just that there's only one router that they all share? ",
+        "ts": "1454604598.000061"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Basically yeah, whenever you do a require, there is a cache that node keeps track of, and if you require and already existing file, it just references that one instead of creating a new instance of it.",
+        "ts": "1454604750.000062",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0J0D1KE3"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I just want to clarify something, we\u2019re just turning the intergration tests into unit test by using the stub instead of the actual User and UserMatches model.",
+        "ts": "1454605697.000063"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Correct?",
+        "ts": "1454605699.000064"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "i believe so",
+        "ts": "1454605803.000065"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "not sure if we should keep the \"integration\" tests too",
+        "edited": {
+            "user": "U0J0D1KE3",
+            "ts": "1454605927.000000"
+        },
+        "ts": "1454605823.000066"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "we need 1 integration test per detailed user story.",
+        "ts": "1454605884.000067"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I'm working on the 3 integration tests ",
+        "ts": "1454605899.000068"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "lol RIP we only finished 3\/9 detailed user stories",
+        "ts": "1454605994.000070"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "My app for SE1 was basically 100% non functional and I got an A in that class ",
+        "ts": "1454606161.000071"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Ehh I feel like we're graded on how we follow the process, not necessarily how many features\/stories we get throufh",
+        "ts": "1454606163.000072"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Is anyone converting integration tests to unit tests currently? I just dont want to have conflicts with anyone.",
+        "ts": "1454606966.000073"
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "I already converted the api_tests to use the stubs.",
+        "ts": "1454607030.000074"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "ahh",
+        "ts": "1454607036.000075"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I'm working on changing my tests to stubs",
+        "ts": "1454607098.000076"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "All tests are passing except for this one, which fails consistently: \n```\n  1) api GET \/api\/getPotentialMatches requests a list of users that are a match for a provided userID:\n     Uncaught AssertionError: Expected 0 to equal 1.\n      at fail (node_modules\/assertthat\/lib\/fail.js:24:10)\n      at Object.equalTo (node_modules\/assertthat\/lib\/constraints\/equalTo.js:17:5)\n      at Test.&lt;anonymous&gt; (test\/api_endpoint_tests.js:174:57)\n      at Test.assert (node_modules\/supertest\/lib\/test.js:156:6)\n      at Server.assert (node_modules\/supertest\/lib\/test.js:127:12)\n      at emitCloseNT (net.js:1524:8)\n```",
+        "ts": "1454626235.000077"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "all tests passed for me",
+        "ts": "1454626494.000078"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I might be missing changes from main branch",
+        "ts": "1454626510.000079"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U0HUH2B1R|jorell> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/jorell\/F0LAT7RKN\/screen_shot_2016-02-04_at_4.54.57_pm.png|Screen Shot 2016-02-04 at 4.54.57 PM.png>",
+        "file": {
+            "id": "F0LAT7RKN",
+            "created": 1454626510,
+            "timestamp": 1454626510,
+            "name": "Screen Shot 2016-02-04 at 4.54.57 PM.png",
+            "title": "Screen Shot 2016-02-04 at 4.54.57 PM.png",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U0HUH2B1R",
+            "editable": false,
+            "size": 285998,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0LAT7RKN\/screen_shot_2016-02-04_at_4.54.57_pm.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0LAT7RKN\/download\/screen_shot_2016-02-04_at_4.54.57_pm.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0LAT7RKN-c49e612df5\/screen_shot_2016-02-04_at_4.54.57_pm_64.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0LAT7RKN-c49e612df5\/screen_shot_2016-02-04_at_4.54.57_pm_80.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0LAT7RKN-c49e612df5\/screen_shot_2016-02-04_at_4.54.57_pm_360.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360_w": 312,
+            "thumb_360_h": 360,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0LAT7RKN-c49e612df5\/screen_shot_2016-02-04_at_4.54.57_pm_480.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_480_w": 417,
+            "thumb_480_h": 480,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0LAT7RKN-c49e612df5\/screen_shot_2016-02-04_at_4.54.57_pm_160.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0LAT7RKN-c49e612df5\/screen_shot_2016-02-04_at_4.54.57_pm_720.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_720_w": 625,
+            "thumb_720_h": 720,
+            "thumb_960": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0LAT7RKN-c49e612df5\/screen_shot_2016-02-04_at_4.54.57_pm_960.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_960_w": 833,
+            "thumb_960_h": 960,
+            "thumb_1024": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0LAT7RKN-c49e612df5\/screen_shot_2016-02-04_at_4.54.57_pm_1024.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_1024_w": 889,
+            "thumb_1024_h": 1024,
+            "image_exif_rotation": 1,
+            "original_w": 1072,
+            "original_h": 1235,
+            "permalink": "https:\/\/umanitobase2.slack.com\/files\/jorell\/F0LAT7RKN\/screen_shot_2016-02-04_at_4.54.57_pm.png",
+            "permalink_public": "https:\/\/slack-files.com\/T0HUE4C04-F0LAT7RKN-8e31894730",
+            "channels": [
+                "C0L3J0D8C"
+            ],
+            "groups": [
+
+            ],
+            "ims": [
+
+            ],
+            "comments_count": 0
+        },
+        "user": "U0HUH2B1R",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U0HUH2B1R|jorell>",
+        "bot_id": null,
+        "ts": "1454626514.000080"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Just finished integration tests, gonna submit a pull request shortly",
+        "ts": "1454626527.000081"
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "Pulling iteration1 and running the tests results in 24 passing tests.",
+        "ts": "1454626531.000082"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "lol",
+        "ts": "1454626536.000083"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "did you add 8 tests keanna?",
+        "ts": "1454626542.000084"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "keann*",
+        "ts": "1454626543.000085"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "hmm weird, I must be missing something",
+        "ts": "1454626545.000086"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Keane*",
+        "ts": "1454626573.000087"
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "No, I think the new tests are from Evan's user matching tests.",
+        "ts": "1454626581.000088"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Hmm, I pulled that into my local.",
+        "ts": "1454626593.000089"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I added eight",
+        "ts": "1454626630.000090"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "hmm",
+        "ts": "1454626647.000091"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "oh",
+        "ts": "1454626650.000092"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "do you guys run the .sh file to run your tests?",
+        "ts": "1454626682.000093"
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "I do.",
+        "ts": "1454626694.000094"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I was just running mocha",
+        "ts": "1454626695.000095"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Oh yeah, I ran the shell script and 24 passed",
+        "ts": "1454626709.000096"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "haha",
+        "ts": "1454626710.000097"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Are you guys using the stub for your tests?",
+        "ts": "1454626844.000098"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "<@U0HULF5R6>:",
+        "ts": "1454626858.000099"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Yup",
+        "ts": "1454626918.000100"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I'm gonna do a unit test on the actual model though",
+        "ts": "1454626946.000101"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Can I take that from you? I think that\u2019s part of the unit test db queries",
+        "ts": "1454626968.000102"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Sure that's cool",
+        "ts": "1454626981.000103"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I haven\u2019t written any tests because all ya\u2019ll are quick",
+        "ts": "1454626993.000104"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Figured out why that one test was failing. I miss-merged some changes down to my local machine. Crisis averted, all tests pass :thumbsup:",
+        "ts": "1454628623.000105"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": ":thumbsup:",
+        "ts": "1454628642.000106"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Yall need to start using this one :thumbsup::skin-tone-2:",
+        "ts": "1454628662.000107"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Submitting pull request in a minute",
+        "ts": "1454628668.000108"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "But I am homer simpson",
+        "ts": "1454628673.000109"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I think the yellow one is for asians. haha",
+        "ts": "1454628681.000110"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "<!channel>: so in my branch for integration testing, I modified the `run_tests.sh` script to do different set up and tear down for unit tests and integration tests. SO, if you add a new file to the test directory, you have to add it to the script or it won't get run",
+        "ts": "1454628863.000111"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I can\u2019t add to usermatches. haha",
+        "ts": "1454630682.000112"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "<@U0J0A2MTL>: you were testin the login stuff api endpoints correct?",
+        "ts": "1454637137.000113"
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "I had tests for logins in the api tests, but the stubs didn't really support them, so the tests are commented out at the moment.",
+        "ts": "1454637181.000114"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "so api_test_endpoint are talking to the stubs?",
+        "ts": "1454637201.000115"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "haha that\u2019s why I was failing. haha",
+        "ts": "1454637240.000116"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Yeah they are",
+        "ts": "1454637320.000117"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "But our model unit tests shouldn't be off the stubs obviously",
+        "ts": "1454637375.000118"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "yup yup.",
+        "ts": "1454637389.000119"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I\u2019m also responsible for writing login\/logout tests.",
+        "ts": "1454637401.000120"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "So I\u2019m thinking of just doing the login and logout tests before things are injected",
+        "ts": "1454637432.000121"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "is anyone against that idea?",
+        "ts": "1454637444.000122"
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "They might not run that way...but you can try.",
+        "ts": "1454637477.000123"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "doens\u2019t mocha run the tests top down?",
+        "ts": "1454637489.000124"
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "Not sure",
+        "ts": "1454637500.000125"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "you\u2019re right",
+        "ts": "1454637605.000126"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "it doesn\u2019t work that way. haha",
+        "ts": "1454637609.000127"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "fuck yeah!",
+        "ts": "1454637990.000128"
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "Got it to work?",
+        "ts": "1454638023.000129"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "yeah",
+        "ts": "1454638025.000130"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "well the model tests at least",
+        "ts": "1454638037.000131"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "we\u2019re using a separate db for testing the model.",
+        "ts": "1454638048.000132"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "made a pull request",
+        "ts": "1454644121.000133"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "looking",
+        "ts": "1454644562.000134"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "looks good to me",
+        "ts": "1454644669.000135"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Sick.",
+        "ts": "1454646736.000136"
+    }
+]

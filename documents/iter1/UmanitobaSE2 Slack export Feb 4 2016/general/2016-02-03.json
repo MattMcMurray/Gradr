@@ -1,0 +1,236 @@
+[
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Are we meeting today?",
+        "ts": "1454529769.000265"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "I'd like to",
+        "ts": "1454529876.000266"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I won't be able to make it unfortunately",
+        "ts": "1454529889.000267"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Im at home dying ",
+        "ts": "1454529994.000268",
+        "reactions": [
+            {
+                "name": "-1",
+                "users": [
+                    "U0HULF5R6",
+                    "U0J08TYGL"
+                ],
+                "count": 2
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "That's cool matt, I would like to meet too for anyone else who can",
+        "ts": "1454530011.000269"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "Are you gonna come then Evan? ",
+        "ts": "1454532272.000270"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "can someone at class tomorrow ask if we can just draw the UML diagrams????",
+        "ts": "1454564357.000271"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "we need UMLs for this iteration?",
+        "ts": "1454564705.000272"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "damn",
+        "edited": {
+            "user": "U0J0D1KE3",
+            "ts": "1454605666.000000"
+        },
+        "ts": "1454564889.000274"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "that didn't copy well at all",
+        "ts": "1454564895.000275"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "lol",
+        "ts": "1454564899.000276"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "where did you copy this from?",
+        "ts": "1454564905.000278"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U0J0D1KE3|steve> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/steve\/F0L8GQ8TD\/pasted_image_at_2016_02_03_11_48_pm.png|Pasted image at 2016-02-03, 11:48 PM>",
+        "file": {
+            "id": "F0L8GQ8TD",
+            "created": 1454564927,
+            "timestamp": 1454564927,
+            "name": "Pasted image at 2016_02_03 11_48 PM.png",
+            "title": "Pasted image at 2016-02-03, 11:48 PM",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U0J0D1KE3",
+            "editable": false,
+            "size": 218943,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0L8GQ8TD\/pasted_image_at_2016_02_03_11_48_pm.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0L8GQ8TD\/download\/pasted_image_at_2016_02_03_11_48_pm.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0L8GQ8TD-ff23e48e18\/pasted_image_at_2016_02_03_11_48_pm_64.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0L8GQ8TD-ff23e48e18\/pasted_image_at_2016_02_03_11_48_pm_80.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0L8GQ8TD-ff23e48e18\/pasted_image_at_2016_02_03_11_48_pm_360.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360_w": 360,
+            "thumb_360_h": 202,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0L8GQ8TD-ff23e48e18\/pasted_image_at_2016_02_03_11_48_pm_480.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_480_w": 480,
+            "thumb_480_h": 270,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0L8GQ8TD-ff23e48e18\/pasted_image_at_2016_02_03_11_48_pm_160.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0L8GQ8TD-ff23e48e18\/pasted_image_at_2016_02_03_11_48_pm_720.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_720_w": 720,
+            "thumb_720_h": 405,
+            "thumb_960": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0L8GQ8TD-ff23e48e18\/pasted_image_at_2016_02_03_11_48_pm_960.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_960_w": 960,
+            "thumb_960_h": 540,
+            "thumb_1024": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0L8GQ8TD-ff23e48e18\/pasted_image_at_2016_02_03_11_48_pm_1024.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_1024_w": 1024,
+            "thumb_1024_h": 576,
+            "image_exif_rotation": 1,
+            "original_w": 1366,
+            "original_h": 768,
+            "permalink": "https:\/\/umanitobase2.slack.com\/files\/steve\/F0L8GQ8TD\/pasted_image_at_2016_02_03_11_48_pm.png",
+            "permalink_public": "https:\/\/slack-files.com\/T0HUE4C04-F0L8GQ8TD-ea97570571",
+            "channels": [
+                "C0HUKJ1RQ"
+            ],
+            "groups": [
+
+            ],
+            "ims": [
+
+            ],
+            "comments_count": 0
+        },
+        "user": "U0J0D1KE3",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U0J0D1KE3|steve>",
+        "bot_id": null,
+        "ts": "1454564929.000279"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "design section",
+        "ts": "1454564943.000280"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "there you go",
+        "ts": "1454564990.000281"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "you can uml",
+        "ts": "1454564991.000282"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "haha",
+        "ts": "1454564992.000283"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "also, they will want access to our messaging so i suggest if you said anything you don't want seen, to delete it",
+        "ts": "1454565004.000284"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "wtf jorell, i know? im asking if we need to use visual studio to make it or not???",
+        "edited": {
+            "user": "U0J0D1KE3",
+            "ts": "1454565038.000000"
+        },
+        "ts": "1454565024.000285"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I misread your original question",
+        "ts": "1454565057.000287"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I thought you were asking if we can use a uml diagram",
+        "ts": "1454565068.000288"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Question: Should we add the .sqlite file to the git ignore?",
+        "ts": "1454565154.000289"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "because everytime it chagnes we\u2019d have to commit it.",
+        "ts": "1454565162.000290"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "you don't have to commit it",
+        "ts": "1454565341.000291"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "just stash it",
+        "ts": "1454565346.000292"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "cool",
+        "ts": "1454565436.000293"
+    }
+]

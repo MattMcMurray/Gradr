@@ -37,7 +37,7 @@ $('#editButton').click(function(e) {
 			},
 			error: function(error) {
 				//TODO: Tell the user about the error.
-				console.log('couldn't update');
+				console.log('couldn\'t update');
 				console.log(error);
 			}
 		});
@@ -57,7 +57,14 @@ var userCallback = function(data) {
 	$('#username').append(username);
 	$('#generalDescription').html(data.user.generalDescription);
 	$('#helpDescription').html(data.user.helpDescription);
-	$('#school').val(data.user.school); //Inputs prefer when you set there value through val
+	$('#school').val(data.user.school); 
+	$('#firstname').val(data.user.firstname);
+	$('#lastname').val(data.user.lastname);
+	$('#city').val(data.user.city);
+	$('#country').val(data.user.country);
+	$('#courses').val(data.user.courses);
+	$('#dateOfBirth').val(data.user.dateOfBirth.substring(0,10));
+	//Inputs prefer when you set there value through val
 	console.log(data);
 }
 

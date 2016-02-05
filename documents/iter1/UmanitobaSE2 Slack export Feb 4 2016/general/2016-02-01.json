@@ -1,0 +1,109 @@
+[
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Are we meeting today? I'll be late if we do, I have a meeting with Andrea today for UCOSP.",
+        "ts": "1454345334.000241"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Yeah, a wrap up and integrations\/testing planning ",
+        "ts": "1454345440.000242"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "OK, meeting should only be 15 minutes, I'll be there after.",
+        "ts": "1454345775.000243"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Just a heads up for everyone, I have these biweekly on Mondays.",
+        "ts": "1454345807.000244"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I just made a commit to iteration1, I emptied out the database, added the script that you can use `sqlite3` to append to the tables if you want, and uncommented those sync operations in the models.",
+        "ts": "1454354882.000245"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Sweet. I'm gonna try and do a deploy to my AWS tonight ",
+        "ts": "1454354982.000246"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I'm gonna look into making options when we run the server so filling the database can be a little more elegant than executing that sqlite3 command too",
+        "ts": "1454355246.000247",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0HUKEYE5"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Added a folder for tests in `\/code\/server`",
+        "ts": "1454368900.000248"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Writing a sample API endpoint test right now. I'll let you know when I'm done and it's working as expected",
+        "ts": "1454370144.000249"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "unit tests will be a bit different obviously, but Mocha's docs are great and there's lots of tutorials online",
+        "ts": "1454370172.000250"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "So the default assertion library that comes with mocha has a pretty serious bug in it right now, luckily you can plug in any assertion framework. After some research, <https:\/\/github.com\/thenativeweb\/assertthat> looks to be the most simple and powerful. It has C style assertions which I figured everybody would know. All this to say, make sure you run `npm install` when you pull down the new code to make sure you've got all the libraries you need.",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "thenativeweb\/assertthat",
+                "title_link": "https:\/\/github.com\/thenativeweb\/assertthat",
+                "text": "assertthat provides fluent TDD.",
+                "fallback": "GitHub: thenativeweb\/assertthat",
+                "thumb_url": "https:\/\/avatars2.githubusercontent.com\/u\/2329903?v=3&s=400",
+                "from_url": "https:\/\/github.com\/thenativeweb\/assertthat",
+                "thumb_width": 400,
+                "thumb_height": 400,
+                "id": 1
+            }
+        ],
+        "ts": "1454373301.000253"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Also, I'm going to add the test users to the database, commit it, then add it to the .gitignore so that the version in the repo always contains the test data",
+        "ts": "1454374930.000255"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "If you wanna keep local changes to your db, just `git stash` before the pull and `git stash pop` after the pull",
+        "ts": "1454374969.000256"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": ":thumbsup:",
+        "ts": "1454387807.000257"
+    }
+]
