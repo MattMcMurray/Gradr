@@ -38,7 +38,7 @@ function processOptions(args) {
 
 
     // minimist uses '_' to hold any arguments not associated with an option, not needed
-    delete args._;
+    delete args._; 
 
     for (var arg in args) {
         switch (arg) {

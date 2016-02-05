@@ -92,6 +92,48 @@ describe('Database query tests', function() {
 					done();
 				});
 			});
+		});
+
+		describe('createUser', function() {
+			it('creates a user and adds to the database', function(done){
+				User.createUser({username:'hibbityhoppity', password:'hello1'}).then(function(user){
+					assert.that(user).is.not.null();
+					assert.that(user.username).is.equalTo('hibbityhoppity');
+					done();
+				}).catch(function(error){
+					assert.that(error.message).is.equalTo('Validation error');
+					assert.that(error.errors[0].type).is.equalTo('unique violation');
+					done();
+				});
+			});
+		});
+
+		
+		describe('createUserProfile', function(){
+			it('updates the users profile', function(done){
+				var school = "University of Manitoba";
+				User.createUserProfile({
+					username: "jjorell",
+					school: school
+				}).then(function(){
+					User.getUser('jjorell').then(function(user){
+						assert.that(user.school).is.equalTo(school);
+						done();
+					});
+				});
+			});
+		});
+
+
+		describe('getRandom', function() {
+			it('returns a random user who is not requesting user and has not been previously rated', function(done){
+				User.getRandom(2).then(function(user){
+					assert.that(user).is.not.null();
+					assert.that(user.username).is.not.equalTo('jflores1');
+					done();
+				});
+			});
 		})
+
 	});
 });
