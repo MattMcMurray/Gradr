@@ -1,0 +1,431 @@
+[
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "wait, really?",
+        "ts": "1452782192.000002"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "Yeah they want to see everything you've talked about ",
+        "ts": "1452783586.000003"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "can we just get a transcript off of slack and put it in the repo?",
+        "ts": "1452783617.000004"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I think he means as far as issue tracking goes. But we should clarify in class today",
+        "ts": "1452783833.000005"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I\u2019m going to be missing class today. Can someone let me know if he mentions anything important? Term test dates specifically.",
+        "ts": "1452790079.000006"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Will do",
+        "ts": "1452790610.000007"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Same here, just landed in Toronto",
+        "ts": "1452790892.000008"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Yeah man. I can send you guys my onenote page of notes for today",
+        "ts": "1452792438.000009",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0HULF5R6"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": ":heart:",
+        "ts": "1452794232.000010"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I'm gonna try and get a skeleton hello world app set up in the repo tonight and make sure there's a script to install all dependencies so we can hit the ground running for iteration 1",
+        "ts": "1452794359.000011"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Also, do we want to use a styling framework? E.g., bootstrap, materialize, etc.?",
+        "ts": "1452795370.000012"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "<http:\/\/getbootstrap.com|getbootstrap.com> ",
+        "ts": "1452795395.000013"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "<http:\/\/materializecss.com|materializecss.com>",
+        "ts": "1452795416.000014"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Class was pretty boring. Nothing super important. I feel like only one slide was really worthwhile ",
+        "ts": "1452796989.000015"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U0HUKEYE5|mattmcmurray> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/mattmcmurray\/F0JFDH76V\/20160114_124226.jpg|Slack for Android Upload>",
+        "file": {
+            "id": "F0JFDH76V",
+            "created": 1452796999,
+            "timestamp": 1452796999,
+            "name": "20160114_124226.jpg",
+            "title": "Slack for Android Upload",
+            "mimetype": "image\/jpeg",
+            "filetype": "jpg",
+            "pretty_type": "JPEG",
+            "user": "U0HUKEYE5",
+            "editable": false,
+            "size": 3998773,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0JFDH76V\/20160114_124226.jpg?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0JFDH76V\/download\/20160114_124226.jpg?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0JFDH76V-c60e16dec8\/20160114_124226_64.jpg?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0JFDH76V-c60e16dec8\/20160114_124226_80.jpg?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0JFDH76V-c60e16dec8\/20160114_124226_360.jpg?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360_w": 360,
+            "thumb_360_h": 203,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0JFDH76V-c60e16dec8\/20160114_124226_480.jpg?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_480_w": 480,
+            "thumb_480_h": 270,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0JFDH76V-c60e16dec8\/20160114_124226_160.jpg?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0JFDH76V-c60e16dec8\/20160114_124226_720.jpg?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_720_w": 720,
+            "thumb_720_h": 405,
+            "thumb_960": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0JFDH76V-c60e16dec8\/20160114_124226_960.jpg?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_960_w": 960,
+            "thumb_960_h": 540,
+            "thumb_1024": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0JFDH76V-c60e16dec8\/20160114_124226_1024.jpg?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_1024_w": 1024,
+            "thumb_1024_h": 576,
+            "image_exif_rotation": 1,
+            "original_w": 5312,
+            "original_h": 2988,
+            "permalink": "https:\/\/umanitobase2.slack.com\/files\/mattmcmurray\/F0JFDH76V\/20160114_124226.jpg",
+            "permalink_public": "https:\/\/slack-files.com\/T0HUE4C04-F0JFDH76V-f2fc758960",
+            "channels": [
+                "C0HUKJ1RQ"
+            ],
+            "groups": [
+
+            ],
+            "ims": [
+
+            ],
+            "comments_count": 0
+        },
+        "user": "U0HUKEYE5",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U0HUKEYE5|mattmcmurray>",
+        "bot_id": null,
+        "ts": "1452797008.000016"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "<@U0J0D1KE3>: suggested than instead of having a check an x, we can have pass and fail or A+ or F",
+        "ts": "1452802589.000017"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "haha",
+        "ts": "1452802589.000018"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "study",
+        "ts": "1452802721.000019"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Hahah yeah I like that",
+        "ts": "1452804771.000020"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Can we incorporate gold stars anywhere too for that elementary flair?",
+        "ts": "1452806394.000021"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "That coulde be party of our rating system?",
+        "ts": "1452806424.000022",
+        "reactions": [
+            {
+                "name": "star",
+                "users": [
+                    "U0HULF5R6"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": ":+1: ",
+        "ts": "1452806496.000023"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Guys, this is going to be the best SE2 project OF ALL TIME",
+        "ts": "1452806643.000024"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "YEAAAHP",
+        "ts": "1452806655.000025"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I like how materialize looks",
+        "ts": "1452811498.000026"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I really dont want to deal with CSS too much.",
+        "ts": "1452811512.000027"
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "I messed around with Bootstrap a bit at my last work term.  But all of the css was written previously, I was just calling it as necessary.",
+        "ts": "1452813062.000028"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Bootstrap and materialize are super similar. Basically they just provide pre-written CSS and JavaScript that you can call. We can talk about it tomorrow or next week or something",
+        "ts": "1452813397.000029"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "So I have sqlite working with nodejs already.",
+        "ts": "1452813419.000030"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "haha",
+        "ts": "1452813420.000031"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Prof recommended sqlite today lol",
+        "ts": "1452814681.000032"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I have a very simple demo API up on a branch on GitHub if any of you are curious to see what the routing looks like",
+        "ts": "1452815012.000033"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "<https:\/\/github.com\/MattMcMurray\/softeng2\/tree\/project_setup>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "MattMcMurray\/softeng2",
+                "title_link": "https:\/\/github.com\/MattMcMurray\/softeng2\/tree\/project_setup",
+                "text": "softeng2 - A project for Software Engineering 2 at the University of Manitoba",
+                "fallback": "GitHub: MattMcMurray\/softeng2",
+                "thumb_url": "https:\/\/avatars3.githubusercontent.com\/u\/10404392?v=3&s=400",
+                "from_url": "https:\/\/github.com\/MattMcMurray\/softeng2\/tree\/project_setup",
+                "thumb_width": 420,
+                "thumb_height": 420,
+                "id": 1
+            }
+        ],
+        "ts": "1452815857.000034"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I have a small app on my laptop that does database stuff using Sequelize.",
+        "ts": "1452819933.000036"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I\u2019ll add to this testing Sequelize.",
+        "ts": "1452819941.000037"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Excellent",
+        "ts": "1452820037.000038"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "apparently var keyword limits a variable\u2019s scope to its module",
+        "ts": "1452823729.000039"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "You can export it. Something like `export = { myVar }`",
+        "ts": "1452823836.000040"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "if you don\u2019t use var, it becomes global.",
+        "ts": "1452823850.000041"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I'd have to check the docs, but I think it's possible ",
+        "ts": "1452823850.000042"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "its weird..",
+        "ts": "1452823859.000043"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Oh yeah that sounds familiar ",
+        "ts": "1452823867.000044"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I went and created channel\u2019s for the topics that we might need.",
+        "ts": "1452824027.000045"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "this way, we\u2019ll have things more organized and it wont be a cluster fuck when we want to look for something specific. haha",
+        "ts": "1452824048.000046",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0HUKEYE5"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "<@U0HUKEYE5> was your hello world app working?",
+        "ts": "1452828950.000047"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Yup. It only responds to ajax requests though. Use postman or a similar chrome extension to send a get request. Full instructions are in the readme",
+        "ts": "1452829113.000048"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "i uploaded a first draft of the vision statement. it's not my best work but its something",
+        "ts": "1452829399.000049"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "i write in a very verbose way so it's a bit longer than 1\/2 a page, but it should be pretty easy to cut down. i just wanted to address all the points we wrote down",
+        "ts": "1452829446.000050",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0HUKEYE5",
+                    "U0HUH2B1R"
+                ],
+                "count": 2
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Ahh, the ajax request was my problem. I was just accessing the routes through the browser.",
+        "ts": "1452830956.000051"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "lol nvm. I wasn\u2019t adding \/api =))",
+        "ts": "1452831157.000052"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I was just straight up localhost:8080\/",
+        "ts": "1452831170.000053"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Yo, so I",
+        "ts": "1452832456.000054"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "\u2018m just gonna straight up push to the project_setup repo. I forgot to make a feature branch. haha",
+        "ts": "1452832474.000055"
+    }
+]

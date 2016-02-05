@@ -1,0 +1,14 @@
+[
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Meeting tomorrow at 2:20 boys! We\u2019ll talk about what we need done for iteration 1 this week.",
+        "ts": "1453693763.000002"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "Also, we have made an executive decision that we will be using single quotes ' for strings instead of \"\n\nBoth work in Javascript, but we gotta have standards. Otherwise we're not better than the bad guys",
+        "ts": "1453699563.000003"
+    }
+]

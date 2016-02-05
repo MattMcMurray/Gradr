@@ -1,0 +1,28 @@
+[
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "GitHub page is all set up and meeting notes are updated <https:\/\/github.com\/MattMcMurray\/softeng2>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "MattMcMurray\/softeng2",
+                "title_link": "https:\/\/github.com\/MattMcMurray\/softeng2",
+                "text": "softeng2 - A project for Software Engineering 2 at the University of Manitoba",
+                "fallback": "GitHub: MattMcMurray\/softeng2",
+                "thumb_url": "https:\/\/avatars3.githubusercontent.com\/u\/10404392?v=3&s=400",
+                "from_url": "https:\/\/github.com\/MattMcMurray\/softeng2",
+                "thumb_width": 420,
+                "thumb_height": 420,
+                "id": 1
+            }
+        ],
+        "ts": "1452743096.000002"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "sweet, im going to get started on the vision statment. anyone know how we're supposed to send messages on githhub? we're supposed to communicate using github aren't we?",
+        "ts": "1452744254.000004"
+    }
+]

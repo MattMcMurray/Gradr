@@ -1,0 +1,12 @@
+.vcenter {
+    min-height: 100%; /* Fallback for legacy browsers */
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+}
+
+.clickable {
+	cursor: pointer;
+	cursor: hand; /* Apparently some browsers use hand instead of pointer*/
+}

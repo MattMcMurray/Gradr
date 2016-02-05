@@ -1,0 +1,196 @@
+[
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "would you guys agree that we should have a file for each route?",
+        "ts": "1453407871.000031"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "so for users we have",
+        "ts": "1453407876.000032"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "routes\/user_routes.js",
+        "ts": "1453407885.000033"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Personally I think that's too much",
+        "ts": "1453407996.000034"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I think one for API and one for front-facing",
+        "ts": "1453408005.000035"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Fo shizzle",
+        "ts": "1453408013.000036"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "And then in the API, we just make sure we group things nicely. All user routes are together, all settings routes, etc etc",
+        "ts": "1453408050.000037",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0HULF5R6"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Sounds good.",
+        "ts": "1453408057.000038"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "<@U0HUKEYE5>: any idea for a user accounts module\/",
+        "ts": "1453408379.000039"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Haven't really looked into it much. Got some work to do for HCI and algs. I'll look into it when I'm done with that stuff",
+        "ts": "1453408407.000040"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Oh don\u2019t worry about it. Just wondering if you had something off of the top of your head.",
+        "ts": "1453408432.000041"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I\u2019ll do that now.",
+        "ts": "1453408434.000042"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Word. Post your findings and we can discuss the merits of each",
+        "ts": "1453408453.000043"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "<https:\/\/stormpath.com\/blog\/choosing-nodejs-authentication-strategy\/>",
+        "attachments": [
+            {
+                "service_name": "Stormpath User Identity API",
+                "title": "Choosing your Node.js Authentication Strategy - Stormpath User Identity API",
+                "title_link": "https:\/\/stormpath.com\/blog\/choosing-nodejs-authentication-strategy\/",
+                "text": "Learn the common ways Node.js developers implement user management and authentication and determine what is best for you.",
+                "fallback": "Stormpath User Identity API: Choosing your Node.js Authentication Strategy - Stormpath User Identity API",
+                "image_url": "https:\/\/stormpath.com\/images\/blog\/node-authentication-stormpath-OG.png",
+                "from_url": "https:\/\/stormpath.com\/blog\/choosing-nodejs-authentication-strategy\/",
+                "image_width": 476,
+                "image_height": 250,
+                "image_bytes": 185250,
+                "id": 1
+            }
+        ],
+        "ts": "1453408482.000044"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "<http:\/\/passportjs.org>",
+        "attachments": [
+            {
+                "title": "Passport",
+                "title_link": "http:\/\/passportjs.org",
+                "text": "Simple, unobtrusive authentication for Node.js",
+                "fallback": "Passport",
+                "image_url": "http:\/\/passportjs.org\/images\/twitter-card.png",
+                "image_width": 467,
+                "image_height": 250,
+                "from_url": "http:\/\/passportjs.org",
+                "image_bytes": 173220,
+                "id": 1
+            }
+        ],
+        "ts": "1453408506.000046"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Passport is what norima used, it was pretty straightforward from what I remember",
+        "ts": "1453408525.000048"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "sweet.",
+        "ts": "1453408532.000049"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "hha",
+        "ts": "1453408532.000050"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I\u2019ll try it out.",
+        "ts": "1453408538.000051"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "It got a little messier with oauth integration, but they also used oauth in a non conventional way. ",
+        "ts": "1453408578.000052"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Are we doing oauth though? haha",
+        "ts": "1453408590.000053"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I can't even remember what bare passport looked like",
+        "ts": "1453408601.000054"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Yeah, oauth made it a pain, but we could use facebook or something to make our lives really easy",
+        "ts": "1453408604.000055"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "or google or whatever",
+        "ts": "1453408604.000056"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Could be a nice feature, but probably not",
+        "ts": "1453408615.000057"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Yeah, if we used it the way it's supposed to be used it'd be easier",
+        "ts": "1453408636.000058"
+    }
+]

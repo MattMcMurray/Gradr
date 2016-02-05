@@ -1,0 +1,20 @@
+[
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "<!channel>: I need a hand translating some raw sql to its sequelize representation. Who would be best to talk to?",
+        "ts": "1454357035.000062"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I can do my best to help at the meeting.  The docs definitely aren't great",
+        "ts": "1454357390.000063"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "great, thanks",
+        "ts": "1454357400.000064"
+    }
+]

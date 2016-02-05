@@ -1,0 +1,29 @@
+[
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "If we're meeting today I won't be able to make it, I've gotta do some prep work for my lab tonight",
+        "ts": "1453924990.000039"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I'll be right be there! I'm just dying after a run. Hahaha",
+        "ts": "1453925982.000040"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Me and <@U0HULF5R6> will coordinate our parts and make sure they're done for Friday. Make sure to take meeting minutes today. ",
+        "ts": "1453926084.000041",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0HULF5R6"
+                ],
+                "count": 1
+            }
+        ]
+    }
+]

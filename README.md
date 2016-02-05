@@ -1,19 +1,21 @@
-### Getting started and setting up the dev environment:
-I'm going to be using a VM and it's recommended that everyone working on the project should, so that we all use the same environment
+### For the marker:
+- Our Trello page for iteration 1 (task tracking): https://trello.com/b/mpbIdgMg/iteration-1
+- To run the server:
+    - `cd` into `Gradr/code/server`
+    - run `sudo ./get_started.sh` to install all dependencies
+    - run `sudo node main.js`
+- To run tests:
+    - `cd` into `Gradr/code/server`
+    - install mocha testing framework with `npm install -g mocha`
+    - Make sure you've run the server once (this creates all tables for database and initializes things properly)
+    - run `sudo ./run_tests.sh`
 
-- To ease the process of creating and maintaining a virtual machine, I highly recommend [Vagrant](https://www.vagrantup.com/)
-    - Vagrant uses VirtualBox to quickly set up and tear down virtual machines, and by including the `Vagrantfile` in the repo, we can all use the exact same configuration
-    - Vagrant is cross-platform
-    - Install Vagrant from the link above (you'll also need VirtualBox, but I believe the Vagrant installer handles that)
-- Once you've installed vagrant, `cd` into your local version of the repo
-- Run `vagrant up`
-- Once that's done, run `vagrant ssh`
-    - BAM! You've SSH'd into your VM
-- `cd` into `/vagrant`
-    - This is a shared folder, basically it is mirroring the folder that the Vagrantfile is located in on your local machine, which also happens to be the repository
-- run `./get_started`
-    - you may have to modify the permissions on this file; if it doesn't run, try `chmod +x ./get_started && ./get_started`
+### Getting started and setting up the dev environment:
+- Set up a virtual machine running Ubuntu (or use your Ubuntu machine)
+- `cd` into the `softeng2/code/server` directory and run `./get_started.sh`
+    - you may have to modify the permissions on this file; if it doesn't run, try `chmod +x ./get_started.sh && ./get_started.sh`
 - Node.js and all dependencies should now be installed. If you run into any issues, talk to Matt and he can probably walk you through it.
+- To start the sever, run `sudo node main.js`
 
 ### Working on a new feature (using the command line):
 - Make sure you have pulled the latest changes from the current iteration branch
@@ -32,6 +34,12 @@ I'm going to be using a VM and it's recommended that everyone working on the pro
   - At *least* one other person should look through your code
     - If they think everything looks good, they are free to merge!
     - Sometimes auto-merging is possible. Other times, you're not so lucky. See the section "Fixing Merge Conflicts"
+
+### Running Tests
+- Make sure you have all packages installed by running `sudo npm install` in the `/code/server` directory
+- run the run_tests script -- `./run_tests.sh`
+- To stub the user table and the matches table, run `sudo node main.js --stub_all`.
+  - You can also stub the user or matches tables individually by replacing `--stub_all` with `--stub_users` or `--stub_likes` respectively
     
     
 ### Fixing Merge Conflicts

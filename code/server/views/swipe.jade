@@ -1,0 +1,27 @@
+extends ./base.jade
+
+block stylesheets
+    link(href='/css/swipe.css', rel='stylesheet')
+    link(href='/css/style.css', rel='stylesheet')
+
+block content
+    .row.vcenter
+        .container 
+            .thumbnail#userCard
+                img(src='').img-thumbnail#userImage
+                .caption
+                        p
+                            a(href='/main' role='button').btn.btn-danger#dislikeButton Dislike 
+                            a(href='/main' role='button').btn.btn-success.pull-right#likeButton Like
+
+                        h3#userFullName
+                        input(type='hidden')#userID 
+                        p 
+                            ul
+                                //- li#gpa GPA: 3.4
+                                //- li#major Major: Computer Science
+                                //- li#habits Study habits: 4 days a week for a few hours each time
+                                //- li#gender
+                                li#location
+block scripts
+   script(src='/js/swipe.js') 

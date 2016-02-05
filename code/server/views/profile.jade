@@ -1,0 +1,58 @@
+extends ./base.jade
+
+block stylesheets
+    link(href='/css/style.css', rel='stylesheet')
+    link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', rel='stylesheet')
+
+block content
+    .row.vcenter
+        .container 
+            .thumbnail#userCard
+                .caption
+                    h3#username #[a.pull-right#editButton #[i.clickable.fa.fa-pencil#editIcon]]
+                    form
+                        .form-group
+                            label(for='generalDescription')
+                                | About You
+                            textarea.form-control.user-entry#generalDescription(type='text' disabled='disabled')
+                        .form-group
+                            label(for='helpDescription')
+                                | I Need Help With
+                            textarea.form-control.user-entry#helpDescription(type='text' disabled='disabled')
+                        .form-group
+                            label(for='school')
+                                | School
+                            input.form-control.user-entry#school(type='text' disabled='disabled')
+                        .form-group
+                            label(for='firstname')
+                                | First Name
+                            input.form-control.user-entry#firstname(type='text'
+                            disabled='disabled')
+                        .form-group
+                            label(for='lastname')
+                                | Last Name
+                            input.form-control.user-entry#lastname(type='text'
+                            disabled='disabled')
+                        .form-group
+                            label(for='city')
+                                | City
+                            input.form-control.user-entry#city(type='text'
+                            disabled='disabled')
+                        .form-group
+                            label(for='country')
+                                | Country
+                            input.form-control.user-entry#country(type='text'
+                            disabled='disabled')
+                        .form-group
+                            label(for='courses')
+                                | Courses
+                            input.form-control.user-entry#courses(type='text'
+                            disabled='disabled')
+                        .form-group
+                            label(for='dateOfBirth')
+                                | Date of Birth (YYYY-MM-DD)
+                            input.form-control.user-entry#dateOfBirth(type='text'
+                            disabled='disabled')
+
+block scripts
+   script(src='/js/profile.js') 

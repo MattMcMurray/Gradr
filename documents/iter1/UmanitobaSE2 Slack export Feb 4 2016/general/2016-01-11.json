@@ -1,0 +1,101 @@
+[
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "<!channel>: resource room?",
+        "ts": "1452543370.000002"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": " :thumbsup: ",
+        "ts": "1452543420.000003"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "if you insist",
+        "ts": "1452543446.000004"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Just got out of class, be there soon",
+        "ts": "1452544020.000005"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I'll be throwing all the meeting notes into this one document. I'll just append a couple pages each time we have a meeting. <https:\/\/docs.google.com\/document\/d\/1zamOyRtMqXNgGAJmXcRp66_HBTKQA3h-N-MVJcS5tWQ\/edit?usp=sharing>",
+        "ts": "1452553885.000006"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U0HUKEYE5|mattmcmurray> shared a file: <https:\/\/umanitobase2.slack.com\/files\/mattmcmurray\/F0J77DC9E\/se2-meetingnotes|SE2 - Meeting Notes>",
+        "file": {
+            "id": "F0J77DC9E",
+            "created": 1452553899,
+            "timestamp": 1452553899,
+            "name": "SE2-MeetingNotes",
+            "title": "SE2 - Meeting Notes",
+            "mimetype": "application\/vnd.google-apps.document",
+            "filetype": "gdoc",
+            "pretty_type": "GDocs Document",
+            "user": "U0HUKEYE5",
+            "editable": false,
+            "size": 1579,
+            "mode": "external",
+            "is_external": true,
+            "external_type": "gdrive",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/docs.google.com\/document\/d\/1zamOyRtMqXNgGAJmXcRp66_HBTKQA3h-N-MVJcS5tWQ\/edit?usp=drivesdk",
+            "thumb_64": "https:\/\/slack.global.ssl.fastly.net\/66f9\/img\/files\/gdraw_64.png",
+            "thumb_360": "https:\/\/slack.global.ssl.fastly.net\/272a\/img\/files\/gdoc_360.png",
+            "thumb_360_w": 360,
+            "thumb_360_h": 167,
+            "permalink": "https:\/\/umanitobase2.slack.com\/files\/mattmcmurray\/F0J77DC9E\/se2-meetingnotes",
+            "channels": [
+                "C0HUKJ1RQ"
+            ],
+            "groups": [
+
+            ],
+            "ims": [
+
+            ],
+            "comments_count": 0
+        },
+        "user": "U0HUKEYE5",
+        "upload": false,
+        "display_as_bot": false,
+        "username": "<@U0HUKEYE5|mattmcmurray>",
+        "bot_id": null,
+        "ts": "1452553899.000007"
+    },
+    {
+        "type": "message",
+        "subtype": "pinned_item",
+        "user": "U0HUKEYE5",
+        "item_type": "C",
+        "attachments": [
+            {
+                "color": "D0D0D0",
+                "fallback": "[January 11th, 2016 3:11 PM] mattmcmurray: I'll be throwing all the meeting notes into this one document. I'll just append a couple pages each time we have a meeting. <https:\/\/docs.google.com\/document\/d\/1zamOyRtMqXNgGAJmXcRp66_HBTKQA3h-N-MVJcS5tWQ\/edit?usp=sharing>",
+                "author_subname": "mattmcmurray",
+                "ts": "1452553885.000006",
+                "text": "I'll be throwing all the meeting notes into this one document. I'll just append a couple pages each time we have a meeting. <https:\/\/docs.google.com\/document\/d\/1zamOyRtMqXNgGAJmXcRp66_HBTKQA3h-N-MVJcS5tWQ\/edit?usp=sharing>",
+                "author_link": "https:\/\/umanitobase2.slack.com\/team\/mattmcmurray",
+                "author_icon": "https:\/\/secure.gravatar.com\/avatar\/79518d6ceaf6f0f0991a43e7f3e04327.jpg?s=48&d=https%3A%2F%2Fslack.global.ssl.fastly.net%2F66f9%2Fimg%2Favatars%2Fava_0017-48.png",
+                "mrkdwn_in": [
+                    "text"
+                ]
+            }
+        ],
+        "text": "<@U0HUKEYE5|mattmcmurray> pinned a message to this channel.",
+        "ts": "1452553912.000008"
+    }
+]

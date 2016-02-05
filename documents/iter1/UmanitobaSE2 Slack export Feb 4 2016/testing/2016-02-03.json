@@ -1,0 +1,269 @@
+[
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "<!channel>: just want to confirm that nobody has picked up stub DB work. im going to try to start it now",
+        "ts": "1454518336.000008"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I have not",
+        "ts": "1454518475.000009"
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "Nope.",
+        "ts": "1454518483.000010"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I haven't",
+        "ts": "1454518638.000011"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "neither have I.",
+        "ts": "1454518745.000012"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "It looks like we have two models doing the same thing, likes and usermatches. I don't see likes being referenced, <@U0J0A2MTL> did you use it anywhere? ",
+        "ts": "1454519602.000013"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "That must be when he didn\u2019t know you were working on it?",
+        "ts": "1454519627.000014"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Yeah that's what I was thinking, if it's not referenced let's remove it so it isn't tested by accident.",
+        "ts": "1454519810.000015"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "If you use sublime, do a global search for \"Likes.js\" and it should show if its imported anywhere",
+        "ts": "1454519997.000016"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I'm sure other text editors have similar functions",
+        "ts": "1454520008.000017"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Looks like it's not referenced",
+        "ts": "1454520832.000018"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I'll submit a pull request",
+        "ts": "1454520837.000019"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I'm just gonna merge it myself",
+        "ts": "1454521037.000020"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "do we want to make pull requests for testing? or just merge in",
+        "ts": "1454532572.000021"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "We should make pull requests still just in case people catch potentially missing  cases",
+        "ts": "1454534638.000022"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "pull request up for a few tests",
+        "ts": "1454537629.000023"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I'm getting 3 failed tests on iteration1 branch. Is that the case for anyone else?",
+        "ts": "1454550849.000024"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Okay, so it's important to remember that tests aren't necessarily run in the order that they're written in the file, so if you make API calls that modify a user, make sure that it doesn't break another test case",
+        "ts": "1454551437.000025"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Okay, so I figured out why tests were failing. My copy of the db was stuck in a weird state. Crisis averted.",
+        "ts": "1454552956.000026"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "So uhhh",
+        "ts": "1454554840.000027"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "how do you run the tests?",
+        "ts": "1454554843.000028"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "nvm figured it out",
+        "ts": "1454555050.000029"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U0J0D1KE3|steve> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/steve\/F0L8B3J5B\/untitled_document|Meeting notes> and commented: Btw Jorell and Matt, here's what I wanted to say at the meeting today. I should be able to get the stubs out tonight",
+        "file": {
+            "id": "F0L8B3J5B",
+            "created": 1454556539,
+            "timestamp": 1454556539,
+            "name": "Untitled Document",
+            "title": "Meeting notes",
+            "mimetype": "text\/plain",
+            "filetype": "text",
+            "pretty_type": "Plain Text",
+            "user": "U0J0D1KE3",
+            "editable": true,
+            "size": 552,
+            "mode": "snippet",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0L8B3J5B\/untitled_document?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0L8B3J5B\/download\/untitled_document?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "permalink": "https:\/\/umanitobase2.slack.com\/files\/steve\/F0L8B3J5B\/untitled_document",
+            "permalink_public": "https:\/\/slack-files.com\/T0HUE4C04-F0L8B3J5B-a67d37c8e9",
+            "edit_link": "https:\/\/umanitobase2.slack.com\/files\/steve\/F0L8B3J5B\/untitled_document\/edit",
+            "preview": "Meeting 2\/3\nAttendees: Steven, Keane, Evan, Caleb\n\nItem 1:\nUnit Tests: So far what we have is technically \"integration tests\" since we aren't stubbing the DB. We need to recreate these tests when but to use the stub once they're finished.",
+            "preview_highlight": "<div class=\"CodeMirror cm-s-default CodeMirrorServer\">\n<div class=\"CodeMirror-code\">\n<div><pre>Meeting 2\/3<\/pre><\/div>\n<div><pre>Attendees: Steven, Keane, Evan, Caleb<\/pre><\/div>\n<div><pre><\/pre><\/div>\n<div><pre>Item 1:<\/pre><\/div>\n<div><pre>Unit Tests: So far what we have is technically &quot;integration tests&quot; since we aren't stubbing the DB. We need to recreate these tests when but to use the stub once they're finished.<\/pre><\/div>\n<\/div>\n<\/div>\n",
+            "lines": 8,
+            "lines_more": 3,
+            "channels": [
+                "C0L3J0D8C"
+            ],
+            "groups": [
+
+            ],
+            "ims": [
+
+            ],
+            "comments_count": 1,
+            "initial_comment": {
+                "id": "Fc0L8F9ECW",
+                "created": 1454556539,
+                "timestamp": 1454556539,
+                "user": "U0J0D1KE3",
+                "comment": "Btw Jorell and Matt, here's what I wanted to say at the meeting today. I should be able to get the stubs out tonight"
+            }
+        },
+        "user": "U0J0D1KE3",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U0J0D1KE3|steve>",
+        "bot_id": null,
+        "ts": "1454556539.000030"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "alright, noted.",
+        "ts": "1454557676.000031"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "<@U0J0D1KE3>: let me know when you\u2019re done with those stubs. I\u2019m going to write some unit tests :simple_smile:",
+        "ts": "1454558686.000032"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "working on it",
+        "ts": "1454559053.000033"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "<@U0HULF5R6> how does this arg thing work?",
+        "ts": "1454559066.000034"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "when i put -fill_database, it seems to split it into chars and then says that there's no option associated with each individual char?",
+        "ts": "1454559175.000035"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "nvm figured it out.",
+        "ts": "1454559329.000036"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "PSA: you have to use 2 dashes to make it work",
+        "ts": "1454559340.000037"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "ok user stub is up for review",
+        "ts": "1454560293.000038"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "it is imperfect, so do let me know if you have issues and I'll fix",
+        "ts": "1454560306.000039"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "i tested profiles and some random api methods with it, but im not an expert",
+        "ts": "1454560333.000040"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "<@U0HUH2B1R>: im done both stubs now",
+        "ts": "1454564226.000041"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "sweet",
+        "ts": "1454564249.000042"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "So running the test script gives me 6 pass and 6 fails",
+        "ts": "1454565899.000043"
+    }
+]

@@ -1,0 +1,42 @@
+[
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I've been having some issues executing raw sql files with sequelize and the sqlite3 packages, it seems that it doesn't like multiple sql operations in one string. Even splitting by semicolons and doing each insert separately is still giving me a sqlite formatting error. It's close though!",
+        "ts": "1454439614.000258"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I put out a pull request for processing arguments when we run our node script, right now it just has `--clear_database` and `--fill_database` options, but we can implement more as we see fit.",
+        "edited": {
+            "user": "U0HULF5R6",
+            "ts": "1454456490.000000"
+        },
+        "ts": "1454456470.000259"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Also I should note that right now it just focuses on the users table, we can alter the scripts to add test data for user_matches as well later on",
+        "ts": "1454456731.000261"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Sweeet ",
+        "ts": "1454458704.000262"
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "Tomorrow morning I'm going to start hammering away at the api unit tests.",
+        "ts": "1454470701.000263"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Just a note that I'm working on the like\/dislike api test",
+        "ts": "1454471487.000264"
+    }
+]
