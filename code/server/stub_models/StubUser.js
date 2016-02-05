@@ -1,8 +1,8 @@
-var authenticator = require("../mixins/authenticator.js");
+var authenticator = require('../mixins/authenticator.js');
 var StubUserMatches = require('./StubUserMatches.js');
 
 var user1 = {
-    username: "bairosns",
+    username: 'bairosns',
     password: 'wlkslkjaiusddhf7yq98pyrh43hh', //Not actually a password, mashed the keyboard
     school: 'University of Manitoba',
     generalDescription: 'Hi I love homework',
@@ -12,8 +12,8 @@ var user1 = {
 }
 
 var user2 = {
-    username: "mattmcmurray",
-    password: ";lkjsda;ljifsd;jlfsd;ljksda;jlkdsa", //Not actually a password, mashed the keyboard
+    username: 'mattmcmurray',
+    password: ';lkjsda;ljifsd;jlfsd;ljksda;jlkdsa', //Not actually a password, mashed the keyboard
     school: 'University of Manitoba',
     generalDescription: 'I like doing schoolwork',
     id: 222,
