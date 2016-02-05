@@ -63,16 +63,15 @@ describe('Database query tests', function() {
 
 			it ('returns user data of the give userid', function(done) {
 				User.getUsersById(1).then(function(user){
-					
 					assert.that(user).is.not.null();
 					assert.that(user.length).is.equalTo(1);
-					assert.that(user[0].username).is.equalTo('jflores1');
-					assert.that(user[0].firstname).is.equalTo('Justin');
-					assert.that(user[0].lastname).is.equalTo('Flores');
-					assert.that(user[0].city).is.equalTo('Dauphin');
+					assert.that(user[0].username).is.equalTo('jhudson0');
+					assert.that(user[0].firstname).is.equalTo('Joyce');
+					assert.that(user[0].lastname).is.equalTo('Hudson');
+					assert.that(user[0].city).is.equalTo('Brandon');
 					assert.that(user[0].country).is.equalTo('Canada');
-					assert.that(user[0].school).is.equalTo('University of Manitoba');
-					assert.that(user[0].courses).is.equalTo('Programming Practices');
+					assert.that(user[0].school).is.equalTo('University of Winnipeg');
+					assert.that(user[0].courses).is.equalTo('Database Implementation');
 					done();
 				});
 			});
@@ -129,9 +128,9 @@ describe('Database query tests', function() {
 
 		describe('getRandom', function() {
 			it('returns a random user who is not requesting user and has not been previously rated', function(done){
-				User.getRandom(2).then(function(user){
+				User.getRandom(1).then(function(user){
 					assert.that(user).is.not.null();
-					assert.that(user.username).is.not.equalTo('jflores1');
+					assert.that(user.username).is.not.equalTo('jhudson0');
 					done();
 				});
 			});
