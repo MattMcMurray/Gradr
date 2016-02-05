@@ -1,0 +1,194 @@
+[
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "sooooo",
+        "ts": "1454211768.000015"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I added 500 users to the table..",
+        "ts": "1454211772.000016"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Nice",
+        "ts": "1454212906.000017"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Did you make a script for it?",
+        "ts": "1454212914.000018"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I thought I broke it",
+        "ts": "1454212914.000019"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "no :))",
+        "ts": "1454212917.000020"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I found a site that generates files for you",
+        "ts": "1454212930.000021"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "A sqlite file?",
+        "ts": "1454212954.000022"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "JSON",
+        "ts": "1454212960.000023"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "<http:\/\/mockaroo.com|mockaroo.com>",
+        "ts": "1454212964.000024"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "its pretty fucking handy",
+        "ts": "1454212969.000025"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "haha",
+        "ts": "1454212970.000026"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I used it in my last work term to test an app I was working on.",
+        "ts": "1454212981.000027"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "told it to generate usernames and password",
+        "ts": "1454213059.000028"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "They have a SQL output option! That would be handy to shove into a script.",
+        "ts": "1454213059.000029"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "oh they do?",
+        "ts": "1454213070.000030"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Yeah",
+        "ts": "1454213084.000031"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "you\u2019re right",
+        "ts": "1454213088.000032"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "that\u2019s cool.",
+        "ts": "1454213089.000033"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "haha",
+        "ts": "1454213090.000034"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I\u2019ve only used json and csv",
+        "ts": "1454213096.000035"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "This tool is sweet",
+        "ts": "1454213156.000036"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "yeah. it has like 90 different types of data",
+        "ts": "1454213205.000037"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "unfortunate that there\u2019s no school option.",
+        "ts": "1454213275.000038"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Can you give it an array of phrases that it would just use randomly?",
+        "ts": "1454213402.000039"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "you can apparnetly use Regex",
+        "ts": "1454213447.000040"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "=))",
+        "ts": "1454213449.000041"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "But i think since there\u2019s a city, we can fake it and just do like \u201cUniversity of \u201c + json.city",
+        "ts": "1454213495.000042"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Yeah that would be a good solution",
+        "ts": "1454213598.000043"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I'll use it to make a db fill script tomorrow",
+        "ts": "1454213628.000044"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Yeah, you can just wipe the current DB",
+        "ts": "1454213650.000045"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "OK",
+        "ts": "1454213683.000046"
+    }
+]

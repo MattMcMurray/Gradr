@@ -1,0 +1,18 @@
+[
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "tip: to create the Users database, run 'node User.js' in server\/models",
+        "edited": {
+            "user": "U0J08TYGL",
+            "ts": "1453841424.000000"
+        },
+        "ts": "1453841406.000002"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Perf",
+        "ts": "1453841470.000004"
+    }
+]

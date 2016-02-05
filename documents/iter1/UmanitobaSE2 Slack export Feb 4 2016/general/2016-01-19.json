@@ -1,0 +1,236 @@
+[
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Are we meeting after class? I think I'm gonna skip to get some work done. Literally could not care less about Java spring ",
+        "ts": "1453221809.000196"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I CNT for a class after soft eng so I wouldn't be able to meet anyways.",
+        "ts": "1453221957.000197"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "We just have to finish detailed stories, correct?",
+        "ts": "1453222028.000198"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "Detailed stories are done, we did them yesterday ",
+        "ts": "1453222082.000199"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "right, it was release plan we wanted to talk about ",
+        "ts": "1453222100.000200"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "There's the project plan I'm not sure about",
+        "ts": "1453222105.000201"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I'll come to class and we can chat ",
+        "ts": "1453222110.000202"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Just come to the CSSA.",
+        "ts": "1453222222.000203"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Kk. Class is done at 11:15. I'll come there right after ",
+        "ts": "1453222326.000204"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "I can't be there today, I'm not actually there :stuck_out_tongue:",
+        "ts": "1453222367.000205"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Jorrell and I can figure it out. Ill make up for the work I missed yesterday ",
+        "ts": "1453222402.000206"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "sounds good :thumbsup:",
+        "ts": "1453222415.000207"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Sooo",
+        "ts": "1453224991.000208"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "What do you guys think the \u201crelease plan\u201d is?",
+        "ts": "1453225000.000209"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I\u2019m leaning towards which feature gets released in each iteration?",
+        "ts": "1453225016.000210"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Judging by the outline, I would say the project plan is \"detailed stories (at least for iteration 1) and their effort estimation per iteration\"",
+        "ts": "1453225784.000211"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "So if we give our detailed user stories for the first iteration, it seems that covers it",
+        "ts": "1453225825.000212"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Because we included the costs and priorities as part of our detailed user stories",
+        "ts": "1453225867.000213"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "That makes sense. Well, matt and I did something like a release sched. I think we\u2019ll include that still just to be safe.",
+        "ts": "1453226128.000214"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Everything should be good to go. I'm gonna make sure the folder structure looks good and do a once over for typos when I get home and submit to D2L. Do we have a group number?",
+        "ts": "1453226332.000215"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "By the way, what kind of server are we using? I don't think I saw that in our technologies document? Are we gonna use Apache or does nodejs take care of that and I just don't know about it? ",
+        "ts": "1453226364.000216"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "I think we're group G ",
+        "ts": "1453226381.000217"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "gangsta",
+        "ts": "1453226387.000218"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Express is what we're using for our server, it's typically what's used with node.",
+        "ts": "1453226550.000219"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Isn\u2019t express just a library?",
+        "ts": "1453226566.000220"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "or like a node module?",
+        "ts": "1453226571.000221"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "It's a node module for running a server",
+        "ts": "1453226580.000222"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Express + Node is our server software ",
+        "ts": "1453226589.000223"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Node can run a server on its own, express is way easier and more full featured though ",
+        "ts": "1453226617.000224"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Oh yeah that's right",
+        "ts": "1453226667.000225"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "Is express in the document? If not can someone add it",
+        "ts": "1453226672.000226"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I'll take a look when I get home ",
+        "ts": "1453226687.000227"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I feel like we should just change the header from NodeJS to NodeJS\/Express because they run hand in hand",
+        "ts": "1453227264.000228"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Yeah, that's what I'll do ",
+        "ts": "1453227433.000229"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "So I moved all the documents into a `softeng2\/documents\/iteration0` to clean things up. And made sure all the filenames used underscores and lower-case letters, just for consistency. I removed the redundant \"As a user\" at the beginning of stories and added Express to the server description",
+        "ts": "1453231106.000230"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "anything else you guys can think of?",
+        "ts": "1453231115.000231"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I can\u2019t.",
+        "ts": "1453233098.000232"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "There's no spot to submit in umlearn yet, I'll check again later tonight and email the prof if it isn't up by tomorrow at 9am.",
+        "ts": "1453233907.000233"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Sounds good to me",
+        "ts": "1453237312.000234"
+    }
+]

@@ -1,0 +1,59 @@
+[
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Has anyone had issues with foreign keys not being enforced with sqlite before?",
+        "ts": "1454084449.000005"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Not that I can remember. I was doing some fk work last night, so I'll let ya know what I figure out if it works ",
+        "ts": "1454084536.000006"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "How were you establishing the FK rule?",
+        "ts": "1454085082.000007"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I tried the 'references' attribute when setting up the model with FKs, when I look at the schema it has the rules,  but I can still insert records with FKs that don't exist",
+        "ts": "1454085206.000008"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "It's on my branch that I pushed, not quite done yet though",
+        "ts": "1454085222.000009"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "(like_dislike_user)",
+        "ts": "1454085234.000010"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Hmm, yeah I didn't check to see if the rule is enforced",
+        "ts": "1454085494.000011"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Seemed to just be an issue with `upsert()`, I used `findOneOrCreate()` instead and it works fine now",
+        "ts": "1454094685.000014",
+        "reactions": [
+            {
+                "name": "grinning",
+                "users": [
+                    "U0HUKEYE5"
+                ],
+                "count": 1
+            }
+        ]
+    }
+]

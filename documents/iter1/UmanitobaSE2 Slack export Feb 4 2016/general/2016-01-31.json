@@ -1,0 +1,233 @@
+[
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "alright so we have a serious problem with people doing the same thing twice.",
+        "ts": "1454271536.000220"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I think it was just a bit of miscommunication about the requirements for the tasks on Trello",
+        "ts": "1454272073.000221"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I thought each task for a given API call was a full-stack implementation of the feature, but others probably thought differently",
+        "ts": "1454272147.000222"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "but like there was jorrell and caleb both did the username validation stuff, then keane and i both did the profile UI",
+        "ts": "1454272176.000223"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "like we need a better way to alert everyone what we're doing so others don't do it too",
+        "ts": "1454272213.000224"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "When we take out a task on Trello we should say exactly what we plan on doing (if the task name is unclear), and if you take out a task that seems overlapping with another persons task, you should get in contact with that person to ensure you don't replicate tasks",
+        "ts": "1454272331.000225"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "It's important that we really utilize Trello and adhere to that to ensure we know what everyone is working on",
+        "ts": "1454272418.000226"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "i guess the issue is that some of these trello cards aren't really developer tasks, there closer to user stories",
+        "ts": "1454272620.000227"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Yeah exactly",
+        "ts": "1454272637.000228"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "When we plan the next iteration we should make sure that they're developer tasks",
+        "ts": "1454272677.000229"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "pull request for profiles is up. note that i havent added all the fields yet, shouldn't be hard now though",
+        "ts": "1454280117.000230"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Fields?",
+        "ts": "1454280370.000231"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Database fields or user input fields",
+        "ts": "1454280376.000232"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U0HUH2B1R|jorell> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/jorell\/F0KTGDL3S\/screen_shot_2016-01-31_at_4.47.12_pm.png|Lol>",
+        "file": {
+            "id": "F0KTGDL3S",
+            "created": 1454280452,
+            "timestamp": 1454280452,
+            "name": "Screen Shot 2016-01-31 at 4.47.12 PM.png",
+            "title": "Lol",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U0HUH2B1R",
+            "editable": false,
+            "size": 19161,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0KTGDL3S\/screen_shot_2016-01-31_at_4.47.12_pm.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0KTGDL3S\/download\/screen_shot_2016-01-31_at_4.47.12_pm.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KTGDL3S-035e7763fb\/screen_shot_2016-01-31_at_4.47.12_pm_64.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KTGDL3S-035e7763fb\/screen_shot_2016-01-31_at_4.47.12_pm_80.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KTGDL3S-035e7763fb\/screen_shot_2016-01-31_at_4.47.12_pm_360.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360_w": 360,
+            "thumb_360_h": 26,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KTGDL3S-035e7763fb\/screen_shot_2016-01-31_at_4.47.12_pm_480.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_480_w": 480,
+            "thumb_480_h": 35,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KTGDL3S-035e7763fb\/screen_shot_2016-01-31_at_4.47.12_pm_160.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KTGDL3S-035e7763fb\/screen_shot_2016-01-31_at_4.47.12_pm_720.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_720_w": 720,
+            "thumb_720_h": 52,
+            "image_exif_rotation": 1,
+            "original_w": 876,
+            "original_h": 63,
+            "permalink": "https:\/\/umanitobase2.slack.com\/files\/jorell\/F0KTGDL3S\/screen_shot_2016-01-31_at_4.47.12_pm.png",
+            "permalink_public": "https:\/\/slack-files.com\/T0HUE4C04-F0KTGDL3S-9a5198ae9a",
+            "channels": [
+                "C0HUKJ1RQ"
+            ],
+            "groups": [
+
+            ],
+            "ims": [
+
+            ],
+            "comments_count": 0
+        },
+        "user": "U0HUH2B1R",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U0HUH2B1R|jorell>",
+        "bot_id": null,
+        "ts": "1454280453.000233"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "user input fields",
+        "ts": "1454280453.000234"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I\u2019m going to work on hiding the \u201cprofile\u201d tab in the navbar if you\u2019re not logged in.",
+        "ts": "1454295323.000235"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "While working on logging out.",
+        "ts": "1454295337.000236"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U0HUH2B1R|jorell> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/jorell\/F0KTNQ161\/screen_shot_2016-01-31_at_9.31.02_pm.png|bad ass picture>",
+        "file": {
+            "id": "F0KTNQ161",
+            "created": 1454297481,
+            "timestamp": 1454297481,
+            "name": "Screen Shot 2016-01-31 at 9.31.02 PM.png",
+            "title": "bad ass picture",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U0HUH2B1R",
+            "editable": false,
+            "size": 319885,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0KTNQ161\/screen_shot_2016-01-31_at_9.31.02_pm.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0KTNQ161\/download\/screen_shot_2016-01-31_at_9.31.02_pm.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KTNQ161-0240699777\/screen_shot_2016-01-31_at_9.31.02_pm_64.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KTNQ161-0240699777\/screen_shot_2016-01-31_at_9.31.02_pm_80.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KTNQ161-0240699777\/screen_shot_2016-01-31_at_9.31.02_pm_360.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360_w": 360,
+            "thumb_360_h": 314,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KTNQ161-0240699777\/screen_shot_2016-01-31_at_9.31.02_pm_480.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_480_w": 480,
+            "thumb_480_h": 419,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KTNQ161-0240699777\/screen_shot_2016-01-31_at_9.31.02_pm_160.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "image_exif_rotation": 1,
+            "original_w": 719,
+            "original_h": 628,
+            "permalink": "https:\/\/umanitobase2.slack.com\/files\/jorell\/F0KTNQ161\/screen_shot_2016-01-31_at_9.31.02_pm.png",
+            "permalink_public": "https:\/\/slack-files.com\/T0HUE4C04-F0KTNQ161-5c3f3eab51",
+            "channels": [
+                "C0HUKJ1RQ"
+            ],
+            "groups": [
+
+            ],
+            "ims": [
+
+            ],
+            "comments_count": 0
+        },
+        "user": "U0HUH2B1R",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U0HUH2B1R|jorell>",
+        "bot_id": null,
+        "ts": "1454297483.000237"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "So I've got a SQL script that deletes all records from the users table and adds 200 users. It doesn't create the table, I didn't want to have to deal with separate schemas, so it still only generates the table when the server runs. SQL scripts can be run as `sqlite3 dbfilename &lt; scriptfilename`. Can I just push it onto iteration1 branch?",
+        "ts": "1454302422.000238"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I dont see why not?",
+        "ts": "1454305677.000239"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Made a pull request for logout.",
+        "ts": "1454307950.000240"
+    }
+]

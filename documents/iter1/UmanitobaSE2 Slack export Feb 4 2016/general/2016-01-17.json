@@ -1,0 +1,278 @@
+[
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "alright so i dont at all understand how to use vagrant and shit.",
+        "ts": "1453084221.000061"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "i downloaded it and unzipped it with 7zip and then went into the folder and did vagrant up and nothing happened.",
+        "edited": {
+            "user": "U0J0D1KE3",
+            "ts": "1453084478.000000"
+        },
+        "ts": "1453084246.000062"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I'll bring my laptop tomorrow and we can work through everything together. ",
+        "ts": "1453084315.000063"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Yeah I'm not using vagrant as well :)) osx ftw",
+        "ts": "1453084447.000064"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "If you've got a computer you can use any Unix system on, you can just run that setup script there. I dual boot into Ubuntu most of the time ",
+        "ts": "1453085409.000066"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Oh yeah. That i know. Haha ",
+        "ts": "1453085489.000067"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Meeting tomorrow at 2:20?",
+        "ts": "1453085538.000068"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I'm back in Winnipeg now, I'll probably stay up for a while to catch up with what I missed here. I had some poor experiences with vagrant with this ucosp project, but you're saying you made a setup script for UNIX systems <@U0HUKEYE5>?",
+        "ts": "1453086789.000069"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "The setup script is for installing node and its dependencies <@U0HULF5R6>",
+        "ts": "1453086888.000070"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Sweet",
+        "ts": "1453086958.000071"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "on a unix system. haha",
+        "ts": "1453086969.000072"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I've got an Ubuntu VM on my surface so I should be good to go",
+        "ts": "1453087077.000073"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": ":computer:",
+        "edited": {
+            "user": "U0HUH2B1R",
+            "ts": "1453087104.000000"
+        },
+        "ts": "1453087099.000074"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "<@U0HULF5R6> I channelled my inner James and wrote a shell setup script lol",
+        "ts": "1453087213.000076",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0HULF5R6"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "<!channel>: You definitely don't need to use vagrant, it's just my favourite tool. If you want just a vanilla VirtualBox VM, that will work just as well!",
+        "ts": "1453087270.000077"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "He'd be so proud :')",
+        "ts": "1453087562.000078"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Man, I learned a ton from James. We both really share an interest for security",
+        "ts": "1453087590.000079"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I might try vagrant out again because I like the idea of it, but there was just an issue for those running Windows 10 this weekend. Apparently there's an existing bug with the ansible provision or something.",
+        "ts": "1453087678.000080"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Yeah, I'm actually troubleshooting that now lol",
+        "ts": "1453087697.000081"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "fucking windows 10 has been nothing but nightmares. Shoulda stuck with 7",
+        "ts": "1453087708.000082"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Yeah he's a smart guy, great to work with",
+        "ts": "1453087718.000083"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I know... It's been a pain for some dev work on the surface, but the UI is so much better on the surface than 8.1",
+        "ts": "1453087777.000084"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I just do most of my dev on the surface in the Ubuntu VM anyways ",
+        "ts": "1453087824.000085"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Yeah, I really like the look and feel of Win10, but it's just been a nightmare as far as compatibility goes. It made my gaming keyboard unusable for my desktop... :disappointed:",
+        "ts": "1453088031.000086"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I learned a lot of sweet terminal extensions for Linux from James to make Linux dev a delight",
+        "ts": "1453088035.000087"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "yeah I didn't know about `sudo !!` before James showed it to me",
+        "ts": "1453088056.000088"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "And i exclusively use terminator and oh-my-zsh now",
+        "ts": "1453088082.000089",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0HULF5R6"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Man, I\u2019m rewritting my resume haha",
+        "ts": "1453089020.000090"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I lost my word copy for it.",
+        "ts": "1453089024.000091"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "So Im totally just redoing it.",
+        "ts": "1453089037.000092"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "<@U0HUH2B1R>: Did you have any trouble with sqlite3? When I try to run the server I get\n```\nvagrant@precise32:\/vagrant$ node server.js \nmodule.js:340\n    throw err;\n    ^\n\nError: Cannot find module 'sqlite3'\n    at Function.Module._resolveFilename (module.js:338:15)\n    at Function.Module._load (module.js:289:25)\n    at Module.require (module.js:366:17)\n    at require (module.js:385:17)\n    at Object.&lt;anonymous&gt; (\/vagrant\/database\/databaseTest.js:3:15)\n    at Module._compile (module.js:435:26)\n    at Object.Module._extensions..js (module.js:442:10)\n    at Module.load (module.js:356:32)\n    at Function.Module._load (module.js:313:12)\n    at Module.require (module.js:366:17)\n    at require (module.js:385:17)\n    at Object.&lt;anonymous&gt; (\/vagrant\/server.js:11:1)\n    at Module._compile (module.js:435:26)\n    at Object.Module._extensions..js (module.js:442:10)\n    at Module.load (module.js:356:32)\n    at Function.Module._load (module.js:313:12)\nvagrant@precise32:\/vagrant$ npm install sqlite3\n```",
+        "ts": "1453093143.000093"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "install sqlite3",
+        "ts": "1453093165.000094"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "it looks like its not installed?",
+        "ts": "1453093169.000095"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "When I try to install sqlite3 I get a multi-hundred line stack trace",
+        "ts": "1453093186.000096"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "hmm..",
+        "ts": "1453093196.000097"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "ends like this \n```\nFailed to execute '\/usr\/bin\/nodejs \/usr\/lib\/node_modules\/npm\/node_modules\/node-gyp\/bin\/node-gyp.js build --fallback-to-build --module=\/vagrant\/node_modules\/sqlite3\/lib\/binding\/node-v46-linux-ia32\/node_sqlite3.node --module_name=node_sqlite3 --module_path=\/vagrant\/node_modules\/sqlite3\/lib\/binding\/node-v46-linux-ia32' (1)\nnpm ERR! Linux 3.2.0-23-generic-pae\nnpm ERR! argv \"\/usr\/bin\/nodejs\" \"\/usr\/bin\/npm\" \"install\" \"sqlite3\"\nnpm ERR! node v4.2.4\nnpm ERR! npm  v2.14.12\nnpm ERR! code ELIFECYCLE\n\nnpm ERR! sqlite3@3.1.1 install: `node-pre-gyp install --fallback-to-build`\nnpm ERR! Exit status 1\nnpm ERR! \nnpm ERR! Failed at the sqlite3@3.1.1 install script 'node-pre-gyp install --fallback-to-build'.\nnpm ERR! This is most likely a problem with the sqlite3 package,\nnpm ERR! not with npm itself.\nnpm ERR! Tell the author that this fails on your system:\nnpm ERR!     node-pre-gyp install --fallback-to-build\nnpm ERR! You can get their info via:\nnpm ERR!     npm owner ls sqlite3\nnpm ERR! There is likely additional logging output above.\n\nnpm ERR! Please include the following file with any support request:\nnpm ERR!     \/vagrant\/npm-debug.log\n```",
+        "ts": "1453093212.000098"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "gonna keep troubleshooting",
+        "ts": "1453093272.000099"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "thinking it might be a vagrant issue, gonna try on local machine",
+        "ts": "1453093494.000100"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "yup, was a vagrant issue... Weird",
+        "edited": {
+            "user": "U0HUKEYE5",
+            "ts": "1453093580.000000"
+        },
+        "ts": "1453093569.000101"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "So no to vagrant? haha",
+        "ts": "1453094791.000103"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "or are you going to keep trying?",
+        "ts": "1453094797.000104"
+    }
+]

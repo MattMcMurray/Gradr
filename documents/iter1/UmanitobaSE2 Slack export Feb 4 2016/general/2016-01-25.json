@@ -1,0 +1,221 @@
+[
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U0HUKEYE5|mattmcmurray> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/mattmcmurray\/F0KBAH8V7\/capture.png|swipe.jade> and commented: Fully mobile responsive as well",
+        "file": {
+            "id": "F0KBAH8V7",
+            "created": 1453748286,
+            "timestamp": 1453748286,
+            "name": "Capture.PNG",
+            "title": "swipe.jade",
+            "mimetype": "image\/png",
+            "filetype": "png",
+            "pretty_type": "PNG",
+            "user": "U0HUKEYE5",
+            "editable": false,
+            "size": 199388,
+            "mode": "hosted",
+            "is_external": false,
+            "external_type": "",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0KBAH8V7\/capture.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "url_private_download": "https:\/\/files.slack.com\/files-pri\/T0HUE4C04-F0KBAH8V7\/download\/capture.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_64": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KBAH8V7-b2ba6ca770\/capture_64.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_80": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KBAH8V7-b2ba6ca770\/capture_80.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KBAH8V7-b2ba6ca770\/capture_360.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_360_w": 360,
+            "thumb_360_h": 195,
+            "thumb_480": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KBAH8V7-b2ba6ca770\/capture_480.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_480_w": 480,
+            "thumb_480_h": 260,
+            "thumb_160": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KBAH8V7-b2ba6ca770\/capture_160.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_720": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KBAH8V7-b2ba6ca770\/capture_720.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_720_w": 720,
+            "thumb_720_h": 390,
+            "thumb_960": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KBAH8V7-b2ba6ca770\/capture_960.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_960_w": 960,
+            "thumb_960_h": 520,
+            "thumb_1024": "https:\/\/files.slack.com\/files-tmb\/T0HUE4C04-F0KBAH8V7-b2ba6ca770\/capture_1024.png?t=xoxe-17966148004-20396377216-20395527511-6608eab5d4",
+            "thumb_1024_w": 1024,
+            "thumb_1024_h": 555,
+            "image_exif_rotation": 1,
+            "original_w": 1920,
+            "original_h": 1040,
+            "permalink": "https:\/\/umanitobase2.slack.com\/files\/mattmcmurray\/F0KBAH8V7\/capture.png",
+            "permalink_public": "https:\/\/slack-files.com\/T0HUE4C04-F0KBAH8V7-7f39dc1fe1",
+            "channels": [
+                "C0HUKJ1RQ"
+            ],
+            "groups": [
+
+            ],
+            "ims": [
+
+            ],
+            "comments_count": 1,
+            "initial_comment": {
+                "id": "Fc0KBC1T24",
+                "created": 1453748286,
+                "timestamp": 1453748286,
+                "user": "U0HUKEYE5",
+                "comment": "Fully mobile responsive as well"
+            }
+        },
+        "user": "U0HUKEYE5",
+        "upload": true,
+        "display_as_bot": false,
+        "username": "<@U0HUKEYE5|mattmcmurray>",
+        "bot_id": null,
+        "ts": "1453748289.000004"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Nice nice. ",
+        "ts": "1453748338.000005"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Is this just a stub?",
+        "ts": "1453748344.000006"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Yeah, just front-end. I created a new branch. Haven't pushed anything yet though",
+        "ts": "1453748497.000007"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Cool. Caleb and I were trying to get passport working last night.",
+        "ts": "1453748553.000008"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "<http:\/\/52.26.203.11\/main> Grabs a new random cat gif every time you refresh",
+        "ts": "1453748646.000009"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Amazing ",
+        "ts": "1453748704.000010"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Heads up, apparently the cat pic API has some NSFW pictures...",
+        "ts": "1453749273.000011"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "The page is basically done, we just need to add AJAX calls when (dis)liking",
+        "ts": "1453749358.000012"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "and when rendering the page,  to grab a user profile",
+        "ts": "1453749379.000013"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "<https:\/\/github.com\/MattMcMurray\/softeng2\/pull\/8>",
+        "attachments": [
+            {
+                "service_name": "GitHub",
+                "title": "Swiping Frontend by MattMcMurray \u00b7 Pull Request #8 \u00b7 MattMcMurray\/softeng2 \u00b7 GitHub",
+                "title_link": "https:\/\/github.com\/MattMcMurray\/softeng2\/pull\/8",
+                "text": "Mostly template and stylesheet changes. Simply replace static content w\/ content grabbed through AJAX calls when the time comes.",
+                "fallback": "GitHub: Swiping Frontend by MattMcMurray \u00b7 Pull Request #8 \u00b7 MattMcMurray\/softeng2",
+                "thumb_url": "https:\/\/avatars3.githubusercontent.com\/u\/10404392?v=3&s=400",
+                "from_url": "https:\/\/github.com\/MattMcMurray\/softeng2\/pull\/8",
+                "thumb_width": 420,
+                "thumb_height": 420,
+                "id": 1
+            }
+        ],
+        "ts": "1453749631.000014"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Slick!",
+        "ts": "1453749761.000016"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I'd look at the pull request but I gotta go take notes for a class right now, see you guys in an hoour",
+        "ts": "1453749840.000017"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "No rush mang",
+        "ts": "1453750032.000018"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Can you guys see the Trello board I created? Not sure if it was added to the team or not Trello board Iteration 1 - <https:\/\/trello.com\/b\/mpbIdgMg\/iteration-1>.",
+        "ts": "1453756991.000019"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "<@U0HUKEYE5>: yup, I can see it",
+        "ts": "1453759409.000020"
+    },
+    {
+        "type": "message",
+        "user": "U0J0A2MTL",
+        "text": "Moving the get_started script in the main folder and running main.js in sudo gets the server running.  I can get to a login page :simple_smile:",
+        "ts": "1453762492.000021"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Awesome. Yeah, that was dumb on my part to move it to a different directory. I'll change the script so it should work no matter what dir it's in",
+        "ts": "1453762601.000022"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "to get to the 'swiping' page, just append `\/main` to the end of the uri",
+        "ts": "1453762635.000023"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "<http:\/\/52.26.203.11\/main> Now grabs random user info from an API + Like &amp; dislike buttons make an ajax call to get a new user",
+        "ts": "1453764575.000024"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I\u2019m just going to use btoa as our encryption",
+        "ts": "1453783030.000025"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "if that\u2019s cool?",
+        "ts": "1453783032.000026"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "nvm, using bcrypt.",
+        "ts": "1453783082.000027"
+    }
+]

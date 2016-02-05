@@ -1,0 +1,116 @@
+[
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Are we meeting today?",
+        "ts": "1453475271.000257"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I've got a doctors appt at 3 so I won't be able to",
+        "ts": "1453475337.000258"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I can't today",
+        "ts": "1453475339.000259"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Cool cool.",
+        "ts": "1453475479.000260"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "<http:\/\/52.26.203.11\/> index page is working",
+        "ts": "1453490295.000261"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I like it.",
+        "ts": "1453490739.000262"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I got jade working nicely. And separated front-facing routes and api. We're basically ready to get cracking on features for iteration 1. ",
+        "ts": "1453490913.000263"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Sweeet",
+        "ts": "1453493003.000264"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "There\u2019s a npm package that allows for real time changes, so you dont have to restart the server everytime",
+        "ts": "1453517211.000265"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "npm install -g nodemon",
+        "ts": "1453517218.000266"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I generally edit in vim, so I have to exit the server regardless",
+        "ts": "1453517283.000267"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "unless I'm running multiple terminals",
+        "ts": "1453517294.000268"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "you are a true hipster <@U0HUKEYE5>",
+        "ts": "1453517299.000269"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "vim makes life so easy man",
+        "ts": "1453517318.000270"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I install vim emulators on whatever text editor I use",
+        "ts": "1453517333.000271"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "lol",
+        "ts": "1453517337.000272"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Terminator man!!",
+        "ts": "1453517370.000273"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "<!here|@here> requesting code review for pull request, plz thx",
+        "ts": "1453517383.000274"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "<@U0HULF5R6> I have terminator installed on my machine, but don't wanna carry my laptop back and forth to school, so I'm stuck with what's on the school machines :disappointed:",
+        "ts": "1453517573.000275"
+    }
+]

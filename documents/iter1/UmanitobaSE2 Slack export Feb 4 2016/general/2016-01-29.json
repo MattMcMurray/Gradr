@@ -1,0 +1,411 @@
+[
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": " sometimes I study with my friend who's training to be a paramedic. For me its more about accountability",
+        "edited": {
+            "user": "U0HUKEYE5",
+            "ts": "1454085598.000000"
+        },
+        "ts": "1454085582.000156"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Following <@U0HULF5R6>'s suggestion from monday, let's think about [mocha](<https:\/\/mochajs.org\/>) as our testing framework",
+        "ts": "1454089812.000158"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "welp, that formatting didn't work..",
+        "ts": "1454089819.000159"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "(Mocha)[<https:\/\/mochajs.org\/>]",
+        "ts": "1454089836.000160"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "That either apparently",
+        "ts": "1454089840.000161"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Running a bit late. I'm omw.",
+        "ts": "1454099237.000162"
+    },
+    {
+        "type": "message",
+        "user": "U0J08TYGL",
+        "text": "hurry, before we sit on all the chairs",
+        "ts": "1454099352.000163"
+    },
+    {
+        "type": "message",
+        "subtype": "file_share",
+        "text": "<@U0HUKEYE5|mattmcmurray> shared a file: <https:\/\/umanitobase2.slack.com\/files\/mattmcmurray\/F0KQSNMFF\/se2-iteration1meetingminutes|SE2 - Iteration 1 Meeting Minutes>",
+        "file": {
+            "id": "F0KQSNMFF",
+            "created": 1454105864,
+            "timestamp": 1454105864,
+            "name": "SE2-Iteration1MeetingMinutes",
+            "title": "SE2 - Iteration 1 Meeting Minutes",
+            "mimetype": "application\/vnd.google-apps.document",
+            "filetype": "gdoc",
+            "pretty_type": "GDocs Document",
+            "user": "U0HUKEYE5",
+            "editable": false,
+            "size": 2106,
+            "mode": "external",
+            "is_external": true,
+            "external_type": "gdrive",
+            "is_public": true,
+            "public_url_shared": false,
+            "display_as_bot": false,
+            "username": "",
+            "url_private": "https:\/\/docs.google.com\/document\/d\/1muYGc7hhb-jScfRhe4cyVBzHpcqODtcpMnWISTzVK3o\/edit?usp=drivesdk",
+            "thumb_64": "https:\/\/slack.global.ssl.fastly.net\/66f9\/img\/files\/gdraw_64.png",
+            "thumb_360": "https:\/\/slack.global.ssl.fastly.net\/272a\/img\/files\/gdoc_360.png",
+            "thumb_360_w": 360,
+            "thumb_360_h": 167,
+            "permalink": "https:\/\/umanitobase2.slack.com\/files\/mattmcmurray\/F0KQSNMFF\/se2-iteration1meetingminutes",
+            "channels": [
+                "C0HUKJ1RQ"
+            ],
+            "groups": [
+
+            ],
+            "ims": [
+
+            ],
+            "comments_count": 0
+        },
+        "user": "U0HUKEYE5",
+        "upload": false,
+        "display_as_bot": false,
+        "username": "<@U0HUKEYE5|mattmcmurray>",
+        "bot_id": null,
+        "ts": "1454105865.000165"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Granted access to repo to prof and markers so we're good on that front",
+        "ts": "1454110965.000167"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I've got the like\/dislike button working now for hard coded data, right now I'm passing IDs through the POST (since my like\/dislike table is based of user IDs). What do you guys think would be best, to keep track of the user IDs on the client side and pass that data through the POST or send the usernames through the POST and figure out the IDs on the server side to add the record to the table?",
+        "ts": "1454121337.000168"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Integer ids?",
+        "ts": "1454122443.000169"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Or username IDs?",
+        "ts": "1454122475.000170"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Integers",
+        "ts": "1454123013.000171"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "So from what I remember, when we display a user, the server sends the user\u2019s username.",
+        "ts": "1454123035.000172"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "So why not just use that?",
+        "ts": "1454123038.000173"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Well our primary key on the users table is the integer id, so that's what I use in the like\/dislike table. It'll have to be converted to an id at some point, but I'm thinking it would make the most sense server side",
+        "ts": "1454123256.000174"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "We should actually change the PK to username",
+        "ts": "1454123274.000175"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "cause its unique",
+        "ts": "1454123278.000176"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "That's what I was thinking as I was typing it out.. I can do that",
+        "ts": "1454123295.000177"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I'm not sure if that's the best practice though, because in the real world, primary keys can't change and usernames should be able to be modified",
+        "ts": "1454123510.000178"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "that\u2019s true.",
+        "ts": "1454123520.000179"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Very true..",
+        "ts": "1454123528.000180"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "What does everyone else think?",
+        "ts": "1454123541.000181"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "i think we should probably keep PK as the integer ID",
+        "ts": "1454125589.000182"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "its already stored in the session and it seems easier",
+        "ts": "1454125609.000183"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "actually, idk because getUser is done by username",
+        "ts": "1454125925.000184"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "at the very least, we need username as a candidate key",
+        "ts": "1454125944.000185"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "That\u2019s what I\u2019m thinking. Keep username unique still but use the ID as PK",
+        "edited": {
+            "user": "U0HUH2B1R",
+            "ts": "1454125971.000000"
+        },
+        "ts": "1454125948.000186"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "This way, we can still query user\u2019s via their username.",
+        "ts": "1454125984.000188"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Yeah we should add that constraint to the user model",
+        "ts": "1454125997.000189"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "NM, it's already there",
+        "ts": "1454126014.000190"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "btw anyone know if there's any parts of the code that user the getUser API call?",
+        "ts": "1454126196.000191"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "what",
+        "ts": "1454126210.000192"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "uses?",
+        "ts": "1454126229.000193"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "yeah",
+        "ts": "1454126236.000194"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "i want to modify it",
+        "ts": "1454126243.000195"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "The get random user API route?",
+        "ts": "1454126270.000196"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "the get random user uses a different call.",
+        "ts": "1454126287.000197"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "it does User.findAll or something",
+        "ts": "1454126298.000198"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "yeah",
+        "ts": "1454126300.000199"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I don't see the get user API route",
+        "ts": "1454126308.000200"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "i just don't get why we have to do req.query.user",
+        "ts": "1454126310.000201"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "when i could just put req.user and not have the username nested inside the 'user' field inside the 'query' field inside the ajax request",
+        "ts": "1454126361.000202"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I always thought with GET requests they were automatically put in the querystring",
+        "ts": "1454126405.000203"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "oh are they?",
+        "ts": "1454126437.000204"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I think so",
+        "ts": "1454126449.000205"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "And then for POST requests they were always in the body",
+        "ts": "1454126472.000206"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "alright ill test it out and see",
+        "ts": "1454126698.000207"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Yeah,",
+        "ts": "1454126760.000208"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "when you do \/api\/something?user=something",
+        "ts": "1454126772.000209"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "it automatically gets placed in req.query",
+        "ts": "1454126807.000210"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "ah yes, you guys are correct",
+        "ts": "1454127665.000211"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Just sent off a pull request for liking\/disliking",
+        "ts": "1454129314.000212"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I\u2019ll check it out when I finish applying haha",
+        "ts": "1454129328.000213"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Sweet",
+        "ts": "1454129335.000214"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "so im not quite ready for a pull request yet since i need keane's updated user model stuff, but i finally got my remote branch up if you want to look at the profile stuff",
+        "ts": "1454130879.000215"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "the branch is dev-steve",
+        "ts": "1454130885.000216"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I",
+        "ts": "1454137458.000217"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I\u2019m thinking of writing a script to fill our database with random users so that we can test the like\/dislike feature better.",
+        "ts": "1454137475.000218"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Also, we should change like\/dislike to pass\/fail (just on the client side)",
+        "ts": "1454137489.000219"
+    }
+]

@@ -1,0 +1,570 @@
+[
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Hey team, it totally slipped my mind that I have a standing biweekly meeting with Andrea Bunt at 230 starting tomorrow for my industrial project class, and then I've got Physio right after. I'm gonna have to miss another meeting, please let me know if there's something I can do, I don't like missing two meetings in a row.",
+        "ts": "1453125181.000105"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": " I also won't be able to make it. I've completely lost my voice and my head is pounding. All that's left is detailed user stories. If you guys need anything, I'll check slack periodically but I'm gonna try and sleep this cold off. Sorry guys ",
+        "ts": "1453126922.000106"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "<@U0HUH2B1R> I'm gonna try just using a normal virtualbox VM to see if that works better today",
+        "ts": "1453126968.000107"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Okay, so looks like npm and vagrant don't get along well. So it's probably best to just run a normal Ubuntu VM. Does everyone know how or should I try and find a guide somewhere?",
+        "ts": "1453134476.000108"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "It's pretty straightforward, I think everyone should be fine.",
+        "ts": "1453135618.000109"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Yeah, I figured everyone would have a pretty good idea. If anyone needs help, just holler. I got an ubuntu VM working on Win10 this morning and the sample project on the github repo worked well",
+        "ts": "1453136007.000110"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Should we all use nodeenv to make a virtual environments for node? Might save some headaches with node dependencies.",
+        "ts": "1453136540.000111"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Isn\u2019t it only useful when you have other node projects going on?",
+        "ts": "1453136562.000112"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Yeah, if we're running VMs I don't think it would really serve any benefit",
+        "ts": "1453136586.000113"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "If you're running on your local linux machine, then I'd say go for it, but otherwise it just might be an extra step",
+        "ts": "1453136612.000114"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Atleast I\u2019m assuming nodeenv works similarly to virtualenv for python",
+        "ts": "1453136631.000115"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Yeah, I think that's what it's based off of",
+        "ts": "1453136644.000116"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "That's true, if our VM is specific for our project then it's unnecessary",
+        "ts": "1453136684.000117"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Not sure if anyone was using a preexisting single Ubuntu VM though",
+        "ts": "1453136718.000118"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I would have used nodeenv if I knew it existed :stuck_out_tongue:",
+        "ts": "1453136780.000119"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I might use it, only because I don't want to set up another fresh VM to save time setting up my basic environment again",
+        "ts": "1453136923.000120"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "word",
+        "ts": "1453137002.000121"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "So we actually have to figure out what CI tools we want. haha",
+        "ts": "1453148682.000122"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I've never used any, but Travis CI is the one I see the most",
+        "ts": "1453148774.000123"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "we\u2019re saying Travis CI for now",
+        "ts": "1453149368.000124"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Sounds good",
+        "ts": "1453149397.000125"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Pushed what we did this meeting.",
+        "ts": "1453154836.000126"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Awesome. I'll make sure everything looks good and submit to d2l sometime tomorrow",
+        "ts": "1453154944.000127"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "suhweet",
+        "ts": "1453154953.000128"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Go team :100: ",
+        "ts": "1453155043.000129"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "can someone who knows what why we chose the technologies, go over the Technologies.txt document. I feel like some of the justifications are not great... (NodeJS server reason: sequelize)",
+        "ts": "1453168103.000130"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "there's also no reasoning for sqlite",
+        "edited": {
+            "user": "U0J0D1KE3",
+            "ts": "1453168132.000000"
+        },
+        "ts": "1453168125.000131"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I can make some additions to that",
+        "ts": "1453168463.000133"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "ok dont do it yet though. im about to commit some edits",
+        "ts": "1453168483.000134"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Ill add things to sequelize.",
+        "ts": "1453168612.000135"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I kinda chose that.",
+        "ts": "1453168619.000136"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "ok i just committed",
+        "ts": "1453168622.000137"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Make your changes first <@U0HULF5R6> ",
+        "ts": "1453168637.000138"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I'm waiting for a bus right now, I'll make the changes in about 30 min",
+        "ts": "1453168694.000139"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "can i delete the detailed stories for the 3 big stories that we aren't going to be doing in iteration 1. I thought you guys said you were going to delete them but then nobody did?",
+        "ts": "1453168731.000140"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Yeah",
+        "ts": "1453169122.000141"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "Ok last 2 things: \n1) has anyone read the vision statement yet? Its in the admin docs folder. \n2) Can we remove the \"As a user,\" from the start of every Big user story? That's not how users speak, it doesn't add anything useful (they're called big USER stories) and i could've sworn braico said not to include that in your stories???",
+        "ts": "1453169656.000142",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0HUKEYE5"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I have, I thought the vision statement was pretty good. And yes, I agree to that.",
+        "ts": "1453169717.000143",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0HUKEYE5"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Hey <@U0J0D1KE3>, I think you only half completed a point",
+        "ts": "1453171955.000144"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "About node that is",
+        "ts": "1453171964.000145"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "npm sorry",
+        "ts": "1453171982.000146"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "\"- Already comes with NodeJS and it\"",
+        "ts": "1453171984.000147"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Sorry, I think that was me. haha",
+        "ts": "1453171990.000148"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Oh I thought the blame said steve, nm",
+        "ts": "1453172003.000149"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I think you can just remove the and it",
+        "ts": "1453172026.000150"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "haha",
+        "ts": "1453172028.000151"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "It was probably me. I split some points into 2 points",
+        "ts": "1453172038.000152"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "OK",
+        "ts": "1453172047.000153"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "Just forgot to erase the bit in between",
+        "ts": "1453172052.000154"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "OK I pushed some changes onto the technolgies.txt file",
+        "ts": "1453172636.000155"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "@jorrell did you want to add something about Sequelize? I'm not familiar with that...",
+        "ts": "1453172676.000156"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I\u2019m probably just adding a small bit.",
+        "edited": {
+            "user": "U0HUH2B1R",
+            "ts": "1453172708.000000"
+        },
+        "ts": "1453172698.000157"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Pulled your changes now. Also you spelled my name wrong :stuck_out_tongue: @Evvan",
+        "ts": "1453172724.000159"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Oh jeez that's embarrassing... I even did it wrong with an auto-complete menu",
+        "ts": "1453172764.000160"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I'm a jerk, I'm sorry",
+        "ts": "1453172770.000161"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "such a jerk",
+        "ts": "1453172777.000162"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "It's like I intentionally tried to spell it wrong",
+        "ts": "1453172804.000163"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I think I\u2019m actually jsut going to get rid of sequelize. Because if we talk about sequelize, I ahve to talk about express and body-parser as well.",
+        "ts": "1453172850.000164"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I'm cool with that",
+        "ts": "1453172863.000165"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Same. I don't think we need to mention modules. Just core stack",
+        "edited": {
+            "user": "U0HUKEYE5",
+            "ts": "1453172907.000000"
+        },
+        "ts": "1453172891.000166"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Yeah that's a good point",
+        "ts": "1453172938.000169"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "cool. I pushed the latest copy. haha",
+        "ts": "1453172999.000170"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I just read the vision statement, I think it's good, but I think this line should be the opener. It's too grandiose to be in the middle... \"Since the dawn of time, finding a study partner that is as motivated and intelligent as oneself has been a pain point of the post-secondary education experience.\"",
+        "edited": {
+            "user": "U0HULF5R6",
+            "ts": "1453173300.000000"
+        },
+        "ts": "1453173275.000171"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "The big user stories and detailed user stories look good to me as well.",
+        "ts": "1453173593.000173"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "We need to get David Attenborough to read that and upload an audio clip of our vision statement",
+        "ts": "1453173599.000174",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0HULF5R6"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "We missed our chance. He did an AMA last week.",
+        "ts": "1453173615.000175"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Maybe we can splice together some clips to form that sentence",
+        "ts": "1453173640.000176"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "he\u2019s probably used all those words on film",
+        "ts": "1453173676.000177"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "I'll get on it ASAP",
+        "ts": "1453173700.000178"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Perfect",
+        "ts": "1453173813.000179"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "Is all we need now the project plan?",
+        "ts": "1453173821.000180"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "There\u2019s a project plan?",
+        "ts": "1453173828.000181"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Oh cost and stuff.",
+        "ts": "1453173865.000182"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "We did cost and priority today.",
+        "ts": "1453173872.000183"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "I think the release plan we kinda skipped.",
+        "ts": "1453173882.000184"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Wanna quickly discuss it tomorrow?",
+        "ts": "1453173890.000185"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I can't tell if it's something different, but yeah we should talk about it tomorrow",
+        "ts": "1453173946.000186"
+    },
+    {
+        "type": "message",
+        "user": "U0HUKEYE5",
+        "text": "Yup",
+        "ts": "1453173962.000187"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "In one part of the document he makes it sound like it's just the plan for iteration 1 (which would be the detailed user stories I'm assuming) but later on he makes it look like it's something different",
+        "ts": "1453173997.000188"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "Are you all going to class tomorrow?",
+        "ts": "1453174025.000189"
+    },
+    {
+        "type": "message",
+        "user": "U0HULF5R6",
+        "text": "I'll be there",
+        "ts": "1453174030.000190"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "We\u2019re learning Java Spring!",
+        "ts": "1453174030.000191"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "YAY \/s",
+        "ts": "1453174035.000192",
+        "reactions": [
+            {
+                "name": "+1",
+                "users": [
+                    "U0HULF5R6"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "ive updated the vision statement according to evan's comments. most of it's the same. the paragraph on line 4 has changed dramatically though",
+        "ts": "1453174322.000193"
+    },
+    {
+        "type": "message",
+        "user": "U0HUH2B1R",
+        "text": "<@U0J0D1KE3>: I like Study buggy better.",
+        "ts": "1453180917.000194"
+    },
+    {
+        "type": "message",
+        "user": "U0J0D1KE3",
+        "text": "it was an honest mistake",
+        "ts": "1453184212.000195"
+    }
+]
