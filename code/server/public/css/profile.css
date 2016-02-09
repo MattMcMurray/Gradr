@@ -1,0 +1,20 @@
+h3#username {
+	margin-top: 0px;
+}
+
+select#birthMonth {
+	width: 25%;
+	display: inline;
+	margin-right: 10px;
+}
+
+input#birthDate {
+	width: 20%;
+	display: inline;
+	margin-right: 10px;
+}
+
+input#birthYear {
+	width:30%;
+	display: inline;
+}

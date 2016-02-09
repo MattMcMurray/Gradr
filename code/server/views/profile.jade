@@ -2,11 +2,12 @@ extends ./base.jade
 
 block stylesheets
     link(href='/css/style.css', rel='stylesheet')
+    link(href='/css/profile.css', rel='stylesheet')
     link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', rel='stylesheet')
 
 block content
     .row.vcenter
-        .container 
+        .container.pad-top
             .thumbnail#userCard
                 .caption
                     h3#username #[a.pull-right#editButton #[i.clickable.fa.fa-pencil#editIcon]]
@@ -49,10 +50,23 @@ block content
                             input.form-control.user-entry#courses(type='text'
                             disabled='disabled')
                         .form-group
-                            label(for='dateOfBirth')
+                            label(for='dateOfBirth' style={display: 'block'})
                                 | Date of Birth (YYYY-MM-DD)
-                            input.form-control.user-entry#dateOfBirth(type='text'
-                            disabled='disabled')
+                            select.form-control.birthdate-component#birthMonth(disabled='disabled' placeholder='Month')
+                                option(value='01') Jan
+                                option(value='02') Feb
+                                option(value='03') Mar
+                                option(value='04') Apr
+                                option(value='05') May
+                                option(value='06') Jun
+                                option(value='07') Jul
+                                option(value='08') Aug
+                                option(value='09') Sep
+                                option(value='10') Oct
+                                option(value='11') Nov
+                                option(value='12') Dec
+                            input.form-control.birthdate-component#birthDate(disabled='disabled' placeholder='Day')
+                            input.form-control.birthdate-component#birthYear(disabled='disabled' placeholder='Year')
 
 block scripts
    script(src='/js/profile.js') 
