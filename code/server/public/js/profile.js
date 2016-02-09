@@ -55,18 +55,15 @@ var userCallback = function(data) {
 		return;
 	}
 	console.log(data);
-	username = data.user.username;
-	$('#username').append(username);
-	$('#generalDescription').html(data.user.generalDescription);
-	$('#helpDescription').html(data.user.helpDescription);
-	$('#school').val(data.user.school); 
-	$('#firstname').val(data.user.firstname);
-	$('#lastname').val(data.user.lastname);
-	$('#city').val(data.user.city);
-	$('#country').val(data.user.country);
-	$('#courses').val(data.user.courses);
+	$('#username').append(data.user.username);
+	setUserInfo(data.user);
 	setBirthDate(data.user.dateOfBirth);
-	//Inputs prefer when you set their value through val
+}
+
+function setUserInfo(user) {
+	$('.user-entry').each(function(i, obj) {
+		obj.value = user[obj.id];
+	});
 }
 
 //Function that takes in the tag of all elements you want toggled and then sets them to disabled=toggle
@@ -104,6 +101,7 @@ function setBirthDate(date) {
 }
 
 function getBirthDate() {
+	//TODO: More validation?
 	var birthMonth = $('#birthMonth').val();
 	var birthDate = $('#birthDate').val();
 	var birthYear = $('#birthYear').val();
