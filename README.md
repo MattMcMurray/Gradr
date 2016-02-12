@@ -1,6 +1,7 @@
 ### For the marker:
 - Our Trello page for iteration 1 (task tracking): https://trello.com/b/mpbIdgMg/iteration-1
 - To run the server:
+    - use a UNIX based system
     - `cd` into `Gradr/code/server`
     - run `sudo ./get_started.sh` to install all dependencies
     - run `sudo node main.js`
