@@ -128,11 +128,20 @@ var getRandom = function(currUserId) {
     });
 }
 
+var removeUser = function(userId) {
+    UserConnection.destroy({
+        where: {
+            id: userId
+        }
+    });
+}
+
 module.exports = {
     getUser: getUser,
     getUsersById: getUsersById,
     createUser: createUser,
     getRandom: getRandom,
     getAllUsers: getAllUsers,
-    createUserProfile:createUserProfile
+    createUserProfile:createUserProfile,
+    removeUser: removeUser
 }

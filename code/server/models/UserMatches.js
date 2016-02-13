@@ -73,8 +73,21 @@ var getPreviouslyRatedIds = function(userId) {
     });
 };
 
+var removeUser = function(userId) {
+    UserMatches.destroy({
+        where: {
+            $or: {
+                likee_id: userId,
+                liker_id: userId
+            }
+        }
+    });
+    return true;
+}
+
 module.exports = {
     addUserMatch: addUserMatch,
     getMatches: getMatches,
-    getPreviouslyRatedIds: getPreviouslyRatedIds
+    getPreviouslyRatedIds: getPreviouslyRatedIds,
+    removeUser: removeUser
 };

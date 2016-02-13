@@ -60,7 +60,6 @@ router.post("/login", function(req,res) {
 
 // Get a random user; useful for matching process
 router.get('/randomUser', function(req, res){
-	console.log('api received ' + req.query.currUserId);
 	User.getRandom(req.query.currUserId).then(function(user) {
 		if (user != null) {
 			res.json({username: user.username, userID: user.id, school: user.school, firstname: user.firstname, lastname: user.lastname, helpDescription: user.helpDescription})	
@@ -114,6 +113,15 @@ router.get('/getUser', function(req, res) {
     } else {
         res.sendStatus(401); // bad request; no user included in GET vars
     }
+});
+
+router.post('/deleteUser', function(req, res) {
+	console.log('received: ' + req.body.userId);
+	UserMatches.removeUser(req.body.userId);
+	User.removeUser(req.body.userId);
+	res.json({
+		url: '/'
+	})
 });
 
 function getCredentials(req){
