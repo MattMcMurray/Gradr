@@ -25,6 +25,7 @@ var args = parseArgs(process.argv.slice(2));
 processOptions(args);
 
 var server = app.listen(port, function() {
+    api.initializeDAOs('db');
     console.log("App running on port " + server.address().port);
 });
 

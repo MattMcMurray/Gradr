@@ -6,10 +6,6 @@ var UserDAO = require('../data_access/UserDataAccess.js');
 var UserMatchDAO = require('../data_access/UserMatchDataAccess.js');
 var authenticator = require("../mixins/authenticator.js");
 
-// Initialize models to use DB
-UserDAO.init('db');
-UserMatchDAO.init('db');
-
 router.get('/', function (req, res) {
 	res.json({message: 'Hello world!'});
 });
@@ -119,6 +115,13 @@ function getProfileDate(req) {
 		dateOfBirth: req.body.dateOfBirth};
 }
 
+// Initialize as either 'db' or 'src'
+function initializeDAOs(source) {
+	UserDAO.init(source);
+	UserMatchDAO.init(source);
+}
+
 module.exports = {
-	router
+	router,
+	initializeDAOs: initializeDAOs
 };
