@@ -8,6 +8,8 @@ var init = function(mode) {
         userDAO = new UserStub();
     else if (mode == 'db')
         userDAO = new UserDB();
+    else
+        throw '\'' + mode + '\' is not a valid mode. Use \'db\' or \'stub\'.'
 }
 
 var getUser = function(username) {

@@ -8,6 +8,8 @@ var init = function(mode) {
         userMatchDAO = new UserMatchStub();
     else if (mode == 'db')
         userMatchDAO = new UserMatchDB();
+    else
+        throw '\'' + mode + '\' is not a valid mode. Use \'db\' or \'stub\'.'
 }
 
 var addUserMatch = function(liker_id, likee_id, likes) {

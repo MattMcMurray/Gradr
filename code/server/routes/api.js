@@ -116,9 +116,9 @@ function getProfileDate(req) {
 }
 
 // Initialize as either 'db' or 'src'
-function initializeDAOs(source) {
-	UserDAO.init(source);
-	UserMatchDAO.init(source);
+function initializeDAOs(mode) {
+	UserDAO.init(mode);
+	UserMatchDAO.init(mode);
 }
 
 module.exports = {
