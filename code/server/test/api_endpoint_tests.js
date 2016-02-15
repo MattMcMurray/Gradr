@@ -2,15 +2,15 @@ var app = require('../main.js');
 var request = require('supertest');
 var assert = require('assertthat'); // View README for documentation https://github.com/thenativeweb/assertthat
 var api = require('../routes/api.js');
-var stubUser = require('../stub_models/StubUser.js');
-var stubLikes = require('../stub_models/StubUserMatches.js');
+var stubUser = require('../data_access/UserDataAccess.js');
+var stubLikes = require('../data_access/UserMatchDataAccess.js');
 //////////////////////////////////////////
 // ALL API TESTS SHOULD GO IN THIS FILE // 
 //////////////////////////////////////////
 
 describe('api', function() {
-    api.injectUser(stubUser);
-    api.injectLikes(stubLikes);
+    stubUser.init('stub');
+    stubLikes.init('stub');
     // This is just a description, not the actual route the test will use
     describe('GET /api/getUser', function() {
         it('requests a user from the api', function(done) {

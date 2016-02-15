@@ -10,3 +10,7 @@
 	cursor: pointer;
 	cursor: hand; /* Apparently some browsers use hand instead of pointer*/
 }
+
+.pad-top {
+	padding-top: 60px;
+}

@@ -2,21 +2,11 @@ var _express = require('express');
 
 var router = _express.Router();
 var app = _express();
-var User = require('../models/User.js');
-var UserMatches = require('../models/UserMatches.js');
+var UserDAO = require('../data_access/UserDataAccess.js');
+var UserMatchDAO = require('../data_access/UserMatchDataAccess.js');
 var authenticator = require("../mixins/authenticator.js");
 
-var injectUser = function(user) {
-	if (user) {
-		User = user;
-	}
-};
-
-var injectLikes = function(likes) {
-	if (likes) {
-		UserMatches = likes;
-	}
-};
+initializeDAOs('db');
 
 router.get('/', function (req, res) {
 	res.json({message: 'Hello world!'});
@@ -24,7 +14,7 @@ router.get('/', function (req, res) {
 
 router.post('/NewUser', function (req, res) {
     if (req.body.password === req.body.confirmPassword) {
-        User.createUser(getCredentials(req)).then(function(data){
+        UserDAO.createUser(getCredentials(req)).then(function(data){
             console.log('New user ' + req.body.username + ' created');
             res.json({url:"/", message: 'New user created'});
         }).catch(function(error){
@@ -37,7 +27,7 @@ router.post('/NewUser', function (req, res) {
 });
 
 router.post('/ProfileUpdate', function (req, res) {
-	User.createUserProfile(getProfileDate(req));
+	UserDAO.createUserProfile(getProfileDate(req));
 	console.log('User ' + req.body.username + ' profile updated');
 	res.json({url:"/", message: 'User profile updated'});
 });
@@ -46,7 +36,7 @@ router.post("/login", function(req,res) {
 	
 	credentials = getCredentials(req)
 	
-	User.getUser(credentials.username).then(function(user){
+	UserDAO.getUser(credentials.username).then(function(user){
 		if (user != null && authenticator.authenticate(credentials.password, user.dataValues.password)){
       
 			res.json({ url: "/main", user: user });
@@ -60,7 +50,7 @@ router.post("/login", function(req,res) {
 
 // Get a random user; useful for matching process
 router.get('/randomUser', function(req, res){
-	User.getRandom(req.query.currUserId).then(function(user) {
+	UserDAO.getRandom(req.query.currUserId).then(function(user) {
 		if (user != null) {
 			res.json({username: user.username, userID: user.id, school: user.school, firstname: user.firstname, lastname: user.lastname, helpDescription: user.helpDescription})	
 		} else {
@@ -71,15 +61,15 @@ router.get('/randomUser', function(req, res){
 });
 
 router.get('/getPotentialMatches', function(req, res){
-	UserMatches.getMatches(req.query.userId).then(function(ids){
-		User.getUsersById(ids).then(function(users) {
+	UserMatchDAO.getMatches(req.query.userId).then(function(ids){
+		UserDAO.getUsersById(ids).then(function(users) {
 			res.json({matches: users});
 		});
 	});
 });
 
 router.post('/likeUser', function(req, res){
-	UserMatches.addUserMatch(req.body.liker_id, req.body.likee_id, true).then(function(result) {
+	UserMatchDAO.addUserMatch(req.body.liker_id, req.body.likee_id, true).then(function(result) {
 		if (result.error) 
 			res.status(500);
 
@@ -89,7 +79,7 @@ router.post('/likeUser', function(req, res){
 
 
 router.post('/dislikeUser', function(req, res){
-	UserMatches.addUserMatch(req.body.liker_id, req.body.likee_id, false).then(function(result) {
+	UserMatchDAO.addUserMatch(req.body.liker_id, req.body.likee_id, false).then(function(result) {
 		if (result.error) 
 			res.status(500);
 		
@@ -102,7 +92,7 @@ router.post('/dislikeUser', function(req, res){
 router.get('/getUser', function(req, res) {
 
     if (req.query.user) {
-        User.getUser(req.query.user).then(function(user) {
+        UserDAO.getUser(req.query.user).then(function(user) {
             if (user && user.dataValues) {
               delete user.dataValues.password; // probably not the best idea to send this over the wire
               res.json({user: user.dataValues});
@@ -116,7 +106,7 @@ router.get('/getUser', function(req, res) {
 });
 
 router.post('/deleteUser', function(req, res) {
-	UserMatches.removeUser(req.body.userId).then(function(result) {
+	UserMatchDAO.removeUser(req.body.userId).then(function(result) {
 		User.removeUser(req.body.userId).then(function(result) {
 			if(result.error)
 				res.stats(500);
@@ -140,8 +130,13 @@ function getProfileDate(req) {
 		dateOfBirth: req.body.dateOfBirth};
 }
 
+// Initialize as either 'db' or 'stub'
+function initializeDAOs(mode) {
+	UserDAO.init(mode);
+	UserMatchDAO.init(mode);
+}
+
 module.exports = {
 	router,
-	injectUser: injectUser,
-	injectLikes: injectLikes,
+	initializeDAOs: initializeDAOs
 };

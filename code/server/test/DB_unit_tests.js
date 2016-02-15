@@ -1,12 +1,13 @@
 var app = require('../main.js');
-var userMatches = require('../models/UserMatches.js');
-var User = require('../models/User.js');
+var userMatches = require('../data_access/UserMatchDataAccess.js');
+var User = require('../data_access/UserDataAccess.js');
 var request = require('supertest');
 var assert = require('assertthat'); // View README for documentation https://github.com/thenativeweb/assertthat
 
 
 describe('Database query tests', function() {
-
+	userMatches.init('db');
+	User.init('db');
 	describe('UserMatches queries', function() {
 		
 		describe('addUserMatch', function() {
