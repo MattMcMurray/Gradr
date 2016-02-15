@@ -55,7 +55,7 @@ UserStub.prototype.getUser = function(username) {
     return prom;
 };
 
-UserStub.prototype.getUsersByID = function(userIDs) {
+UserStub.prototype.getUsersById = function(userIDs) {
     var results = [];
     for (var i = 0; i < userIDs.length; i++) {
         var found = findUser('id', userIDs[i])
@@ -63,11 +63,11 @@ UserStub.prototype.getUsersByID = function(userIDs) {
     }
 
     return new Promise(function(resolve, reject) {
-        users = {
+        /*users = {
             dataValues: results
-        };
+        };*/
 
-        resolve(users);
+        resolve(results);
     });
 };
 
@@ -81,7 +81,7 @@ UserStub.prototype.getAllUsers = function() {
     });
 };
 
-UserStub.prototype.createUser = function(userData) {
+UserStub.prototype.createUser = function(credentials) {
     found = findUser('username', credentials.username);
     if (found) {
         return new Promise(function(resolve, reject) {
@@ -130,7 +130,7 @@ UserStub.prototype.getRandom = function(currUserID) {
     //achieves expectable results for unit tests
     //it is a stub, after all
     return new Promise(function(resolve, reject) {
-        if (currUserId == 111) {
+        if (currUserID == 111) {
             rand = 2;
         } 
         else {

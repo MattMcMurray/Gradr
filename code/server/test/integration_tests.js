@@ -20,6 +20,7 @@ var school = 'University of Manitoba';
 var generalDescription = 'I am awesome and dedicated';
 
 describe('Integration Tests', function() {
+    
     // BIG USER STORY 1
     describe('User Creation', function() {
 
