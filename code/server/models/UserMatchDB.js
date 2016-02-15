@@ -1,7 +1,8 @@
+var UserMatchInterface = require('../interfaces/UserMatchInterface.js')
 var Sequelize = require('sequelize');
-var connection = require('../database.js').sequelize;
+var DBConnection = require('../database.js').sequelize;
 
-UserMatches = connection.define('user_matches', {
+var UserMatch = DBConnection.define('user_matches', {
     liker_id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -26,10 +27,15 @@ UserMatches = connection.define('user_matches', {
     }
 });
 
-UserMatches.sync();
+function UserMatchDB() {
+    UserMatch.sync();
+}
 
-var addUserMatch = function(_liker_id, _likee_id, _likes) {
-    return UserMatches.findOrCreate({
+UserMatchDB.prototype = new UserMatchInterface();
+UserMatchDB.prototype.constructor = UserMatchDB;
+
+UserMatchDB.prototype.addUserMatch = function(_liker_id, _likee_id, _likes) {
+    return UserMatch.findOrCreate({
         where: {
             liker_id: _liker_id,
             likee_id: _likee_id
@@ -45,36 +51,30 @@ var addUserMatch = function(_liker_id, _likee_id, _likes) {
     });
 };
 
-var getMatches = function(userId) {
-    return connection.query(
+UserMatchDB.prototype.getMatches = function(userId) {
+    return DBConnection.query(
         'SELECT um2.liker_id as userId FROM user_matches um2 WHERE um2.liker_id IN (SELECT um1.likee_id FROM user_matches um1 WHERE um1.liker_id = :userId AND um1.likes) AND um2.likee_id = :userId AND um2.likes',
         { replacements: { userId: userId }, type: connection.QueryTypes.SELECT } ).then(function(users) {
             var ids = []
-            for(var i=0; i < users.length; i++)
-            {
+            for(var i=0; i < users.length; i++) {
                 ids[i] = users[i].userId;
             }
             return ids;
     });
 };
 
-var getPreviouslyRatedIds = function(userId) {
-    return UserMatches.findAll({
+UserMatchDB.prototype.getPreviouslyRatedIds = function(userId) {
+    return UserMatch.findAll({
         where: {
             liker_id: userId
         }
     }).then(function(users) {
         var ids = [];
-        for(var i=0; i < users.length; i++)
-        {
+        for(var i=0; i < users.length; i++) {
             ids[i] = users[i].likee_id;
         }
         return ids;
     });
 };
 
-module.exports = {
-    addUserMatch: addUserMatch,
-    getMatches: getMatches,
-    getPreviouslyRatedIds: getPreviouslyRatedIds
-};
+module.exports = UserMatchDB;
