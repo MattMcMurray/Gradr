@@ -77,4 +77,15 @@ UserMatchDB.prototype.getPreviouslyRatedIds = function(userId) {
     });
 };
 
+UserMatchDB.prototype.removeUser = function(userId) {
+    return UserMatch.destroy({
+        where: {
+            $or: {
+                likee_id: userId,
+                liker_id: userId
+            }
+        }
+    });
+}
+
 module.exports = UserMatchDB;

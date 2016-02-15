@@ -18,6 +18,29 @@ $('#profileButton').click(function(e) {
     e.preventDefault();
 });
 
+$('#deleteAccountButton').click(function(e) {
+	e.preventDefault();
+	
+	if (confirm('Are you sure you want to delete your account? This cannot be undone')) {
+		var sendData = {userId: sessionStorage.getItem('user_id')}
+		$.ajax({
+			type: 'POST',
+			url: '/api/deleteUser',
+			data: sendData,
+			success: function (data) {
+				sessionStorage.setItem('username', null);
+				sessionStorage.setItem('user_id', null);
+				window.location.replace('/');
+			},
+			error: function(error) {
+				//TODO: Tell the user about the error.
+				console.log('couldn\'t delete account. Looks like you\'re stuck with us');
+				console.log(error);
+			}
+		});
+	}
+})
+
 $('#editButton').click(function(e) {
 	e.preventDefault();
 	getUserInfo();
