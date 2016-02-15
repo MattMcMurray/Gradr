@@ -61,7 +61,7 @@ UserDB.prototype.getUser = function(username) {
     });	
 };
 
-UserDB.prototype.getUsersByID = function(userIDs) {
+UserDB.prototype.getUsersById = function(userIDs) {
     return User.findAll({
         where:{
             id: userIDs

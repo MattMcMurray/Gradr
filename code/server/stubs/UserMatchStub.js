@@ -1,33 +1,32 @@
-var userMatches = [];
-userMatches.push({liker_id: 111, likee_id: 222, likes: true});
-userMatches.push({liker_id: 222, likee_id: 111, likes: true});
-userMatches.push({liker_id: 222, likee_id: 333, likes: true});
-userMatches.push({liker_id: 333, likee_id: 222, likes: false});
-userMatches.push({liker_id: 444, likee_id: 111, likes: true});
-userMatches.push({liker_id: 555, likee_id: 111, likes: false});
+var UserMatchInterface = require('../interfaces/UserMatchInterface.js');
 
-var users = [111, 222, 333, 444, 555];
+var userMatches, users;
 
+function UserMatchStub() {
+    userMatches = [];
 
-//Internal function
-function getMatch(liker_id, likee_id) {
-    for (var i = 0; i < userMatches.length; i++) {
-        if (userMatches[i].liker_id == liker_id && userMatches[i].likee_id == likee_id) {
-            return {match: userMatches[i], ind: i};
-        }
-    }
-    return null;
+    userMatches.push({liker_id: 111, likee_id: 222, likes: true});
+    userMatches.push({liker_id: 222, likee_id: 111, likes: true});
+    userMatches.push({liker_id: 222, likee_id: 333, likes: true});
+    userMatches.push({liker_id: 333, likee_id: 222, likes: false});
+    userMatches.push({liker_id: 444, likee_id: 111, likes: true});
+    userMatches.push({liker_id: 555, likee_id: 111, likes: false});
+
+    users = [111, 222, 333, 444, 555];
 }
 
-var addUserMatch = function(_liker_id, _likee_id, _likes) {
-    var res = getMatch(_liker_id, _likee_id, _likes);
+UserMatchStub.prototype = new UserMatchInterface();
+UserMatchStub.prototype.constructor = UserMatchStub;
+
+UserMatchStub.prototype.addUserMatch = function(liker_id, likee_id, likes) {
+    var res = getMatch(liker_id, likee_id, likes);
     var returnValue;
 
-    if (!res && Number.isInteger(_liker_id) && Number.isInteger(_likee_id) && users.indexOf(_liker_id) >= 0 && users.indexOf(_likee_id) >= 0) {
+    if (!res && Number.isInteger(liker_id) && Number.isInteger(likee_id) && users.indexOf(liker_id) >= 0 && users.indexOf(likee_id) >= 0) {
         var match = {
-            liker_id: _liker_id,
-            likee_id: _likee_id,
-            likes: _likes
+            liker_id: liker_id,
+            likee_id: likee_id,
+            likes: likes
         };
         userMatches.push(match);
 
@@ -37,7 +36,7 @@ var addUserMatch = function(_liker_id, _likee_id, _likes) {
         returnValue = { 
             error: {
                 name: 'UserMatchesError',
-                message: 'Unable to save UserMatch for users ' + _liker_id + ' and ' + _likee_id 
+                message: 'Unable to save UserMatch for users ' + liker_id + ' and ' + likee_id 
             }
         };
     }
@@ -47,7 +46,7 @@ var addUserMatch = function(_liker_id, _likee_id, _likes) {
     });
 };
 
-var getMatches = function(userId) {
+UserMatchStub.prototype.getMatches = function(userId) {
     var potentialPartners = [];
     for (var i = 0; i < userMatches.length; i++) {
         if (userMatches[i].likee_id == userId && userMatches[i].likes == true) {
@@ -73,9 +72,31 @@ var getMatches = function(userId) {
         var matches = {users: ids};
         resolve(ids);
     });
+};
+
+UserMatchStub.prototype.getPreviouslyRatedIds = function(userID) {
+    var matches = [];
+    for (var i = 0; i <userMatches.length; i++) {
+        if (userMatches[i].liker_id == userId) {
+            matches.push(userMatches.likee_id);
+        }
+    }
+
+    return new Promise(function(resolve, reject) {
+        resolve(matches);
+    });
+};
+
+
+//Helper function
+function getMatch(liker_id, likee_id) {
+    for (var i = 0; i < userMatches.length; i++) {
+        if (userMatches[i].liker_id == liker_id && userMatches[i].likee_id == likee_id) {
+            return {match: userMatches[i], ind: i};
+        }
+    }
+    return null;
 }
 
-module.exports = {
-    addUserMatch: addUserMatch,
-    getMatches: getMatches
-};
+
+module.exports = UserMatchStub;
