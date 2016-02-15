@@ -23,7 +23,6 @@ $('#deleteAccountButton').click(function(e) {
 	
 	if (confirm('Are you sure you want to delete your account? This cannot be undone')) {
 		var sendData = {userId: sessionStorage.getItem('user_id')}
-		console.log('USER ID: ' + sendData.userId);
 		$.ajax({
 			type: 'POST',
 			url: '/api/deleteUser',

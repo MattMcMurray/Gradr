@@ -129,7 +129,7 @@ var getRandom = function(currUserId) {
 }
 
 var removeUser = function(userId) {
-    UserConnection.destroy({
+    return UserConnection.destroy({
         where: {
             id: userId
         }

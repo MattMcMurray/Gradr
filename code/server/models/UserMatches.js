@@ -74,7 +74,7 @@ var getPreviouslyRatedIds = function(userId) {
 };
 
 var removeUser = function(userId) {
-    UserMatches.destroy({
+    return UserMatches.destroy({
         where: {
             $or: {
                 likee_id: userId,
@@ -82,7 +82,6 @@ var removeUser = function(userId) {
             }
         }
     });
-    return true;
 }
 
 module.exports = {

@@ -116,12 +116,17 @@ router.get('/getUser', function(req, res) {
 });
 
 router.post('/deleteUser', function(req, res) {
-	console.log('received: ' + req.body.userId);
-	UserMatches.removeUser(req.body.userId);
-	User.removeUser(req.body.userId);
-	res.json({
-		url: '/'
-	})
+	UserMatches.removeUser(req.body.userId).then(function(result) {
+		User.removeUser(req.body.userId).then(function(result) {
+			if(result.error)
+				res.stats(500);
+			else {
+				res.json({
+					url: '/'
+				});
+			}
+		});
+	});
 });
 
 function getCredentials(req){
