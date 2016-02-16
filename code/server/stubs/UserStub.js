@@ -146,6 +146,20 @@ UserStub.prototype.getRandom = function(currUserID) {
     });
 };
 
+UserStub.prototype.removeUser = function(userID) {
+    var removed = null;
+    for (var i = 0; i < userList.length; i++) {
+        if (userList[i].id === userID) {
+            removed = userList[i];
+            userList.splice(i, 1);
+            break;
+        }
+    }
+    return new Promise(function(resolve, reject) {
+        resolve(removed);
+    });
+}
+
 module.exports = UserStub;
 
 /* Helper functions */

@@ -87,6 +87,23 @@ UserMatchStub.prototype.getPreviouslyRatedIds = function(userID) {
     });
 };
 
+UserMatchStub.prototype.removeUser = function(userID) {
+    var ids = [];
+
+    for (var i = 0; i < userMatches.length; i++) {
+        if (userMatches[i].likee_id === userID || userMatches[i].liker_id === userID) {
+            ids.push(i);
+        }
+    }
+
+    for (var i = ids.length - 1; i >= 0; i--) {
+        userMatches.splice(ids[i], 1);
+    }
+
+    return new Promise(function(resolve, reject) {
+        resolve(ids);
+    });
+};
 
 //Helper function
 function getMatch(liker_id, likee_id) {
