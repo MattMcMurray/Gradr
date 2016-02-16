@@ -77,8 +77,8 @@ UserMatchStub.prototype.getMatches = function(userId) {
 UserMatchStub.prototype.getPreviouslyRatedIds = function(userID) {
     var matches = [];
     for (var i = 0; i <userMatches.length; i++) {
-        if (userMatches[i].liker_id == userId) {
-            matches.push(userMatches.likee_id);
+        if (userMatches[i].liker_id == userID) {
+            matches.push(userMatches[i].likee_id);
         }
     }
 

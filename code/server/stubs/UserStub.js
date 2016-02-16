@@ -59,7 +59,8 @@ UserStub.prototype.getUsersById = function(userIDs) {
     var results = [];
     for (var i = 0; i < userIDs.length; i++) {
         var found = findUser('id', userIDs[i])
-        results.push(found);
+        if (found)
+            results.push(found);
     }
 
     return new Promise(function(resolve, reject) {

@@ -42,6 +42,15 @@ describe('User', function() {
                 done();
             });
         });
+
+        it('requests a list of users but uses mixed ids', function(done) {
+            user.getUsersById([111, 404]).then(function(data) {
+                console.log(data);
+                assert.that(data).is.not.null();
+                assert.that(data.length).is.equalTo(1);
+                done();
+            });
+        });
     });
 
     describe('User getAllUsers', function() {
