@@ -107,7 +107,7 @@ router.get('/getUser', function(req, res) {
 
 router.post('/deleteUser', function(req, res) {
 	UserMatchDAO.removeUser(req.body.userId).then(function(result) {
-		User.removeUser(req.body.userId).then(function(result) {
+		UserDAO.removeUser(req.body.userId).then(function(result) {
 			if(result.error)
 				res.stats(500);
 			else {

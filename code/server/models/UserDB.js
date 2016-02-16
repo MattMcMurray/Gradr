@@ -132,7 +132,7 @@ UserDB.prototype.getRandom = function(currUserID) {
 };
 
 UserDB.prototype.removeUser = function(userId) {
-    return UserConnection.destroy({
+    return User.destroy({
         where: {
             id: userId
         }
