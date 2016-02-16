@@ -4,6 +4,7 @@ var router = _express.Router();
 var app = _express();
 var UserDAO = require('../data_access/UserDataAccess.js');
 var UserMatchDAO = require('../data_access/UserMatchDataAccess.js');
+var RatingDAO = require('../data_access/RatingDataAccess.js');
 var authenticator = require("../mixins/authenticator.js");
 
 initializeDAOs('db');
@@ -121,6 +122,7 @@ function getProfileDate(req) {
 function initializeDAOs(mode) {
 	UserDAO.init(mode);
 	UserMatchDAO.init(mode);
+	RatingDAO.init(mode);
 }
 
 module.exports = {

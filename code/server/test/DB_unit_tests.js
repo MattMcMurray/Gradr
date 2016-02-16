@@ -1,13 +1,62 @@
 var app = require('../main.js');
 var userMatches = require('../data_access/UserMatchDataAccess.js');
 var User = require('../data_access/UserDataAccess.js');
+var ratings = require('../data_access/RatingDataAccess.js');
 var request = require('supertest');
 var assert = require('assertthat'); // View README for documentation https://github.com/thenativeweb/assertthat
 
 
 describe('Database query tests', function() {
+
 	userMatches.init('db');
 	User.init('db');
+	ratings.init('db');
+	
+	describe('Rating queries', function() {
+
+		describe('addRating', function() {
+			it('adds a new rating to the table', function(done) {
+				ratings.addRating(1, 2, 3, "").then(function(data){
+					assert.that(data).is.equalTo(true);
+					done();
+				});
+			});
+		});
+
+		describe('updateRating', function() {
+			it('updates a rating in the table', function(done) {
+				ratings.addRating(1, 2, 5, "The most beautiful study partner ever.").then(function(data){
+					assert.that(data).is.equalTo(true);
+					done();
+				});
+			});
+		});
+
+		describe('getRatings', function() {
+			it('gets the average rating and a list of 10 ratings for a given user', function(done) {
+				ratings.getRatings(11).then(function(data){
+					assert.that(data).is.not.null();
+					assert.that(data.average).is.equalTo(3); //If it doesn't match, it's likely because of double rounding
+					assert.that(data.reviews.length).is.equalTo(10);
+					assert.that(data.reviews[1].rating).is.not.null();
+					assert.that(data.reviews[1].comment).is.not.null();
+					done();
+				});
+			});
+		});
+
+		describe('getMyRatingFor', function() {
+			it ('gets the rating that rater submitted for ratee and returns it', function(done) {
+				ratings.getMyRatingFor(9, 11).then(function(data){
+					assert.that(data).is.not.null();
+					assert.that(data.rating).is.equalTo(1);
+					assert.that(data.comment).is.equalTo('Bad guy');
+					done();
+				});
+			});
+		});
+	});
+
 	describe('UserMatches queries', function() {
 		
 		describe('addUserMatch', function() {
@@ -135,7 +184,7 @@ describe('Database query tests', function() {
 					done();
 				});
 			});
-		})
+		});
 
 	});
 });
