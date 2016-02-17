@@ -11,10 +11,6 @@ function UserMatchStub() {
     userMatches.push({liker_id: 333, likee_id: 222, likes: false});
     userMatches.push({liker_id: 444, likee_id: 111, likes: true});
     userMatches.push({liker_id: 555, likee_id: 111, likes: false});
-    userMatches.push({liker_id: 1, likee_id: 2, likes: true});
-    userMatches.push({liker_id: 2, likee_id: 1, likes: true});
-    userMatches.push({liker_id: 2, likee_id: 3, likes: false});
-    userMatches.push({liker_id: 4, likee_id: 2, likes: true});
 
     users = [111, 222, 333, 444, 555];
 }

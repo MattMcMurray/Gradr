@@ -43,10 +43,31 @@ describe('Database query tests', function() {
 					done();
 				});
 			});
+
+			it('get an average for a user with fewer than 10 ratings', function(done) {
+	            ratings.getRatings(10).then(function(data){
+	                assert.that(data).is.not.null();
+	                assert.that(data.average).is.equalTo(1);
+	                assert.that(data.reviews).is.not.null();
+	                assert.that(data.reviews.length).is.equalTo(1);
+	                assert.that(data.reviews[0].comment).is.equalTo('Bad guy');
+	                done();
+	            });
+	        });
+
+	        it('get an average for a user with no ratings', function(done) {
+	            ratings.getRatings(1).then(function(data){
+	                assert.that(data).is.not.null();
+	                assert.that(data.average).is.equalTo(0);
+	                assert.that(data.reviews).is.not.null();
+	                assert.that(data.reviews.length).is.equalTo(0);
+	                done();
+	            });
+	        });
 		});
 
 		describe('getMyRatingFor', function() {
-			it ('gets the rating that rater submitted for ratee and returns it', function(done) {
+			it ('gets the rating for a user', function(done) {
 				ratings.getMyRatingFor(9, 11).then(function(data){
 					assert.that(data).is.not.null();
 					assert.that(data.rating).is.equalTo(1);

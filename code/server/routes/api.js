@@ -122,7 +122,7 @@ router.post('/rateUser', function(req, res) {
 			}
 		}
 		if (match) {
-			RatingDAO.addRating(req.body.rater_id, req.body.ratee_id, req.body.rating, req.body.comment).then (function(result) {
+			RatingDAO.addRating(req.body.rater_id, req.body.ratee_id, req.body.rating, req.body.comment).then(function(result) {
 				if (result.error)
 					res.status(500);
 				res.json(result);
@@ -146,7 +146,6 @@ router.get('/getMyRatingFor', function(req, res) {
 		});
 	} else {
 		res.sendStatus(401); // bad request; need both users in GET vars
-		res.json({error: "Missing your id or the ratee's ID"});
 	}
 });
 
@@ -162,7 +161,6 @@ router.get('/getRatings', function(req, res) {
 		});
 	} else {
 		res.sendStatus(401); // bad request; we need to know which user to calculate the average for
-		res.json({error: "Missing ratee_id parameter"});
 	}
 });
 

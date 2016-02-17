@@ -4,6 +4,7 @@ var assert = require('assertthat'); // View README for documentation https://git
 var api = require('../routes/api.js');
 var stubUser = require('../data_access/UserDataAccess.js');
 var stubLikes = require('../data_access/UserMatchDataAccess.js');
+var stubRating = require('../data_access/RatingDataAccess.js');
 //////////////////////////////////////////
 // ALL API TESTS SHOULD GO IN THIS FILE // 
 //////////////////////////////////////////
@@ -11,6 +12,7 @@ var stubLikes = require('../data_access/UserMatchDataAccess.js');
 describe('api', function() {
     stubUser.init('stub');
     stubLikes.init('stub');
+    stubRating.init('stub');
     // This is just a description, not the actual route the test will use
     describe('GET /api/getUser', function() {
         it('requests a user from the api', function(done) {
@@ -313,20 +315,7 @@ describe('api', function() {
         it('inserts a new rating record', function(done) {
             request(app)
             .post('/api/rateUser')
-            .send({rater_id: 2, ratee_id: 1, rating: 3, comment:"OK"})
-            .expect(200)
-            .expect('Content-Type', 'application/json; charset=utf-8')
-            .end(function(err, res) {
-                if(err) done(err);
-                assert.that(res.body).is.not.null(); //If there's no error, we deem it successful
-                done();
-            });
-        });
-
-        it('replaces a rating record', function(done) {
-            request(app)
-            .post('/api/rateUser')
-            .send({rater_id: 2, ratee_id: 1, rating: 5, comment:"Super"})
+            .send({rater_id: 222, ratee_id: 111, rating: 3, comment:"OK"})
             .expect(200)
             .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function(err, res) {
@@ -339,7 +328,7 @@ describe('api', function() {
         it('makes us rate someone we haven\'t matched with', function(done) {
             request(app)
             .post('/api/rateUser')
-            .send({rater_id: 2, ratee_id: 4, rating: 5, comment:"I don't even know you"})
+            .send({rater_id: 222, ratee_id: 444, rating: 5, comment:"I don't even know you"})
             .expect(401)
             .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function(err, res) {
@@ -366,7 +355,7 @@ describe('api', function() {
     describe('GET /api/getMyRatingFor', function() {
         it('get a rating that already exists', function(done) {
             request(app)
-            .get('/api/getMyRatingFor?rater_id=1&ratee_id=11')
+            .get('/api/getMyRatingFor?rater_id=111&ratee_id=222')
             .expect(200)
             .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function(err, res) {
@@ -374,14 +363,14 @@ describe('api', function() {
                 assert.that(res.body).is.not.null();
                 assert.that(res.body).is.not.null();
                 assert.that(res.body.rating).is.equalTo(5);
-                assert.that(res.body.comment).is.equalTo("Good guy");
+                assert.that(res.body.comment).is.equalTo("I totally rated you");
                 done();
             });
         });
 
         it('get a rating that doesn\'t exist', function(done) {
             request(app)
-            .get('/api/getMyRatingFor?rater_id=11&ratee_id=1')
+            .get('/api/getMyRatingFor?rater_id=222&ratee_id=111')
             .expect(200)
             .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function(err, res) {
@@ -406,48 +395,17 @@ describe('api', function() {
     });
 
     describe('GET /api/getRatings', function() {
-        it('get an average for a user with 10 or more ratings', function(done) {
+        it('get an average rating for a user', function(done) {
             request(app)
-            .get('/api/getRatings?ratee_id=11')
+            .get('/api/getRatings?ratee_id=222')
             .expect(200)
             .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function(err, res) {
                 if(err) done(err);
                 assert.that(res.body).is.not.null();
-                assert.that(res.body.average).is.equalTo(3);
+                assert.that(res.body.average).is.equalTo(2.5);
                 assert.that(res.body.reviews).is.not.null();
-                assert.that(res.body.reviews.length).is.equalTo(10);
-                done();
-            });
-        });
-
-        it('get an average for a user with fewer than 10 ratings', function(done) {
-            request(app)
-            .get('/api/getRatings?ratee_id=10')
-            .expect(200)
-            .expect('Content-Type', 'application/json; charset=utf-8')
-            .end(function(err, res) {
-                if(err) done(err);
-                assert.that(res.body).is.not.null();
-                assert.that(res.body.average).is.equalTo(1);
-                assert.that(res.body.reviews).is.not.null();
-                assert.that(res.body.reviews.length).is.equalTo(1);
-                assert.that(res.body.reviews[0].comment).is.equalTo('Bad guy');
-                done();
-            });
-        });
-
-        it('get an average for a user with no ratings', function(done) {
-            request(app)
-            .get('/api/getRatings?ratee_id=2')
-            .expect(200)
-            .expect('Content-Type', 'application/json; charset=utf-8')
-            .end(function(err, res) {
-                if(err) done(err);
-                assert.that(res.body).is.not.null();
-                assert.that(res.body.average).is.equalTo(0);
-                assert.that(res.body.reviews).is.not.null();
-                assert.that(res.body.reviews.length).is.equalTo(0);
+                assert.that(res.body.reviews.length).is.equalTo(2);
                 done();
             });
         });

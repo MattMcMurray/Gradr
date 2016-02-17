@@ -1,12 +1,11 @@
 var RatingDB = require('../models/RatingDB.js');
-// var RatingStub = require('../stubs/RatingStub.js');
+var RatingStub = require('../stubs/RatingStub.js');
 
 var ratingDAO;
 
 var init = function(mode) {
     if (mode == 'stub')
-        console.log("Regrete");
-        // ratingDAO = new RatingStub();
+        ratingDAO = new RatingStub();
     else if (mode == 'db')
         ratingDAO = new RatingDB();
     else
