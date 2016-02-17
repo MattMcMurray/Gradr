@@ -22,7 +22,7 @@ var Rating = DBConnection.define('ratings', {
         allowNull: false
     },
     rating: {
-        type: Sequelize.BOOLEAN,
+        type: Sequelize.INTEGER,
         allowNull: false
     },
     comment: {
@@ -61,16 +61,21 @@ RatingDB.prototype.getRatings = function(_ratee_id) {
     return DBConnection.query(
         'SELECT comment, rating FROM ratings WHERE ratee_id = :rateeId',
         { replacements: { rateeId: _ratee_id }, type: DBConnection.QueryTypes.SELECT } ).then(function(ratings) {
-            var sum = 0;
-            var i;
-            for (i = 0; i < ratings.length; i++) {
-                sum += ratings[i].rating;
+            var avg = 0;
+            var tenRatings = [];
+            if (ratings.length > 0) {
+                var sum = 0;
+                var i;
+                for (i = 0; i < ratings.length; i++) {
+                    sum += ratings[i].rating;
+                }
+                avg = sum / ratings.length; 
+                tenRatings = ratings.slice(0, Math.min(10, ratings.length));
             }
-            var avg = sum / ratings.length; 
 
             return {
                 average: avg,
-                reviews: ratings.slice(0, Math.min(10, ratings.length))
+                reviews: tenRatings
             };
     });
 };
@@ -83,12 +88,15 @@ RatingDB.prototype.getMyRatingFor = function(_rater_id, _ratee_id) {
             ratee_id: _ratee_id
         } 
     }).then(function(ratingEntry) {
-        if (ratingEntry == null) {
-            return ratingEntry;
+        var rating = 0;
+        var comment = '';
+        if (ratingEntry) {
+            rating = ratingEntry.rating;
+            comment = ratingEntry.comment;
         }
         return {
-            rating: Number(ratingEntry.rating), //We need to stop js from converting the integer 1 into true so our tests don't break
-            comment: ratingEntry.comment
+            rating: rating, 
+            comment: comment
         };
     });
 };

@@ -308,4 +308,160 @@ describe('api', function() {
             });
         });
     });
+
+    describe('POST /api/rateUser', function() {
+        it('inserts a new rating record', function(done) {
+            request(app)
+            .post('/api/rateUser')
+            .send({rater_id: 2, ratee_id: 1, rating: 3, comment:"OK"})
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body).is.not.null(); //If there's no error, we deem it successful
+                done();
+            });
+        });
+
+        it('replaces a rating record', function(done) {
+            request(app)
+            .post('/api/rateUser')
+            .send({rater_id: 2, ratee_id: 1, rating: 5, comment:"Super"})
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body).is.not.null(); //If there's no error, we deem it successful
+                done();
+            });
+        });
+
+        it('makes us rate someone we haven\'t matched with', function(done) {
+            request(app)
+            .post('/api/rateUser')
+            .send({rater_id: 2, ratee_id: 4, rating: 5, comment:"I don't even know you"})
+            .expect(401)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.error).is.not.null();
+                done();
+            });
+        });
+
+        it('try to rate with incorrect parameters', function(done) {
+            request(app)
+            .post('/api/rateUser')
+            .send({rater_id: null, ratee_id: null, rating: 5, comment:""})
+            .expect(401)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.error).is.not.null();
+                done();
+            });
+        });
+    });
+
+    describe('GET /api/getMyRatingFor', function() {
+        it('get a rating that already exists', function(done) {
+            request(app)
+            .get('/api/getMyRatingFor?rater_id=1&ratee_id=11')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body).is.not.null();
+                assert.that(res.body).is.not.null();
+                assert.that(res.body.rating).is.equalTo(5);
+                assert.that(res.body.comment).is.equalTo("Good guy");
+                done();
+            });
+        });
+
+        it('get a rating that doesn\'t exist', function(done) {
+            request(app)
+            .get('/api/getMyRatingFor?rater_id=11&ratee_id=1')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body).is.not.null();
+                assert.that(res.body.rating).is.equalTo(0);
+                assert.that(res.body.comment).is.equalTo('');
+                done();
+            });
+        });
+
+        it('get a rating with invalid parameters', function(done) {
+            request(app)
+            .get('/api/getMyRatingFor?rater_id=\'lala\'&ratee_id=nop')
+            .expect(401)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                assert.that(res.body.error).is.not.null();
+                done();
+            });
+        });
+    });
+
+    describe('GET /api/getRatings', function() {
+        it('get an average for a user with 10 or more ratings', function(done) {
+            request(app)
+            .get('/api/getRatings?ratee_id=11')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body).is.not.null();
+                assert.that(res.body.average).is.equalTo(3);
+                assert.that(res.body.reviews).is.not.null();
+                assert.that(res.body.reviews.length).is.equalTo(10);
+                done();
+            });
+        });
+
+        it('get an average for a user with fewer than 10 ratings', function(done) {
+            request(app)
+            .get('/api/getRatings?ratee_id=10')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body).is.not.null();
+                assert.that(res.body.average).is.equalTo(1);
+                assert.that(res.body.reviews).is.not.null();
+                assert.that(res.body.reviews.length).is.equalTo(1);
+                assert.that(res.body.reviews[0].comment).is.equalTo('Bad guy');
+                done();
+            });
+        });
+
+        it('get an average for a user with no ratings', function(done) {
+            request(app)
+            .get('/api/getRatings?ratee_id=2')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body).is.not.null();
+                assert.that(res.body.average).is.equalTo(0);
+                assert.that(res.body.reviews).is.not.null();
+                assert.that(res.body.reviews.length).is.equalTo(0);
+                done();
+            });
+        });
+
+        it('get an average rating with no parameters', function(done) {
+            request(app)
+            .get('/api/getRatings')
+            .expect(401)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                assert.that(res.body).is.not.null();
+                assert.that(res.body.error).is.not.null();
+                done();
+            });
+        });
+    });
 });

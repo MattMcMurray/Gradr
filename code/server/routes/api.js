@@ -15,10 +15,10 @@ router.get('/', function (req, res) {
 
 router.post('/NewUser', function (req, res) {
     if (req.body.password === req.body.confirmPassword) {
-        UserDAO.createUser(getCredentials(req)).then(function(data){
+        UserDAO.createUser(getCredentials(req)).then(function(data) {
             console.log('New user ' + req.body.username + ' created');
             res.json({url:"/", message: 'New user created'});
-        }).catch(function(error){
+        }).catch(function(error) {
             res.status(500);
             res.json(error);
         });
@@ -37,7 +37,7 @@ router.post("/login", function(req,res) {
 	
 	credentials = getCredentials(req)
 	
-	UserDAO.getUser(credentials.username).then(function(user){
+	UserDAO.getUser(credentials.username).then(function(user) {
 		if (user != null && authenticator.authenticate(credentials.password, user.dataValues.password)){
       
 			res.json({ url: "/main", user: user });
@@ -50,7 +50,7 @@ router.post("/login", function(req,res) {
 
 
 // Get a random user; useful for matching process
-router.get('/randomUser', function(req, res){
+router.get('/randomUser', function(req, res) {
 	console.log('api received ' + req.query.currUserId);
 	UserDAO.getRandom(req.query.currUserId).then(function(user) {
 		if (user != null) {
@@ -62,15 +62,15 @@ router.get('/randomUser', function(req, res){
 	});
 });
 
-router.get('/getPotentialMatches', function(req, res){
-	UserMatchDAO.getMatches(req.query.userId).then(function(ids){
+router.get('/getPotentialMatches', function(req, res) {
+	UserMatchDAO.getMatches(req.query.userId).then(function(ids) {
 		UserDAO.getUsersById(ids).then(function(users) {
 			res.json({matches: users});
 		});
 	});
 });
 
-router.post('/likeUser', function(req, res){
+router.post('/likeUser', function(req, res) {
 	UserMatchDAO.addUserMatch(req.body.liker_id, req.body.likee_id, true).then(function(result) {
 		if (result.error) 
 			res.status(500);
@@ -80,7 +80,7 @@ router.post('/likeUser', function(req, res){
 });
 
 
-router.post('/dislikeUser', function(req, res){
+router.post('/dislikeUser', function(req, res) {
 	UserMatchDAO.addUserMatch(req.body.liker_id, req.body.likee_id, false).then(function(result) {
 		if (result.error) 
 			res.status(500);
@@ -107,7 +107,66 @@ router.get('/getUser', function(req, res) {
     }
 });
 
-function getCredentials(req){
+router.post('/rateUser', function(req, res) {
+	//TODO: Maybe add this logic to the actual UseMatchDB
+	if (!req.body.rater_id || !req.body.ratee_id) {
+		res.status(401); // bad request; must have both user IDs
+		res.json({error: "Invalid user IDs"});
+	}
+	UserMatchDAO.getMatches(req.body.rater_id).then(function(ids) {
+		var match = false;
+		for (var i = 0; i < ids.length; i++) {
+			if (ids[i] == req.body.ratee_id) {
+				match = true;
+				break;
+			}
+		}
+		if (match) {
+			RatingDAO.addRating(req.body.rater_id, req.body.ratee_id, req.body.rating, req.body.comment).then (function(result) {
+				if (result.error)
+					res.status(500);
+				res.json(result);
+			});
+		} else {
+			res.status(401); // bad request; rater and ratee are not even matched
+			res.json({error: "You can't rate someone you aren't matched with"});
+		}
+	});
+});
+
+//Returns an object containing the rating and a the comment that rater gave to ratee
+router.get('/getMyRatingFor', function(req, res) {
+	if (req.query.rater_id && req.query.ratee_id) {
+		RatingDAO.getMyRatingFor(req.query.rater_id, req.query.ratee_id).then(function(result) {
+			if (result) {
+				res.json({rating: result.rating, comment: result.comment});
+			} else {
+				res.json({rating:0, comment:''});
+			}
+		});
+	} else {
+		res.sendStatus(401); // bad request; need both users in GET vars
+		res.json({error: "Missing your id or the ratee's ID"});
+	}
+});
+
+//Returns average rating and up to 10 reviews that were given for this ratee
+router.get('/getRatings', function(req, res) {
+	if (req.query.ratee_id) {
+		RatingDAO.getRatings(req.query.ratee_id).then(function(result) {
+			if (result) {
+				res.json({average: result.average, reviews: result.reviews});
+			} else {
+				res.json({average: 0, reviews: []});
+			}
+		});
+	} else {
+		res.sendStatus(401); // bad request; we need to know which user to calculate the average for
+		res.json({error: "Missing ratee_id parameter"});
+	}
+});
+
+function getCredentials(req) {
 	return {username: req.body.username, password: req.body.password};
 }
 

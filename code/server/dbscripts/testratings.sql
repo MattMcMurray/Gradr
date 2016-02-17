@@ -8,3 +8,8 @@ insert into ratings (rater_id, ratee_id, rating, comment, createdAt, updatedAt) 
 insert into ratings (rater_id, ratee_id, rating, comment, createdAt, updatedAt) values (8, 11, 2, "Not great guy", '2016-02-01 03:22:27.833 +00:00', '2016-02-01 03:22:27.833 +00:00');
 insert into ratings (rater_id, ratee_id, rating, comment, createdAt, updatedAt) values (9, 11, 1, "Bad guy", '2016-02-01 03:22:27.833 +00:00', '2016-02-01 03:22:27.833 +00:00');
 insert into ratings (rater_id, ratee_id, rating, comment, createdAt, updatedAt) values (10, 11, 1, "Bad guy", '2016-02-01 03:22:27.833 +00:00', '2016-02-01 03:22:27.833 +00:00');
+insert into ratings (rater_id, ratee_id, rating, comment, createdAt, updatedAt) values (11, 10, 1, "Bad guy", '2016-02-01 03:22:27.833 +00:00', '2016-02-01 03:22:27.833 +00:00');
+-- insert into user_matches (liker_id, likee_id, likes, createdAt, updatedAt) values (1, 2, 1, '2016-02-01 03:22:27.833 +00:00', '2016-02-01 03:22:27.833 +00:00');
+-- insert into user_matches (liker_id, likee_id, likes, createdAt, updatedAt) values (2, 1, 1, '2016-02-01 03:22:27.833 +00:00', '2016-02-01 03:22:27.833 +00:00');
+-- insert into user_matches (liker_id, likee_id, likes, createdAt, updatedAt) values (2, 3, 0, '2016-02-01 03:22:27.833 +00:00', '2016-02-01 03:22:27.833 +00:00');
+-- insert into user_matches (liker_id, likee_id, likes, createdAt, updatedAt) values (3, 2, 1, '2016-02-01 03:22:27.833 +00:00', '2016-02-01 03:22:27.833 +00:00');

@@ -10,7 +10,7 @@ echo
 rm study_database.sqlite
 rm -rf test_output
 mkdir test_output
-node main.js --stub_all &
+node main.js &
 echo "[PLEASE WAIT... PREPOPULATING DATABASE]"
 echo
 sleep 5 # allow the node app to create tables before killing process
