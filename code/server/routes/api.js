@@ -50,8 +50,7 @@ router.post("/login", function(req,res) {
 
 
 // Get a random user; useful for matching process
-router.get('/randomUser', function(req, res) {
-	console.log('api received ' + req.query.currUserId);
+router.get('/randomUser', function(req, res){
 	UserDAO.getRandom(req.query.currUserId).then(function(user) {
 		if (user != null) {
 			res.json({username: user.username, userID: user.id, school: user.school, firstname: user.firstname, lastname: user.lastname, helpDescription: user.helpDescription})	
@@ -164,7 +163,21 @@ router.get('/getRatings', function(req, res) {
 	}
 });
 
-function getCredentials(req) {
+router.post('/deleteUser', function(req, res) {
+	UserMatchDAO.removeUser(req.body.userId).then(function(result) {
+		User.removeUser(req.body.userId).then(function(result) {
+			if(result.error)
+				res.stats(500);
+			else {
+				res.json({
+					url: '/'
+				});
+			}
+		});
+	});
+});
+
+function getCredentials(req){
 	return {username: req.body.username, password: req.body.password};
 }
 
