@@ -1,0 +1,48 @@
+extends ./base.jade
+
+block stylesheets
+	link(href='/css/index.css', rel='stylesheet')
+	link(href='/css/swipe.css', rel='stylesheet')
+	link(href='/css/ratings.css', rel='stylesheet')
+
+block scripts
+	script(src='/js/matchUserProfile.js')
+
+
+block content
+	.row.vcenter
+		.container.pad-top
+			.thumbnail.profile
+				h1.name !{firstname} !{lastname}
+				h4.username !{username}
+
+				.profile-pic
+					
+
+				ul.nav.nav-tabs#userTabs(role="tablist")
+					li.active(role="presentation")
+						a(href="#profile") Profile
+					li(role="presentation")
+						a(href="#reviews") Reviews
+					li(role="presentation")
+						a(href="#contactInfo") Contact Info
+
+				.tab-content
+					.tab-pane.attr.active#profile(role="tabpanel")
+						
+						h4 School: !{school}
+						h4 Courses: !{courses}
+						
+					.tab-pane#reviews(role="tabpanel")
+						.rating
+							each val in [1,2,3,4,5]
+								span(value=!{val}) ☆
+						.comments
+							h4.attr What people had to say about !{firstname}...
+							each comment in [{comment: "Really good dude.", author: "jjorell"}, {comment: "Motivated me to study harder.", author: "sbairos"}, {comment: "Held me accountable.", author: "keank"} ]
+								ul
+									li !{comment.comment} - !{comment.author}
+
+					.tab-pane.attr#contactInfo(role="tabpanel")
+						h4 Email: !{email}
+						h4 City: !{city}

@@ -2,6 +2,7 @@ var _express = require('express');
 var router = _express.Router();
 var User = require('../models/User.js');
 
+
 router.get("/", function(req, res) {
     res.render('../views/index', {});
 });
@@ -16,6 +17,13 @@ router.get("/main", function(req, res) {
 
 router.get("/profile", function(req, res) {
 	res.render('../views/profile');
+});
+
+router.get("/matchProfile", function(req,res){
+	User.getUser('nwest5j').then(function(user) {
+		res.render("matchUserProfile", user.dataValues);
+	});
+	
 });
 
 module.exports = {router};
