@@ -1,3 +1,4 @@
 test_output.log
 study_database.sqlite
 test_output/
+selenium-debug.log
