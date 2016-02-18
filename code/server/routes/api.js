@@ -50,8 +50,7 @@ router.post("/login", function(req,res) {
 
 
 // Get a random user; useful for matching process
-router.get('/randomUser', function(req, res) {
-	console.log('api received ' + req.query.currUserId);
+router.get('/randomUser', function(req, res){
 	UserDAO.getRandom(req.query.currUserId).then(function(user) {
 		if (user != null) {
 			res.json({username: user.username, userID: user.id, school: user.school, firstname: user.firstname, lastname: user.lastname, helpDescription: user.helpDescription})	
@@ -108,14 +107,13 @@ router.get('/getUser', function(req, res) {
 });
 
 router.post('/rateUser', function(req, res) {
-	//TODO: Maybe add this logic to the actual UseMatchDB
 	if (!req.body.rater_id || !req.body.ratee_id) {
 		res.status(401); // bad request; must have both user IDs
 		res.json({error: "Invalid user IDs"});
 	}
-	UserMatchDAO.getMatches(req.body.rater_id).then(function(ids) {
+	UserMatchDAO.getMatches(req.body.rater_id).then(function(ids) { 
 		var match = false;
-		for (var i = 0; i < ids.length; i++) {
+		for (var i = 0; i < ids.length; i++) { //TODO: Maybe add this logic to the actual UseMatchDB
 			if (ids[i] == req.body.ratee_id) {
 				match = true;
 				break;
@@ -164,7 +162,21 @@ router.get('/getRatings', function(req, res) {
 	}
 });
 
-function getCredentials(req) {
+router.post('/deleteUser', function(req, res) {
+	UserMatchDAO.removeUser(req.body.userId).then(function(result) {
+		UserDAO.removeUser(req.body.userId).then(function(result) {
+			if(result.error)
+				res.stats(500);
+			else {
+				res.json({
+					url: '/'
+				});
+			}
+		});
+	});
+});
+
+function getCredentials(req){
 	return {username: req.body.username, password: req.body.password};
 }
 

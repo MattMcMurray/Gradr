@@ -131,4 +131,12 @@ UserDB.prototype.getRandom = function(currUserID) {
     });
 };
 
+UserDB.prototype.removeUser = function(userId) {
+    return User.destroy({
+        where: {
+            id: userId
+        }
+    });
+};
+
 module.exports = UserDB;

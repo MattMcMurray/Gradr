@@ -21,6 +21,7 @@ echo "[RUNNING UNIT TESTS NOW]"
 echo
 mocha test/api_endpoint_tests.js > test_output/api_endpoint_test.log
 mocha test/User_unit_tests.js > test_output/user_unit_test.log
+mocha test/UserMatch_unit_tests.js > test_output/usermatch_unit_test.log
 
 echo "[RESETING ENV FOR INTEGRATION TESTS]"
 echo

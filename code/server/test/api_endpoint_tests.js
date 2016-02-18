@@ -422,4 +422,31 @@ describe('api', function() {
             });
         });
     });
+
+    describe('POST /api/deleteUser', function() {
+        it('deletes a user', function(done) {
+            request(app)
+            .post('/api/deleteUser')
+            .send({'userId': 111})
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.url).is.equalTo('/');
+                done();
+            });
+        });
+
+        it('verifies a user is deleted', function(done) {
+            request(app)
+            .get('/api/getUser?user=bairosns')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.user).is.null();
+                done();
+            });
+        });
+    });
 });
