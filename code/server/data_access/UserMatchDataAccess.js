@@ -24,9 +24,14 @@ var getPreviouslyRatedIds = function(userID) {
     return userMatchDAO.getPreviouslyRatedIds(userID);
 }
 
+var removeUser = function(userID) {
+    return userMatchDAO.removeUser(userID);
+}
+
 module.exports = {
     init: init,
     addUserMatch: addUserMatch,
     getMatches: getMatches,
-    getPreviouslyRatedIds: getPreviouslyRatedIds
+    getPreviouslyRatedIds: getPreviouslyRatedIds,
+    removeUser: removeUser
 }
