@@ -16,6 +16,10 @@
 }
 
 .thumbnail img {
-	min-height:300px;
-	height:300px;
+	min-height: 300px;
+	height: 300px;
+}
+
+.caption h4 {
+	font-weight: bold;
 }

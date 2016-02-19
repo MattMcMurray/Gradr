@@ -32,7 +32,7 @@ function createMatchCard(fullName, school, courses, gpa) {
 			"<div class='thumbnail'>" +
 				"<img src='http://thecatapi.com/api/images/get?format=src&type=jpg&size=small'/>" +
 				"<div class='caption'>" +
-					"<h3>" + fullName + "</h3>" +
+					"<h4>" + fullName + "</h4>" +
 					"<p><b>School: </b>" + school + "</p>" +
 					"<p><b>Classes: </b>" + courses + "</p>" +
 					"<p><b>GPA: </b>4.0</p>" +
