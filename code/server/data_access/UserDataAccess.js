@@ -36,6 +36,10 @@ var getRandom = function(currUserID) {
     return userDAO.getRandom(currUserID);
 }
 
+var removeUser = function(userID) {
+    return userDAO.removeUser(userID);
+}
+
 module.exports = {
     init: init,
     getUser: getUser,
@@ -43,5 +47,6 @@ module.exports = {
     createUser: createUser,
     getRandom: getRandom,
     getAllUsers: getAllUsers,
+    removeUser: removeUser,
     createUserProfile:createUserProfile
 }

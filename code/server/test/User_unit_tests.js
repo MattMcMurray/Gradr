@@ -42,6 +42,15 @@ describe('User', function() {
                 done();
             });
         });
+
+        it('requests a list of users but uses mixed ids', function(done) {
+            user.getUsersById([111, 404]).then(function(data) {
+                console.log(data);
+                assert.that(data).is.not.null();
+                assert.that(data.length).is.equalTo(1);
+                done();
+            });
+        });
     });
 
     describe('User getAllUsers', function() {
@@ -98,6 +107,23 @@ describe('User', function() {
             user.getRandom(222).then(function(data) {
                 assert.that(data.dataValues).is.not.null();
                 assert.that(data.dataValues.username).is.equalTo('mattmcmurray');
+                done();
+            });
+        });
+    });
+
+    describe('User removeUser', function() {
+        it('removes a user', function(done) {
+            user.removeUser(333).then(function(data) {
+                assert.that(data).is.not.null();
+                assert.that(data.id).is.equalTo(333);
+                done();
+            });
+        });
+
+        it('removes an non-existant user', function(done) {
+            user.removeUser(404).then(function(data) {
+                assert.that(data).is.null();
                 done();
             });
         });

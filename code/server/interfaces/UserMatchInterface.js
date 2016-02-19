@@ -10,6 +10,9 @@ UserMatchInterface.prototype = {
     },
     getPreviouslyRatedIds: function(userID) {
         throw "function getPreviouslyRatedIds() not implemented";
+    },
+    removeUser: function(userID) {
+    	throw "function removeUser() not implemented";
     }
 }
 

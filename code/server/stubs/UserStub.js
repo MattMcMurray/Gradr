@@ -59,7 +59,8 @@ UserStub.prototype.getUsersById = function(userIDs) {
     var results = [];
     for (var i = 0; i < userIDs.length; i++) {
         var found = findUser('id', userIDs[i])
-        results.push(found);
+        if (found)
+            results.push(found);
     }
 
     return new Promise(function(resolve, reject) {
@@ -144,6 +145,20 @@ UserStub.prototype.getRandom = function(currUserID) {
         resolve(users);
     });
 };
+
+UserStub.prototype.removeUser = function(userID) {
+    var removed = null;
+    for (var i = 0; i < userList.length; i++) {
+        if (userList[i].id === userID) {
+            removed = userList[i];
+            userList.splice(i, 1);
+            break;
+        }
+    }
+    return new Promise(function(resolve, reject) {
+        resolve(removed);
+    });
+}
 
 module.exports = UserStub;
 

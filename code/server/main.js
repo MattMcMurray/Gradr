@@ -29,7 +29,7 @@ var server = app.listen(port, function() {
 });
 
 function processOptions(args) {
-    var options = ['fill_database', 'clear_database', 'stub_users', 'stub_likes', 'stub_all'];
+    var options = ['fill_database', 'clear_database'];
     var db = require('./database.js');
 
     // minimist uses '_' to hold any arguments not associated with an option, not needed
