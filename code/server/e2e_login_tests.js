@@ -2,11 +2,16 @@ var newUserName = 'myNewUser';
 var newUserPass = 'hunter2';
 
 module.exports = {
-	'Create a new account' : function (browser) {
+
+	beforeEach : function(browser) {
 		browser
 			.url('http://localhost/')
-			.waitForElementVisible('body', 1000)
 			.useXpath() // Use XPath selectors instead of CSS selectors
+			.waitForElementVisible('/html/body', 1000)
+	},
+
+	'Create a new account' : function (browser) {
+		browser
 			.click('//*[@id="login-form"]/a')
 			.waitForElementVisible('/html/body/div[3]/form', 1000)
 			.assert.elementPresent('//*[@id="registerButton"]')
@@ -16,6 +21,23 @@ module.exports = {
 			.setValue('//*[@id="confirmPassword"]', newUserPass)
 			.click('//*[@id="registerButton"]')
 			.waitForElementVisible('/html/body/div[3]/form', 1000) // redirect to login page
+			.end();
+	},
+
+	'Login with incorrect login info': function (browser) {
+		browser
+			.setValue('//*[@id="username"]', newUserName)
+			.setValue('//*[@id="password"]', 'the_wrong_password')
+			.click('//*[@id="login-form"]/button')
+			.waitForElementVisible('//*[@id="error"]', 5000)
+			.end();
+	},
+
+	'Login with correct password': function (browser) {
+		browser
+			.setValue('//*[@id="username"]', newUserName)
+			.setValue('//*[@id="password"]', newUserPass)
+			.click('//*[@id="login-form"]/button')
 			.end();
 	}
 }
