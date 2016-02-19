@@ -21,7 +21,7 @@ module.exports = {
 			.waitForElementVisible('/html/body/div[3]/form', 1000) // redirect to login page
 	},
 
-	'Click like & dislike buttons' : function (browser) {
+	'Click like & dislike buttons' : function(browser) {
 		browser
 			.url(appURL) 
 			.waitForElementVisible('/html/body', 10000)
@@ -47,6 +47,31 @@ module.exports = {
 						this.assert.notEqual(user1.value, user2.value);
 				})
 			})
+			.end()
+	},
+
+	'Update user\'s profile' : function(browser) {
+		browser
+			.url(appURL) 
+			.waitForElementVisible('/html/body', 10000)
+			.setValue('//*[@id="username"]', newUserName)
+			.setValue('//*[@id="password"]', newUserPass)
+			.click('//*[@id="login-form"]/button')
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.click('/html/body/nav/div/a[2]') // profile settings tab
+			.waitForElementVisible('//*[@id="username"]', 10000)
+			.assert.elementPresent('//*[@id="generalDescription"]')
+			.assert.elementPresent('//*[@id="helpDescription"]')
+			.assert.elementPresent('//*[@id="school"]')
+			.assert.elementPresent('//*[@id="firstname"]')
+			.assert.elementPresent('//*[@id="lastname"]')
+			.assert.elementPresent('//*[@id="city"]')
+			.assert.elementPresent('//*[@id="country"]')
+			.assert.elementPresent('//*[@id="courses"]')
+			.assert.elementPresent('//*[@id="birthMonth"]')
+			.assert.elementPresent('//*[@id="birthDate"]')
+			.assert.elementPresent('//*[@id="birthYear"]')
+			.assert.elementPresent('//*[@id="deleteAccountButton"]')
 			.end()
 	}
 }

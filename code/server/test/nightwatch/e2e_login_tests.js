@@ -13,7 +13,7 @@ module.exports = {
 			.waitForElementVisible('/html/body', 1000)
 	},
 
-	'Create a new account' : function (browser) {
+	'Create a new account' : function(browser) {
 		browser
 			.click('//*[@id="login-form"]/a')
 			.waitForElementVisible('/html/body/div[3]/form', 1000)
@@ -27,7 +27,7 @@ module.exports = {
 			.end();
 	},
 
-	'Login with incorrect login info': function (browser) {
+	'Login with incorrect login info': function(browser) {
 		browser
 			.setValue('//*[@id="username"]', newUserName)
 			.setValue('//*[@id="password"]', 'the_wrong_password')
@@ -36,7 +36,7 @@ module.exports = {
 			.end();
 	},
 
-	'Login with correct password': function (browser) {
+	'Login with correct password': function(browser) {
 		browser
 			.setValue('//*[@id="username"]', newUserName)
 			.setValue('//*[@id="password"]', newUserPass)
