@@ -15,11 +15,13 @@ var firstname = 'Joe';
 var lastname = 'Shmoe';
 var city = 'Winnipeg';
 var country = 'Canada';
-var courses = ['COMP 1010', 'STAT 1000', 'MATH 1500'];
+var courses = 'COMP 1010, STAT 1000, MATH 1500';
 var school = 'University of Manitoba';
 var generalDescription = 'I am awesome and dedicated';
+var userID;
 
 describe('Integration Tests', function() {
+    
     // BIG USER STORY 1
     describe('User Creation', function() {
 
@@ -69,13 +71,12 @@ describe('Integration Tests', function() {
                 assert.that(res.body.user.username).is.equalTo(username);
                 // We don't know the hashed password, but we know it should be there
                 assert.that(res.body.password).is.not.null(); 
-                done()
+                done();
             });
         });
     });
 
     describe('Getting Matches', function() {
-        var userID;
         it('Attempts to get the list of matches for a user', function(done) {
             // request the app for 'my' id 
             request(app)
@@ -87,8 +88,7 @@ describe('Integration Tests', function() {
                 assert.that(res.body.user.username).is.equalTo(username);
 
                 userID = res.body.user.id;
-                
-                done()
+                done();
             });
         });
 
@@ -105,7 +105,7 @@ describe('Integration Tests', function() {
                 if (err) done(err);
                 assert.that(res.body.matches).is.not.null();
                 assert.that(res.body.matches).is.equalTo([]);
-                done()
+                done();
             });
         });
     });
@@ -148,17 +148,18 @@ describe('Integration Tests', function() {
                 'country': country,
                 'city': city,
                 'school': school,
+                'courses': courses,
                 'generalDescription': generalDescription
             })
             .expect(200)
             .end(function(err, res) {
                 if (err) done(err);
                 assert.that(res.body.message).is.equalTo('User profile updated');
-                done()
+                done();
             });
         });
 
-        it('Ensure that the changes made to the user are reflected', function() {
+        it('Ensure that the changes made to the user are reflected', function(done) {
             request(app)
             .get('/api/getUser?user=' + username)
             .expect(200)
@@ -171,7 +172,35 @@ describe('Integration Tests', function() {
                 assert.that(res.body.user.school).is.equalTo(school);
                 assert.that(res.body.user.courses).is.equalTo(courses);
                 assert.that(res.body.user.generalDescription).is.equalTo(generalDescription);
-                done()
+                done();
+            });
+        });
+    });
+
+    describe('Deleting the user', function() {
+        it('Delete the user', function(done) {
+            request(app)
+            .post('/api/deleteUser')
+            .type('form')
+            .send({ 'userId': userID})
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if (err) done(err);
+                assert.that(res.body.url).is.equalTo('/');
+                done();
+            });
+        });
+
+        it('Verify the user is gone', function(done) {
+            request(app)
+            .get('/api/getUser?user=' + username)
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8') 
+            .end(function(err, res) {
+                if (err) done(err);
+                assert.that(res.body.user).is.null();                
+                done();
             });
         });
     });

@@ -2,6 +2,9 @@
   unicode-bidi: bidi-override;
   direction: rtl;
   margin: 10px 10px 10px 10px;
+  position: absolute;
+  left: 0px;
+  width: 300px;
 }
 
 .rating > span {
@@ -15,3 +18,6 @@
    position: absolute;
 }
 
+.invalid {
+  border-color: red;
+}

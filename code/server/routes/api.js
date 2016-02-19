@@ -2,21 +2,12 @@ var _express = require('express');
 
 var router = _express.Router();
 var app = _express();
-var User = require('../models/User.js');
-var UserMatches = require('../models/UserMatches.js');
+var UserDAO = require('../data_access/UserDataAccess.js');
+var UserMatchDAO = require('../data_access/UserMatchDataAccess.js');
+var RatingDAO = require('../data_access/RatingDataAccess.js');
 var authenticator = require("../mixins/authenticator.js");
 
-var injectUser = function(user) {
-	if (user) {
-		User = user;
-	}
-};
-
-var injectLikes = function(likes) {
-	if (likes) {
-		UserMatches = likes;
-	}
-};
+initializeDAOs('db');
 
 router.get('/', function (req, res) {
 	res.json({message: 'Hello world!'});
@@ -24,10 +15,10 @@ router.get('/', function (req, res) {
 
 router.post('/NewUser', function (req, res) {
     if (req.body.password === req.body.confirmPassword) {
-        User.createUser(getCredentials(req)).then(function(data){
+        UserDAO.createUser(getCredentials(req)).then(function(data) {
             console.log('New user ' + req.body.username + ' created');
             res.json({url:"/", message: 'New user created'});
-        }).catch(function(error){
+        }).catch(function(error) {
             res.status(500);
             res.json(error);
         });
@@ -37,7 +28,7 @@ router.post('/NewUser', function (req, res) {
 });
 
 router.post('/ProfileUpdate', function (req, res) {
-	User.createUserProfile(getProfileDate(req));
+	UserDAO.createUserProfile(getProfileDate(req));
 	console.log('User ' + req.body.username + ' profile updated');
 	res.json({url:"/", message: 'User profile updated'});
 });
@@ -46,7 +37,7 @@ router.post("/login", function(req,res) {
 	
 	credentials = getCredentials(req)
 	
-	User.getUser(credentials.username).then(function(user){
+	UserDAO.getUser(credentials.username).then(function(user) {
 		if (user != null && authenticator.authenticate(credentials.password, user.dataValues.password)){
       
 			res.json({ url: "/main", user: user });
@@ -60,8 +51,7 @@ router.post("/login", function(req,res) {
 
 // Get a random user; useful for matching process
 router.get('/randomUser', function(req, res){
-	console.log('api received ' + req.query.currUserId);
-	User.getRandom(req.query.currUserId).then(function(user) {
+	UserDAO.getRandom(req.query.currUserId).then(function(user) {
 		if (user != null) {
 			res.json({username: user.username, userID: user.id, school: user.school, firstname: user.firstname, lastname: user.lastname, helpDescription: user.helpDescription})	
 		} else {
@@ -71,26 +61,25 @@ router.get('/randomUser', function(req, res){
 	});
 });
 
-router.get('/getPotentialMatches', function(req, res){
-	UserMatches.getMatches(req.query.userId).then(function(ids){
-		User.getUsersById(ids).then(function(users) {
+router.get('/getPotentialMatches', function(req, res) {
+	UserMatchDAO.getMatches(req.query.userId).then(function(ids) {
+		UserDAO.getUsersById(ids).then(function(users) {
 			res.json({matches: users});
 		});
 	});
 });
 
-router.post('/likeUser', function(req, res){
-	UserMatches.addUserMatch(req.body.liker_id, req.body.likee_id, true).then(function(result) {
+router.post('/likeUser', function(req, res) {
+	UserMatchDAO.addUserMatch(req.body.liker_id, req.body.likee_id, true).then(function(result) {
 		if (result.error) 
 			res.status(500);
-
 		res.json(result);
 	});
 });
 
 
-router.post('/dislikeUser', function(req, res){
-	UserMatches.addUserMatch(req.body.liker_id, req.body.likee_id, false).then(function(result) {
+router.post('/dislikeUser', function(req, res) {
+	UserMatchDAO.addUserMatch(req.body.liker_id, req.body.likee_id, false).then(function(result) {
 		if (result.error) 
 			res.status(500);
 		
@@ -103,7 +92,7 @@ router.post('/dislikeUser', function(req, res){
 router.get('/getUser', function(req, res) {
 
     if (req.query.user) {
-        User.getUser(req.query.user).then(function(user) {
+        UserDAO.getUser(req.query.user).then(function(user) {
             if (user && user.dataValues) {
               delete user.dataValues.password; // probably not the best idea to send this over the wire
               res.json({user: user.dataValues});
@@ -114,6 +103,77 @@ router.get('/getUser', function(req, res) {
     } else {
         res.sendStatus(401); // bad request; no user included in GET vars
     }
+});
+
+router.post('/rateUser', function(req, res) {
+	console.log(req.body);
+	if (!req.body.rater_id || !req.body.ratee_id) {
+		res.status(401); // bad request; must have both user IDs
+		res.json({error: "Invalid user IDs"});
+	}
+	UserMatchDAO.getMatches(req.body.rater_id).then(function(ids) { 
+		var match = false;
+		for (var i = 0; i < ids.length; i++) { //TODO: Maybe add this logic to the actual UseMatchDB
+			if (ids[i] == req.body.ratee_id) {
+				match = true;
+				break;
+			}
+		}
+		if (match) {
+			RatingDAO.addRating(req.body.rater_id, req.body.ratee_id, req.body.rating, req.body.comment).then(function(result) {
+				if (result.error)
+					res.status(500);
+				res.json(result);
+			});
+		} else {
+			res.status(401); // bad request; rater and ratee are not even matched
+			res.json({error: "You can't rate someone you aren't matched with"});
+		}
+	});
+});
+
+//Returns an object containing the rating and a the comment that rater gave to ratee
+router.get('/getMyRatingFor', function(req, res) {
+	if (req.query.rater_id && req.query.ratee_id) {
+		RatingDAO.getMyRatingFor(req.query.rater_id, req.query.ratee_id).then(function(result) {
+			if (result) {
+				res.json({rating: result.rating, comment: result.comment});
+			} else {
+				res.json({rating:0, comment:''});
+			}
+		});
+	} else {
+		res.sendStatus(401); // bad request; need both users in GET vars
+	}
+});
+
+//Returns average rating and up to 10 reviews that were given for this ratee
+router.get('/getRatings', function(req, res) {
+	if (req.query.ratee_id) {
+		RatingDAO.getRatings(req.query.ratee_id).then(function(result) {
+			if (result) {
+				res.json({average: result.average, reviews: result.reviews});
+			} else {
+				res.json({average: 0, reviews: []});
+			}
+		});
+	} else {
+		res.sendStatus(401); // bad request; we need to know which user to calculate the average for
+	}
+});
+
+router.post('/deleteUser', function(req, res) {
+	UserMatchDAO.removeUser(req.body.userId).then(function(result) {
+		UserDAO.removeUser(req.body.userId).then(function(result) {
+			if(result.error)
+				res.stats(500);
+			else {
+				res.json({
+					url: '/'
+				});
+			}
+		});
+	});
 });
 
 function getCredentials(req){
@@ -127,8 +187,14 @@ function getProfileDate(req) {
 		dateOfBirth: req.body.dateOfBirth};
 }
 
+// Initialize as either 'db' or 'stub'
+function initializeDAOs(mode) {
+	UserDAO.init(mode);
+	UserMatchDAO.init(mode);
+	RatingDAO.init(mode);
+}
+
 module.exports = {
 	router,
-	injectUser: injectUser,
-	injectLikes: injectLikes,
+	initializeDAOs: initializeDAOs
 };

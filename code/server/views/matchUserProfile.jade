@@ -13,8 +13,10 @@ block content
 	.row.vcenter
 		.container.pad-top
 			.thumbnail.profile
-				h1.name !{firstname} !{lastname}
-				h4.username !{username}
+				#profileId(style="display:none")
+					| !{user.id}
+				h1.name !{user.firstname} !{user.lastname}
+				h4.username !{user.username}
 
 				.profile-pic
 					
@@ -30,18 +32,32 @@ block content
 				.tab-content
 					.tab-pane.attr.active#profile(role="tabpanel")
 						
-						h4 School: !{school}
-						h4 Courses: !{courses}
+						h4 School: !{user.school}
+						h4 Courses: !{user.courses}
 						
 					.tab-pane#reviews(role="tabpanel")
-						.rating
-							each val in [1,2,3,4,5]
-								span(value=!{val}) ☆
+							
 						.comments
-							h4.attr What people had to say about !{firstname}...
-							each comment in [{comment: "Really good dude.", author: "jjorell"}, {comment: "Motivated me to study harder.", author: "sbairos"}, {comment: "Held me accountable.", author: "keank"} ]
+							h4.attr Here's what people had to say about !{user.firstname}.
+							each review in ratings.reviews
 								ul
-									li !{comment.comment} - !{comment.author}
+									li !{review.comment} - !{review.rating}/5
+							
+							h4.attr What do you think about !{user.firstname}?
+							form(role=form)
+								.form-group
+									label(for='commentBox')
+										| Comment:
+									textarea#commentBox.form-control(type='text') 
+								.form-group
+									label(for='rating')
+										| Rate !{user.firstname}: 
+									br
+									select#rating
+										each val in [1,2,3,4,5]
+											option(value=!{val}) !{val}
+								button.btn.btn-primary#submitComment(type="submit") Submit Comment
+
 
 					.tab-pane.attr#contactInfo(role="tabpanel")
 						h4 Email: !{email}
