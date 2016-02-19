@@ -8,7 +8,7 @@
 
   "selenium" : {
     "start_process" : true,
-    "server_path" : "./bin/selenium-server-standalone-2.39.0.jar",
+    "server_path" : "./bin/selenium-server-standalone-2.52.0.jar",
     "log_path" : "",
     "host" : "127.0.0.1",
     "port" : 4444,
@@ -33,7 +33,7 @@
         "javascriptEnabled": true,
         "acceptSslCerts": true,
         "chromeOptions": {
-            "args": ["start-fullscreen"]
+            "args": []
         }
       }
     },
