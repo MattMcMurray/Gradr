@@ -29,6 +29,24 @@ module.exports = {
 			.setValue('//*[@id="password"]', newUserPass)
 			.click('//*[@id="login-form"]/button')
 			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			// Assert that a new user profile is pulled up after hitting 'like' button
+			.getText('//*[@id="userFullName"]', function(user1) {
+				browser
+					.click('//*[@id="likeButton"]')
+					.pause(3000) // allow time for AJAX to complete
+					.getText('//*[@id="userFullName"]', function(user2) {
+						this.assert.notEqual(user1.value, user2.value);
+				})
+			})
+			// Assert that a new user profile is pulled up after hitting 'dislike' button
+			.getText('//*[@id="userFullName"]', function(user1) {
+				browser
+					.click('//*[@id="dislikeButton"]')
+					.pause(3000) // allow time for AJAX to complete
+					.getText('//*[@id="userFullName"]', function(user2) {
+						this.assert.notEqual(user1.value, user2.value);
+				})
+			})
 			.end()
 	}
 }
