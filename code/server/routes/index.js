@@ -17,5 +17,9 @@ router.get("/profile", function(req, res) {
 	res.render('../views/profile');
 });
 
+router.get("/matches", function(req, res) {
+	res.render('../views/matches');
+});
+
 module.exports = {router};
 
