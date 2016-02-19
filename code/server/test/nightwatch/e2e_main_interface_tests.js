@@ -6,16 +6,11 @@ var appURL = 'http://localhost';
 
 module.exports = {
 
-	beforeEach : function(browser) {
+	before : function(browser) {
+		// Create an account to be able to access main page
 		browser
-			.url(appURL)
-			.useXpath() // Use XPath selectors instead of CSS selectors
-			.waitForElementVisible('/html/body', 1000)
-	},
-
-	'Create a new account' : function (browser) {
-		browser
-			.click('//*[@id="login-form"]/a')
+			.useXpath()
+			.url(appURL + '/signup')
 			.waitForElementVisible('/html/body/div[3]/form', 1000)
 			.assert.elementPresent('//*[@id="registerButton"]')
 			.assert.elementPresent('//*[@id="cancelButton"]')
@@ -24,23 +19,16 @@ module.exports = {
 			.setValue('//*[@id="confirmPassword"]', newUserPass)
 			.click('//*[@id="registerButton"]')
 			.waitForElementVisible('/html/body/div[3]/form', 1000) // redirect to login page
-			.end();
 	},
 
-	'Login with incorrect login info': function (browser) {
+	'Click like & dislike buttons' : function (browser) {
 		browser
-			.setValue('//*[@id="username"]', newUserName)
-			.setValue('//*[@id="password"]', 'the_wrong_password')
-			.click('//*[@id="login-form"]/button')
-			.waitForElementVisible('//*[@id="error"]', 5000)
-			.end();
-	},
-
-	'Login with correct password': function (browser) {
-		browser
+			.url(appURL) 
+			.waitForElementVisible('/html/body', 10000)
 			.setValue('//*[@id="username"]', newUserName)
 			.setValue('//*[@id="password"]', newUserPass)
 			.click('//*[@id="login-form"]/button')
-			.end();
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.end()
 	}
 }
