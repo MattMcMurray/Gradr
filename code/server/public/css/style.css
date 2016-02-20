@@ -23,3 +23,7 @@
 .caption h4 {
 	font-weight: bold;
 }
+
+.active {
+	font-weight: bold;
+}
