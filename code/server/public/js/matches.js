@@ -35,7 +35,6 @@ function createMatchCard(fullName, school, courses, gpa) {
 					"<h4>" + fullName + "</h4>" +
 					"<p><b>School: </b>" + school + "</p>" +
 					"<p><b>Classes: </b>" + courses + "</p>" +
-					"<p><b>GPA: </b>4.0</p>" +
 				"</div>" +
 			"</div>" +
 		"</div>";
