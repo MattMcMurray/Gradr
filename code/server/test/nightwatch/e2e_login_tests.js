@@ -27,7 +27,7 @@ module.exports = {
 			.end();
 	},
 
-	'Login with incorrect login info': function(browser) {
+	'Attempt to login with incorrect login info': function(browser) {
 		browser
 			.setValue('//*[@id="username"]', newUserName)
 			.setValue('//*[@id="password"]', 'the_wrong_password')

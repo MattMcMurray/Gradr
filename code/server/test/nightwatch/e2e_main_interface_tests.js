@@ -2,6 +2,18 @@ var date = new Date();
 var newUserName = date.toUTCString(); // ensures a unique username
 var newUserPass = 'hunter2';
 
+var desc = "Lorem ipsum etc etc etc etc";
+var help = "I am bad at math, please help me.";
+var school = "Univeristy of Manitoba";
+var firstname = "Joe";
+var lastname = "Schmoe";
+var city = "Winnipeg";
+var country = "Canada";
+var courses = "COMP 1010, CHEM 1300, & Intro to Batman";
+var birthMonth = "Apr";
+var birthDate = "1";
+var birthYear = "1993";
+
 var appURL = 'http://localhost';
 
 module.exports = {
@@ -51,6 +63,7 @@ module.exports = {
 	},
 
 	'Update user\'s profile' : function(browser) {
+
 		browser
 			.url(appURL) 
 			.waitForElementVisible('/html/body', 10000)
@@ -58,7 +71,7 @@ module.exports = {
 			.setValue('//*[@id="password"]', newUserPass)
 			.click('//*[@id="login-form"]/button')
 			.waitForElementVisible('//*[@id="userCard"]', 10000)
-			.click('/html/body/nav/div/a[2]') // profile settings tab
+			.url(appURL + '/profile')
 			.waitForElementVisible('//*[@id="username"]', 10000)
 			.assert.elementPresent('//*[@id="generalDescription"]')
 			.assert.elementPresent('//*[@id="helpDescription"]')
@@ -72,6 +85,19 @@ module.exports = {
 			.assert.elementPresent('//*[@id="birthDate"]')
 			.assert.elementPresent('//*[@id="birthYear"]')
 			.assert.elementPresent('//*[@id="deleteAccountButton"]')
-			.end()
+			.click('//*[@id="editIcon"]')
+			.setValue('//*[@id="generalDescription"]', desc)
+			.setValue('//*[@id="helpDescription"]', help)
+			.setValue('//*[@id="school"]', school)
+			.setValue('//*[@id="firstname"]', firstname)
+			.setValue('//*[@id="lastname"]', lastname)
+			.setValue('//*[@id="city"]', city)
+			.setValue('//*[@id="country"]', country)
+			.setValue('//*[@id="courses"]', courses)
+			.setValue('//*[@id="birthMonth"]', birthMonth)
+			.setValue('//*[@id="birthDate"]', birthDate)
+			.setValue('//*[@id="birthYear"]', birthYear)
+			.click('//*[@id="editIcon"]')
+			.end();
 	}
 }
