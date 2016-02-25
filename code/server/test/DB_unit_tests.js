@@ -56,7 +56,7 @@ describe('Database query tests', function() {
 	        });
 
 	        it('get an average for a user with no ratings', function(done) {
-	            ratings.getRatings(1).then(function(data){
+	            ratings.getRatings(404).then(function(data){
 	                assert.that(data).is.not.null();
 	                assert.that(data.average).is.equalTo(0);
 	                assert.that(data.reviews).is.not.null();
@@ -105,6 +105,24 @@ describe('Database query tests', function() {
 					});	
 				});
 				
+			});
+		});
+
+		describe('isMatch', function() {
+			it('returns true if a liker and likee has a match', function(done) {
+				userMatches.isMatch(2,1).then(function(data) {
+					assert.that(data).is.not.null();
+					assert.that(data).is.equalTo(true);
+					done();
+				});
+			});
+
+			it('returns false if a liker and likee don\'t have a match', function(done) {
+				userMatches.isMatch(2, 404).then(function(data) {
+					assert.that(data).is.not.null();
+					assert.that(data).is.equalTo(false);
+					done();
+				});
 			});
 		});
 

@@ -73,7 +73,6 @@ router.post('/likeUser', function(req, res) {
 	UserMatchDAO.addUserMatch(req.body.liker_id, req.body.likee_id, true).then(function(result) {
 		if (result.error) 
 			res.status(500);
-
 		res.json(result);
 	});
 });
@@ -107,6 +106,7 @@ router.get('/getUser', function(req, res) {
 });
 
 router.post('/rateUser', function(req, res) {
+	console.log(req.body);
 	if (!req.body.rater_id || !req.body.ratee_id) {
 		res.status(401); // bad request; must have both user IDs
 		res.json({error: "Invalid user IDs"});

@@ -13,6 +13,9 @@ UserMatchInterface.prototype = {
     },
     removeUser: function(userID) {
     	throw "function removeUser() not implemented";
+    },
+    isMatch: function(liker_id, likee_id) {
+        throw "function isMatch() not implemented";
     }
 }
 
