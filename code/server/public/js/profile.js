@@ -79,6 +79,7 @@ var userCallback = function(data) {
 	}
 	console.log(data);
 	$('#username').append(data.user.username);
+	username = data.user.username;
 	setUserInfo(data.user);
 	setBirthDate(data.user.dateOfBirth);
 }

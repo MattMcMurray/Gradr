@@ -1,19 +1,14 @@
 extends ./base.jade
 
 block stylesheets
-	link(href='/css/index.css', rel='stylesheet')
+	link(href='/css/style.css', rel='stylesheet')
 
 block scripts
 	script(src='/js/matchList.js')
 
 
 block content
-	//- .row.vcenter
-	//- 	.container.pad-top
-	//- 		each match in matches
-	//- 			!{match.firstname} !{match.lastname}
-	.row.vcenter
-		.container.pad-top
+		.container
 
 			each match in matches
 				ul.list-group

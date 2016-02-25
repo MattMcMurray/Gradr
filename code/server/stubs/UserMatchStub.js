@@ -105,6 +105,21 @@ UserMatchStub.prototype.removeUser = function(userID) {
     });
 };
 
+UserMatchStub.prototype.isMatch = function(liker_id, likee_id) {
+    var user = false;
+    for (var i = 0; i < userMatches.length; i++) {
+        if (userMatches[i].liker_id === liker_id && userMatches[i].likee_id === likee_id 
+            && userMatches[i].likes === true) {
+            user = true;
+            break;
+        }
+    }
+
+    return new Promise(function(resolve, reject) {
+        resolve(user);
+    });
+};
+
 //Helper function
 function getMatch(liker_id, likee_id) {
     for (var i = 0; i < userMatches.length; i++) {
@@ -114,6 +129,7 @@ function getMatch(liker_id, likee_id) {
     }
     return null;
 }
+
 
 
 module.exports = UserMatchStub;
