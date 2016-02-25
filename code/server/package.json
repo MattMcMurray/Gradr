@@ -34,7 +34,6 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "jsdom": "8.0.4",
-    "jsdom-global": "1.6.2",
     "mocha-jsdom": "^1.1.0"
   }
 }
