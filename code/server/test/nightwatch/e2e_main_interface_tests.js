@@ -11,7 +11,7 @@ var city = "Winnipeg";
 var country = "Canada";
 var courses = "COMP 1010, CHEM 1300, & Intro to Batman";
 var birthMonth = "Apr";
-var birthDate = "1";
+var birthDate = "01";
 var birthYear = "1993";
 
 var appURL = 'http://localhost';
@@ -97,7 +97,53 @@ module.exports = {
 			.setValue('//*[@id="birthMonth"]', birthMonth)
 			.setValue('//*[@id="birthDate"]', birthDate)
 			.setValue('//*[@id="birthYear"]', birthYear)
+			.execute('scrollTo(0,0)')
 			.click('//*[@id="editIcon"]')
+			.waitForElementVisible('//*[@id="username"]', 10000)
+			.pause(10000)
+			.getValue('//*[@id="generalDescription"]', function(found) {
+						this.assert.equal(found.value, desc);
+			})
+			.getValue('//*[@id="helpDescription"]', function(found) {
+						this.assert.equal(found.value, help);
+			})
+			.getValue('//*[@id="school"]', function(found) {
+						this.assert.equal(found.value, school);
+			})
+			.getValue('//*[@id="firstname"]', function(found) {
+						this.assert.equal(found.value, firstname);
+			})
+			.getValue('//*[@id="lastname"]', function(found) {
+						this.assert.equal(found.value, lastname);
+			})
+			.getValue('//*[@id="city"]', function(found) {
+						this.assert.equal(found.value, city);
+			})
+			.getValue('//*[@id="country"]', function(found) {
+						this.assert.equal(found.value, country);
+			})
+			.getValue('//*[@id="courses"]', function(found) {
+						this.assert.equal(found.value, courses);
+			})
+			.getValue('//*[@id="birthMonth"]', function(found) {
+						this.assert.equal(found.value, '04');
+			})
+			.getValue('//*[@id="birthDate"]', function(found) {
+						this.assert.equal(found.value, birthDate);
+			})
+			.getValue('//*[@id="birthYear"]', function(found) {
+						this.assert.equal(found.value, birthYear);
+			})/*
+			.assert.containsText('//*[@id="helpDescription"]', help)
+			.assert.containsText('//*[@id="school"]', school)
+			.assert.containsText('//*[@id="firstname"]', firstname)
+			.assert.containsText('//*[@id="lastname"]', lastname)
+			.assert.containsText('//*[@id="city"]', city)
+			.assert.containsText('//*[@id="country"]', country)
+			.assert.containsText('//*[@id="courses"]', courses)
+			.assert.containsText('//*[@id="birthMonth"]', birthMonth)
+			.assert.containsText('//*[@id="birthDate"]', birthDate)
+			.assert.containsText('//*[@id="birthYear"]', birthYear)*/
 			.end();
 	}
 }
