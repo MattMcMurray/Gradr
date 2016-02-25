@@ -20,7 +20,6 @@
     "assertthat": "^0.6.0",
     "bcrypt": "^0.8.5",
     "body-parser": "^1.14.2",
-    "chai": "^3.5.0",
     "cookie-parser": "^1.4.1",
     "express": "^4.13.3",
     "jade": "^1.11.0",
@@ -32,5 +31,11 @@
     "sequelize": "^3.17.1",
     "sqlite3": "^3.1.1",
     "supertest": "^1.1.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "jsdom": "8.0.4",
+    "jsdom-global": "1.6.2",
+    "mocha-jsdom": "^1.1.0"
   }
 }
