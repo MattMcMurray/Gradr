@@ -18,7 +18,10 @@ UserInterface.prototype = {
         throw "function createUserProfile() not implemented";
     },
     getRandom: function(currUserID) {
-        throw "function getRandom() not implemeneted";
+        throw "function getRandom() not implemented";
+    },
+    removeUser: function(userID) {
+        throw "function removeUser() not implemented";
     }
 }
 

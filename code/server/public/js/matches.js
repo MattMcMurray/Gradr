@@ -1,4 +1,4 @@
-var $matches = $('#matches');
+var $matches = $('#matchesContainer');
 
 $(function() {
 	if (sessionStorage.getItem('user_id') == null) {

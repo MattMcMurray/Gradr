@@ -4,6 +4,7 @@ var assert = require('assertthat'); // View README for documentation https://git
 var api = require('../routes/api.js');
 var stubUser = require('../data_access/UserDataAccess.js');
 var stubLikes = require('../data_access/UserMatchDataAccess.js');
+var stubRating = require('../data_access/RatingDataAccess.js');
 //////////////////////////////////////////
 // ALL API TESTS SHOULD GO IN THIS FILE // 
 //////////////////////////////////////////
@@ -11,6 +12,7 @@ var stubLikes = require('../data_access/UserMatchDataAccess.js');
 describe('api', function() {
     stubUser.init('stub');
     stubLikes.init('stub');
+    stubRating.init('stub');
     // This is just a description, not the actual route the test will use
     describe('GET /api/getUser', function() {
         it('requests a user from the api', function(done) {
@@ -304,6 +306,145 @@ describe('api', function() {
             .end(function(err, res) {
                 if(err) done(err);
                 assert.that(res.body.error).is.not.null();
+                done();
+            });
+        });
+    });
+
+    describe('POST /api/rateUser', function() {
+        it('inserts a new rating record', function(done) {
+            request(app)
+            .post('/api/rateUser')
+            .send({rater_id: 222, ratee_id: 111, rating: 3, comment:"OK"})
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body).is.not.null(); //If there's no error, we deem it successful
+                done();
+            });
+        });
+
+        it('makes us rate someone we haven\'t matched with', function(done) {
+            request(app)
+            .post('/api/rateUser')
+            .send({rater_id: 222, ratee_id: 444, rating: 5, comment:"I don't even know you"})
+            .expect(401)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.error).is.not.null();
+                done();
+            });
+        });
+
+        it('try to rate with incorrect parameters', function(done) {
+            request(app)
+            .post('/api/rateUser')
+            .send({rater_id: null, ratee_id: null, rating: 5, comment:""})
+            .expect(401)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.error).is.not.null();
+                done();
+            });
+        });
+    });
+
+    describe('GET /api/getMyRatingFor', function() {
+        it('get a rating that already exists', function(done) {
+            request(app)
+            .get('/api/getMyRatingFor?rater_id=111&ratee_id=222')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body).is.not.null();
+                assert.that(res.body).is.not.null();
+                assert.that(res.body.rating).is.equalTo(5);
+                assert.that(res.body.comment).is.equalTo("I totally rated you");
+                done();
+            });
+        });
+
+        it('get a rating that doesn\'t exist', function(done) {
+            request(app)
+            .get('/api/getMyRatingFor?rater_id=222&ratee_id=111')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body).is.not.null();
+                assert.that(res.body.rating).is.equalTo(0);
+                assert.that(res.body.comment).is.equalTo('');
+                done();
+            });
+        });
+
+        it('get a rating with invalid parameters', function(done) {
+            request(app)
+            .get('/api/getMyRatingFor?rater_id=\'lala\'&ratee_id=nop')
+            .expect(401)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                assert.that(res.body.error).is.not.null();
+                done();
+            });
+        });
+    });
+
+    describe('GET /api/getRatings', function() {
+        it('get an average rating for a user', function(done) {
+            request(app)
+            .get('/api/getRatings?ratee_id=222')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body).is.not.null();
+                assert.that(res.body.average).is.equalTo(2.5);
+                assert.that(res.body.reviews).is.not.null();
+                assert.that(res.body.reviews.length).is.equalTo(2);
+                done();
+            });
+        });
+
+        it('get an average rating with no parameters', function(done) {
+            request(app)
+            .get('/api/getRatings')
+            .expect(401)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                assert.that(res.body).is.not.null();
+                assert.that(res.body.error).is.not.null();
+                done();
+            });
+        });
+    });
+
+    describe('POST /api/deleteUser', function() {
+        it('deletes a user', function(done) {
+            request(app)
+            .post('/api/deleteUser')
+            .send({'userId': 111})
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.url).is.equalTo('/');
+                done();
+            });
+        });
+
+        it('verifies a user is deleted', function(done) {
+            request(app)
+            .get('/api/getUser?user=bairosns')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.user).is.null();
                 done();
             });
         });

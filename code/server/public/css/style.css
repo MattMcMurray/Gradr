@@ -27,3 +27,15 @@
 .active {
 	font-weight: bold;
 }
+
+.logo {
+	padding-top: 60px;
+}
+
+#error {
+	display: none;
+}
+
+.lead {
+	color: White;
+}

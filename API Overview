@@ -1,0 +1,161 @@
+---Appendix 1---
+userObject = {
+	id: integer,
+	username: string,
+	firstname: string,
+	lastname: string,
+	city: string,
+	country: string,
+	school: string,
+	courses: string,
+	generalDescription: string,
+	helpDescription: string,
+	dateOfBirth: date
+}
+---Appendix 2---
+If a json object is of the form json{ name: , id: }, the blank to the right of the colon means that name and id contains 
+the information pulled from the database that matches the json name.  
+
+
+POST /NewUser
+--Description--
+Creates a user with the pair of username and password.  After this, the user should be taken back to the login screen.
+The user should be able to login with the newly created username and password.
+--Params--
+username: string: the username of the new user 
+password: string: the password of the new user
+confirmPassword: string: the second password of the new user (matches the previous password)
+--Returns--
+If the passwords doesn't match, returns status 400 and json{ msg: 'Passwords do not match'}
+If creating the user fails, returns status 500 and json{ error: error message from database}
+If successful, returns status 200 and json{ url: '/', message: 'New user created'}
+
+
+POST /ProfileUpdate
+--Description--
+Pushes data to update the user profile.  The username and password can't be reset through this call.  The param list below
+lists valid fields.  This is an update call, must be done on an already existing user.  
+--Params--
+username: string: Username of user changing their profile
+firstname: string: First name of the user
+lastname: string: Last name of the user 
+city: string: City of the user 
+country: string: Country of the user 
+school: string: School of the user 
+courses: string: List of courses the user is taking as a single string
+generalDescription: string: Description of the user 
+helpDescription: string: Description of what they are looking for help with 
+dateOfBirth: date: Date of the user's birth
+--Returns--
+Returns status 200 and json{ url:'/', message: 'User profile updated'}
+
+
+POST /login
+--Description--
+Takes a username and password to verify the pair is valid.  
+--Params--
+username: string: The username of the user logging in
+password: string: The password of the user logging in 
+--Returns--
+If the password or username is incorrect, returns status 500 and json{ message: 'Oops! Something when wrong. Invalid username/password.'}
+If successful, returns 200 and json{ url: '/main', user: dataValues: {userObject}}
+
+
+GET  /randomUser
+--Description--
+Gets a random user from the database for the swipe screen.
+--Params--
+currUserId: string: The current username (so the user doesn't get themselves)
+--Returns--
+If not successful, returns json{ message: 'Something went wrong}
+If successful, returns status 200 and json{ username: , userID: , school: , firstname: , lastname: , helpDescription:  }
+
+
+GET  /getPotentialMatches
+--Description--
+Gets a list of users who are liked by the current user and have liked the current user as well.
+--Params--
+userID: int: The current userid
+--Returns--
+Returns json{ matches: array of userObjects}
+
+
+POST /likeUser
+--Description--
+Creates a record listing that the current user liked the selected likee.
+--Params--
+liker_id: int: The current user's id
+likee_id: int: The user the current user is liking
+--Returns--
+If not, status 500 and json{ error: error message from database}
+If successful, returns status 200 and json{ likes: true, liker_id: , likee_id: }
+
+
+POST /dislikeUser
+--Description--
+Creates a record listing that the current user disliked the selected likee.
+--Params--
+liker_id: int: The current user's id
+likee_id: int: The user the current user is liking
+--Returns--
+If not, status 500 and json{ error: error message from database}
+If successful, returns status 200 and json{ likes: false, liker_id: , likee_id: }
+
+
+GET  /getUser
+--Description--
+Gets a user by their username.
+--Params--
+user: string: The username of the user
+--Returns--
+If the username sent is null, returns status 401
+If the user doesn't exist, returns status 200 and json{ user: null}
+If successful, returns status 200 and json{ user: {dataValues: {userObject}}}
+
+
+POST /rateUser
+--Description--
+Rates a user both with a number as well as a comment.
+--Params--
+rater_id: integer: The id of the rater
+ratee_id: integer: The id of the ratee
+rating: integer: The rating given to the ratee
+comment: string: A brief review for the ratee by the rater
+--Returns--
+If there is no ratee_id or rater_id, returns status 401 and json{ error: 'Invalid user IDs'}
+If the ratee and rater aren't matched, returns status 401 and json{ error: "You can't rate someone you aren't matched with"}
+If adding the rating fails, returns status 500 and json{ error: error message from database}
+If successful, returns status 200 and json{true}
+
+
+GET  /getMyRatingFor
+--Description--
+Gets the rating and review given by the rater to a ratee.
+--Params--
+rater_id: integer: the rater, most likely the current user
+ratee_id: integer: the ratee that has a rating/review
+--Returns--
+If there isn't a rater_id and ratee_id, returns status 401
+If there isn't a rating, returns json{ rating: 0, comment: ''}
+If successful, returns json{ rating: , comment: }
+
+
+GET  /getRatings
+--Description--
+Gets the last ten reviews and the average rating of the selected ratee.
+--Params--
+ratee_id: integer: The id of the ratee needing rating information
+--Returns--
+If there is no ratee specified, returns status 401
+If successful and there is no ratings, returns status 200 and json{ average: 0, reviews: []}
+If succussful and there is ratings, returns status 200 and json{ average: integer average of all ratings, reviews: array of strings}
+
+
+POST /deleteUser
+--Description--
+Deletes the user and all of the matches the user is part of.
+--Params--
+userId: integer: The id of the user
+--Returns--
+If the user has an error deleting, returns status 500
+If successful, returns status 200 and json{ url: '/'}

@@ -35,7 +35,14 @@ html(lang='en')
             a.navbar-brand#home(href='/') Gradr
             a.navbar-brand.anonymous(href='/profile') Profile
             a.navbar-brand.anonymous(href='/matches') Matches
+            a.navbar-brand.anonymous(href='')#matches Matches
             a.navbar-brand.navbar-right.anonymous#logout(href="/") Logout
+    .container.text-center
+        .logo
+            img(src='/img/gradr_logo.png')
+        hr
+        p.lead
+            | Gradr is a study buddy finder based on current dating applications.
     block content
 
     // Bootstrap core JavaScript
@@ -45,4 +52,5 @@ html(lang='en')
     script(src='/js/bootstrap.min.js')
     script(src='/js/login.js')
     script(src='/js/gradr.js')
+    script(src='/js/matchList.js')
     block scripts

@@ -77,6 +77,24 @@ UserMatchDB.prototype.getPreviouslyRatedIds = function(userId) {
     });
 };
 
+UserMatchDB.prototype.isMatch = function(liker_id, likee_id){
+
+    return UserMatch.findOne({
+        where:{
+            liker_id: liker_id,
+            likee_id: likee_id,
+            likes: true
+        }
+    }).then(function(user){
+
+        if(user){
+            return true;
+        }
+
+        return false;
+    });
+}
+
 UserMatchDB.prototype.removeUser = function(userId) {
     return UserMatch.destroy({
         where: {
