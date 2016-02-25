@@ -14,3 +14,15 @@
 .pad-top {
 	padding-top: 60px;
 }
+
+.logo {
+	padding-top: 60px;
+}
+
+#error {
+	display: none;
+}
+
+.lead {
+	color: White;
+}
