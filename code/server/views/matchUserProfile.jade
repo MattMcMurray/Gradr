@@ -1,0 +1,64 @@
+extends ./base.jade
+
+block stylesheets
+	link(href='/css/index.css', rel='stylesheet')
+	link(href='/css/swipe.css', rel='stylesheet')
+	link(href='/css/ratings.css', rel='stylesheet')
+
+block scripts
+	script(src='/js/matchUserProfile.js')
+
+
+block content
+	.row.vcenter
+		.container.pad-top
+			.thumbnail.profile
+				#profileId(style="display:none")
+					| !{user.id}
+				h1.name !{user.firstname} !{user.lastname}
+				h4.username !{user.username}
+
+				.profile-pic
+					
+
+				ul.nav.nav-tabs#userTabs(role="tablist")
+					li.active(role="presentation")
+						a(href="#profile") Profile
+					li(role="presentation")
+						a(href="#reviews") Reviews
+					li(role="presentation")
+						a(href="#contactInfo") Contact Info
+
+				.tab-content
+					.tab-pane.attr.active#profile(role="tabpanel")
+						
+						h4 School: !{user.school}
+						h4 Courses: !{user.courses}
+						
+					.tab-pane#reviews(role="tabpanel")
+							
+						.comments
+							h4.attr Here's what people had to say about !{user.firstname}.
+							each review in ratings.reviews
+								ul
+									li !{review.comment} - !{review.rating}/5
+							
+							h4.attr What do you think about !{user.firstname}?
+							form(role=form)
+								.form-group
+									label(for='commentBox')
+										| Comment:
+									textarea#commentBox.form-control(type='text') 
+								.form-group
+									label(for='rating')
+										| Rate !{user.firstname}: 
+									br
+									select#rating
+										each val in [1,2,3,4,5]
+											option(value=!{val}) !{val}
+								button.btn.btn-primary#submitComment(type="submit") Submit Comment
+
+
+					.tab-pane.attr#contactInfo(role="tabpanel")
+						h4 Email: !{email}
+						h4 City: !{city}

@@ -28,10 +28,15 @@ var removeUser = function(userID) {
     return userMatchDAO.removeUser(userID);
 }
 
+var isMatch = function(liker_id, likee_id) {
+    return userMatchDAO.isMatch(liker_id, likee_id);
+}
+
 module.exports = {
     init: init,
     addUserMatch: addUserMatch,
     getMatches: getMatches,
     getPreviouslyRatedIds: getPreviouslyRatedIds,
-    removeUser: removeUser
+    removeUser: removeUser,
+    isMatch: isMatch
 }
