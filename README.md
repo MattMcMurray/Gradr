@@ -6,7 +6,7 @@
     - run `sudo node main.js`
 - To run tests:
     - `cd` into `Gradr/code/server`
-    - install mocha testing framework with `npm install -g mocha`
+    - install mocha testing framework with `sudo npm install -g mocha jsdom mocha-jsdom`
     - Make sure you've run the server once (this creates all tables for database and initializes things properly)
     - run `sudo ./run_tests.sh`
 
