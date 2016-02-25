@@ -1,18 +1,7 @@
 var edit_mode = false;
 var username = '';
 
-var testMode = false;
-
 $(function() {
-
-	// If running tests on the js file, the origin will mess up the 
-	// AJAX calls, therefore disable all AJAX 
-	// Note: this is a temporary solution until we can find a better way
-	// to point AJAX calls to the correct origin when running tests
-	if (window.location.origin == 'file://') {
-		// testMode = true;
-	}
-
 
 	$('#location').val('University Of Manitoba');
 	//I should really check here if the sessionStorage is null and redirect if it is...
@@ -20,13 +9,11 @@ $(function() {
 		window.location.replace('/');
 	}
 
-	if (!testMode) {
-		$.ajax({
-			type: 'GET',
-			url: 'api/getUser?user=' + sessionStorage.getItem('username'),
-			success: userCallback,
-		});
-	}
+	$.ajax({
+		type: 'GET',
+		url: 'api/getUser?user=' + sessionStorage.getItem('username'),
+		success: userCallback,
+	});
 });
 
 $('#profileButton').click(function(e) {
@@ -39,23 +26,21 @@ $('#deleteAccountButton').click(function(e) {
 	if (confirm('are you sure you want to delete your account? this cannot be undone')) {
 		var sendData = {userId: sessionStorage.getItem('user_id')}
 
-		if (!testMode) {
-			$.ajax({
-				type: 'POST',
-				url: '/api/deleteUser',
-				data: sendData,
-				success: function (data) {
-					sessionStorage.setItem('username', null);
-					sessionStorage.setItem('user_id', null);
-					window.location.replace('/');
-				},
-				error: function(error) {
-					//TODO: Tell the user about the error.
-					console.log('couldn\'t delete account. Looks like you\'re stuck with us');
-					console.log(error);
-				}
-			});
-		}
+		$.ajax({
+			type: 'POST',
+			url: '/api/deleteUser',
+			data: sendData,
+			success: function (data) {
+				sessionStorage.setItem('username', null);
+				sessionStorage.setItem('user_id', null);
+				window.location.replace('/');
+			},
+			error: function(error) {
+				//TODO: Tell the user about the error.
+				console.log('couldn\'t delete account. Looks like you\'re stuck with us');
+				console.log(error);
+			}
+		});
 	}
 })
 
@@ -69,21 +54,19 @@ $('#editButton').click(function(e) {
 
 		var user = getUserInfo();
 
-		if (!testMode) {
-			$.ajax({
-				type: 'POST',
-				url: '/api/ProfileUpdate',
-				data: user,
-				success: function (data) {
-					window.location.replace('/profile');
-				},
-				error: function(error) {
-					//TODO: Tell the user about the error.
-					console.log('couldn\'t update');
-					console.log(error);
-				}
-			});
-		}
+		$.ajax({
+			type: 'POST',
+			url: '/api/ProfileUpdate',
+			data: user,
+			success: function (data) {
+				window.location.replace('/profile');
+			},
+			error: function(error) {
+				//TODO: Tell the user about the error.
+				console.log('couldn\'t update');
+				console.log(error);
+			}
+		});
 	} else {
 		toggleDisable('.user-entry', edit_mode);
 		toggleDisable('.birthdate-component', edit_mode);
