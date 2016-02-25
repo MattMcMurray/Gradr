@@ -4,7 +4,6 @@ var UserDAO = require('../data_access/UserDataAccess.js');
 var UserMatchDAO = require('../data_access/UserMatchDataAccess.js');
 var RatingDAO = require('../data_access/RatingDataAccess.js');
 
-
 router.get("/", function(req, res) {
     res.render('../views/index', {});
 });
@@ -21,14 +20,15 @@ router.get("/profile", function(req, res) {
 	res.render('../views/profile');
 });
 
-
 router.get("/matches", function(req, res) {
-	res.render('../views/matches');
+	UserMatchDAO.getMatches(req.query.user).then(function(users){
+		UserDAO.getUsersById(users).then(function(users){
+			res.render('../views/matches', { matches: users });
+		});
+	});
 });
 
 router.get("/matchProfile", function(req,res){
-
-
 	UserDAO.getUsersById(req.query.user).then(function(users) {
 		RatingDAO.getRatings(req.query.user).then(function(ratings){
 			res.render("matchUserProfile", {user:users[0].dataValues, ratings: ratings});	
@@ -39,18 +39,6 @@ router.get("/matchProfile", function(req,res){
 	}).catch(function(error){
 		console.log(error);
 		res.render('../views/error', {message: "Cannot find user "+ req.query.user});
-	});
-	
-});
-
-router.get("/matchList", function(req,res){
-	//get all matches for current user
-	//using all these matches,
-	//get the matches name and shit..
-	UserMatchDAO.getMatches(req.query.user).then(function(users){
-		UserDAO.getUsersById(users).then(function(users){
-			res.render("../views/matchList", {matches: users});
-		});
 	});
 });
 

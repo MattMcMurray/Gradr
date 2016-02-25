@@ -1,11 +1,20 @@
 extends ./base.jade
 
 block stylesheets
-	link(href='/css/style.css', rel='stylesheet')
+    link(href='/css/style.css', rel='stylesheet')
 
 block content
-	div.container.pad-top
-		div#matchesContainer
+    div.container.pad-top
+        div#matchesContainer
+            each user in matches
+                a(href="/MatchProfile?user=#{user.id}")
+                    div.col-sm-6.col-md-4
+                        div.thumbnail
+                            img(src='http://thecatapi.com/api/images/get?format=src&type=jpg&size=small')
+                            div.caption
+                                h4 #{user.firstname} #{user.lastname}
+                                p <b>School:</b> #{user.school}
+                                p <b>Courses:</b> #{user.courses}
 
 block scripts
-	script(src='/js/matches.js')
+    script(src='/js/matches.js')
