@@ -68,7 +68,6 @@ $('#editButton').click(function(e) {
 		swapClass('#editIcon', 'fa-check', 'fa-pencil');
 
 		var user = getUserInfo();
-		console.log(user);
 
 		if (!testMode) {
 			$.ajax({
@@ -98,7 +97,6 @@ var userCallback = function(data) {
 		//Do something about this
 		return;
 	}
-	console.log(data.user);
 	$('#username').append(data.user.username);
 	username = data.user.username;
 	setUserInfo(data.user);
