@@ -1,7 +1,7 @@
 var jsdom = require('mocha-jsdom');
 var expect = require('chai').expect;
 
-var profilejs;
+var profileController;
 
 jsdom(); // set up the simulated DOM
 
@@ -14,11 +14,27 @@ describe('DOM Tests', function () {
 		$ = require('jquery');
 
 		// import the file we are testing
-		profilejs = require('../public/js/profile.js'); 
+			profileController = require('../public/js/profile.js'); 
 	});
 
-	it('userCallback', function(done) {
+	it('Test setting and getting user info', function(done) {
+		// This function also calls setBirthDate() and setUserInfo()
+		profileController.userCallback({
+			user: {
+				username: username,
+				dateOfBirth: dateOfBirth
+			}
+		});
 
+	 	// give time to callback above to complete
+		setTimeout(function() {
+			var userInfo = profileController.getUserInfo();
+
+			// No logged in user, expect user info to be empty
+			expect(userInfo.username).to.equal(username);
+			expect(userInfo.dateOfBirth).to.equal(dateOfBirth);
+
+		}, 10000);
 
 		done()
 	});

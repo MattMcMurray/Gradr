@@ -159,3 +159,9 @@ function getBirthDate() {
 	}
 	return '';
 }
+
+// So mocha tests can use functions
+module.exports = {
+	userCallback,
+	getUserInfo
+}
