@@ -90,6 +90,45 @@ describe('UserMatch', function() {
     	});
     });
 
+    describe('UserMatch isMatch', function() {
+        it('determines if the liker and likee has a positive match', function(done) {
+            userMatch.isMatch(111,222).then(function(data) {
+                assert.that(data).is.not.null();
+                assert.that(data).is.equalTo(true);
+                done();
+            });
+        });
+        it('determines if the liker and likee has a negative match', function(done) {
+            userMatch.isMatch(333,222).then(function(data) {
+                assert.that(data).is.not.null();
+                assert.that(data).is.equalTo(false);
+                done();
+            });
+        });
+        it('determines if there is a match with non-existant liker_id', function(done) {
+            userMatch.isMatch(404, 222).then(function(data) {
+                assert.that(data).is.not.null();
+                assert.that(data).is.equalTo(false);
+                done();
+            });
+        });
+        it('determines if there is a match with non-existant likee_id', function(done) {
+            userMatch.isMatch(222, 404).then(function(data) {
+                assert.that(data).is.not.null();
+                assert.that(data).is.equalTo(false);
+                done();
+            });
+        });
+        it('determines if there is a match with non-existant ids', function(done) {
+            userMatch.isMatch(404, 405).then(function(data) {
+                assert.that(data).is.not.null();
+                assert.that(data).is.equalTo(false);
+                done();
+            });
+        });
+        
+    });
+
     describe('UserMatch getPreviouslyRatedIds', function() {
     	it('get rated ids for 111', function(done) {
     		userMatch.getPreviouslyRatedIds(111).then(function(data) {
