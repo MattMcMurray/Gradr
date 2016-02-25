@@ -133,17 +133,7 @@ module.exports = {
 			})
 			.getValue('//*[@id="birthYear"]', function(found) {
 						this.assert.equal(found.value, birthYear);
-			})/*
-			.assert.containsText('//*[@id="helpDescription"]', help)
-			.assert.containsText('//*[@id="school"]', school)
-			.assert.containsText('//*[@id="firstname"]', firstname)
-			.assert.containsText('//*[@id="lastname"]', lastname)
-			.assert.containsText('//*[@id="city"]', city)
-			.assert.containsText('//*[@id="country"]', country)
-			.assert.containsText('//*[@id="courses"]', courses)
-			.assert.containsText('//*[@id="birthMonth"]', birthMonth)
-			.assert.containsText('//*[@id="birthDate"]', birthDate)
-			.assert.containsText('//*[@id="birthYear"]', birthYear)*/
+			})
 			.end();
 	}
 }
