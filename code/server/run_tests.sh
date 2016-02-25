@@ -41,6 +41,10 @@ echo "[Running DATABASE UNIT TESTS]"
 echo
 mocha test/DB_unit_tests.js > test_output/unit_tests.log
 
+echo "[Running FRONTEND FUNCTION TESTS]"
+echo
+mocha test/frontend_function_tests.js > test_output/frontend_tests.log
+
 echo "[TEST RESULTS PLACED IN test_output DIRECTORY]"
 echo
 
