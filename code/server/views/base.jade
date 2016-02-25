@@ -34,7 +34,7 @@ html(lang='en')
                 span.icon-bar
             a.navbar-brand#home(href='/') Gradr
             a.navbar-brand.anonymous(href='/profile') Profile
-            a.navbar-brand.anonymous(href='')#matches Matches
+            a.navbar-brand.anonymous#matchesLink(href='/') Matches
             a.navbar-brand.navbar-right.anonymous#logout(href="/") Logout
     .container.text-center
         .logo
@@ -50,6 +50,6 @@ html(lang='en')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
     script(src='/js/bootstrap.min.js')
     script(src='/js/login.js')
+    script(src='/js/gradr.js')
     script(src='/js/matchList.js')
-    
     block scripts
