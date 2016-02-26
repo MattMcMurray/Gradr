@@ -60,7 +60,7 @@ describe('DOM Tests', function () {
 
 		}, 10000);
 
-		done()
+		done();
 	});
 
 	it('signup.js - Test validate function (empty input)', function(done) {
@@ -108,11 +108,28 @@ describe('DOM Tests', function () {
 		done();
 	});
 
-	it('matchUserProfile.js - Test cleanComment function', function(done) {
+	it('matchUserProfile.js - Test cleanComment function (w/ attempted injection)', function(done) {
 		console.log('	' + this.test.title);
 
-		//TODO 
-		console.log("Not yet implemented");
+		var input = '<This is a comment attempting injection>';
+		var expected = '&lt;This is a comment attempting injection&gt;';
+
+		var result = matchUserProfileController.cleanComment(input);
+
+		expect(result).to.equal(expected);
+
+		done();
+	});
+
+	it('matchUserProfile.js - Test cleanComment function (w/out attempted injection)', function(done) {
+		console.log('	' + this.test.title);
+
+		var input = 'This is a comment not attempting injection';
+		var expected = 'This is a comment not attempting injection';
+
+		var result = matchUserProfileController.cleanComment(input);
+
+		expect(result).to.equal(expected);
 
 		done();
 	});
