@@ -2,11 +2,13 @@ var edit_mode = false;
 var username = '';
 
 $(function() {
+
 	$('#location').val('University Of Manitoba');
 	//I should really check here if the sessionStorage is null and redirect if it is...
 	if (sessionStorage.getItem('username') == null) {
 		window.location.replace('/');
 	}
+
 	$.ajax({
 		type: 'GET',
 		url: 'api/getUser?user=' + sessionStorage.getItem('username'),
@@ -21,8 +23,9 @@ $('#profileButton').click(function(e) {
 $('#deleteAccountButton').click(function(e) {
 	e.preventDefault();
 	
-	if (confirm('Are you sure you want to delete your account? This cannot be undone')) {
+	if (confirm('are you sure you want to delete your account? this cannot be undone')) {
 		var sendData = {userId: sessionStorage.getItem('user_id')}
+
 		$.ajax({
 			type: 'POST',
 			url: '/api/deleteUser',
@@ -50,7 +53,7 @@ $('#editButton').click(function(e) {
 		swapClass('#editIcon', 'fa-check', 'fa-pencil');
 
 		var user = getUserInfo();
-		console.log(user);
+
 		$.ajax({
 			type: 'POST',
 			url: '/api/ProfileUpdate',
@@ -77,7 +80,6 @@ var userCallback = function(data) {
 		//Do something about this
 		return;
 	}
-	console.log(data);
 	$('#username').append(data.user.username);
 	username = data.user.username;
 	setUserInfo(data.user);
@@ -137,4 +139,10 @@ function getBirthDate() {
 		}
 	}
 	return '';
+}
+
+// So mocha tests can use functions
+module.exports = {
+	userCallback,
+	getUserInfo
 }
