@@ -1,0 +1,2374 @@
+caleb: <@caleb|caleb> has joined the channel
+evan: <@evan|evan> has joined the channel
+jorell: <@jorell|jorell> has joined the channel
+keanek: <@keanek|keanek> has joined the channel
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+steve: <@steve|steve> has joined the channel
+
+
+caleb: <@caleb|caleb> has joined the channel
+evan: <@evan|evan> has joined the channel
+jorell: <@jorell|jorell> has joined the channel
+keanek: <@keanek|keanek> has joined the channel
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+steve: <@steve|steve> has joined the channel
+steve: <!channel>: just want to confirm that nobody has picked up stub DB work. im going to try to start it now
+mattmcmurray: I have not
+keanek: Nope.
+evan: I haven't
+jorell: neither have I.
+evan: It looks like we have two models doing the same thing, likes and usermatches. I don't see likes being referenced, <@keanek> did you use it anywhere? 
+jorell: That must be when he didn\u2019t know you were working on it?
+evan: Yeah that's what I was thinking, if it's not referenced let's remove it so it isn't tested by accident.
+mattmcmurray: If you use sublime, do a global search for \"Likes.js\" and it should show if its imported anywhere
+mattmcmurray: I'm sure other text editors have similar functions
+evan: Looks like it's not referenced
+evan: I'll submit a pull request
+evan: I'm just gonna merge it myself
+caleb: do we want to make pull requests for testing? or just merge in
+evan: We should make pull requests still just in case people catch potentially missing  cases
+caleb: pull request up for a few tests
+mattmcmurray: I'm getting 3 failed tests on iteration1 branch. Is that the case for anyone else?
+mattmcmurray: Okay, so it's important to remember that tests aren't necessarily run in the order that they're written in the file, so if you make API calls that modify a user, make sure that it doesn't break another test case
+mattmcmurray: Okay, so I figured out why tests were failing. My copy of the db was stuck in a weird state. Crisis averted.
+jorell: So uhhh
+jorell: how do you run the tests?
+jorell: nvm figured it out
+jorell: <@steve|steve> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/steve\/F0L8B3J5B\/untitled_document|Meeting notes> and commented: Btw Jorell and Matt, here's what I wanted to say at the meeting today. I should be able to get the stubs out tonight
+jorell: ": "text
+jorell: alright, noted.
+jorell: <@steve>: let me know when you\u2019re done with those stubs. I\u2019m going to write some unit tests :simple_smile:
+steve: working on it
+steve: <@evan> how does this arg thing work?
+steve: when i put -fill_database, it seems to split it into chars and then says that there's no option associated with each individual char?
+steve: nvm figured it out.
+steve: PSA: you have to use 2 dashes to make it work
+steve: ok user stub is up for review
+steve: it is imperfect, so do let me know if you have issues and I'll fix
+steve: i tested profiles and some random api methods with it, but im not an expert
+steve: <@jorell>: im done both stubs now
+jorell: sweet
+jorell: So running the test script gives me 6 pass and 6 fails
+
+
+caleb: <@caleb|caleb> has joined the channel
+evan: <@evan|evan> has joined the channel
+jorell: <@jorell|jorell> has joined the channel
+keanek: <@keanek|keanek> has joined the channel
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+steve: <@steve|steve> has joined the channel
+steve: <!channel>: just want to confirm that nobody has picked up stub DB work. im going to try to start it now
+mattmcmurray: I have not
+keanek: Nope.
+evan: I haven't
+jorell: neither have I.
+evan: It looks like we have two models doing the same thing, likes and usermatches. I don't see likes being referenced, <@keanek> did you use it anywhere? 
+jorell: That must be when he didn\u2019t know you were working on it?
+evan: Yeah that's what I was thinking, if it's not referenced let's remove it so it isn't tested by accident.
+mattmcmurray: If you use sublime, do a global search for \"Likes.js\" and it should show if its imported anywhere
+mattmcmurray: I'm sure other text editors have similar functions
+evan: Looks like it's not referenced
+evan: I'll submit a pull request
+evan: I'm just gonna merge it myself
+caleb: do we want to make pull requests for testing? or just merge in
+evan: We should make pull requests still just in case people catch potentially missing  cases
+caleb: pull request up for a few tests
+mattmcmurray: I'm getting 3 failed tests on iteration1 branch. Is that the case for anyone else?
+mattmcmurray: Okay, so it's important to remember that tests aren't necessarily run in the order that they're written in the file, so if you make API calls that modify a user, make sure that it doesn't break another test case
+mattmcmurray: Okay, so I figured out why tests were failing. My copy of the db was stuck in a weird state. Crisis averted.
+jorell: So uhhh
+jorell: how do you run the tests?
+jorell: nvm figured it out
+jorell: <@steve|steve> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/steve\/F0L8B3J5B\/untitled_document|Meeting notes> and commented: Btw Jorell and Matt, here's what I wanted to say at the meeting today. I should be able to get the stubs out tonight
+jorell: ": "text
+jorell: alright, noted.
+jorell: <@steve>: let me know when you\u2019re done with those stubs. I\u2019m going to write some unit tests :simple_smile:
+steve: working on it
+steve: <@evan> how does this arg thing work?
+steve: when i put -fill_database, it seems to split it into chars and then says that there's no option associated with each individual char?
+steve: nvm figured it out.
+steve: PSA: you have to use 2 dashes to make it work
+steve: ok user stub is up for review
+steve: it is imperfect, so do let me know if you have issues and I'll fix
+steve: i tested profiles and some random api methods with it, but im not an expert
+steve: <@jorell>: im done both stubs now
+jorell: sweet
+jorell: So running the test script gives me 6 pass and 6 fails
+mattmcmurray: Make sure you've cleaned out the database. I had the same issue last night. 
+mattmcmurray: <!channel> I'm a little fuzzy on what was decided at yesterday's meeting. If I understand correctly, whoever is doing the integration tests should actually make them unit tests using the stub? I'm gonna bring my laptop and try to get those done this afternoon at school
+caleb: Pretty sure we realized that we THOUGHT were unit tests were actually integration tests, due to our lack of a stub database. <@steve>  was tasked with creating the stub database, which he did last night
+caleb: <@mattmcmurray>:
+mattmcmurray: Right. K so I'll try and hammer out some unit tests
+caleb: The only thing I'm unclear on right now is how to run the tests with the stub. He documented how to run main.js with it, but not with running the tests with Mocha
+caleb: also, make sure you check what's already there. We've got most of the api ones done
+keanek: I'll push what I've done to a remote branch.  The --stub commands don't work with mocha, unfortunately.
+caleb: so how do you run the tests using the stub?
+keanek: You need to inject the api in the test.  You can look at the branch once I push it.
+keanek: Okay, I created a pull request with my test code.
+evan: <@keanek> I posted a comment on your pull request, I'm just wondering how something works
+evan: It seems weird to me but it works, so I'm just curious is all
+keanek: Heading to school, won't have access to the chat for the next hour or so.  Walking sucks.
+evan: We can't figure it out, can anyone else chime in? <https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/41\/files#r51898237>
+evan: Further testing.
+evan: Never mind I figured it out
+steve: Is it just that there's only one router that they all share? 
+evan: Basically yeah, whenever you do a require, there is a cache that node keeps track of, and if you require and already existing file, it just references that one instead of creating a new instance of it.
+jorell: I just want to clarify something, we\u2019re just turning the intergration tests into unit test by using the stub instead of the actual User and UserMatches model.
+jorell: Correct?
+steve: i believe so
+steve: not sure if we should keep the \"integration\" tests too
+jorell: we need 1 integration test per detailed user story.
+mattmcmurray: I'm working on the 3 integration tests 
+steve: lol RIP we only finished 3\/9 detailed user stories
+mattmcmurray: My app for SE1 was basically 100% non functional and I got an A in that class 
+mattmcmurray: Ehh I feel like we're graded on how we follow the process, not necessarily how many features\/stories we get throufh
+jorell: Is anyone converting integration tests to unit tests currently? I just dont want to have conflicts with anyone.
+keanek: I already converted the api_tests to use the stubs.
+jorell: ahh
+evan: I'm working on changing my tests to stubs
+mattmcmurray: All tests are passing except for this one, which fails consistently: \n```\n  1) api GET \/api\/getPotentialMatches requests a list of users that are a match for a provided userID:\n     Uncaught AssertionError: Expected 0 to equal 1.\n      at fail (node_modules\/assertthat\/lib\/fail.js:24:10)\n      at Object.equalTo (node_modules\/assertthat\/lib\/constraints\/equalTo.js:17:5)\n      at Test.&lt;anonymous&gt; (test\/api_endpoint_tests.js:174:57)\n      at Test.assert (node_modules\/supertest\/lib\/test.js:156:6)\n      at Server.assert (node_modules\/supertest\/lib\/test.js:127:12)\n      at emitCloseNT (net.js:1524:8)\n```
+jorell: all tests passed for me
+mattmcmurray: I might be missing changes from main branch
+mattmcmurray: <@jorell|jorell> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/jorell\/F0LAT7RKN\/screen_shot_2016-02-04_at_4.54.57_pm.png|Screen Shot 2016-02-04 at 4.54.57 PM.png>
+mattmcmurray: Just finished integration tests, gonna submit a pull request shortly
+keanek: Pulling iteration1 and running the tests results in 24 passing tests.
+jorell: lol
+jorell: did you add 8 tests keanna?
+jorell: keann*
+mattmcmurray: hmm weird, I must be missing something
+jorell: Keane*
+keanek: No, I think the new tests are from Evan's user matching tests.
+jorell: Hmm, I pulled that into my local.
+evan: I added eight
+jorell: hmm
+jorell: oh
+jorell: do you guys run the .sh file to run your tests?
+keanek: I do.
+evan: I was just running mocha
+jorell: Oh yeah, I ran the shell script and 24 passed
+jorell: haha
+jorell: Are you guys using the stub for your tests?
+jorell: <@evan>:
+evan: Yup
+evan: I'm gonna do a unit test on the actual model though
+jorell: Can I take that from you? I think that\u2019s part of the unit test db queries
+evan: Sure that's cool
+jorell: I haven\u2019t written any tests because all ya\u2019ll are quick
+mattmcmurray: Figured out why that one test was failing. I miss-merged some changes down to my local machine. Crisis averted, all tests pass :thumbsup:
+jorell: :thumbsup:
+jorell: Yall need to start using this one :thumbsup::skin-tone-2:
+mattmcmurray: Submitting pull request in a minute
+mattmcmurray: But I am homer simpson
+jorell: I think the yellow one is for asians. haha
+mattmcmurray: <!channel>: so in my branch for integration testing, I modified the `run_tests.sh` script to do different set up and tear down for unit tests and integration tests. SO, if you add a new file to the test directory, you have to add it to the script or it won't get run
+jorell: I can\u2019t add to usermatches. haha
+jorell: <@keanek>: you were testin the login stuff api endpoints correct?
+keanek: I had tests for logins in the api tests, but the stubs didn't really support them, so the tests are commented out at the moment.
+jorell: so api_test_endpoint are talking to the stubs?
+jorell: haha that\u2019s why I was failing. haha
+evan: Yeah they are
+evan: But our model unit tests shouldn't be off the stubs obviously
+jorell: yup yup.
+jorell: I\u2019m also responsible for writing login\/logout tests.
+jorell: So I\u2019m thinking of just doing the login and logout tests before things are injected
+jorell: is anyone against that idea?
+keanek: They might not run that way...but you can try.
+jorell: doens\u2019t mocha run the tests top down?
+keanek: Not sure
+jorell: you\u2019re right
+jorell: it doesn\u2019t work that way. haha
+jorell: fuck yeah!
+keanek: Got it to work?
+jorell: yeah
+jorell: well the model tests at least
+jorell: we\u2019re using a separate db for testing the model.
+jorell: made a pull request
+steve: looking
+steve: looks good to me
+jorell: Sick.
+
+
+caleb: <@caleb|caleb> has joined the channel
+evan: <@evan|evan> has joined the channel
+jorell: <@jorell|jorell> has joined the channel
+keanek: <@keanek|keanek> has joined the channel
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+steve: <@steve|steve> has joined the channel
+steve: <!channel>: just want to confirm that nobody has picked up stub DB work. im going to try to start it now
+mattmcmurray: I have not
+keanek: Nope.
+evan: I haven't
+jorell: neither have I.
+evan: It looks like we have two models doing the same thing, likes and usermatches. I don't see likes being referenced, <@keanek> did you use it anywhere? 
+jorell: That must be when he didn\u2019t know you were working on it?
+evan: Yeah that's what I was thinking, if it's not referenced let's remove it so it isn't tested by accident.
+mattmcmurray: If you use sublime, do a global search for \"Likes.js\" and it should show if its imported anywhere
+mattmcmurray: I'm sure other text editors have similar functions
+evan: Looks like it's not referenced
+evan: I'll submit a pull request
+evan: I'm just gonna merge it myself
+caleb: do we want to make pull requests for testing? or just merge in
+evan: We should make pull requests still just in case people catch potentially missing  cases
+caleb: pull request up for a few tests
+mattmcmurray: I'm getting 3 failed tests on iteration1 branch. Is that the case for anyone else?
+mattmcmurray: Okay, so it's important to remember that tests aren't necessarily run in the order that they're written in the file, so if you make API calls that modify a user, make sure that it doesn't break another test case
+mattmcmurray: Okay, so I figured out why tests were failing. My copy of the db was stuck in a weird state. Crisis averted.
+jorell: So uhhh
+jorell: how do you run the tests?
+jorell: nvm figured it out
+jorell: <@steve|steve> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/steve\/F0L8B3J5B\/untitled_document|Meeting notes> and commented: Btw Jorell and Matt, here's what I wanted to say at the meeting today. I should be able to get the stubs out tonight
+jorell: ": "text
+jorell: alright, noted.
+jorell: <@steve>: let me know when you\u2019re done with those stubs. I\u2019m going to write some unit tests :simple_smile:
+steve: working on it
+steve: <@evan> how does this arg thing work?
+steve: when i put -fill_database, it seems to split it into chars and then says that there's no option associated with each individual char?
+steve: nvm figured it out.
+steve: PSA: you have to use 2 dashes to make it work
+steve: ok user stub is up for review
+steve: it is imperfect, so do let me know if you have issues and I'll fix
+steve: i tested profiles and some random api methods with it, but im not an expert
+steve: <@jorell>: im done both stubs now
+jorell: sweet
+jorell: So running the test script gives me 6 pass and 6 fails
+mattmcmurray: Make sure you've cleaned out the database. I had the same issue last night. 
+mattmcmurray: <!channel> I'm a little fuzzy on what was decided at yesterday's meeting. If I understand correctly, whoever is doing the integration tests should actually make them unit tests using the stub? I'm gonna bring my laptop and try to get those done this afternoon at school
+caleb: Pretty sure we realized that we THOUGHT were unit tests were actually integration tests, due to our lack of a stub database. <@steve>  was tasked with creating the stub database, which he did last night
+caleb: <@mattmcmurray>:
+mattmcmurray: Right. K so I'll try and hammer out some unit tests
+caleb: The only thing I'm unclear on right now is how to run the tests with the stub. He documented how to run main.js with it, but not with running the tests with Mocha
+caleb: also, make sure you check what's already there. We've got most of the api ones done
+keanek: I'll push what I've done to a remote branch.  The --stub commands don't work with mocha, unfortunately.
+caleb: so how do you run the tests using the stub?
+keanek: You need to inject the api in the test.  You can look at the branch once I push it.
+keanek: Okay, I created a pull request with my test code.
+evan: <@keanek> I posted a comment on your pull request, I'm just wondering how something works
+evan: It seems weird to me but it works, so I'm just curious is all
+keanek: Heading to school, won't have access to the chat for the next hour or so.  Walking sucks.
+evan: We can't figure it out, can anyone else chime in? <https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/41\/files#r51898237>
+evan: Further testing.
+evan: Never mind I figured it out
+steve: Is it just that there's only one router that they all share? 
+evan: Basically yeah, whenever you do a require, there is a cache that node keeps track of, and if you require and already existing file, it just references that one instead of creating a new instance of it.
+jorell: I just want to clarify something, we\u2019re just turning the intergration tests into unit test by using the stub instead of the actual User and UserMatches model.
+jorell: Correct?
+steve: i believe so
+steve: not sure if we should keep the \"integration\" tests too
+jorell: we need 1 integration test per detailed user story.
+mattmcmurray: I'm working on the 3 integration tests 
+steve: lol RIP we only finished 3\/9 detailed user stories
+mattmcmurray: My app for SE1 was basically 100% non functional and I got an A in that class 
+mattmcmurray: Ehh I feel like we're graded on how we follow the process, not necessarily how many features\/stories we get throufh
+jorell: Is anyone converting integration tests to unit tests currently? I just dont want to have conflicts with anyone.
+keanek: I already converted the api_tests to use the stubs.
+jorell: ahh
+evan: I'm working on changing my tests to stubs
+mattmcmurray: All tests are passing except for this one, which fails consistently: \n```\n  1) api GET \/api\/getPotentialMatches requests a list of users that are a match for a provided userID:\n     Uncaught AssertionError: Expected 0 to equal 1.\n      at fail (node_modules\/assertthat\/lib\/fail.js:24:10)\n      at Object.equalTo (node_modules\/assertthat\/lib\/constraints\/equalTo.js:17:5)\n      at Test.&lt;anonymous&gt; (test\/api_endpoint_tests.js:174:57)\n      at Test.assert (node_modules\/supertest\/lib\/test.js:156:6)\n      at Server.assert (node_modules\/supertest\/lib\/test.js:127:12)\n      at emitCloseNT (net.js:1524:8)\n```
+jorell: all tests passed for me
+mattmcmurray: I might be missing changes from main branch
+mattmcmurray: <@jorell|jorell> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/jorell\/F0LAT7RKN\/screen_shot_2016-02-04_at_4.54.57_pm.png|Screen Shot 2016-02-04 at 4.54.57 PM.png>
+mattmcmurray: Just finished integration tests, gonna submit a pull request shortly
+keanek: Pulling iteration1 and running the tests results in 24 passing tests.
+jorell: lol
+jorell: did you add 8 tests keanna?
+jorell: keann*
+mattmcmurray: hmm weird, I must be missing something
+jorell: Keane*
+keanek: No, I think the new tests are from Evan's user matching tests.
+jorell: Hmm, I pulled that into my local.
+evan: I added eight
+jorell: hmm
+jorell: oh
+jorell: do you guys run the .sh file to run your tests?
+keanek: I do.
+evan: I was just running mocha
+jorell: Oh yeah, I ran the shell script and 24 passed
+jorell: haha
+jorell: Are you guys using the stub for your tests?
+jorell: <@evan>:
+evan: Yup
+evan: I'm gonna do a unit test on the actual model though
+jorell: Can I take that from you? I think that\u2019s part of the unit test db queries
+evan: Sure that's cool
+jorell: I haven\u2019t written any tests because all ya\u2019ll are quick
+mattmcmurray: Figured out why that one test was failing. I miss-merged some changes down to my local machine. Crisis averted, all tests pass :thumbsup:
+jorell: :thumbsup:
+jorell: Yall need to start using this one :thumbsup::skin-tone-2:
+mattmcmurray: Submitting pull request in a minute
+mattmcmurray: But I am homer simpson
+jorell: I think the yellow one is for asians. haha
+mattmcmurray: <!channel>: so in my branch for integration testing, I modified the `run_tests.sh` script to do different set up and tear down for unit tests and integration tests. SO, if you add a new file to the test directory, you have to add it to the script or it won't get run
+jorell: I can\u2019t add to usermatches. haha
+jorell: <@keanek>: you were testin the login stuff api endpoints correct?
+keanek: I had tests for logins in the api tests, but the stubs didn't really support them, so the tests are commented out at the moment.
+jorell: so api_test_endpoint are talking to the stubs?
+jorell: haha that\u2019s why I was failing. haha
+evan: Yeah they are
+evan: But our model unit tests shouldn't be off the stubs obviously
+jorell: yup yup.
+jorell: I\u2019m also responsible for writing login\/logout tests.
+jorell: So I\u2019m thinking of just doing the login and logout tests before things are injected
+jorell: is anyone against that idea?
+keanek: They might not run that way...but you can try.
+jorell: doens\u2019t mocha run the tests top down?
+keanek: Not sure
+jorell: you\u2019re right
+jorell: it doesn\u2019t work that way. haha
+jorell: fuck yeah!
+keanek: Got it to work?
+jorell: yeah
+jorell: well the model tests at least
+jorell: we\u2019re using a separate db for testing the model.
+jorell: made a pull request
+steve: looking
+steve: looks good to me
+jorell: Sick.
+keanek: I pulled iteration1 and ran the tests, almost all of the db unit tests are failing.
+jorell: <@keanek>: did you fill the db?
+keanek: I'm running the run_tests.sh
+jorell: Huh. 
+jorell: Huh. 
+jorell: Let me try it out.
+jorell: One sec.
+mattmcmurray: Yeah im getting 7 failing 3 pass 
+mattmcmurray: All other tests are a-ok
+jorell: Damn
+jorell: I know the reason why its failing.
+jorell: the db_unit_tests relies on how the test db is built
+jorell: if say \u201cjflores1\u201d somehow isn\u2019t userid == 1
+jorell: then tests fail.
+jorell: I\u2019m probably just going to make the tests less strict.
+mattmcmurray: Why does the script CD into the test directory before executing the test?
+mattmcmurray: That causes 6 of the 7 failures 
+jorell: because the injection needs to happen in the tests directory. relative path and all.
+jorell: because if node\/mocha is executed in \/server, it uses our actual database.
+jorell: I was going to turn Database.js into a class, but a lot of refactoring will happen if I did.
+mattmcmurray: I mean.. I just changed it and it solved 6\/7 failures. Are you getting that many failures?
+jorell: im passing 5\/10
+jorell: all tests pass on my lapto.
+jorell: (currently on my desktop)
+jorell: <@mattmcmurray>: can you try running the db unit tests just by itself and run it from server
+jorell: Let me know if you\u2019re getting \u2018cannot read property \u2018select\u2019 of undefined'
+mattmcmurray: I'm on the bus rn
+jorell: <@mattmcmurray>: alright. I\u2019ve been learning that node dependencies are hard to maintain on different machines.
+mattmcmurray: I mean, they shouldn't be if you're saving to package.json
+jorell: Alright, I have 10\/10 tests passing
+jorell: Should I just push to iter1?
+keanek: Sure.
+jorell: done
+jorell: <@keanek>: can you test it now?
+keanek: 10\/10!
+jorell: sweet
+caleb: okay, sorry I'm joining the party late, but I have failing integration tests. Did that get discussed\/resolved?
+keanek: I think it should be resolved with the latest iteration1 code.
+caleb: got the latest right now
+keanek: Mocha or run_tests.sh?
+caleb: mocha
+keanek: That's probably why
+caleb: using run_tests.sh shows me a quick flash of a new command window, then exits
+keanek: There's a test output folder.
+mattmcmurray: Yeah bro, you need to get a Linux environment up or the shell scripts are going to fail 
+jorell: Caleb, you can write a bat file for the tests.
+caleb: so are we no longer supporting mocha then?
+jorell: We are  
+jorell: The .sh file runs mocha
+caleb: oh, it just does the setup for the tests
+jorell: Yeah. So you can try writing a bat that does the same thing.
+caleb: okay
+caleb: I'll figure that out this weekend then
+
+
+caleb: <@caleb|caleb> has joined the channel
+evan: <@evan|evan> has joined the channel
+jorell: <@jorell|jorell> has joined the channel
+keanek: <@keanek|keanek> has joined the channel
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+steve: <@steve|steve> has joined the channel
+steve: <!channel>: just want to confirm that nobody has picked up stub DB work. im going to try to start it now
+mattmcmurray: I have not
+keanek: Nope.
+evan: I haven't
+jorell: neither have I.
+evan: It looks like we have two models doing the same thing, likes and usermatches. I don't see likes being referenced, <@keanek> did you use it anywhere? 
+jorell: That must be when he didn\u2019t know you were working on it?
+evan: Yeah that's what I was thinking, if it's not referenced let's remove it so it isn't tested by accident.
+mattmcmurray: If you use sublime, do a global search for \"Likes.js\" and it should show if its imported anywhere
+mattmcmurray: I'm sure other text editors have similar functions
+evan: Looks like it's not referenced
+evan: I'll submit a pull request
+evan: I'm just gonna merge it myself
+caleb: do we want to make pull requests for testing? or just merge in
+evan: We should make pull requests still just in case people catch potentially missing  cases
+caleb: pull request up for a few tests
+mattmcmurray: I'm getting 3 failed tests on iteration1 branch. Is that the case for anyone else?
+mattmcmurray: Okay, so it's important to remember that tests aren't necessarily run in the order that they're written in the file, so if you make API calls that modify a user, make sure that it doesn't break another test case
+mattmcmurray: Okay, so I figured out why tests were failing. My copy of the db was stuck in a weird state. Crisis averted.
+jorell: So uhhh
+jorell: how do you run the tests?
+jorell: nvm figured it out
+jorell: <@steve|steve> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/steve\/F0L8B3J5B\/untitled_document|Meeting notes> and commented: Btw Jorell and Matt, here's what I wanted to say at the meeting today. I should be able to get the stubs out tonight
+jorell: ": "text
+jorell: alright, noted.
+jorell: <@steve>: let me know when you\u2019re done with those stubs. I\u2019m going to write some unit tests :simple_smile:
+steve: working on it
+steve: <@evan> how does this arg thing work?
+steve: when i put -fill_database, it seems to split it into chars and then says that there's no option associated with each individual char?
+steve: nvm figured it out.
+steve: PSA: you have to use 2 dashes to make it work
+steve: ok user stub is up for review
+steve: it is imperfect, so do let me know if you have issues and I'll fix
+steve: i tested profiles and some random api methods with it, but im not an expert
+steve: <@jorell>: im done both stubs now
+jorell: sweet
+jorell: So running the test script gives me 6 pass and 6 fails
+mattmcmurray: Make sure you've cleaned out the database. I had the same issue last night. 
+mattmcmurray: <!channel> I'm a little fuzzy on what was decided at yesterday's meeting. If I understand correctly, whoever is doing the integration tests should actually make them unit tests using the stub? I'm gonna bring my laptop and try to get those done this afternoon at school
+caleb: Pretty sure we realized that we THOUGHT were unit tests were actually integration tests, due to our lack of a stub database. <@steve>  was tasked with creating the stub database, which he did last night
+caleb: <@mattmcmurray>:
+mattmcmurray: Right. K so I'll try and hammer out some unit tests
+caleb: The only thing I'm unclear on right now is how to run the tests with the stub. He documented how to run main.js with it, but not with running the tests with Mocha
+caleb: also, make sure you check what's already there. We've got most of the api ones done
+keanek: I'll push what I've done to a remote branch.  The --stub commands don't work with mocha, unfortunately.
+caleb: so how do you run the tests using the stub?
+keanek: You need to inject the api in the test.  You can look at the branch once I push it.
+keanek: Okay, I created a pull request with my test code.
+evan: <@keanek> I posted a comment on your pull request, I'm just wondering how something works
+evan: It seems weird to me but it works, so I'm just curious is all
+keanek: Heading to school, won't have access to the chat for the next hour or so.  Walking sucks.
+evan: We can't figure it out, can anyone else chime in? <https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/41\/files#r51898237>
+evan: Further testing.
+evan: Never mind I figured it out
+steve: Is it just that there's only one router that they all share? 
+evan: Basically yeah, whenever you do a require, there is a cache that node keeps track of, and if you require and already existing file, it just references that one instead of creating a new instance of it.
+jorell: I just want to clarify something, we\u2019re just turning the intergration tests into unit test by using the stub instead of the actual User and UserMatches model.
+jorell: Correct?
+steve: i believe so
+steve: not sure if we should keep the \"integration\" tests too
+jorell: we need 1 integration test per detailed user story.
+mattmcmurray: I'm working on the 3 integration tests 
+steve: lol RIP we only finished 3\/9 detailed user stories
+mattmcmurray: My app for SE1 was basically 100% non functional and I got an A in that class 
+mattmcmurray: Ehh I feel like we're graded on how we follow the process, not necessarily how many features\/stories we get throufh
+jorell: Is anyone converting integration tests to unit tests currently? I just dont want to have conflicts with anyone.
+keanek: I already converted the api_tests to use the stubs.
+jorell: ahh
+evan: I'm working on changing my tests to stubs
+mattmcmurray: All tests are passing except for this one, which fails consistently: \n```\n  1) api GET \/api\/getPotentialMatches requests a list of users that are a match for a provided userID:\n     Uncaught AssertionError: Expected 0 to equal 1.\n      at fail (node_modules\/assertthat\/lib\/fail.js:24:10)\n      at Object.equalTo (node_modules\/assertthat\/lib\/constraints\/equalTo.js:17:5)\n      at Test.&lt;anonymous&gt; (test\/api_endpoint_tests.js:174:57)\n      at Test.assert (node_modules\/supertest\/lib\/test.js:156:6)\n      at Server.assert (node_modules\/supertest\/lib\/test.js:127:12)\n      at emitCloseNT (net.js:1524:8)\n```
+jorell: all tests passed for me
+mattmcmurray: I might be missing changes from main branch
+mattmcmurray: <@jorell|jorell> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/jorell\/F0LAT7RKN\/screen_shot_2016-02-04_at_4.54.57_pm.png|Screen Shot 2016-02-04 at 4.54.57 PM.png>
+mattmcmurray: Just finished integration tests, gonna submit a pull request shortly
+keanek: Pulling iteration1 and running the tests results in 24 passing tests.
+jorell: lol
+jorell: did you add 8 tests keanna?
+jorell: keann*
+mattmcmurray: hmm weird, I must be missing something
+jorell: Keane*
+keanek: No, I think the new tests are from Evan's user matching tests.
+jorell: Hmm, I pulled that into my local.
+evan: I added eight
+jorell: hmm
+jorell: oh
+jorell: do you guys run the .sh file to run your tests?
+keanek: I do.
+evan: I was just running mocha
+jorell: Oh yeah, I ran the shell script and 24 passed
+jorell: haha
+jorell: Are you guys using the stub for your tests?
+jorell: <@evan>:
+evan: Yup
+evan: I'm gonna do a unit test on the actual model though
+jorell: Can I take that from you? I think that\u2019s part of the unit test db queries
+evan: Sure that's cool
+jorell: I haven\u2019t written any tests because all ya\u2019ll are quick
+mattmcmurray: Figured out why that one test was failing. I miss-merged some changes down to my local machine. Crisis averted, all tests pass :thumbsup:
+jorell: :thumbsup:
+jorell: Yall need to start using this one :thumbsup::skin-tone-2:
+mattmcmurray: Submitting pull request in a minute
+mattmcmurray: But I am homer simpson
+jorell: I think the yellow one is for asians. haha
+mattmcmurray: <!channel>: so in my branch for integration testing, I modified the `run_tests.sh` script to do different set up and tear down for unit tests and integration tests. SO, if you add a new file to the test directory, you have to add it to the script or it won't get run
+jorell: I can\u2019t add to usermatches. haha
+jorell: <@keanek>: you were testin the login stuff api endpoints correct?
+keanek: I had tests for logins in the api tests, but the stubs didn't really support them, so the tests are commented out at the moment.
+jorell: so api_test_endpoint are talking to the stubs?
+jorell: haha that\u2019s why I was failing. haha
+evan: Yeah they are
+evan: But our model unit tests shouldn't be off the stubs obviously
+jorell: yup yup.
+jorell: I\u2019m also responsible for writing login\/logout tests.
+jorell: So I\u2019m thinking of just doing the login and logout tests before things are injected
+jorell: is anyone against that idea?
+keanek: They might not run that way...but you can try.
+jorell: doens\u2019t mocha run the tests top down?
+keanek: Not sure
+jorell: you\u2019re right
+jorell: it doesn\u2019t work that way. haha
+jorell: fuck yeah!
+keanek: Got it to work?
+jorell: yeah
+jorell: well the model tests at least
+jorell: we\u2019re using a separate db for testing the model.
+jorell: made a pull request
+steve: looking
+steve: looks good to me
+jorell: Sick.
+keanek: I pulled iteration1 and ran the tests, almost all of the db unit tests are failing.
+jorell: <@keanek>: did you fill the db?
+keanek: I'm running the run_tests.sh
+jorell: Huh. 
+jorell: Huh. 
+jorell: Let me try it out.
+jorell: One sec.
+mattmcmurray: Yeah im getting 7 failing 3 pass 
+mattmcmurray: All other tests are a-ok
+jorell: Damn
+jorell: I know the reason why its failing.
+jorell: the db_unit_tests relies on how the test db is built
+jorell: if say \u201cjflores1\u201d somehow isn\u2019t userid == 1
+jorell: then tests fail.
+jorell: I\u2019m probably just going to make the tests less strict.
+mattmcmurray: Why does the script CD into the test directory before executing the test?
+mattmcmurray: That causes 6 of the 7 failures 
+jorell: because the injection needs to happen in the tests directory. relative path and all.
+jorell: because if node\/mocha is executed in \/server, it uses our actual database.
+jorell: I was going to turn Database.js into a class, but a lot of refactoring will happen if I did.
+mattmcmurray: I mean.. I just changed it and it solved 6\/7 failures. Are you getting that many failures?
+jorell: im passing 5\/10
+jorell: all tests pass on my lapto.
+jorell: (currently on my desktop)
+jorell: <@mattmcmurray>: can you try running the db unit tests just by itself and run it from server
+jorell: Let me know if you\u2019re getting \u2018cannot read property \u2018select\u2019 of undefined'
+mattmcmurray: I'm on the bus rn
+jorell: <@mattmcmurray>: alright. I\u2019ve been learning that node dependencies are hard to maintain on different machines.
+mattmcmurray: I mean, they shouldn't be if you're saving to package.json
+jorell: Alright, I have 10\/10 tests passing
+jorell: Should I just push to iter1?
+keanek: Sure.
+jorell: done
+jorell: <@keanek>: can you test it now?
+keanek: 10\/10!
+jorell: sweet
+caleb: okay, sorry I'm joining the party late, but I have failing integration tests. Did that get discussed\/resolved?
+keanek: I think it should be resolved with the latest iteration1 code.
+caleb: got the latest right now
+keanek: Mocha or run_tests.sh?
+caleb: mocha
+keanek: That's probably why
+caleb: using run_tests.sh shows me a quick flash of a new command window, then exits
+keanek: There's a test output folder.
+mattmcmurray: Yeah bro, you need to get a Linux environment up or the shell scripts are going to fail 
+jorell: Caleb, you can write a bat file for the tests.
+caleb: so are we no longer supporting mocha then?
+jorell: We are  
+jorell: The .sh file runs mocha
+caleb: oh, it just does the setup for the tests
+jorell: Yeah. So you can try writing a bat that does the same thing.
+caleb: okay
+caleb: I'll figure that out this weekend then
+mattmcmurray: Regarding the prof requiring selenium tests: Nightwatch.js uses selenium on the backend. It just makes selenium much cleaner and less ugly
+
+
+caleb: <@caleb|caleb> has joined the channel
+evan: <@evan|evan> has joined the channel
+jorell: <@jorell|jorell> has joined the channel
+keanek: <@keanek|keanek> has joined the channel
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+steve: <@steve|steve> has joined the channel
+steve: <!channel>: just want to confirm that nobody has picked up stub DB work. im going to try to start it now
+mattmcmurray: I have not
+keanek: Nope.
+evan: I haven't
+jorell: neither have I.
+evan: It looks like we have two models doing the same thing, likes and usermatches. I don't see likes being referenced, <@keanek> did you use it anywhere? 
+jorell: That must be when he didn\u2019t know you were working on it?
+evan: Yeah that's what I was thinking, if it's not referenced let's remove it so it isn't tested by accident.
+mattmcmurray: If you use sublime, do a global search for \"Likes.js\" and it should show if its imported anywhere
+mattmcmurray: I'm sure other text editors have similar functions
+evan: Looks like it's not referenced
+evan: I'll submit a pull request
+evan: I'm just gonna merge it myself
+caleb: do we want to make pull requests for testing? or just merge in
+evan: We should make pull requests still just in case people catch potentially missing  cases
+caleb: pull request up for a few tests
+mattmcmurray: I'm getting 3 failed tests on iteration1 branch. Is that the case for anyone else?
+mattmcmurray: Okay, so it's important to remember that tests aren't necessarily run in the order that they're written in the file, so if you make API calls that modify a user, make sure that it doesn't break another test case
+mattmcmurray: Okay, so I figured out why tests were failing. My copy of the db was stuck in a weird state. Crisis averted.
+jorell: So uhhh
+jorell: how do you run the tests?
+jorell: nvm figured it out
+jorell: <@steve|steve> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/steve\/F0L8B3J5B\/untitled_document|Meeting notes> and commented: Btw Jorell and Matt, here's what I wanted to say at the meeting today. I should be able to get the stubs out tonight
+jorell: ": "text
+jorell: alright, noted.
+jorell: <@steve>: let me know when you\u2019re done with those stubs. I\u2019m going to write some unit tests :simple_smile:
+steve: working on it
+steve: <@evan> how does this arg thing work?
+steve: when i put -fill_database, it seems to split it into chars and then says that there's no option associated with each individual char?
+steve: nvm figured it out.
+steve: PSA: you have to use 2 dashes to make it work
+steve: ok user stub is up for review
+steve: it is imperfect, so do let me know if you have issues and I'll fix
+steve: i tested profiles and some random api methods with it, but im not an expert
+steve: <@jorell>: im done both stubs now
+jorell: sweet
+jorell: So running the test script gives me 6 pass and 6 fails
+mattmcmurray: Make sure you've cleaned out the database. I had the same issue last night. 
+mattmcmurray: <!channel> I'm a little fuzzy on what was decided at yesterday's meeting. If I understand correctly, whoever is doing the integration tests should actually make them unit tests using the stub? I'm gonna bring my laptop and try to get those done this afternoon at school
+caleb: Pretty sure we realized that we THOUGHT were unit tests were actually integration tests, due to our lack of a stub database. <@steve>  was tasked with creating the stub database, which he did last night
+caleb: <@mattmcmurray>:
+mattmcmurray: Right. K so I'll try and hammer out some unit tests
+caleb: The only thing I'm unclear on right now is how to run the tests with the stub. He documented how to run main.js with it, but not with running the tests with Mocha
+caleb: also, make sure you check what's already there. We've got most of the api ones done
+keanek: I'll push what I've done to a remote branch.  The --stub commands don't work with mocha, unfortunately.
+caleb: so how do you run the tests using the stub?
+keanek: You need to inject the api in the test.  You can look at the branch once I push it.
+keanek: Okay, I created a pull request with my test code.
+evan: <@keanek> I posted a comment on your pull request, I'm just wondering how something works
+evan: It seems weird to me but it works, so I'm just curious is all
+keanek: Heading to school, won't have access to the chat for the next hour or so.  Walking sucks.
+evan: We can't figure it out, can anyone else chime in? <https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/41\/files#r51898237>
+evan: Further testing.
+evan: Never mind I figured it out
+steve: Is it just that there's only one router that they all share? 
+evan: Basically yeah, whenever you do a require, there is a cache that node keeps track of, and if you require and already existing file, it just references that one instead of creating a new instance of it.
+jorell: I just want to clarify something, we\u2019re just turning the intergration tests into unit test by using the stub instead of the actual User and UserMatches model.
+jorell: Correct?
+steve: i believe so
+steve: not sure if we should keep the \"integration\" tests too
+jorell: we need 1 integration test per detailed user story.
+mattmcmurray: I'm working on the 3 integration tests 
+steve: lol RIP we only finished 3\/9 detailed user stories
+mattmcmurray: My app for SE1 was basically 100% non functional and I got an A in that class 
+mattmcmurray: Ehh I feel like we're graded on how we follow the process, not necessarily how many features\/stories we get throufh
+jorell: Is anyone converting integration tests to unit tests currently? I just dont want to have conflicts with anyone.
+keanek: I already converted the api_tests to use the stubs.
+jorell: ahh
+evan: I'm working on changing my tests to stubs
+mattmcmurray: All tests are passing except for this one, which fails consistently: \n```\n  1) api GET \/api\/getPotentialMatches requests a list of users that are a match for a provided userID:\n     Uncaught AssertionError: Expected 0 to equal 1.\n      at fail (node_modules\/assertthat\/lib\/fail.js:24:10)\n      at Object.equalTo (node_modules\/assertthat\/lib\/constraints\/equalTo.js:17:5)\n      at Test.&lt;anonymous&gt; (test\/api_endpoint_tests.js:174:57)\n      at Test.assert (node_modules\/supertest\/lib\/test.js:156:6)\n      at Server.assert (node_modules\/supertest\/lib\/test.js:127:12)\n      at emitCloseNT (net.js:1524:8)\n```
+jorell: all tests passed for me
+mattmcmurray: I might be missing changes from main branch
+mattmcmurray: <@jorell|jorell> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/jorell\/F0LAT7RKN\/screen_shot_2016-02-04_at_4.54.57_pm.png|Screen Shot 2016-02-04 at 4.54.57 PM.png>
+mattmcmurray: Just finished integration tests, gonna submit a pull request shortly
+keanek: Pulling iteration1 and running the tests results in 24 passing tests.
+jorell: lol
+jorell: did you add 8 tests keanna?
+jorell: keann*
+mattmcmurray: hmm weird, I must be missing something
+jorell: Keane*
+keanek: No, I think the new tests are from Evan's user matching tests.
+jorell: Hmm, I pulled that into my local.
+evan: I added eight
+jorell: hmm
+jorell: oh
+jorell: do you guys run the .sh file to run your tests?
+keanek: I do.
+evan: I was just running mocha
+jorell: Oh yeah, I ran the shell script and 24 passed
+jorell: haha
+jorell: Are you guys using the stub for your tests?
+jorell: <@evan>:
+evan: Yup
+evan: I'm gonna do a unit test on the actual model though
+jorell: Can I take that from you? I think that\u2019s part of the unit test db queries
+evan: Sure that's cool
+jorell: I haven\u2019t written any tests because all ya\u2019ll are quick
+mattmcmurray: Figured out why that one test was failing. I miss-merged some changes down to my local machine. Crisis averted, all tests pass :thumbsup:
+jorell: :thumbsup:
+jorell: Yall need to start using this one :thumbsup::skin-tone-2:
+mattmcmurray: Submitting pull request in a minute
+mattmcmurray: But I am homer simpson
+jorell: I think the yellow one is for asians. haha
+mattmcmurray: <!channel>: so in my branch for integration testing, I modified the `run_tests.sh` script to do different set up and tear down for unit tests and integration tests. SO, if you add a new file to the test directory, you have to add it to the script or it won't get run
+jorell: I can\u2019t add to usermatches. haha
+jorell: <@keanek>: you were testin the login stuff api endpoints correct?
+keanek: I had tests for logins in the api tests, but the stubs didn't really support them, so the tests are commented out at the moment.
+jorell: so api_test_endpoint are talking to the stubs?
+jorell: haha that\u2019s why I was failing. haha
+evan: Yeah they are
+evan: But our model unit tests shouldn't be off the stubs obviously
+jorell: yup yup.
+jorell: I\u2019m also responsible for writing login\/logout tests.
+jorell: So I\u2019m thinking of just doing the login and logout tests before things are injected
+jorell: is anyone against that idea?
+keanek: They might not run that way...but you can try.
+jorell: doens\u2019t mocha run the tests top down?
+keanek: Not sure
+jorell: you\u2019re right
+jorell: it doesn\u2019t work that way. haha
+jorell: fuck yeah!
+keanek: Got it to work?
+jorell: yeah
+jorell: well the model tests at least
+jorell: we\u2019re using a separate db for testing the model.
+jorell: made a pull request
+steve: looking
+steve: looks good to me
+jorell: Sick.
+keanek: I pulled iteration1 and ran the tests, almost all of the db unit tests are failing.
+jorell: <@keanek>: did you fill the db?
+keanek: I'm running the run_tests.sh
+jorell: Huh. 
+jorell: Huh. 
+jorell: Let me try it out.
+jorell: One sec.
+mattmcmurray: Yeah im getting 7 failing 3 pass 
+mattmcmurray: All other tests are a-ok
+jorell: Damn
+jorell: I know the reason why its failing.
+jorell: the db_unit_tests relies on how the test db is built
+jorell: if say \u201cjflores1\u201d somehow isn\u2019t userid == 1
+jorell: then tests fail.
+jorell: I\u2019m probably just going to make the tests less strict.
+mattmcmurray: Why does the script CD into the test directory before executing the test?
+mattmcmurray: That causes 6 of the 7 failures 
+jorell: because the injection needs to happen in the tests directory. relative path and all.
+jorell: because if node\/mocha is executed in \/server, it uses our actual database.
+jorell: I was going to turn Database.js into a class, but a lot of refactoring will happen if I did.
+mattmcmurray: I mean.. I just changed it and it solved 6\/7 failures. Are you getting that many failures?
+jorell: im passing 5\/10
+jorell: all tests pass on my lapto.
+jorell: (currently on my desktop)
+jorell: <@mattmcmurray>: can you try running the db unit tests just by itself and run it from server
+jorell: Let me know if you\u2019re getting \u2018cannot read property \u2018select\u2019 of undefined'
+mattmcmurray: I'm on the bus rn
+jorell: <@mattmcmurray>: alright. I\u2019ve been learning that node dependencies are hard to maintain on different machines.
+mattmcmurray: I mean, they shouldn't be if you're saving to package.json
+jorell: Alright, I have 10\/10 tests passing
+jorell: Should I just push to iter1?
+keanek: Sure.
+jorell: done
+jorell: <@keanek>: can you test it now?
+keanek: 10\/10!
+jorell: sweet
+caleb: okay, sorry I'm joining the party late, but I have failing integration tests. Did that get discussed\/resolved?
+keanek: I think it should be resolved with the latest iteration1 code.
+caleb: got the latest right now
+keanek: Mocha or run_tests.sh?
+caleb: mocha
+keanek: That's probably why
+caleb: using run_tests.sh shows me a quick flash of a new command window, then exits
+keanek: There's a test output folder.
+mattmcmurray: Yeah bro, you need to get a Linux environment up or the shell scripts are going to fail 
+jorell: Caleb, you can write a bat file for the tests.
+caleb: so are we no longer supporting mocha then?
+jorell: We are  
+jorell: The .sh file runs mocha
+caleb: oh, it just does the setup for the tests
+jorell: Yeah. So you can try writing a bat that does the same thing.
+caleb: okay
+caleb: I'll figure that out this weekend then
+mattmcmurray: Regarding the prof requiring selenium tests: Nightwatch.js uses selenium on the backend. It just makes selenium much cleaner and less ugly
+keanek: I started to try testing the clientside js files.  However, Mocha doesn't like jQuery's $.  After doing some research, it seems we'll need another framework\/plugin.  \nHere's the one link I found that referred to this problem: <http:\/\/stackoverflow.com\/questions\/28760568\/how-do-i-test-jquery-code-with-mochajs>\nAnd mocha-jsdom: <https:\/\/www.npmjs.com\/package\/mocha-jsdom>
+keanek: I think, mocha does not recognise jQuery in the scope of my tests, because it tests plain JavaScript without a problem. I tried to require jQuery's full code in the beginning of the .js file with my
+keanek: Simple integration of jsdom into mocha tests
+evan: Correct me if I'm wrong, but I think the only testing we need to do for client-side code would be through our acceptance tests with Nightwatch. I think we're just using Mocha for server-side JS.
+jorell: Thats what i thought as well.
+keanek: He wants unit testing for the front end javascript.  Mentioned it specially in class.
+jorell: Oh 
+jorell: Thats weird.
+
+
+caleb: <@caleb|caleb> has joined the channel
+evan: <@evan|evan> has joined the channel
+jorell: <@jorell|jorell> has joined the channel
+keanek: <@keanek|keanek> has joined the channel
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+steve: <@steve|steve> has joined the channel
+steve: <!channel>: just want to confirm that nobody has picked up stub DB work. im going to try to start it now
+mattmcmurray: I have not
+keanek: Nope.
+evan: I haven't
+jorell: neither have I.
+evan: It looks like we have two models doing the same thing, likes and usermatches. I don't see likes being referenced, <@keanek> did you use it anywhere? 
+jorell: That must be when he didn\u2019t know you were working on it?
+evan: Yeah that's what I was thinking, if it's not referenced let's remove it so it isn't tested by accident.
+mattmcmurray: If you use sublime, do a global search for \"Likes.js\" and it should show if its imported anywhere
+mattmcmurray: I'm sure other text editors have similar functions
+evan: Looks like it's not referenced
+evan: I'll submit a pull request
+evan: I'm just gonna merge it myself
+caleb: do we want to make pull requests for testing? or just merge in
+evan: We should make pull requests still just in case people catch potentially missing  cases
+caleb: pull request up for a few tests
+mattmcmurray: I'm getting 3 failed tests on iteration1 branch. Is that the case for anyone else?
+mattmcmurray: Okay, so it's important to remember that tests aren't necessarily run in the order that they're written in the file, so if you make API calls that modify a user, make sure that it doesn't break another test case
+mattmcmurray: Okay, so I figured out why tests were failing. My copy of the db was stuck in a weird state. Crisis averted.
+jorell: So uhhh
+jorell: how do you run the tests?
+jorell: nvm figured it out
+jorell: <@steve|steve> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/steve\/F0L8B3J5B\/untitled_document|Meeting notes> and commented: Btw Jorell and Matt, here's what I wanted to say at the meeting today. I should be able to get the stubs out tonight
+jorell: ": "text
+jorell: alright, noted.
+jorell: <@steve>: let me know when you\u2019re done with those stubs. I\u2019m going to write some unit tests :simple_smile:
+steve: working on it
+steve: <@evan> how does this arg thing work?
+steve: when i put -fill_database, it seems to split it into chars and then says that there's no option associated with each individual char?
+steve: nvm figured it out.
+steve: PSA: you have to use 2 dashes to make it work
+steve: ok user stub is up for review
+steve: it is imperfect, so do let me know if you have issues and I'll fix
+steve: i tested profiles and some random api methods with it, but im not an expert
+steve: <@jorell>: im done both stubs now
+jorell: sweet
+jorell: So running the test script gives me 6 pass and 6 fails
+mattmcmurray: Make sure you've cleaned out the database. I had the same issue last night. 
+mattmcmurray: <!channel> I'm a little fuzzy on what was decided at yesterday's meeting. If I understand correctly, whoever is doing the integration tests should actually make them unit tests using the stub? I'm gonna bring my laptop and try to get those done this afternoon at school
+caleb: Pretty sure we realized that we THOUGHT were unit tests were actually integration tests, due to our lack of a stub database. <@steve>  was tasked with creating the stub database, which he did last night
+caleb: <@mattmcmurray>:
+mattmcmurray: Right. K so I'll try and hammer out some unit tests
+caleb: The only thing I'm unclear on right now is how to run the tests with the stub. He documented how to run main.js with it, but not with running the tests with Mocha
+caleb: also, make sure you check what's already there. We've got most of the api ones done
+keanek: I'll push what I've done to a remote branch.  The --stub commands don't work with mocha, unfortunately.
+caleb: so how do you run the tests using the stub?
+keanek: You need to inject the api in the test.  You can look at the branch once I push it.
+keanek: Okay, I created a pull request with my test code.
+evan: <@keanek> I posted a comment on your pull request, I'm just wondering how something works
+evan: It seems weird to me but it works, so I'm just curious is all
+keanek: Heading to school, won't have access to the chat for the next hour or so.  Walking sucks.
+evan: We can't figure it out, can anyone else chime in? <https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/41\/files#r51898237>
+evan: Further testing.
+evan: Never mind I figured it out
+steve: Is it just that there's only one router that they all share? 
+evan: Basically yeah, whenever you do a require, there is a cache that node keeps track of, and if you require and already existing file, it just references that one instead of creating a new instance of it.
+jorell: I just want to clarify something, we\u2019re just turning the intergration tests into unit test by using the stub instead of the actual User and UserMatches model.
+jorell: Correct?
+steve: i believe so
+steve: not sure if we should keep the \"integration\" tests too
+jorell: we need 1 integration test per detailed user story.
+mattmcmurray: I'm working on the 3 integration tests 
+steve: lol RIP we only finished 3\/9 detailed user stories
+mattmcmurray: My app for SE1 was basically 100% non functional and I got an A in that class 
+mattmcmurray: Ehh I feel like we're graded on how we follow the process, not necessarily how many features\/stories we get throufh
+jorell: Is anyone converting integration tests to unit tests currently? I just dont want to have conflicts with anyone.
+keanek: I already converted the api_tests to use the stubs.
+jorell: ahh
+evan: I'm working on changing my tests to stubs
+mattmcmurray: All tests are passing except for this one, which fails consistently: \n```\n  1) api GET \/api\/getPotentialMatches requests a list of users that are a match for a provided userID:\n     Uncaught AssertionError: Expected 0 to equal 1.\n      at fail (node_modules\/assertthat\/lib\/fail.js:24:10)\n      at Object.equalTo (node_modules\/assertthat\/lib\/constraints\/equalTo.js:17:5)\n      at Test.&lt;anonymous&gt; (test\/api_endpoint_tests.js:174:57)\n      at Test.assert (node_modules\/supertest\/lib\/test.js:156:6)\n      at Server.assert (node_modules\/supertest\/lib\/test.js:127:12)\n      at emitCloseNT (net.js:1524:8)\n```
+jorell: all tests passed for me
+mattmcmurray: I might be missing changes from main branch
+mattmcmurray: <@jorell|jorell> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/jorell\/F0LAT7RKN\/screen_shot_2016-02-04_at_4.54.57_pm.png|Screen Shot 2016-02-04 at 4.54.57 PM.png>
+mattmcmurray: Just finished integration tests, gonna submit a pull request shortly
+keanek: Pulling iteration1 and running the tests results in 24 passing tests.
+jorell: lol
+jorell: did you add 8 tests keanna?
+jorell: keann*
+mattmcmurray: hmm weird, I must be missing something
+jorell: Keane*
+keanek: No, I think the new tests are from Evan's user matching tests.
+jorell: Hmm, I pulled that into my local.
+evan: I added eight
+jorell: hmm
+jorell: oh
+jorell: do you guys run the .sh file to run your tests?
+keanek: I do.
+evan: I was just running mocha
+jorell: Oh yeah, I ran the shell script and 24 passed
+jorell: haha
+jorell: Are you guys using the stub for your tests?
+jorell: <@evan>:
+evan: Yup
+evan: I'm gonna do a unit test on the actual model though
+jorell: Can I take that from you? I think that\u2019s part of the unit test db queries
+evan: Sure that's cool
+jorell: I haven\u2019t written any tests because all ya\u2019ll are quick
+mattmcmurray: Figured out why that one test was failing. I miss-merged some changes down to my local machine. Crisis averted, all tests pass :thumbsup:
+jorell: :thumbsup:
+jorell: Yall need to start using this one :thumbsup::skin-tone-2:
+mattmcmurray: Submitting pull request in a minute
+mattmcmurray: But I am homer simpson
+jorell: I think the yellow one is for asians. haha
+mattmcmurray: <!channel>: so in my branch for integration testing, I modified the `run_tests.sh` script to do different set up and tear down for unit tests and integration tests. SO, if you add a new file to the test directory, you have to add it to the script or it won't get run
+jorell: I can\u2019t add to usermatches. haha
+jorell: <@keanek>: you were testin the login stuff api endpoints correct?
+keanek: I had tests for logins in the api tests, but the stubs didn't really support them, so the tests are commented out at the moment.
+jorell: so api_test_endpoint are talking to the stubs?
+jorell: haha that\u2019s why I was failing. haha
+evan: Yeah they are
+evan: But our model unit tests shouldn't be off the stubs obviously
+jorell: yup yup.
+jorell: I\u2019m also responsible for writing login\/logout tests.
+jorell: So I\u2019m thinking of just doing the login and logout tests before things are injected
+jorell: is anyone against that idea?
+keanek: They might not run that way...but you can try.
+jorell: doens\u2019t mocha run the tests top down?
+keanek: Not sure
+jorell: you\u2019re right
+jorell: it doesn\u2019t work that way. haha
+jorell: fuck yeah!
+keanek: Got it to work?
+jorell: yeah
+jorell: well the model tests at least
+jorell: we\u2019re using a separate db for testing the model.
+jorell: made a pull request
+steve: looking
+steve: looks good to me
+jorell: Sick.
+keanek: I pulled iteration1 and ran the tests, almost all of the db unit tests are failing.
+jorell: <@keanek>: did you fill the db?
+keanek: I'm running the run_tests.sh
+jorell: Huh. 
+jorell: Huh. 
+jorell: Let me try it out.
+jorell: One sec.
+mattmcmurray: Yeah im getting 7 failing 3 pass 
+mattmcmurray: All other tests are a-ok
+jorell: Damn
+jorell: I know the reason why its failing.
+jorell: the db_unit_tests relies on how the test db is built
+jorell: if say \u201cjflores1\u201d somehow isn\u2019t userid == 1
+jorell: then tests fail.
+jorell: I\u2019m probably just going to make the tests less strict.
+mattmcmurray: Why does the script CD into the test directory before executing the test?
+mattmcmurray: That causes 6 of the 7 failures 
+jorell: because the injection needs to happen in the tests directory. relative path and all.
+jorell: because if node\/mocha is executed in \/server, it uses our actual database.
+jorell: I was going to turn Database.js into a class, but a lot of refactoring will happen if I did.
+mattmcmurray: I mean.. I just changed it and it solved 6\/7 failures. Are you getting that many failures?
+jorell: im passing 5\/10
+jorell: all tests pass on my lapto.
+jorell: (currently on my desktop)
+jorell: <@mattmcmurray>: can you try running the db unit tests just by itself and run it from server
+jorell: Let me know if you\u2019re getting \u2018cannot read property \u2018select\u2019 of undefined'
+mattmcmurray: I'm on the bus rn
+jorell: <@mattmcmurray>: alright. I\u2019ve been learning that node dependencies are hard to maintain on different machines.
+mattmcmurray: I mean, they shouldn't be if you're saving to package.json
+jorell: Alright, I have 10\/10 tests passing
+jorell: Should I just push to iter1?
+keanek: Sure.
+jorell: done
+jorell: <@keanek>: can you test it now?
+keanek: 10\/10!
+jorell: sweet
+caleb: okay, sorry I'm joining the party late, but I have failing integration tests. Did that get discussed\/resolved?
+keanek: I think it should be resolved with the latest iteration1 code.
+caleb: got the latest right now
+keanek: Mocha or run_tests.sh?
+caleb: mocha
+keanek: That's probably why
+caleb: using run_tests.sh shows me a quick flash of a new command window, then exits
+keanek: There's a test output folder.
+mattmcmurray: Yeah bro, you need to get a Linux environment up or the shell scripts are going to fail 
+jorell: Caleb, you can write a bat file for the tests.
+caleb: so are we no longer supporting mocha then?
+jorell: We are  
+jorell: The .sh file runs mocha
+caleb: oh, it just does the setup for the tests
+jorell: Yeah. So you can try writing a bat that does the same thing.
+caleb: okay
+caleb: I'll figure that out this weekend then
+mattmcmurray: Regarding the prof requiring selenium tests: Nightwatch.js uses selenium on the backend. It just makes selenium much cleaner and less ugly
+keanek: I started to try testing the clientside js files.  However, Mocha doesn't like jQuery's $.  After doing some research, it seems we'll need another framework\/plugin.  \nHere's the one link I found that referred to this problem: <http:\/\/stackoverflow.com\/questions\/28760568\/how-do-i-test-jquery-code-with-mochajs>\nAnd mocha-jsdom: <https:\/\/www.npmjs.com\/package\/mocha-jsdom>
+keanek: I think, mocha does not recognise jQuery in the scope of my tests, because it tests plain JavaScript without a problem. I tried to require jQuery's full code in the beginning of the .js file with my
+keanek: Simple integration of jsdom into mocha tests
+evan: Correct me if I'm wrong, but I think the only testing we need to do for client-side code would be through our acceptance tests with Nightwatch. I think we're just using Mocha for server-side JS.
+jorell: Thats what i thought as well.
+keanek: He wants unit testing for the front end javascript.  Mentioned it specially in class.
+jorell: Oh 
+jorell: Thats weird.
+steve: so when im running the DB unit tests, im getting a bunch of foreign key errors. is there something i need to do first before running the run_tests.sh
+steve: TIL i've somehow gotten this far without having the sqlite3 installed...
+steve: also, why the hell would my machine not tell me this when its running run_tests.sh I only discovered it because i tried the command in the command line...
+mattmcmurray: lmao for the most part you can get by without it
+mattmcmurray: it's only important for pre-populating db
+mattmcmurray: yeah.. I didn't write that shell script with very many safety fallbacks. My bad
+steve: i mean, i would've expected the command line to say \"sqlite3 not installed\" like it did when i finally tried typing it in manually
+mattmcmurray: Yeah, that's kinda weird that it didn't give any error messages at all
+steve: oh. it did actually lol it gave me \"line 32 command not found\" and i just assumed it had to do with the foreign key errors that followed it
+mattmcmurray: Ah, gotcha
+
+
+caleb: <@caleb|caleb> has joined the channel
+evan: <@evan|evan> has joined the channel
+jorell: <@jorell|jorell> has joined the channel
+keanek: <@keanek|keanek> has joined the channel
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+steve: <@steve|steve> has joined the channel
+steve: <!channel>: just want to confirm that nobody has picked up stub DB work. im going to try to start it now
+mattmcmurray: I have not
+keanek: Nope.
+evan: I haven't
+jorell: neither have I.
+evan: It looks like we have two models doing the same thing, likes and usermatches. I don't see likes being referenced, <@keanek> did you use it anywhere? 
+jorell: That must be when he didn\u2019t know you were working on it?
+evan: Yeah that's what I was thinking, if it's not referenced let's remove it so it isn't tested by accident.
+mattmcmurray: If you use sublime, do a global search for \"Likes.js\" and it should show if its imported anywhere
+mattmcmurray: I'm sure other text editors have similar functions
+evan: Looks like it's not referenced
+evan: I'll submit a pull request
+evan: I'm just gonna merge it myself
+caleb: do we want to make pull requests for testing? or just merge in
+evan: We should make pull requests still just in case people catch potentially missing  cases
+caleb: pull request up for a few tests
+mattmcmurray: I'm getting 3 failed tests on iteration1 branch. Is that the case for anyone else?
+mattmcmurray: Okay, so it's important to remember that tests aren't necessarily run in the order that they're written in the file, so if you make API calls that modify a user, make sure that it doesn't break another test case
+mattmcmurray: Okay, so I figured out why tests were failing. My copy of the db was stuck in a weird state. Crisis averted.
+jorell: So uhhh
+jorell: how do you run the tests?
+jorell: nvm figured it out
+jorell: <@steve|steve> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/steve\/F0L8B3J5B\/untitled_document|Meeting notes> and commented: Btw Jorell and Matt, here's what I wanted to say at the meeting today. I should be able to get the stubs out tonight
+jorell: ": "text
+jorell: alright, noted.
+jorell: <@steve>: let me know when you\u2019re done with those stubs. I\u2019m going to write some unit tests :simple_smile:
+steve: working on it
+steve: <@evan> how does this arg thing work?
+steve: when i put -fill_database, it seems to split it into chars and then says that there's no option associated with each individual char?
+steve: nvm figured it out.
+steve: PSA: you have to use 2 dashes to make it work
+steve: ok user stub is up for review
+steve: it is imperfect, so do let me know if you have issues and I'll fix
+steve: i tested profiles and some random api methods with it, but im not an expert
+steve: <@jorell>: im done both stubs now
+jorell: sweet
+jorell: So running the test script gives me 6 pass and 6 fails
+mattmcmurray: Make sure you've cleaned out the database. I had the same issue last night. 
+mattmcmurray: <!channel> I'm a little fuzzy on what was decided at yesterday's meeting. If I understand correctly, whoever is doing the integration tests should actually make them unit tests using the stub? I'm gonna bring my laptop and try to get those done this afternoon at school
+caleb: Pretty sure we realized that we THOUGHT were unit tests were actually integration tests, due to our lack of a stub database. <@steve>  was tasked with creating the stub database, which he did last night
+caleb: <@mattmcmurray>:
+mattmcmurray: Right. K so I'll try and hammer out some unit tests
+caleb: The only thing I'm unclear on right now is how to run the tests with the stub. He documented how to run main.js with it, but not with running the tests with Mocha
+caleb: also, make sure you check what's already there. We've got most of the api ones done
+keanek: I'll push what I've done to a remote branch.  The --stub commands don't work with mocha, unfortunately.
+caleb: so how do you run the tests using the stub?
+keanek: You need to inject the api in the test.  You can look at the branch once I push it.
+keanek: Okay, I created a pull request with my test code.
+evan: <@keanek> I posted a comment on your pull request, I'm just wondering how something works
+evan: It seems weird to me but it works, so I'm just curious is all
+keanek: Heading to school, won't have access to the chat for the next hour or so.  Walking sucks.
+evan: We can't figure it out, can anyone else chime in? <https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/41\/files#r51898237>
+evan: Further testing.
+evan: Never mind I figured it out
+steve: Is it just that there's only one router that they all share? 
+evan: Basically yeah, whenever you do a require, there is a cache that node keeps track of, and if you require and already existing file, it just references that one instead of creating a new instance of it.
+jorell: I just want to clarify something, we\u2019re just turning the intergration tests into unit test by using the stub instead of the actual User and UserMatches model.
+jorell: Correct?
+steve: i believe so
+steve: not sure if we should keep the \"integration\" tests too
+jorell: we need 1 integration test per detailed user story.
+mattmcmurray: I'm working on the 3 integration tests 
+steve: lol RIP we only finished 3\/9 detailed user stories
+mattmcmurray: My app for SE1 was basically 100% non functional and I got an A in that class 
+mattmcmurray: Ehh I feel like we're graded on how we follow the process, not necessarily how many features\/stories we get throufh
+jorell: Is anyone converting integration tests to unit tests currently? I just dont want to have conflicts with anyone.
+keanek: I already converted the api_tests to use the stubs.
+jorell: ahh
+evan: I'm working on changing my tests to stubs
+mattmcmurray: All tests are passing except for this one, which fails consistently: \n```\n  1) api GET \/api\/getPotentialMatches requests a list of users that are a match for a provided userID:\n     Uncaught AssertionError: Expected 0 to equal 1.\n      at fail (node_modules\/assertthat\/lib\/fail.js:24:10)\n      at Object.equalTo (node_modules\/assertthat\/lib\/constraints\/equalTo.js:17:5)\n      at Test.&lt;anonymous&gt; (test\/api_endpoint_tests.js:174:57)\n      at Test.assert (node_modules\/supertest\/lib\/test.js:156:6)\n      at Server.assert (node_modules\/supertest\/lib\/test.js:127:12)\n      at emitCloseNT (net.js:1524:8)\n```
+jorell: all tests passed for me
+mattmcmurray: I might be missing changes from main branch
+mattmcmurray: <@jorell|jorell> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/jorell\/F0LAT7RKN\/screen_shot_2016-02-04_at_4.54.57_pm.png|Screen Shot 2016-02-04 at 4.54.57 PM.png>
+mattmcmurray: Just finished integration tests, gonna submit a pull request shortly
+keanek: Pulling iteration1 and running the tests results in 24 passing tests.
+jorell: lol
+jorell: did you add 8 tests keanna?
+jorell: keann*
+mattmcmurray: hmm weird, I must be missing something
+jorell: Keane*
+keanek: No, I think the new tests are from Evan's user matching tests.
+jorell: Hmm, I pulled that into my local.
+evan: I added eight
+jorell: hmm
+jorell: oh
+jorell: do you guys run the .sh file to run your tests?
+keanek: I do.
+evan: I was just running mocha
+jorell: Oh yeah, I ran the shell script and 24 passed
+jorell: haha
+jorell: Are you guys using the stub for your tests?
+jorell: <@evan>:
+evan: Yup
+evan: I'm gonna do a unit test on the actual model though
+jorell: Can I take that from you? I think that\u2019s part of the unit test db queries
+evan: Sure that's cool
+jorell: I haven\u2019t written any tests because all ya\u2019ll are quick
+mattmcmurray: Figured out why that one test was failing. I miss-merged some changes down to my local machine. Crisis averted, all tests pass :thumbsup:
+jorell: :thumbsup:
+jorell: Yall need to start using this one :thumbsup::skin-tone-2:
+mattmcmurray: Submitting pull request in a minute
+mattmcmurray: But I am homer simpson
+jorell: I think the yellow one is for asians. haha
+mattmcmurray: <!channel>: so in my branch for integration testing, I modified the `run_tests.sh` script to do different set up and tear down for unit tests and integration tests. SO, if you add a new file to the test directory, you have to add it to the script or it won't get run
+jorell: I can\u2019t add to usermatches. haha
+jorell: <@keanek>: you were testin the login stuff api endpoints correct?
+keanek: I had tests for logins in the api tests, but the stubs didn't really support them, so the tests are commented out at the moment.
+jorell: so api_test_endpoint are talking to the stubs?
+jorell: haha that\u2019s why I was failing. haha
+evan: Yeah they are
+evan: But our model unit tests shouldn't be off the stubs obviously
+jorell: yup yup.
+jorell: I\u2019m also responsible for writing login\/logout tests.
+jorell: So I\u2019m thinking of just doing the login and logout tests before things are injected
+jorell: is anyone against that idea?
+keanek: They might not run that way...but you can try.
+jorell: doens\u2019t mocha run the tests top down?
+keanek: Not sure
+jorell: you\u2019re right
+jorell: it doesn\u2019t work that way. haha
+jorell: fuck yeah!
+keanek: Got it to work?
+jorell: yeah
+jorell: well the model tests at least
+jorell: we\u2019re using a separate db for testing the model.
+jorell: made a pull request
+steve: looking
+steve: looks good to me
+jorell: Sick.
+keanek: I pulled iteration1 and ran the tests, almost all of the db unit tests are failing.
+jorell: <@keanek>: did you fill the db?
+keanek: I'm running the run_tests.sh
+jorell: Huh. 
+jorell: Huh. 
+jorell: Let me try it out.
+jorell: One sec.
+mattmcmurray: Yeah im getting 7 failing 3 pass 
+mattmcmurray: All other tests are a-ok
+jorell: Damn
+jorell: I know the reason why its failing.
+jorell: the db_unit_tests relies on how the test db is built
+jorell: if say \u201cjflores1\u201d somehow isn\u2019t userid == 1
+jorell: then tests fail.
+jorell: I\u2019m probably just going to make the tests less strict.
+mattmcmurray: Why does the script CD into the test directory before executing the test?
+mattmcmurray: That causes 6 of the 7 failures 
+jorell: because the injection needs to happen in the tests directory. relative path and all.
+jorell: because if node\/mocha is executed in \/server, it uses our actual database.
+jorell: I was going to turn Database.js into a class, but a lot of refactoring will happen if I did.
+mattmcmurray: I mean.. I just changed it and it solved 6\/7 failures. Are you getting that many failures?
+jorell: im passing 5\/10
+jorell: all tests pass on my lapto.
+jorell: (currently on my desktop)
+jorell: <@mattmcmurray>: can you try running the db unit tests just by itself and run it from server
+jorell: Let me know if you\u2019re getting \u2018cannot read property \u2018select\u2019 of undefined'
+mattmcmurray: I'm on the bus rn
+jorell: <@mattmcmurray>: alright. I\u2019ve been learning that node dependencies are hard to maintain on different machines.
+mattmcmurray: I mean, they shouldn't be if you're saving to package.json
+jorell: Alright, I have 10\/10 tests passing
+jorell: Should I just push to iter1?
+keanek: Sure.
+jorell: done
+jorell: <@keanek>: can you test it now?
+keanek: 10\/10!
+jorell: sweet
+caleb: okay, sorry I'm joining the party late, but I have failing integration tests. Did that get discussed\/resolved?
+keanek: I think it should be resolved with the latest iteration1 code.
+caleb: got the latest right now
+keanek: Mocha or run_tests.sh?
+caleb: mocha
+keanek: That's probably why
+caleb: using run_tests.sh shows me a quick flash of a new command window, then exits
+keanek: There's a test output folder.
+mattmcmurray: Yeah bro, you need to get a Linux environment up or the shell scripts are going to fail 
+jorell: Caleb, you can write a bat file for the tests.
+caleb: so are we no longer supporting mocha then?
+jorell: We are  
+jorell: The .sh file runs mocha
+caleb: oh, it just does the setup for the tests
+jorell: Yeah. So you can try writing a bat that does the same thing.
+caleb: okay
+caleb: I'll figure that out this weekend then
+mattmcmurray: Regarding the prof requiring selenium tests: Nightwatch.js uses selenium on the backend. It just makes selenium much cleaner and less ugly
+keanek: I started to try testing the clientside js files.  However, Mocha doesn't like jQuery's $.  After doing some research, it seems we'll need another framework\/plugin.  \nHere's the one link I found that referred to this problem: <http:\/\/stackoverflow.com\/questions\/28760568\/how-do-i-test-jquery-code-with-mochajs>\nAnd mocha-jsdom: <https:\/\/www.npmjs.com\/package\/mocha-jsdom>
+keanek: I think, mocha does not recognise jQuery in the scope of my tests, because it tests plain JavaScript without a problem. I tried to require jQuery's full code in the beginning of the .js file with my
+keanek: Simple integration of jsdom into mocha tests
+evan: Correct me if I'm wrong, but I think the only testing we need to do for client-side code would be through our acceptance tests with Nightwatch. I think we're just using Mocha for server-side JS.
+jorell: Thats what i thought as well.
+keanek: He wants unit testing for the front end javascript.  Mentioned it specially in class.
+jorell: Oh 
+jorell: Thats weird.
+steve: so when im running the DB unit tests, im getting a bunch of foreign key errors. is there something i need to do first before running the run_tests.sh
+steve: TIL i've somehow gotten this far without having the sqlite3 installed...
+steve: also, why the hell would my machine not tell me this when its running run_tests.sh I only discovered it because i tried the command in the command line...
+mattmcmurray: lmao for the most part you can get by without it
+mattmcmurray: it's only important for pre-populating db
+mattmcmurray: yeah.. I didn't write that shell script with very many safety fallbacks. My bad
+steve: i mean, i would've expected the command line to say \"sqlite3 not installed\" like it did when i finally tried typing it in manually
+mattmcmurray: Yeah, that's kinda weird that it didn't give any error messages at all
+steve: oh. it did actually lol it gave me \"line 32 command not found\" and i just assumed it had to do with the foreign key errors that followed it
+mattmcmurray: Ah, gotcha
+keanek: I can't find a way so that jQuery isn't causing errors trying to test the public\/js\/*.js files.
+steve: welp
+steve: maybe instead of doing $('buttonName').onclick(function....
+steve: we need to start adding the onclick to the HTML and then have it call a named function? that way we can test the functions that don't touch jquery at least?
+keanek: The ajax calls will still cause problems.  Trying to load the js file, like we do for user is causing the errors.
+steve: so do we need to load it some other way?
+keanek: I'm not sure.  Either we figure out how to make jquery testable, we find some alternative to jquery, or we factor out the non-jquery functions to a separate, testable js file.  Problem is, a good number of our functions are ajax calls or getting\/setting data through jquery.
+
+
+caleb: <@caleb|caleb> has joined the channel
+evan: <@evan|evan> has joined the channel
+jorell: <@jorell|jorell> has joined the channel
+keanek: <@keanek|keanek> has joined the channel
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+steve: <@steve|steve> has joined the channel
+steve: <!channel>: just want to confirm that nobody has picked up stub DB work. im going to try to start it now
+mattmcmurray: I have not
+keanek: Nope.
+evan: I haven't
+jorell: neither have I.
+evan: It looks like we have two models doing the same thing, likes and usermatches. I don't see likes being referenced, <@keanek> did you use it anywhere? 
+jorell: That must be when he didn\u2019t know you were working on it?
+evan: Yeah that's what I was thinking, if it's not referenced let's remove it so it isn't tested by accident.
+mattmcmurray: If you use sublime, do a global search for \"Likes.js\" and it should show if its imported anywhere
+mattmcmurray: I'm sure other text editors have similar functions
+evan: Looks like it's not referenced
+evan: I'll submit a pull request
+evan: I'm just gonna merge it myself
+caleb: do we want to make pull requests for testing? or just merge in
+evan: We should make pull requests still just in case people catch potentially missing  cases
+caleb: pull request up for a few tests
+mattmcmurray: I'm getting 3 failed tests on iteration1 branch. Is that the case for anyone else?
+mattmcmurray: Okay, so it's important to remember that tests aren't necessarily run in the order that they're written in the file, so if you make API calls that modify a user, make sure that it doesn't break another test case
+mattmcmurray: Okay, so I figured out why tests were failing. My copy of the db was stuck in a weird state. Crisis averted.
+jorell: So uhhh
+jorell: how do you run the tests?
+jorell: nvm figured it out
+jorell: <@steve|steve> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/steve\/F0L8B3J5B\/untitled_document|Meeting notes> and commented: Btw Jorell and Matt, here's what I wanted to say at the meeting today. I should be able to get the stubs out tonight
+jorell: ": "text
+jorell: alright, noted.
+jorell: <@steve>: let me know when you\u2019re done with those stubs. I\u2019m going to write some unit tests :simple_smile:
+steve: working on it
+steve: <@evan> how does this arg thing work?
+steve: when i put -fill_database, it seems to split it into chars and then says that there's no option associated with each individual char?
+steve: nvm figured it out.
+steve: PSA: you have to use 2 dashes to make it work
+steve: ok user stub is up for review
+steve: it is imperfect, so do let me know if you have issues and I'll fix
+steve: i tested profiles and some random api methods with it, but im not an expert
+steve: <@jorell>: im done both stubs now
+jorell: sweet
+jorell: So running the test script gives me 6 pass and 6 fails
+mattmcmurray: Make sure you've cleaned out the database. I had the same issue last night. 
+mattmcmurray: <!channel> I'm a little fuzzy on what was decided at yesterday's meeting. If I understand correctly, whoever is doing the integration tests should actually make them unit tests using the stub? I'm gonna bring my laptop and try to get those done this afternoon at school
+caleb: Pretty sure we realized that we THOUGHT were unit tests were actually integration tests, due to our lack of a stub database. <@steve>  was tasked with creating the stub database, which he did last night
+caleb: <@mattmcmurray>:
+mattmcmurray: Right. K so I'll try and hammer out some unit tests
+caleb: The only thing I'm unclear on right now is how to run the tests with the stub. He documented how to run main.js with it, but not with running the tests with Mocha
+caleb: also, make sure you check what's already there. We've got most of the api ones done
+keanek: I'll push what I've done to a remote branch.  The --stub commands don't work with mocha, unfortunately.
+caleb: so how do you run the tests using the stub?
+keanek: You need to inject the api in the test.  You can look at the branch once I push it.
+keanek: Okay, I created a pull request with my test code.
+evan: <@keanek> I posted a comment on your pull request, I'm just wondering how something works
+evan: It seems weird to me but it works, so I'm just curious is all
+keanek: Heading to school, won't have access to the chat for the next hour or so.  Walking sucks.
+evan: We can't figure it out, can anyone else chime in? <https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/41\/files#r51898237>
+evan: Further testing.
+evan: Never mind I figured it out
+steve: Is it just that there's only one router that they all share? 
+evan: Basically yeah, whenever you do a require, there is a cache that node keeps track of, and if you require and already existing file, it just references that one instead of creating a new instance of it.
+jorell: I just want to clarify something, we\u2019re just turning the intergration tests into unit test by using the stub instead of the actual User and UserMatches model.
+jorell: Correct?
+steve: i believe so
+steve: not sure if we should keep the \"integration\" tests too
+jorell: we need 1 integration test per detailed user story.
+mattmcmurray: I'm working on the 3 integration tests 
+steve: lol RIP we only finished 3\/9 detailed user stories
+mattmcmurray: My app for SE1 was basically 100% non functional and I got an A in that class 
+mattmcmurray: Ehh I feel like we're graded on how we follow the process, not necessarily how many features\/stories we get throufh
+jorell: Is anyone converting integration tests to unit tests currently? I just dont want to have conflicts with anyone.
+keanek: I already converted the api_tests to use the stubs.
+jorell: ahh
+evan: I'm working on changing my tests to stubs
+mattmcmurray: All tests are passing except for this one, which fails consistently: \n```\n  1) api GET \/api\/getPotentialMatches requests a list of users that are a match for a provided userID:\n     Uncaught AssertionError: Expected 0 to equal 1.\n      at fail (node_modules\/assertthat\/lib\/fail.js:24:10)\n      at Object.equalTo (node_modules\/assertthat\/lib\/constraints\/equalTo.js:17:5)\n      at Test.&lt;anonymous&gt; (test\/api_endpoint_tests.js:174:57)\n      at Test.assert (node_modules\/supertest\/lib\/test.js:156:6)\n      at Server.assert (node_modules\/supertest\/lib\/test.js:127:12)\n      at emitCloseNT (net.js:1524:8)\n```
+jorell: all tests passed for me
+mattmcmurray: I might be missing changes from main branch
+mattmcmurray: <@jorell|jorell> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/jorell\/F0LAT7RKN\/screen_shot_2016-02-04_at_4.54.57_pm.png|Screen Shot 2016-02-04 at 4.54.57 PM.png>
+mattmcmurray: Just finished integration tests, gonna submit a pull request shortly
+keanek: Pulling iteration1 and running the tests results in 24 passing tests.
+jorell: lol
+jorell: did you add 8 tests keanna?
+jorell: keann*
+mattmcmurray: hmm weird, I must be missing something
+jorell: Keane*
+keanek: No, I think the new tests are from Evan's user matching tests.
+jorell: Hmm, I pulled that into my local.
+evan: I added eight
+jorell: hmm
+jorell: oh
+jorell: do you guys run the .sh file to run your tests?
+keanek: I do.
+evan: I was just running mocha
+jorell: Oh yeah, I ran the shell script and 24 passed
+jorell: haha
+jorell: Are you guys using the stub for your tests?
+jorell: <@evan>:
+evan: Yup
+evan: I'm gonna do a unit test on the actual model though
+jorell: Can I take that from you? I think that\u2019s part of the unit test db queries
+evan: Sure that's cool
+jorell: I haven\u2019t written any tests because all ya\u2019ll are quick
+mattmcmurray: Figured out why that one test was failing. I miss-merged some changes down to my local machine. Crisis averted, all tests pass :thumbsup:
+jorell: :thumbsup:
+jorell: Yall need to start using this one :thumbsup::skin-tone-2:
+mattmcmurray: Submitting pull request in a minute
+mattmcmurray: But I am homer simpson
+jorell: I think the yellow one is for asians. haha
+mattmcmurray: <!channel>: so in my branch for integration testing, I modified the `run_tests.sh` script to do different set up and tear down for unit tests and integration tests. SO, if you add a new file to the test directory, you have to add it to the script or it won't get run
+jorell: I can\u2019t add to usermatches. haha
+jorell: <@keanek>: you were testin the login stuff api endpoints correct?
+keanek: I had tests for logins in the api tests, but the stubs didn't really support them, so the tests are commented out at the moment.
+jorell: so api_test_endpoint are talking to the stubs?
+jorell: haha that\u2019s why I was failing. haha
+evan: Yeah they are
+evan: But our model unit tests shouldn't be off the stubs obviously
+jorell: yup yup.
+jorell: I\u2019m also responsible for writing login\/logout tests.
+jorell: So I\u2019m thinking of just doing the login and logout tests before things are injected
+jorell: is anyone against that idea?
+keanek: They might not run that way...but you can try.
+jorell: doens\u2019t mocha run the tests top down?
+keanek: Not sure
+jorell: you\u2019re right
+jorell: it doesn\u2019t work that way. haha
+jorell: fuck yeah!
+keanek: Got it to work?
+jorell: yeah
+jorell: well the model tests at least
+jorell: we\u2019re using a separate db for testing the model.
+jorell: made a pull request
+steve: looking
+steve: looks good to me
+jorell: Sick.
+keanek: I pulled iteration1 and ran the tests, almost all of the db unit tests are failing.
+jorell: <@keanek>: did you fill the db?
+keanek: I'm running the run_tests.sh
+jorell: Huh. 
+jorell: Huh. 
+jorell: Let me try it out.
+jorell: One sec.
+mattmcmurray: Yeah im getting 7 failing 3 pass 
+mattmcmurray: All other tests are a-ok
+jorell: Damn
+jorell: I know the reason why its failing.
+jorell: the db_unit_tests relies on how the test db is built
+jorell: if say \u201cjflores1\u201d somehow isn\u2019t userid == 1
+jorell: then tests fail.
+jorell: I\u2019m probably just going to make the tests less strict.
+mattmcmurray: Why does the script CD into the test directory before executing the test?
+mattmcmurray: That causes 6 of the 7 failures 
+jorell: because the injection needs to happen in the tests directory. relative path and all.
+jorell: because if node\/mocha is executed in \/server, it uses our actual database.
+jorell: I was going to turn Database.js into a class, but a lot of refactoring will happen if I did.
+mattmcmurray: I mean.. I just changed it and it solved 6\/7 failures. Are you getting that many failures?
+jorell: im passing 5\/10
+jorell: all tests pass on my lapto.
+jorell: (currently on my desktop)
+jorell: <@mattmcmurray>: can you try running the db unit tests just by itself and run it from server
+jorell: Let me know if you\u2019re getting \u2018cannot read property \u2018select\u2019 of undefined'
+mattmcmurray: I'm on the bus rn
+jorell: <@mattmcmurray>: alright. I\u2019ve been learning that node dependencies are hard to maintain on different machines.
+mattmcmurray: I mean, they shouldn't be if you're saving to package.json
+jorell: Alright, I have 10\/10 tests passing
+jorell: Should I just push to iter1?
+keanek: Sure.
+jorell: done
+jorell: <@keanek>: can you test it now?
+keanek: 10\/10!
+jorell: sweet
+caleb: okay, sorry I'm joining the party late, but I have failing integration tests. Did that get discussed\/resolved?
+keanek: I think it should be resolved with the latest iteration1 code.
+caleb: got the latest right now
+keanek: Mocha or run_tests.sh?
+caleb: mocha
+keanek: That's probably why
+caleb: using run_tests.sh shows me a quick flash of a new command window, then exits
+keanek: There's a test output folder.
+mattmcmurray: Yeah bro, you need to get a Linux environment up or the shell scripts are going to fail 
+jorell: Caleb, you can write a bat file for the tests.
+caleb: so are we no longer supporting mocha then?
+jorell: We are  
+jorell: The .sh file runs mocha
+caleb: oh, it just does the setup for the tests
+jorell: Yeah. So you can try writing a bat that does the same thing.
+caleb: okay
+caleb: I'll figure that out this weekend then
+mattmcmurray: Regarding the prof requiring selenium tests: Nightwatch.js uses selenium on the backend. It just makes selenium much cleaner and less ugly
+keanek: I started to try testing the clientside js files.  However, Mocha doesn't like jQuery's $.  After doing some research, it seems we'll need another framework\/plugin.  \nHere's the one link I found that referred to this problem: <http:\/\/stackoverflow.com\/questions\/28760568\/how-do-i-test-jquery-code-with-mochajs>\nAnd mocha-jsdom: <https:\/\/www.npmjs.com\/package\/mocha-jsdom>
+keanek: I think, mocha does not recognise jQuery in the scope of my tests, because it tests plain JavaScript without a problem. I tried to require jQuery's full code in the beginning of the .js file with my
+keanek: Simple integration of jsdom into mocha tests
+evan: Correct me if I'm wrong, but I think the only testing we need to do for client-side code would be through our acceptance tests with Nightwatch. I think we're just using Mocha for server-side JS.
+jorell: Thats what i thought as well.
+keanek: He wants unit testing for the front end javascript.  Mentioned it specially in class.
+jorell: Oh 
+jorell: Thats weird.
+steve: so when im running the DB unit tests, im getting a bunch of foreign key errors. is there something i need to do first before running the run_tests.sh
+steve: TIL i've somehow gotten this far without having the sqlite3 installed...
+steve: also, why the hell would my machine not tell me this when its running run_tests.sh I only discovered it because i tried the command in the command line...
+mattmcmurray: lmao for the most part you can get by without it
+mattmcmurray: it's only important for pre-populating db
+mattmcmurray: yeah.. I didn't write that shell script with very many safety fallbacks. My bad
+steve: i mean, i would've expected the command line to say \"sqlite3 not installed\" like it did when i finally tried typing it in manually
+mattmcmurray: Yeah, that's kinda weird that it didn't give any error messages at all
+steve: oh. it did actually lol it gave me \"line 32 command not found\" and i just assumed it had to do with the foreign key errors that followed it
+mattmcmurray: Ah, gotcha
+keanek: I can't find a way so that jQuery isn't causing errors trying to test the public\/js\/*.js files.
+steve: welp
+steve: maybe instead of doing $('buttonName').onclick(function....
+steve: we need to start adding the onclick to the HTML and then have it call a named function? that way we can test the functions that don't touch jquery at least?
+keanek: The ajax calls will still cause problems.  Trying to load the js file, like we do for user is causing the errors.
+steve: so do we need to load it some other way?
+keanek: I'm not sure.  Either we figure out how to make jquery testable, we find some alternative to jquery, or we factor out the non-jquery functions to a separate, testable js file.  Problem is, a good number of our functions are ajax calls or getting\/setting data through jquery.
+steve: maybe we should try QUnit? <http:\/\/qunitjs.com\/cookbook\/#synchronous-callbacks>
+steve: jQuery: The Write Less, Do More, JavaScript Library
+jorell: I saw that last night.
+jorell: Was going to suggest it.
+steve: its made by the makers of jquery
+steve: i just looked at a mini tutorial, it might work?
+steve: we probably won't be able to automatically run it in the run_tests.sh but i dont think its a big deal
+mattmcmurray: Yeah, I'm just working on nightwatch now and we prolly won't be able to run that with run_tests.sh either, but that should be okay
+mattmcmurray: As long as our test coverage is good and we explain how to run them in the README, we should be a-ok :thumbsup::skin-tone-2:
+jorell: sweit
+mattmcmurray: My internet is really really slow today, and my git push has been stuck at ```Enter passphrase for key '\/home\/matt\/.ssh\/id_rsa': \nCounting objects: 22, done.\nCompressing objects: 100% (18\/18), done.\nWriting objects:  40% (9\/22), 17.77 MiB | 49.00 KiB\/s    ```\nFor nearly 20 mins now...
+jorell: lol
+
+
+caleb: <@caleb|caleb> has joined the channel
+evan: <@evan|evan> has joined the channel
+jorell: <@jorell|jorell> has joined the channel
+keanek: <@keanek|keanek> has joined the channel
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+steve: <@steve|steve> has joined the channel
+steve: <!channel>: just want to confirm that nobody has picked up stub DB work. im going to try to start it now
+mattmcmurray: I have not
+keanek: Nope.
+evan: I haven't
+jorell: neither have I.
+evan: It looks like we have two models doing the same thing, likes and usermatches. I don't see likes being referenced, <@keanek> did you use it anywhere? 
+jorell: That must be when he didn\u2019t know you were working on it?
+evan: Yeah that's what I was thinking, if it's not referenced let's remove it so it isn't tested by accident.
+mattmcmurray: If you use sublime, do a global search for \"Likes.js\" and it should show if its imported anywhere
+mattmcmurray: I'm sure other text editors have similar functions
+evan: Looks like it's not referenced
+evan: I'll submit a pull request
+evan: I'm just gonna merge it myself
+caleb: do we want to make pull requests for testing? or just merge in
+evan: We should make pull requests still just in case people catch potentially missing  cases
+caleb: pull request up for a few tests
+mattmcmurray: I'm getting 3 failed tests on iteration1 branch. Is that the case for anyone else?
+mattmcmurray: Okay, so it's important to remember that tests aren't necessarily run in the order that they're written in the file, so if you make API calls that modify a user, make sure that it doesn't break another test case
+mattmcmurray: Okay, so I figured out why tests were failing. My copy of the db was stuck in a weird state. Crisis averted.
+jorell: So uhhh
+jorell: how do you run the tests?
+jorell: nvm figured it out
+jorell: <@steve|steve> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/steve\/F0L8B3J5B\/untitled_document|Meeting notes> and commented: Btw Jorell and Matt, here's what I wanted to say at the meeting today. I should be able to get the stubs out tonight
+jorell: ": "text
+jorell: alright, noted.
+jorell: <@steve>: let me know when you\u2019re done with those stubs. I\u2019m going to write some unit tests :simple_smile:
+steve: working on it
+steve: <@evan> how does this arg thing work?
+steve: when i put -fill_database, it seems to split it into chars and then says that there's no option associated with each individual char?
+steve: nvm figured it out.
+steve: PSA: you have to use 2 dashes to make it work
+steve: ok user stub is up for review
+steve: it is imperfect, so do let me know if you have issues and I'll fix
+steve: i tested profiles and some random api methods with it, but im not an expert
+steve: <@jorell>: im done both stubs now
+jorell: sweet
+jorell: So running the test script gives me 6 pass and 6 fails
+mattmcmurray: Make sure you've cleaned out the database. I had the same issue last night. 
+mattmcmurray: <!channel> I'm a little fuzzy on what was decided at yesterday's meeting. If I understand correctly, whoever is doing the integration tests should actually make them unit tests using the stub? I'm gonna bring my laptop and try to get those done this afternoon at school
+caleb: Pretty sure we realized that we THOUGHT were unit tests were actually integration tests, due to our lack of a stub database. <@steve>  was tasked with creating the stub database, which he did last night
+caleb: <@mattmcmurray>:
+mattmcmurray: Right. K so I'll try and hammer out some unit tests
+caleb: The only thing I'm unclear on right now is how to run the tests with the stub. He documented how to run main.js with it, but not with running the tests with Mocha
+caleb: also, make sure you check what's already there. We've got most of the api ones done
+keanek: I'll push what I've done to a remote branch.  The --stub commands don't work with mocha, unfortunately.
+caleb: so how do you run the tests using the stub?
+keanek: You need to inject the api in the test.  You can look at the branch once I push it.
+keanek: Okay, I created a pull request with my test code.
+evan: <@keanek> I posted a comment on your pull request, I'm just wondering how something works
+evan: It seems weird to me but it works, so I'm just curious is all
+keanek: Heading to school, won't have access to the chat for the next hour or so.  Walking sucks.
+evan: We can't figure it out, can anyone else chime in? <https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/41\/files#r51898237>
+evan: Further testing.
+evan: Never mind I figured it out
+steve: Is it just that there's only one router that they all share? 
+evan: Basically yeah, whenever you do a require, there is a cache that node keeps track of, and if you require and already existing file, it just references that one instead of creating a new instance of it.
+jorell: I just want to clarify something, we\u2019re just turning the intergration tests into unit test by using the stub instead of the actual User and UserMatches model.
+jorell: Correct?
+steve: i believe so
+steve: not sure if we should keep the \"integration\" tests too
+jorell: we need 1 integration test per detailed user story.
+mattmcmurray: I'm working on the 3 integration tests 
+steve: lol RIP we only finished 3\/9 detailed user stories
+mattmcmurray: My app for SE1 was basically 100% non functional and I got an A in that class 
+mattmcmurray: Ehh I feel like we're graded on how we follow the process, not necessarily how many features\/stories we get throufh
+jorell: Is anyone converting integration tests to unit tests currently? I just dont want to have conflicts with anyone.
+keanek: I already converted the api_tests to use the stubs.
+jorell: ahh
+evan: I'm working on changing my tests to stubs
+mattmcmurray: All tests are passing except for this one, which fails consistently: \n```\n  1) api GET \/api\/getPotentialMatches requests a list of users that are a match for a provided userID:\n     Uncaught AssertionError: Expected 0 to equal 1.\n      at fail (node_modules\/assertthat\/lib\/fail.js:24:10)\n      at Object.equalTo (node_modules\/assertthat\/lib\/constraints\/equalTo.js:17:5)\n      at Test.&lt;anonymous&gt; (test\/api_endpoint_tests.js:174:57)\n      at Test.assert (node_modules\/supertest\/lib\/test.js:156:6)\n      at Server.assert (node_modules\/supertest\/lib\/test.js:127:12)\n      at emitCloseNT (net.js:1524:8)\n```
+jorell: all tests passed for me
+mattmcmurray: I might be missing changes from main branch
+mattmcmurray: <@jorell|jorell> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/jorell\/F0LAT7RKN\/screen_shot_2016-02-04_at_4.54.57_pm.png|Screen Shot 2016-02-04 at 4.54.57 PM.png>
+mattmcmurray: Just finished integration tests, gonna submit a pull request shortly
+keanek: Pulling iteration1 and running the tests results in 24 passing tests.
+jorell: lol
+jorell: did you add 8 tests keanna?
+jorell: keann*
+mattmcmurray: hmm weird, I must be missing something
+jorell: Keane*
+keanek: No, I think the new tests are from Evan's user matching tests.
+jorell: Hmm, I pulled that into my local.
+evan: I added eight
+jorell: hmm
+jorell: oh
+jorell: do you guys run the .sh file to run your tests?
+keanek: I do.
+evan: I was just running mocha
+jorell: Oh yeah, I ran the shell script and 24 passed
+jorell: haha
+jorell: Are you guys using the stub for your tests?
+jorell: <@evan>:
+evan: Yup
+evan: I'm gonna do a unit test on the actual model though
+jorell: Can I take that from you? I think that\u2019s part of the unit test db queries
+evan: Sure that's cool
+jorell: I haven\u2019t written any tests because all ya\u2019ll are quick
+mattmcmurray: Figured out why that one test was failing. I miss-merged some changes down to my local machine. Crisis averted, all tests pass :thumbsup:
+jorell: :thumbsup:
+jorell: Yall need to start using this one :thumbsup::skin-tone-2:
+mattmcmurray: Submitting pull request in a minute
+mattmcmurray: But I am homer simpson
+jorell: I think the yellow one is for asians. haha
+mattmcmurray: <!channel>: so in my branch for integration testing, I modified the `run_tests.sh` script to do different set up and tear down for unit tests and integration tests. SO, if you add a new file to the test directory, you have to add it to the script or it won't get run
+jorell: I can\u2019t add to usermatches. haha
+jorell: <@keanek>: you were testin the login stuff api endpoints correct?
+keanek: I had tests for logins in the api tests, but the stubs didn't really support them, so the tests are commented out at the moment.
+jorell: so api_test_endpoint are talking to the stubs?
+jorell: haha that\u2019s why I was failing. haha
+evan: Yeah they are
+evan: But our model unit tests shouldn't be off the stubs obviously
+jorell: yup yup.
+jorell: I\u2019m also responsible for writing login\/logout tests.
+jorell: So I\u2019m thinking of just doing the login and logout tests before things are injected
+jorell: is anyone against that idea?
+keanek: They might not run that way...but you can try.
+jorell: doens\u2019t mocha run the tests top down?
+keanek: Not sure
+jorell: you\u2019re right
+jorell: it doesn\u2019t work that way. haha
+jorell: fuck yeah!
+keanek: Got it to work?
+jorell: yeah
+jorell: well the model tests at least
+jorell: we\u2019re using a separate db for testing the model.
+jorell: made a pull request
+steve: looking
+steve: looks good to me
+jorell: Sick.
+keanek: I pulled iteration1 and ran the tests, almost all of the db unit tests are failing.
+jorell: <@keanek>: did you fill the db?
+keanek: I'm running the run_tests.sh
+jorell: Huh. 
+jorell: Huh. 
+jorell: Let me try it out.
+jorell: One sec.
+mattmcmurray: Yeah im getting 7 failing 3 pass 
+mattmcmurray: All other tests are a-ok
+jorell: Damn
+jorell: I know the reason why its failing.
+jorell: the db_unit_tests relies on how the test db is built
+jorell: if say \u201cjflores1\u201d somehow isn\u2019t userid == 1
+jorell: then tests fail.
+jorell: I\u2019m probably just going to make the tests less strict.
+mattmcmurray: Why does the script CD into the test directory before executing the test?
+mattmcmurray: That causes 6 of the 7 failures 
+jorell: because the injection needs to happen in the tests directory. relative path and all.
+jorell: because if node\/mocha is executed in \/server, it uses our actual database.
+jorell: I was going to turn Database.js into a class, but a lot of refactoring will happen if I did.
+mattmcmurray: I mean.. I just changed it and it solved 6\/7 failures. Are you getting that many failures?
+jorell: im passing 5\/10
+jorell: all tests pass on my lapto.
+jorell: (currently on my desktop)
+jorell: <@mattmcmurray>: can you try running the db unit tests just by itself and run it from server
+jorell: Let me know if you\u2019re getting \u2018cannot read property \u2018select\u2019 of undefined'
+mattmcmurray: I'm on the bus rn
+jorell: <@mattmcmurray>: alright. I\u2019ve been learning that node dependencies are hard to maintain on different machines.
+mattmcmurray: I mean, they shouldn't be if you're saving to package.json
+jorell: Alright, I have 10\/10 tests passing
+jorell: Should I just push to iter1?
+keanek: Sure.
+jorell: done
+jorell: <@keanek>: can you test it now?
+keanek: 10\/10!
+jorell: sweet
+caleb: okay, sorry I'm joining the party late, but I have failing integration tests. Did that get discussed\/resolved?
+keanek: I think it should be resolved with the latest iteration1 code.
+caleb: got the latest right now
+keanek: Mocha or run_tests.sh?
+caleb: mocha
+keanek: That's probably why
+caleb: using run_tests.sh shows me a quick flash of a new command window, then exits
+keanek: There's a test output folder.
+mattmcmurray: Yeah bro, you need to get a Linux environment up or the shell scripts are going to fail 
+jorell: Caleb, you can write a bat file for the tests.
+caleb: so are we no longer supporting mocha then?
+jorell: We are  
+jorell: The .sh file runs mocha
+caleb: oh, it just does the setup for the tests
+jorell: Yeah. So you can try writing a bat that does the same thing.
+caleb: okay
+caleb: I'll figure that out this weekend then
+mattmcmurray: Regarding the prof requiring selenium tests: Nightwatch.js uses selenium on the backend. It just makes selenium much cleaner and less ugly
+keanek: I started to try testing the clientside js files.  However, Mocha doesn't like jQuery's $.  After doing some research, it seems we'll need another framework\/plugin.  \nHere's the one link I found that referred to this problem: <http:\/\/stackoverflow.com\/questions\/28760568\/how-do-i-test-jquery-code-with-mochajs>\nAnd mocha-jsdom: <https:\/\/www.npmjs.com\/package\/mocha-jsdom>
+keanek: I think, mocha does not recognise jQuery in the scope of my tests, because it tests plain JavaScript without a problem. I tried to require jQuery's full code in the beginning of the .js file with my
+keanek: Simple integration of jsdom into mocha tests
+evan: Correct me if I'm wrong, but I think the only testing we need to do for client-side code would be through our acceptance tests with Nightwatch. I think we're just using Mocha for server-side JS.
+jorell: Thats what i thought as well.
+keanek: He wants unit testing for the front end javascript.  Mentioned it specially in class.
+jorell: Oh 
+jorell: Thats weird.
+steve: so when im running the DB unit tests, im getting a bunch of foreign key errors. is there something i need to do first before running the run_tests.sh
+steve: TIL i've somehow gotten this far without having the sqlite3 installed...
+steve: also, why the hell would my machine not tell me this when its running run_tests.sh I only discovered it because i tried the command in the command line...
+mattmcmurray: lmao for the most part you can get by without it
+mattmcmurray: it's only important for pre-populating db
+mattmcmurray: yeah.. I didn't write that shell script with very many safety fallbacks. My bad
+steve: i mean, i would've expected the command line to say \"sqlite3 not installed\" like it did when i finally tried typing it in manually
+mattmcmurray: Yeah, that's kinda weird that it didn't give any error messages at all
+steve: oh. it did actually lol it gave me \"line 32 command not found\" and i just assumed it had to do with the foreign key errors that followed it
+mattmcmurray: Ah, gotcha
+keanek: I can't find a way so that jQuery isn't causing errors trying to test the public\/js\/*.js files.
+steve: welp
+steve: maybe instead of doing $('buttonName').onclick(function....
+steve: we need to start adding the onclick to the HTML and then have it call a named function? that way we can test the functions that don't touch jquery at least?
+keanek: The ajax calls will still cause problems.  Trying to load the js file, like we do for user is causing the errors.
+steve: so do we need to load it some other way?
+keanek: I'm not sure.  Either we figure out how to make jquery testable, we find some alternative to jquery, or we factor out the non-jquery functions to a separate, testable js file.  Problem is, a good number of our functions are ajax calls or getting\/setting data through jquery.
+steve: maybe we should try QUnit? <http:\/\/qunitjs.com\/cookbook\/#synchronous-callbacks>
+steve: jQuery: The Write Less, Do More, JavaScript Library
+jorell: I saw that last night.
+jorell: Was going to suggest it.
+steve: its made by the makers of jquery
+steve: i just looked at a mini tutorial, it might work?
+steve: we probably won't be able to automatically run it in the run_tests.sh but i dont think its a big deal
+mattmcmurray: Yeah, I'm just working on nightwatch now and we prolly won't be able to run that with run_tests.sh either, but that should be okay
+mattmcmurray: As long as our test coverage is good and we explain how to run them in the README, we should be a-ok :thumbsup::skin-tone-2:
+jorell: sweit
+mattmcmurray: My internet is really really slow today, and my git push has been stuck at ```Enter passphrase for key '\/home\/matt\/.ssh\/id_rsa': \nCounting objects: 22, done.\nCompressing objects: 100% (18\/18), done.\nWriting objects:  40% (9\/22), 17.77 MiB | 49.00 KiB\/s    ```\nFor nearly 20 mins now...
+jorell: lol
+keanek: Well, I've tried qunit and mocha-in-a-browser.  Neither of them seems to work with jquery, at least not the way I ended up setting it up.  I followed the qunit intro, but as soon as I included jquery and one of our js files which used it; it complained about the first $ in swipe.js when I tested userCallback.
+
+
+caleb: <@caleb|caleb> has joined the channel
+evan: <@evan|evan> has joined the channel
+jorell: <@jorell|jorell> has joined the channel
+keanek: <@keanek|keanek> has joined the channel
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+steve: <@steve|steve> has joined the channel
+steve: <!channel>: just want to confirm that nobody has picked up stub DB work. im going to try to start it now
+mattmcmurray: I have not
+keanek: Nope.
+evan: I haven't
+jorell: neither have I.
+evan: It looks like we have two models doing the same thing, likes and usermatches. I don't see likes being referenced, <@keanek> did you use it anywhere? 
+jorell: That must be when he didn\u2019t know you were working on it?
+evan: Yeah that's what I was thinking, if it's not referenced let's remove it so it isn't tested by accident.
+mattmcmurray: If you use sublime, do a global search for \"Likes.js\" and it should show if its imported anywhere
+mattmcmurray: I'm sure other text editors have similar functions
+evan: Looks like it's not referenced
+evan: I'll submit a pull request
+evan: I'm just gonna merge it myself
+caleb: do we want to make pull requests for testing? or just merge in
+evan: We should make pull requests still just in case people catch potentially missing  cases
+caleb: pull request up for a few tests
+mattmcmurray: I'm getting 3 failed tests on iteration1 branch. Is that the case for anyone else?
+mattmcmurray: Okay, so it's important to remember that tests aren't necessarily run in the order that they're written in the file, so if you make API calls that modify a user, make sure that it doesn't break another test case
+mattmcmurray: Okay, so I figured out why tests were failing. My copy of the db was stuck in a weird state. Crisis averted.
+jorell: So uhhh
+jorell: how do you run the tests?
+jorell: nvm figured it out
+jorell: <@steve|steve> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/steve\/F0L8B3J5B\/untitled_document|Meeting notes> and commented: Btw Jorell and Matt, here's what I wanted to say at the meeting today. I should be able to get the stubs out tonight
+jorell: ": "text
+jorell: alright, noted.
+jorell: <@steve>: let me know when you\u2019re done with those stubs. I\u2019m going to write some unit tests :simple_smile:
+steve: working on it
+steve: <@evan> how does this arg thing work?
+steve: when i put -fill_database, it seems to split it into chars and then says that there's no option associated with each individual char?
+steve: nvm figured it out.
+steve: PSA: you have to use 2 dashes to make it work
+steve: ok user stub is up for review
+steve: it is imperfect, so do let me know if you have issues and I'll fix
+steve: i tested profiles and some random api methods with it, but im not an expert
+steve: <@jorell>: im done both stubs now
+jorell: sweet
+jorell: So running the test script gives me 6 pass and 6 fails
+mattmcmurray: Make sure you've cleaned out the database. I had the same issue last night. 
+mattmcmurray: <!channel> I'm a little fuzzy on what was decided at yesterday's meeting. If I understand correctly, whoever is doing the integration tests should actually make them unit tests using the stub? I'm gonna bring my laptop and try to get those done this afternoon at school
+caleb: Pretty sure we realized that we THOUGHT were unit tests were actually integration tests, due to our lack of a stub database. <@steve>  was tasked with creating the stub database, which he did last night
+caleb: <@mattmcmurray>:
+mattmcmurray: Right. K so I'll try and hammer out some unit tests
+caleb: The only thing I'm unclear on right now is how to run the tests with the stub. He documented how to run main.js with it, but not with running the tests with Mocha
+caleb: also, make sure you check what's already there. We've got most of the api ones done
+keanek: I'll push what I've done to a remote branch.  The --stub commands don't work with mocha, unfortunately.
+caleb: so how do you run the tests using the stub?
+keanek: You need to inject the api in the test.  You can look at the branch once I push it.
+keanek: Okay, I created a pull request with my test code.
+evan: <@keanek> I posted a comment on your pull request, I'm just wondering how something works
+evan: It seems weird to me but it works, so I'm just curious is all
+keanek: Heading to school, won't have access to the chat for the next hour or so.  Walking sucks.
+evan: We can't figure it out, can anyone else chime in? <https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/41\/files#r51898237>
+evan: Further testing.
+evan: Never mind I figured it out
+steve: Is it just that there's only one router that they all share? 
+evan: Basically yeah, whenever you do a require, there is a cache that node keeps track of, and if you require and already existing file, it just references that one instead of creating a new instance of it.
+jorell: I just want to clarify something, we\u2019re just turning the intergration tests into unit test by using the stub instead of the actual User and UserMatches model.
+jorell: Correct?
+steve: i believe so
+steve: not sure if we should keep the \"integration\" tests too
+jorell: we need 1 integration test per detailed user story.
+mattmcmurray: I'm working on the 3 integration tests 
+steve: lol RIP we only finished 3\/9 detailed user stories
+mattmcmurray: My app for SE1 was basically 100% non functional and I got an A in that class 
+mattmcmurray: Ehh I feel like we're graded on how we follow the process, not necessarily how many features\/stories we get throufh
+jorell: Is anyone converting integration tests to unit tests currently? I just dont want to have conflicts with anyone.
+keanek: I already converted the api_tests to use the stubs.
+jorell: ahh
+evan: I'm working on changing my tests to stubs
+mattmcmurray: All tests are passing except for this one, which fails consistently: \n```\n  1) api GET \/api\/getPotentialMatches requests a list of users that are a match for a provided userID:\n     Uncaught AssertionError: Expected 0 to equal 1.\n      at fail (node_modules\/assertthat\/lib\/fail.js:24:10)\n      at Object.equalTo (node_modules\/assertthat\/lib\/constraints\/equalTo.js:17:5)\n      at Test.&lt;anonymous&gt; (test\/api_endpoint_tests.js:174:57)\n      at Test.assert (node_modules\/supertest\/lib\/test.js:156:6)\n      at Server.assert (node_modules\/supertest\/lib\/test.js:127:12)\n      at emitCloseNT (net.js:1524:8)\n```
+jorell: all tests passed for me
+mattmcmurray: I might be missing changes from main branch
+mattmcmurray: <@jorell|jorell> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/jorell\/F0LAT7RKN\/screen_shot_2016-02-04_at_4.54.57_pm.png|Screen Shot 2016-02-04 at 4.54.57 PM.png>
+mattmcmurray: Just finished integration tests, gonna submit a pull request shortly
+keanek: Pulling iteration1 and running the tests results in 24 passing tests.
+jorell: lol
+jorell: did you add 8 tests keanna?
+jorell: keann*
+mattmcmurray: hmm weird, I must be missing something
+jorell: Keane*
+keanek: No, I think the new tests are from Evan's user matching tests.
+jorell: Hmm, I pulled that into my local.
+evan: I added eight
+jorell: hmm
+jorell: oh
+jorell: do you guys run the .sh file to run your tests?
+keanek: I do.
+evan: I was just running mocha
+jorell: Oh yeah, I ran the shell script and 24 passed
+jorell: haha
+jorell: Are you guys using the stub for your tests?
+jorell: <@evan>:
+evan: Yup
+evan: I'm gonna do a unit test on the actual model though
+jorell: Can I take that from you? I think that\u2019s part of the unit test db queries
+evan: Sure that's cool
+jorell: I haven\u2019t written any tests because all ya\u2019ll are quick
+mattmcmurray: Figured out why that one test was failing. I miss-merged some changes down to my local machine. Crisis averted, all tests pass :thumbsup:
+jorell: :thumbsup:
+jorell: Yall need to start using this one :thumbsup::skin-tone-2:
+mattmcmurray: Submitting pull request in a minute
+mattmcmurray: But I am homer simpson
+jorell: I think the yellow one is for asians. haha
+mattmcmurray: <!channel>: so in my branch for integration testing, I modified the `run_tests.sh` script to do different set up and tear down for unit tests and integration tests. SO, if you add a new file to the test directory, you have to add it to the script or it won't get run
+jorell: I can\u2019t add to usermatches. haha
+jorell: <@keanek>: you were testin the login stuff api endpoints correct?
+keanek: I had tests for logins in the api tests, but the stubs didn't really support them, so the tests are commented out at the moment.
+jorell: so api_test_endpoint are talking to the stubs?
+jorell: haha that\u2019s why I was failing. haha
+evan: Yeah they are
+evan: But our model unit tests shouldn't be off the stubs obviously
+jorell: yup yup.
+jorell: I\u2019m also responsible for writing login\/logout tests.
+jorell: So I\u2019m thinking of just doing the login and logout tests before things are injected
+jorell: is anyone against that idea?
+keanek: They might not run that way...but you can try.
+jorell: doens\u2019t mocha run the tests top down?
+keanek: Not sure
+jorell: you\u2019re right
+jorell: it doesn\u2019t work that way. haha
+jorell: fuck yeah!
+keanek: Got it to work?
+jorell: yeah
+jorell: well the model tests at least
+jorell: we\u2019re using a separate db for testing the model.
+jorell: made a pull request
+steve: looking
+steve: looks good to me
+jorell: Sick.
+keanek: I pulled iteration1 and ran the tests, almost all of the db unit tests are failing.
+jorell: <@keanek>: did you fill the db?
+keanek: I'm running the run_tests.sh
+jorell: Huh. 
+jorell: Huh. 
+jorell: Let me try it out.
+jorell: One sec.
+mattmcmurray: Yeah im getting 7 failing 3 pass 
+mattmcmurray: All other tests are a-ok
+jorell: Damn
+jorell: I know the reason why its failing.
+jorell: the db_unit_tests relies on how the test db is built
+jorell: if say \u201cjflores1\u201d somehow isn\u2019t userid == 1
+jorell: then tests fail.
+jorell: I\u2019m probably just going to make the tests less strict.
+mattmcmurray: Why does the script CD into the test directory before executing the test?
+mattmcmurray: That causes 6 of the 7 failures 
+jorell: because the injection needs to happen in the tests directory. relative path and all.
+jorell: because if node\/mocha is executed in \/server, it uses our actual database.
+jorell: I was going to turn Database.js into a class, but a lot of refactoring will happen if I did.
+mattmcmurray: I mean.. I just changed it and it solved 6\/7 failures. Are you getting that many failures?
+jorell: im passing 5\/10
+jorell: all tests pass on my lapto.
+jorell: (currently on my desktop)
+jorell: <@mattmcmurray>: can you try running the db unit tests just by itself and run it from server
+jorell: Let me know if you\u2019re getting \u2018cannot read property \u2018select\u2019 of undefined'
+mattmcmurray: I'm on the bus rn
+jorell: <@mattmcmurray>: alright. I\u2019ve been learning that node dependencies are hard to maintain on different machines.
+mattmcmurray: I mean, they shouldn't be if you're saving to package.json
+jorell: Alright, I have 10\/10 tests passing
+jorell: Should I just push to iter1?
+keanek: Sure.
+jorell: done
+jorell: <@keanek>: can you test it now?
+keanek: 10\/10!
+jorell: sweet
+caleb: okay, sorry I'm joining the party late, but I have failing integration tests. Did that get discussed\/resolved?
+keanek: I think it should be resolved with the latest iteration1 code.
+caleb: got the latest right now
+keanek: Mocha or run_tests.sh?
+caleb: mocha
+keanek: That's probably why
+caleb: using run_tests.sh shows me a quick flash of a new command window, then exits
+keanek: There's a test output folder.
+mattmcmurray: Yeah bro, you need to get a Linux environment up or the shell scripts are going to fail 
+jorell: Caleb, you can write a bat file for the tests.
+caleb: so are we no longer supporting mocha then?
+jorell: We are  
+jorell: The .sh file runs mocha
+caleb: oh, it just does the setup for the tests
+jorell: Yeah. So you can try writing a bat that does the same thing.
+caleb: okay
+caleb: I'll figure that out this weekend then
+mattmcmurray: Regarding the prof requiring selenium tests: Nightwatch.js uses selenium on the backend. It just makes selenium much cleaner and less ugly
+keanek: I started to try testing the clientside js files.  However, Mocha doesn't like jQuery's $.  After doing some research, it seems we'll need another framework\/plugin.  \nHere's the one link I found that referred to this problem: <http:\/\/stackoverflow.com\/questions\/28760568\/how-do-i-test-jquery-code-with-mochajs>\nAnd mocha-jsdom: <https:\/\/www.npmjs.com\/package\/mocha-jsdom>
+keanek: I think, mocha does not recognise jQuery in the scope of my tests, because it tests plain JavaScript without a problem. I tried to require jQuery's full code in the beginning of the .js file with my
+keanek: Simple integration of jsdom into mocha tests
+evan: Correct me if I'm wrong, but I think the only testing we need to do for client-side code would be through our acceptance tests with Nightwatch. I think we're just using Mocha for server-side JS.
+jorell: Thats what i thought as well.
+keanek: He wants unit testing for the front end javascript.  Mentioned it specially in class.
+jorell: Oh 
+jorell: Thats weird.
+steve: so when im running the DB unit tests, im getting a bunch of foreign key errors. is there something i need to do first before running the run_tests.sh
+steve: TIL i've somehow gotten this far without having the sqlite3 installed...
+steve: also, why the hell would my machine not tell me this when its running run_tests.sh I only discovered it because i tried the command in the command line...
+mattmcmurray: lmao for the most part you can get by without it
+mattmcmurray: it's only important for pre-populating db
+mattmcmurray: yeah.. I didn't write that shell script with very many safety fallbacks. My bad
+steve: i mean, i would've expected the command line to say \"sqlite3 not installed\" like it did when i finally tried typing it in manually
+mattmcmurray: Yeah, that's kinda weird that it didn't give any error messages at all
+steve: oh. it did actually lol it gave me \"line 32 command not found\" and i just assumed it had to do with the foreign key errors that followed it
+mattmcmurray: Ah, gotcha
+keanek: I can't find a way so that jQuery isn't causing errors trying to test the public\/js\/*.js files.
+steve: welp
+steve: maybe instead of doing $('buttonName').onclick(function....
+steve: we need to start adding the onclick to the HTML and then have it call a named function? that way we can test the functions that don't touch jquery at least?
+keanek: The ajax calls will still cause problems.  Trying to load the js file, like we do for user is causing the errors.
+steve: so do we need to load it some other way?
+keanek: I'm not sure.  Either we figure out how to make jquery testable, we find some alternative to jquery, or we factor out the non-jquery functions to a separate, testable js file.  Problem is, a good number of our functions are ajax calls or getting\/setting data through jquery.
+steve: maybe we should try QUnit? <http:\/\/qunitjs.com\/cookbook\/#synchronous-callbacks>
+steve: jQuery: The Write Less, Do More, JavaScript Library
+jorell: I saw that last night.
+jorell: Was going to suggest it.
+steve: its made by the makers of jquery
+steve: i just looked at a mini tutorial, it might work?
+steve: we probably won't be able to automatically run it in the run_tests.sh but i dont think its a big deal
+mattmcmurray: Yeah, I'm just working on nightwatch now and we prolly won't be able to run that with run_tests.sh either, but that should be okay
+mattmcmurray: As long as our test coverage is good and we explain how to run them in the README, we should be a-ok :thumbsup::skin-tone-2:
+jorell: sweit
+mattmcmurray: My internet is really really slow today, and my git push has been stuck at ```Enter passphrase for key '\/home\/matt\/.ssh\/id_rsa': \nCounting objects: 22, done.\nCompressing objects: 100% (18\/18), done.\nWriting objects:  40% (9\/22), 17.77 MiB | 49.00 KiB\/s    ```\nFor nearly 20 mins now...
+jorell: lol
+keanek: Well, I've tried qunit and mocha-in-a-browser.  Neither of them seems to work with jquery, at least not the way I ended up setting it up.  I followed the qunit intro, but as soon as I included jquery and one of our js files which used it; it complained about the first $ in swipe.js when I tested userCallback.
+mattmcmurray: So I think I figured out a way to test jQuery code. Basically you need to have a DOM for jQuery to actually manipulate so you need a headless browser of some sort to run the tests. I'm gonna try and get that done by tomorrow evening
+keanek: Good luck.
+mattmcmurray: lmao thanks. Sounds like I'll need it
+mattmcmurray: And boom goes the dynamite ```\u279c  server git:(MM_jquery_testing) \u2717 mocha-phantomjs test\/test_scaffold.html -p node_modules\/phantomjs\/bin\/phantomjs\n\n\n  App\n    \u2713 should be true\n\n\n  1 passing (8ms)\n\n\u279c  server git:(MM_jquery_testing) \u2717 \n```
+mattmcmurray: loaded in jquery and everything. Just need to write the tests now :thumbsup::skin-tone-3:
+
+
+caleb: <@caleb|caleb> has joined the channel
+evan: <@evan|evan> has joined the channel
+jorell: <@jorell|jorell> has joined the channel
+keanek: <@keanek|keanek> has joined the channel
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+steve: <@steve|steve> has joined the channel
+steve: <!channel>: just want to confirm that nobody has picked up stub DB work. im going to try to start it now
+mattmcmurray: I have not
+keanek: Nope.
+evan: I haven't
+jorell: neither have I.
+evan: It looks like we have two models doing the same thing, likes and usermatches. I don't see likes being referenced, <@keanek> did you use it anywhere? 
+jorell: That must be when he didn\u2019t know you were working on it?
+evan: Yeah that's what I was thinking, if it's not referenced let's remove it so it isn't tested by accident.
+mattmcmurray: If you use sublime, do a global search for \"Likes.js\" and it should show if its imported anywhere
+mattmcmurray: I'm sure other text editors have similar functions
+evan: Looks like it's not referenced
+evan: I'll submit a pull request
+evan: I'm just gonna merge it myself
+caleb: do we want to make pull requests for testing? or just merge in
+evan: We should make pull requests still just in case people catch potentially missing  cases
+caleb: pull request up for a few tests
+mattmcmurray: I'm getting 3 failed tests on iteration1 branch. Is that the case for anyone else?
+mattmcmurray: Okay, so it's important to remember that tests aren't necessarily run in the order that they're written in the file, so if you make API calls that modify a user, make sure that it doesn't break another test case
+mattmcmurray: Okay, so I figured out why tests were failing. My copy of the db was stuck in a weird state. Crisis averted.
+jorell: So uhhh
+jorell: how do you run the tests?
+jorell: nvm figured it out
+jorell: <@steve|steve> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/steve\/F0L8B3J5B\/untitled_document|Meeting notes> and commented: Btw Jorell and Matt, here's what I wanted to say at the meeting today. I should be able to get the stubs out tonight
+jorell: ": "text
+jorell: alright, noted.
+jorell: <@steve>: let me know when you\u2019re done with those stubs. I\u2019m going to write some unit tests :simple_smile:
+steve: working on it
+steve: <@evan> how does this arg thing work?
+steve: when i put -fill_database, it seems to split it into chars and then says that there's no option associated with each individual char?
+steve: nvm figured it out.
+steve: PSA: you have to use 2 dashes to make it work
+steve: ok user stub is up for review
+steve: it is imperfect, so do let me know if you have issues and I'll fix
+steve: i tested profiles and some random api methods with it, but im not an expert
+steve: <@jorell>: im done both stubs now
+jorell: sweet
+jorell: So running the test script gives me 6 pass and 6 fails
+mattmcmurray: Make sure you've cleaned out the database. I had the same issue last night. 
+mattmcmurray: <!channel> I'm a little fuzzy on what was decided at yesterday's meeting. If I understand correctly, whoever is doing the integration tests should actually make them unit tests using the stub? I'm gonna bring my laptop and try to get those done this afternoon at school
+caleb: Pretty sure we realized that we THOUGHT were unit tests were actually integration tests, due to our lack of a stub database. <@steve>  was tasked with creating the stub database, which he did last night
+caleb: <@mattmcmurray>:
+mattmcmurray: Right. K so I'll try and hammer out some unit tests
+caleb: The only thing I'm unclear on right now is how to run the tests with the stub. He documented how to run main.js with it, but not with running the tests with Mocha
+caleb: also, make sure you check what's already there. We've got most of the api ones done
+keanek: I'll push what I've done to a remote branch.  The --stub commands don't work with mocha, unfortunately.
+caleb: so how do you run the tests using the stub?
+keanek: You need to inject the api in the test.  You can look at the branch once I push it.
+keanek: Okay, I created a pull request with my test code.
+evan: <@keanek> I posted a comment on your pull request, I'm just wondering how something works
+evan: It seems weird to me but it works, so I'm just curious is all
+keanek: Heading to school, won't have access to the chat for the next hour or so.  Walking sucks.
+evan: We can't figure it out, can anyone else chime in? <https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/41\/files#r51898237>
+evan: Further testing.
+evan: Never mind I figured it out
+steve: Is it just that there's only one router that they all share? 
+evan: Basically yeah, whenever you do a require, there is a cache that node keeps track of, and if you require and already existing file, it just references that one instead of creating a new instance of it.
+jorell: I just want to clarify something, we\u2019re just turning the intergration tests into unit test by using the stub instead of the actual User and UserMatches model.
+jorell: Correct?
+steve: i believe so
+steve: not sure if we should keep the \"integration\" tests too
+jorell: we need 1 integration test per detailed user story.
+mattmcmurray: I'm working on the 3 integration tests 
+steve: lol RIP we only finished 3\/9 detailed user stories
+mattmcmurray: My app for SE1 was basically 100% non functional and I got an A in that class 
+mattmcmurray: Ehh I feel like we're graded on how we follow the process, not necessarily how many features\/stories we get throufh
+jorell: Is anyone converting integration tests to unit tests currently? I just dont want to have conflicts with anyone.
+keanek: I already converted the api_tests to use the stubs.
+jorell: ahh
+evan: I'm working on changing my tests to stubs
+mattmcmurray: All tests are passing except for this one, which fails consistently: \n```\n  1) api GET \/api\/getPotentialMatches requests a list of users that are a match for a provided userID:\n     Uncaught AssertionError: Expected 0 to equal 1.\n      at fail (node_modules\/assertthat\/lib\/fail.js:24:10)\n      at Object.equalTo (node_modules\/assertthat\/lib\/constraints\/equalTo.js:17:5)\n      at Test.&lt;anonymous&gt; (test\/api_endpoint_tests.js:174:57)\n      at Test.assert (node_modules\/supertest\/lib\/test.js:156:6)\n      at Server.assert (node_modules\/supertest\/lib\/test.js:127:12)\n      at emitCloseNT (net.js:1524:8)\n```
+jorell: all tests passed for me
+mattmcmurray: I might be missing changes from main branch
+mattmcmurray: <@jorell|jorell> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/jorell\/F0LAT7RKN\/screen_shot_2016-02-04_at_4.54.57_pm.png|Screen Shot 2016-02-04 at 4.54.57 PM.png>
+mattmcmurray: Just finished integration tests, gonna submit a pull request shortly
+keanek: Pulling iteration1 and running the tests results in 24 passing tests.
+jorell: lol
+jorell: did you add 8 tests keanna?
+jorell: keann*
+mattmcmurray: hmm weird, I must be missing something
+jorell: Keane*
+keanek: No, I think the new tests are from Evan's user matching tests.
+jorell: Hmm, I pulled that into my local.
+evan: I added eight
+jorell: hmm
+jorell: oh
+jorell: do you guys run the .sh file to run your tests?
+keanek: I do.
+evan: I was just running mocha
+jorell: Oh yeah, I ran the shell script and 24 passed
+jorell: haha
+jorell: Are you guys using the stub for your tests?
+jorell: <@evan>:
+evan: Yup
+evan: I'm gonna do a unit test on the actual model though
+jorell: Can I take that from you? I think that\u2019s part of the unit test db queries
+evan: Sure that's cool
+jorell: I haven\u2019t written any tests because all ya\u2019ll are quick
+mattmcmurray: Figured out why that one test was failing. I miss-merged some changes down to my local machine. Crisis averted, all tests pass :thumbsup:
+jorell: :thumbsup:
+jorell: Yall need to start using this one :thumbsup::skin-tone-2:
+mattmcmurray: Submitting pull request in a minute
+mattmcmurray: But I am homer simpson
+jorell: I think the yellow one is for asians. haha
+mattmcmurray: <!channel>: so in my branch for integration testing, I modified the `run_tests.sh` script to do different set up and tear down for unit tests and integration tests. SO, if you add a new file to the test directory, you have to add it to the script or it won't get run
+jorell: I can\u2019t add to usermatches. haha
+jorell: <@keanek>: you were testin the login stuff api endpoints correct?
+keanek: I had tests for logins in the api tests, but the stubs didn't really support them, so the tests are commented out at the moment.
+jorell: so api_test_endpoint are talking to the stubs?
+jorell: haha that\u2019s why I was failing. haha
+evan: Yeah they are
+evan: But our model unit tests shouldn't be off the stubs obviously
+jorell: yup yup.
+jorell: I\u2019m also responsible for writing login\/logout tests.
+jorell: So I\u2019m thinking of just doing the login and logout tests before things are injected
+jorell: is anyone against that idea?
+keanek: They might not run that way...but you can try.
+jorell: doens\u2019t mocha run the tests top down?
+keanek: Not sure
+jorell: you\u2019re right
+jorell: it doesn\u2019t work that way. haha
+jorell: fuck yeah!
+keanek: Got it to work?
+jorell: yeah
+jorell: well the model tests at least
+jorell: we\u2019re using a separate db for testing the model.
+jorell: made a pull request
+steve: looking
+steve: looks good to me
+jorell: Sick.
+keanek: I pulled iteration1 and ran the tests, almost all of the db unit tests are failing.
+jorell: <@keanek>: did you fill the db?
+keanek: I'm running the run_tests.sh
+jorell: Huh. 
+jorell: Huh. 
+jorell: Let me try it out.
+jorell: One sec.
+mattmcmurray: Yeah im getting 7 failing 3 pass 
+mattmcmurray: All other tests are a-ok
+jorell: Damn
+jorell: I know the reason why its failing.
+jorell: the db_unit_tests relies on how the test db is built
+jorell: if say \u201cjflores1\u201d somehow isn\u2019t userid == 1
+jorell: then tests fail.
+jorell: I\u2019m probably just going to make the tests less strict.
+mattmcmurray: Why does the script CD into the test directory before executing the test?
+mattmcmurray: That causes 6 of the 7 failures 
+jorell: because the injection needs to happen in the tests directory. relative path and all.
+jorell: because if node\/mocha is executed in \/server, it uses our actual database.
+jorell: I was going to turn Database.js into a class, but a lot of refactoring will happen if I did.
+mattmcmurray: I mean.. I just changed it and it solved 6\/7 failures. Are you getting that many failures?
+jorell: im passing 5\/10
+jorell: all tests pass on my lapto.
+jorell: (currently on my desktop)
+jorell: <@mattmcmurray>: can you try running the db unit tests just by itself and run it from server
+jorell: Let me know if you\u2019re getting \u2018cannot read property \u2018select\u2019 of undefined'
+mattmcmurray: I'm on the bus rn
+jorell: <@mattmcmurray>: alright. I\u2019ve been learning that node dependencies are hard to maintain on different machines.
+mattmcmurray: I mean, they shouldn't be if you're saving to package.json
+jorell: Alright, I have 10\/10 tests passing
+jorell: Should I just push to iter1?
+keanek: Sure.
+jorell: done
+jorell: <@keanek>: can you test it now?
+keanek: 10\/10!
+jorell: sweet
+caleb: okay, sorry I'm joining the party late, but I have failing integration tests. Did that get discussed\/resolved?
+keanek: I think it should be resolved with the latest iteration1 code.
+caleb: got the latest right now
+keanek: Mocha or run_tests.sh?
+caleb: mocha
+keanek: That's probably why
+caleb: using run_tests.sh shows me a quick flash of a new command window, then exits
+keanek: There's a test output folder.
+mattmcmurray: Yeah bro, you need to get a Linux environment up or the shell scripts are going to fail 
+jorell: Caleb, you can write a bat file for the tests.
+caleb: so are we no longer supporting mocha then?
+jorell: We are  
+jorell: The .sh file runs mocha
+caleb: oh, it just does the setup for the tests
+jorell: Yeah. So you can try writing a bat that does the same thing.
+caleb: okay
+caleb: I'll figure that out this weekend then
+mattmcmurray: Regarding the prof requiring selenium tests: Nightwatch.js uses selenium on the backend. It just makes selenium much cleaner and less ugly
+keanek: I started to try testing the clientside js files.  However, Mocha doesn't like jQuery's $.  After doing some research, it seems we'll need another framework\/plugin.  \nHere's the one link I found that referred to this problem: <http:\/\/stackoverflow.com\/questions\/28760568\/how-do-i-test-jquery-code-with-mochajs>\nAnd mocha-jsdom: <https:\/\/www.npmjs.com\/package\/mocha-jsdom>
+keanek: I think, mocha does not recognise jQuery in the scope of my tests, because it tests plain JavaScript without a problem. I tried to require jQuery's full code in the beginning of the .js file with my
+keanek: Simple integration of jsdom into mocha tests
+evan: Correct me if I'm wrong, but I think the only testing we need to do for client-side code would be through our acceptance tests with Nightwatch. I think we're just using Mocha for server-side JS.
+jorell: Thats what i thought as well.
+keanek: He wants unit testing for the front end javascript.  Mentioned it specially in class.
+jorell: Oh 
+jorell: Thats weird.
+steve: so when im running the DB unit tests, im getting a bunch of foreign key errors. is there something i need to do first before running the run_tests.sh
+steve: TIL i've somehow gotten this far without having the sqlite3 installed...
+steve: also, why the hell would my machine not tell me this when its running run_tests.sh I only discovered it because i tried the command in the command line...
+mattmcmurray: lmao for the most part you can get by without it
+mattmcmurray: it's only important for pre-populating db
+mattmcmurray: yeah.. I didn't write that shell script with very many safety fallbacks. My bad
+steve: i mean, i would've expected the command line to say \"sqlite3 not installed\" like it did when i finally tried typing it in manually
+mattmcmurray: Yeah, that's kinda weird that it didn't give any error messages at all
+steve: oh. it did actually lol it gave me \"line 32 command not found\" and i just assumed it had to do with the foreign key errors that followed it
+mattmcmurray: Ah, gotcha
+keanek: I can't find a way so that jQuery isn't causing errors trying to test the public\/js\/*.js files.
+steve: welp
+steve: maybe instead of doing $('buttonName').onclick(function....
+steve: we need to start adding the onclick to the HTML and then have it call a named function? that way we can test the functions that don't touch jquery at least?
+keanek: The ajax calls will still cause problems.  Trying to load the js file, like we do for user is causing the errors.
+steve: so do we need to load it some other way?
+keanek: I'm not sure.  Either we figure out how to make jquery testable, we find some alternative to jquery, or we factor out the non-jquery functions to a separate, testable js file.  Problem is, a good number of our functions are ajax calls or getting\/setting data through jquery.
+steve: maybe we should try QUnit? <http:\/\/qunitjs.com\/cookbook\/#synchronous-callbacks>
+steve: jQuery: The Write Less, Do More, JavaScript Library
+jorell: I saw that last night.
+jorell: Was going to suggest it.
+steve: its made by the makers of jquery
+steve: i just looked at a mini tutorial, it might work?
+steve: we probably won't be able to automatically run it in the run_tests.sh but i dont think its a big deal
+mattmcmurray: Yeah, I'm just working on nightwatch now and we prolly won't be able to run that with run_tests.sh either, but that should be okay
+mattmcmurray: As long as our test coverage is good and we explain how to run them in the README, we should be a-ok :thumbsup::skin-tone-2:
+jorell: sweit
+mattmcmurray: My internet is really really slow today, and my git push has been stuck at ```Enter passphrase for key '\/home\/matt\/.ssh\/id_rsa': \nCounting objects: 22, done.\nCompressing objects: 100% (18\/18), done.\nWriting objects:  40% (9\/22), 17.77 MiB | 49.00 KiB\/s    ```\nFor nearly 20 mins now...
+jorell: lol
+keanek: Well, I've tried qunit and mocha-in-a-browser.  Neither of them seems to work with jquery, at least not the way I ended up setting it up.  I followed the qunit intro, but as soon as I included jquery and one of our js files which used it; it complained about the first $ in swipe.js when I tested userCallback.
+mattmcmurray: So I think I figured out a way to test jQuery code. Basically you need to have a DOM for jQuery to actually manipulate so you need a headless browser of some sort to run the tests. I'm gonna try and get that done by tomorrow evening
+keanek: Good luck.
+mattmcmurray: lmao thanks. Sounds like I'll need it
+mattmcmurray: And boom goes the dynamite ```\u279c  server git:(MM_jquery_testing) \u2717 mocha-phantomjs test\/test_scaffold.html -p node_modules\/phantomjs\/bin\/phantomjs\n\n\n  App\n    \u2713 should be true\n\n\n  1 passing (8ms)\n\n\u279c  server git:(MM_jquery_testing) \u2717 \n```
+mattmcmurray: loaded in jquery and everything. Just need to write the tests now :thumbsup::skin-tone-3:
+mattmcmurray: Little update, worked out all the kinks (hopefully) out of jquery\/front-end testing. Should definitely be able to finish by tomorrow afternoon\/evening. Just need to write a few more test cases
+
+
+caleb: <@caleb|caleb> has joined the channel
+evan: <@evan|evan> has joined the channel
+jorell: <@jorell|jorell> has joined the channel
+keanek: <@keanek|keanek> has joined the channel
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+steve: <@steve|steve> has joined the channel
+steve: <!channel>: just want to confirm that nobody has picked up stub DB work. im going to try to start it now
+mattmcmurray: I have not
+keanek: Nope.
+evan: I haven't
+jorell: neither have I.
+evan: It looks like we have two models doing the same thing, likes and usermatches. I don't see likes being referenced, <@keanek> did you use it anywhere? 
+jorell: That must be when he didn\u2019t know you were working on it?
+evan: Yeah that's what I was thinking, if it's not referenced let's remove it so it isn't tested by accident.
+mattmcmurray: If you use sublime, do a global search for \"Likes.js\" and it should show if its imported anywhere
+mattmcmurray: I'm sure other text editors have similar functions
+evan: Looks like it's not referenced
+evan: I'll submit a pull request
+evan: I'm just gonna merge it myself
+caleb: do we want to make pull requests for testing? or just merge in
+evan: We should make pull requests still just in case people catch potentially missing  cases
+caleb: pull request up for a few tests
+mattmcmurray: I'm getting 3 failed tests on iteration1 branch. Is that the case for anyone else?
+mattmcmurray: Okay, so it's important to remember that tests aren't necessarily run in the order that they're written in the file, so if you make API calls that modify a user, make sure that it doesn't break another test case
+mattmcmurray: Okay, so I figured out why tests were failing. My copy of the db was stuck in a weird state. Crisis averted.
+jorell: So uhhh
+jorell: how do you run the tests?
+jorell: nvm figured it out
+jorell: <@steve|steve> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/steve\/F0L8B3J5B\/untitled_document|Meeting notes> and commented: Btw Jorell and Matt, here's what I wanted to say at the meeting today. I should be able to get the stubs out tonight
+jorell: ": "text
+jorell: alright, noted.
+jorell: <@steve>: let me know when you\u2019re done with those stubs. I\u2019m going to write some unit tests :simple_smile:
+steve: working on it
+steve: <@evan> how does this arg thing work?
+steve: when i put -fill_database, it seems to split it into chars and then says that there's no option associated with each individual char?
+steve: nvm figured it out.
+steve: PSA: you have to use 2 dashes to make it work
+steve: ok user stub is up for review
+steve: it is imperfect, so do let me know if you have issues and I'll fix
+steve: i tested profiles and some random api methods with it, but im not an expert
+steve: <@jorell>: im done both stubs now
+jorell: sweet
+jorell: So running the test script gives me 6 pass and 6 fails
+mattmcmurray: Make sure you've cleaned out the database. I had the same issue last night. 
+mattmcmurray: <!channel> I'm a little fuzzy on what was decided at yesterday's meeting. If I understand correctly, whoever is doing the integration tests should actually make them unit tests using the stub? I'm gonna bring my laptop and try to get those done this afternoon at school
+caleb: Pretty sure we realized that we THOUGHT were unit tests were actually integration tests, due to our lack of a stub database. <@steve>  was tasked with creating the stub database, which he did last night
+caleb: <@mattmcmurray>:
+mattmcmurray: Right. K so I'll try and hammer out some unit tests
+caleb: The only thing I'm unclear on right now is how to run the tests with the stub. He documented how to run main.js with it, but not with running the tests with Mocha
+caleb: also, make sure you check what's already there. We've got most of the api ones done
+keanek: I'll push what I've done to a remote branch.  The --stub commands don't work with mocha, unfortunately.
+caleb: so how do you run the tests using the stub?
+keanek: You need to inject the api in the test.  You can look at the branch once I push it.
+keanek: Okay, I created a pull request with my test code.
+evan: <@keanek> I posted a comment on your pull request, I'm just wondering how something works
+evan: It seems weird to me but it works, so I'm just curious is all
+keanek: Heading to school, won't have access to the chat for the next hour or so.  Walking sucks.
+evan: We can't figure it out, can anyone else chime in? <https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/41\/files#r51898237>
+evan: Further testing.
+evan: Never mind I figured it out
+steve: Is it just that there's only one router that they all share? 
+evan: Basically yeah, whenever you do a require, there is a cache that node keeps track of, and if you require and already existing file, it just references that one instead of creating a new instance of it.
+jorell: I just want to clarify something, we\u2019re just turning the intergration tests into unit test by using the stub instead of the actual User and UserMatches model.
+jorell: Correct?
+steve: i believe so
+steve: not sure if we should keep the \"integration\" tests too
+jorell: we need 1 integration test per detailed user story.
+mattmcmurray: I'm working on the 3 integration tests 
+steve: lol RIP we only finished 3\/9 detailed user stories
+mattmcmurray: My app for SE1 was basically 100% non functional and I got an A in that class 
+mattmcmurray: Ehh I feel like we're graded on how we follow the process, not necessarily how many features\/stories we get throufh
+jorell: Is anyone converting integration tests to unit tests currently? I just dont want to have conflicts with anyone.
+keanek: I already converted the api_tests to use the stubs.
+jorell: ahh
+evan: I'm working on changing my tests to stubs
+mattmcmurray: All tests are passing except for this one, which fails consistently: \n```\n  1) api GET \/api\/getPotentialMatches requests a list of users that are a match for a provided userID:\n     Uncaught AssertionError: Expected 0 to equal 1.\n      at fail (node_modules\/assertthat\/lib\/fail.js:24:10)\n      at Object.equalTo (node_modules\/assertthat\/lib\/constraints\/equalTo.js:17:5)\n      at Test.&lt;anonymous&gt; (test\/api_endpoint_tests.js:174:57)\n      at Test.assert (node_modules\/supertest\/lib\/test.js:156:6)\n      at Server.assert (node_modules\/supertest\/lib\/test.js:127:12)\n      at emitCloseNT (net.js:1524:8)\n```
+jorell: all tests passed for me
+mattmcmurray: I might be missing changes from main branch
+mattmcmurray: <@jorell|jorell> uploaded a file: <https:\/\/umanitobase2.slack.com\/files\/jorell\/F0LAT7RKN\/screen_shot_2016-02-04_at_4.54.57_pm.png|Screen Shot 2016-02-04 at 4.54.57 PM.png>
+mattmcmurray: Just finished integration tests, gonna submit a pull request shortly
+keanek: Pulling iteration1 and running the tests results in 24 passing tests.
+jorell: lol
+jorell: did you add 8 tests keanna?
+jorell: keann*
+mattmcmurray: hmm weird, I must be missing something
+jorell: Keane*
+keanek: No, I think the new tests are from Evan's user matching tests.
+jorell: Hmm, I pulled that into my local.
+evan: I added eight
+jorell: hmm
+jorell: oh
+jorell: do you guys run the .sh file to run your tests?
+keanek: I do.
+evan: I was just running mocha
+jorell: Oh yeah, I ran the shell script and 24 passed
+jorell: haha
+jorell: Are you guys using the stub for your tests?
+jorell: <@evan>:
+evan: Yup
+evan: I'm gonna do a unit test on the actual model though
+jorell: Can I take that from you? I think that\u2019s part of the unit test db queries
+evan: Sure that's cool
+jorell: I haven\u2019t written any tests because all ya\u2019ll are quick
+mattmcmurray: Figured out why that one test was failing. I miss-merged some changes down to my local machine. Crisis averted, all tests pass :thumbsup:
+jorell: :thumbsup:
+jorell: Yall need to start using this one :thumbsup::skin-tone-2:
+mattmcmurray: Submitting pull request in a minute
+mattmcmurray: But I am homer simpson
+jorell: I think the yellow one is for asians. haha
+mattmcmurray: <!channel>: so in my branch for integration testing, I modified the `run_tests.sh` script to do different set up and tear down for unit tests and integration tests. SO, if you add a new file to the test directory, you have to add it to the script or it won't get run
+jorell: I can\u2019t add to usermatches. haha
+jorell: <@keanek>: you were testin the login stuff api endpoints correct?
+keanek: I had tests for logins in the api tests, but the stubs didn't really support them, so the tests are commented out at the moment.
+jorell: so api_test_endpoint are talking to the stubs?
+jorell: haha that\u2019s why I was failing. haha
+evan: Yeah they are
+evan: But our model unit tests shouldn't be off the stubs obviously
+jorell: yup yup.
+jorell: I\u2019m also responsible for writing login\/logout tests.
+jorell: So I\u2019m thinking of just doing the login and logout tests before things are injected
+jorell: is anyone against that idea?
+keanek: They might not run that way...but you can try.
+jorell: doens\u2019t mocha run the tests top down?
+keanek: Not sure
+jorell: you\u2019re right
+jorell: it doesn\u2019t work that way. haha
+jorell: fuck yeah!
+keanek: Got it to work?
+jorell: yeah
+jorell: well the model tests at least
+jorell: we\u2019re using a separate db for testing the model.
+jorell: made a pull request
+steve: looking
+steve: looks good to me
+jorell: Sick.
+keanek: I pulled iteration1 and ran the tests, almost all of the db unit tests are failing.
+jorell: <@keanek>: did you fill the db?
+keanek: I'm running the run_tests.sh
+jorell: Huh. 
+jorell: Huh. 
+jorell: Let me try it out.
+jorell: One sec.
+mattmcmurray: Yeah im getting 7 failing 3 pass 
+mattmcmurray: All other tests are a-ok
+jorell: Damn
+jorell: I know the reason why its failing.
+jorell: the db_unit_tests relies on how the test db is built
+jorell: if say \u201cjflores1\u201d somehow isn\u2019t userid == 1
+jorell: then tests fail.
+jorell: I\u2019m probably just going to make the tests less strict.
+mattmcmurray: Why does the script CD into the test directory before executing the test?
+mattmcmurray: That causes 6 of the 7 failures 
+jorell: because the injection needs to happen in the tests directory. relative path and all.
+jorell: because if node\/mocha is executed in \/server, it uses our actual database.
+jorell: I was going to turn Database.js into a class, but a lot of refactoring will happen if I did.
+mattmcmurray: I mean.. I just changed it and it solved 6\/7 failures. Are you getting that many failures?
+jorell: im passing 5\/10
+jorell: all tests pass on my lapto.
+jorell: (currently on my desktop)
+jorell: <@mattmcmurray>: can you try running the db unit tests just by itself and run it from server
+jorell: Let me know if you\u2019re getting \u2018cannot read property \u2018select\u2019 of undefined'
+mattmcmurray: I'm on the bus rn
+jorell: <@mattmcmurray>: alright. I\u2019ve been learning that node dependencies are hard to maintain on different machines.
+mattmcmurray: I mean, they shouldn't be if you're saving to package.json
+jorell: Alright, I have 10\/10 tests passing
+jorell: Should I just push to iter1?
+keanek: Sure.
+jorell: done
+jorell: <@keanek>: can you test it now?
+keanek: 10\/10!
+jorell: sweet
+caleb: okay, sorry I'm joining the party late, but I have failing integration tests. Did that get discussed\/resolved?
+keanek: I think it should be resolved with the latest iteration1 code.
+caleb: got the latest right now
+keanek: Mocha or run_tests.sh?
+caleb: mocha
+keanek: That's probably why
+caleb: using run_tests.sh shows me a quick flash of a new command window, then exits
+keanek: There's a test output folder.
+mattmcmurray: Yeah bro, you need to get a Linux environment up or the shell scripts are going to fail 
+jorell: Caleb, you can write a bat file for the tests.
+caleb: so are we no longer supporting mocha then?
+jorell: We are  
+jorell: The .sh file runs mocha
+caleb: oh, it just does the setup for the tests
+jorell: Yeah. So you can try writing a bat that does the same thing.
+caleb: okay
+caleb: I'll figure that out this weekend then
+mattmcmurray: Regarding the prof requiring selenium tests: Nightwatch.js uses selenium on the backend. It just makes selenium much cleaner and less ugly
+keanek: I started to try testing the clientside js files.  However, Mocha doesn't like jQuery's $.  After doing some research, it seems we'll need another framework\/plugin.  \nHere's the one link I found that referred to this problem: <http:\/\/stackoverflow.com\/questions\/28760568\/how-do-i-test-jquery-code-with-mochajs>\nAnd mocha-jsdom: <https:\/\/www.npmjs.com\/package\/mocha-jsdom>
+keanek: I think, mocha does not recognise jQuery in the scope of my tests, because it tests plain JavaScript without a problem. I tried to require jQuery's full code in the beginning of the .js file with my
+keanek: Simple integration of jsdom into mocha tests
+evan: Correct me if I'm wrong, but I think the only testing we need to do for client-side code would be through our acceptance tests with Nightwatch. I think we're just using Mocha for server-side JS.
+jorell: Thats what i thought as well.
+keanek: He wants unit testing for the front end javascript.  Mentioned it specially in class.
+jorell: Oh 
+jorell: Thats weird.
+steve: so when im running the DB unit tests, im getting a bunch of foreign key errors. is there something i need to do first before running the run_tests.sh
+steve: TIL i've somehow gotten this far without having the sqlite3 installed...
+steve: also, why the hell would my machine not tell me this when its running run_tests.sh I only discovered it because i tried the command in the command line...
+mattmcmurray: lmao for the most part you can get by without it
+mattmcmurray: it's only important for pre-populating db
+mattmcmurray: yeah.. I didn't write that shell script with very many safety fallbacks. My bad
+steve: i mean, i would've expected the command line to say \"sqlite3 not installed\" like it did when i finally tried typing it in manually
+mattmcmurray: Yeah, that's kinda weird that it didn't give any error messages at all
+steve: oh. it did actually lol it gave me \"line 32 command not found\" and i just assumed it had to do with the foreign key errors that followed it
+mattmcmurray: Ah, gotcha
+keanek: I can't find a way so that jQuery isn't causing errors trying to test the public\/js\/*.js files.
+steve: welp
+steve: maybe instead of doing $('buttonName').onclick(function....
+steve: we need to start adding the onclick to the HTML and then have it call a named function? that way we can test the functions that don't touch jquery at least?
+keanek: The ajax calls will still cause problems.  Trying to load the js file, like we do for user is causing the errors.
+steve: so do we need to load it some other way?
+keanek: I'm not sure.  Either we figure out how to make jquery testable, we find some alternative to jquery, or we factor out the non-jquery functions to a separate, testable js file.  Problem is, a good number of our functions are ajax calls or getting\/setting data through jquery.
+steve: maybe we should try QUnit? <http:\/\/qunitjs.com\/cookbook\/#synchronous-callbacks>
+steve: jQuery: The Write Less, Do More, JavaScript Library
+jorell: I saw that last night.
+jorell: Was going to suggest it.
+steve: its made by the makers of jquery
+steve: i just looked at a mini tutorial, it might work?
+steve: we probably won't be able to automatically run it in the run_tests.sh but i dont think its a big deal
+mattmcmurray: Yeah, I'm just working on nightwatch now and we prolly won't be able to run that with run_tests.sh either, but that should be okay
+mattmcmurray: As long as our test coverage is good and we explain how to run them in the README, we should be a-ok :thumbsup::skin-tone-2:
+jorell: sweit
+mattmcmurray: My internet is really really slow today, and my git push has been stuck at ```Enter passphrase for key '\/home\/matt\/.ssh\/id_rsa': \nCounting objects: 22, done.\nCompressing objects: 100% (18\/18), done.\nWriting objects:  40% (9\/22), 17.77 MiB | 49.00 KiB\/s    ```\nFor nearly 20 mins now...
+jorell: lol
+keanek: Well, I've tried qunit and mocha-in-a-browser.  Neither of them seems to work with jquery, at least not the way I ended up setting it up.  I followed the qunit intro, but as soon as I included jquery and one of our js files which used it; it complained about the first $ in swipe.js when I tested userCallback.
+mattmcmurray: So I think I figured out a way to test jQuery code. Basically you need to have a DOM for jQuery to actually manipulate so you need a headless browser of some sort to run the tests. I'm gonna try and get that done by tomorrow evening
+keanek: Good luck.
+mattmcmurray: lmao thanks. Sounds like I'll need it
+mattmcmurray: And boom goes the dynamite ```\u279c  server git:(MM_jquery_testing) \u2717 mocha-phantomjs test\/test_scaffold.html -p node_modules\/phantomjs\/bin\/phantomjs\n\n\n  App\n    \u2713 should be true\n\n\n  1 passing (8ms)\n\n\u279c  server git:(MM_jquery_testing) \u2717 \n```
+mattmcmurray: loaded in jquery and everything. Just need to write the tests now :thumbsup::skin-tone-3:
+mattmcmurray: Little update, worked out all the kinks (hopefully) out of jquery\/front-end testing. Should definitely be able to finish by tomorrow afternoon\/evening. Just need to write a few more test cases
+caleb: I found out something very fun with selenium
+caleb: if you use the .click method, it'll scroll until that element is on the screen, then click it
+caleb: but what it doesn't know is if that item happens to be covered
+caleb: So in this case, it'll scroll to the point where our button is technically on screen, but is under our banner, and completely fail to click on it
+caleb: sigh
+caleb: got a workaround where I scroll to the top of the page before initiating the click, but yeah
+caleb: fun stuff
+mattmcmurray: Yeah selenium is so frickin frustrating. I have PTSD flashbacks from working with it at Norima 
+mattmcmurray: <!channel>: my front-end tests are ready to be merged. If you have trouble running them, make sure you've `npm install`'d all the dependencies (listed in package.json)
+evan: Looks all g to me, merged
+mattmcmurray: We still need chat logs, etc for this iteration
+jorell: Gave you all owner status. I think <@keanek> is handling that. He also did the uml.
+mattmcmurray: Dope
+mattmcmurray: I'm updating readme with iteration 2 trello page as well
+mattmcmurray: Whoever \"owns\" the iteration 2 page for trello needs to make it public
+mattmcmurray: I tried, but I'm not the admin or whatever
+jorell: <@caleb>:  I think.
+mattmcmurray: Looking through tests, coverage looks great. I have a good feeling about this iteration, guys
+
+
