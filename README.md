@@ -1,5 +1,7 @@
 ### For the marker:
-- Our Trello page for iteration 1 (task tracking): https://trello.com/b/mpbIdgMg/iteration-1
+- Our Trello page 
+    - for iteration 1 (task tracking): https://trello.com/b/mpbIdgMg/iteration-1
+    - for iteration 2: https://trello.com/b/JOCDOuCr
 - To run the server:
     - `cd` into `Gradr/code/server`
     - run `sudo ./get_started.sh` to install all dependencies
