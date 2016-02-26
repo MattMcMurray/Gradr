@@ -1,0 +1,46 @@
+Schedule Updates:
+
+For Iteration 2, we planned the following:
+
+Viewing Profiles (10.5 hours) (CARRIED OVER FROM Iteration 1)
+Big User Story: I want to see more in-depth information on matched study partners.
+Detailed User Stories:
+	- I want to see a breakdown of a user's ratings (3 hours | Medium) - COMPLETE
+	- I want to see a picture of the user (4 hours | Low) - INCOMPLETE
+	- I want to be able to see the user's information (3.5 | High) - COMPLETE
+
+Rating System (16 hours)
+Big User Story: I want a way to rate study partners, depending on how they performed during our session.
+Detailed User Stories:
+	- I want to be able to rate a past study partner (6 hours | High) - COMPLETE
+	- I want to be able to see what other people have rated a user (5 hours | Medium) - COMPLETE
+	- I want to see what my rating is on my profile page (5 hours | Low) - INCOMPLETE
+
+Deletion (7 hours)
+Big User Story: I would like to delete my account, and have it actually deleted.
+	- I want to be able to delete my account (4 hours | Medium) - COMPLETE
+	- I want to be able to log out (3 hours | High) - We actually did this in Iteration 1 because we needed it for testing purposes
+
+We did a lot better on this iteration than the last. We left the lower priority tasks for later but we ended up having a lot of troubles trying to get the front-end tests to work, so more resources were put to that than we would have liked.
+
+
+For Iteration 3, we'd like to do the following big stories:
+**TO DECIDE IN OUR MEETING FRIDAY**
+
+Communicate 
+Big User Story: I would like a way to communicate with matched study partners after we both accepted each other.  Preferably it would be a built-in chat window.
+
+Rejection
+Big User Story: I would like to see a list of all matches where I matched with a potential study partner, but they didn’t match.
+
+Settings
+I would like to manage settings for my account like notifications and themes.
+
+Leaderboard
+I want a leaderboard so I can compete with friends for most matches.
+
+IQ Test
+I would like all new applicants to do an integrated IQ test.  The results should be stored in the in-depth information section of the profile.
+
+Picture:
+I would like to upload a picture to my profile so matched study partners can recognize me.
