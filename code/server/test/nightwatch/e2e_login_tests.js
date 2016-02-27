@@ -57,5 +57,24 @@ module.exports = {
 			.setValue('//*[@id="password"]', newUserPass)
 			.click('//*[@id="login-form"]/button')
 			.end();
+	},
+
+	'Delete account': function(browser) {
+		browser
+			.setValue('//*[@id="username"]', newUserName)
+			.setValue('//*[@id="password"]', newUserPass)
+			.click('//*[@id="login-form"]/button')
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.url(appURL + '/profile')
+			.waitForElementVisible('//*[@id="username"]', 10000)
+			.click('//*[@id="deleteAccountButton"]')
+			.pause(1000)
+			.acceptAlert()
+			.waitForElementVisible('//*[@id="login-form"]/a', 10000)
+			.setValue('//*[@id="username"]', newUserName)
+			.setValue('//*[@id="password"]', 'the_wrong_password')
+			.click('//*[@id="login-form"]/button')
+			.waitForElementVisible('//*[@id="error"]', 5000)
+			.end();
 	}
 }
