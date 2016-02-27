@@ -16,14 +16,29 @@ module.exports = {
 	'Create a new account' : function(browser) {
 		browser
 			.click('//*[@id="login-form"]/a')
-			.waitForElementVisible('/html/body/div[3]/form', 1000)
+			.waitForElementVisible('//*[@id="registerButton"]', 1000)
 			.assert.elementPresent('//*[@id="registerButton"]')
 			.assert.elementPresent('//*[@id="cancelButton"]')
 			.setValue('//*[@id="username"]', newUserName)
 			.setValue('//*[@id="password"]', newUserPass)
 			.setValue('//*[@id="confirmPassword"]', newUserPass)
 			.click('//*[@id="registerButton"]')
-			.waitForElementVisible('/html/body/div[3]/form', 1000) // redirect to login page
+			.waitForElementVisible('//*[@id="login-form"]/a', 1000) // redirect to login page
+			.end();
+	},
+
+	'Create account where user already exists' : function(browser) {
+		browser
+			.click('//*[@id="login-form"]/a')
+			.waitForElementVisible('//*[@id="registerButton"]', 1000)
+			.assert.elementPresent('//*[@id="registerButton"]')
+			.assert.elementPresent('//*[@id="cancelButton"]')
+			.setValue('//*[@id="username"]', newUserName)
+			.setValue('//*[@id="password"]', newUserPass)
+			.setValue('//*[@id="confirmPassword"]', newUserPass)
+			.click('//*[@id="registerButton"]')
+			.pause(1000)
+			.assert.elementPresent('//*[@id="registerButton"]') // make sure we didn't succeed
 			.end();
 	},
 

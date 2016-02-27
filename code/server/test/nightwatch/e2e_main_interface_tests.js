@@ -23,14 +23,14 @@ module.exports = {
 		browser
 			.useXpath()
 			.url(appURL + '/signup')
-			.waitForElementVisible('/html/body/div[3]/form', 1000)
+			.waitForElementVisible('//*[@id="registerButton"]', 1000)
 			.assert.elementPresent('//*[@id="registerButton"]')
 			.assert.elementPresent('//*[@id="cancelButton"]')
 			.setValue('//*[@id="username"]', newUserName)
 			.setValue('//*[@id="password"]', newUserPass)
 			.setValue('//*[@id="confirmPassword"]', newUserPass)
 			.click('//*[@id="registerButton"]')
-			.waitForElementVisible('/html/body/div[3]/form', 1000) // redirect to login page
+			.waitForElementVisible('//*[@id="login-form"]/button', 1000) // redirect to login page
 	},
 
 	'Click like & dislike buttons' : function(browser) {
@@ -100,7 +100,6 @@ module.exports = {
 			.execute('scrollTo(0,0)')
 			.click('//*[@id="editIcon"]')
 			.waitForElementVisible('//*[@id="username"]', 10000)
-			.pause(10000)
 			.getValue('//*[@id="generalDescription"]', function(found) {
 						this.assert.equal(found.value, desc);
 			})
