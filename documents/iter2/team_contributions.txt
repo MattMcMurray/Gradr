@@ -34,6 +34,7 @@ Jorell Linsangan
 -DB unit tests
 -Validation on sign in page
 -Profile page for matches
+-Initial setup of the database including which ORM to use.
 
 Evan Hunzinger
 -Added a data access layer for accessing stub and database models
