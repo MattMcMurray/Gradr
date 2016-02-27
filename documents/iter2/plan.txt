@@ -25,22 +25,22 @@ We did a lot better on this iteration than the last. We left the lower priority 
 
 
 For Iteration 3, we'd like to do the following big stories:
-**TO DECIDE IN OUR MEETING FRIDAY**
 
 Communicate 
 Big User Story: I would like a way to communicate with matched study partners after we both accepted each other.  Preferably it would be a built-in chat window.
-
-Rejection
-Big User Story: I would like to see a list of all matches where I matched with a potential study partner, but they didn’t match.
+	- I want to be able to send a message to someone I've matched with (6 hours | HIGH)
+	- I want to be able to see messages that someone I've matched with has sent to me (3 hours | HIGH)
+	- I want to know if someone has sent me a message when I've been offline (4 hours | Low)
 
 Settings
-I would like to manage settings for my account like notifications and themes.
-
-Leaderboard
-I want a leaderboard so I can compete with friends for most matches.
-
-IQ Test
-I would like all new applicants to do an integrated IQ test.  The results should be stored in the in-depth information section of the profile.
+Big User Stroy: I would like to manage settings for my account like notifications and themes.
+	- I want to be able to choose a background (4 hours | HIGH)
+	- I want to be able to choose a colour theme (5 hours | Low)
+	- I want to be able to customize notifications (6 hours | Low)
 
 Picture:
-I would like to upload a picture to my profile so matched study partners can recognize me.
+Big User Story: I would like to upload a picture to my profile so matched study partners can recognize me.
+	- I want to be able to set an image to be displayed whenever someone looks at my profile (6 hours | HIGH*)
+	- I want to be able to see other people's profile pictures (4 hours | HIGH*)
+
+*For the picture story, we'll need to do some research on how hard it is for us to store user images in our DB. We'll also have to see how much it costs to store these images in S3 or some other online service. We may scrap the Picture story if it is not feasible.
