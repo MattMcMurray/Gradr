@@ -59,7 +59,7 @@ function validate(sendData){
 
 	if(sendData.password != sendData.confirmPassword){
 		validationObject.valid = false;
-		validationObject.errors.password = 'Passwords must match. ';
+		validationObject.errors.password = 'Passwords must match.';
 	}
 
 	if(sendData.password === ''){
@@ -71,3 +71,6 @@ function validate(sendData){
 
 }
 
+module.exports = {
+	validate
+}

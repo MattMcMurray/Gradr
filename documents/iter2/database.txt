@@ -1,0 +1,308 @@
+jorell: <@jorell|jorell> has joined the channel
+jorell: <@jorell|jorell> set the channel purpose: all db discussions here
+jorell: <http:\/\/docs.sequelizejs.com\/en\/latest\/>
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+evan: <@evan|evan> has joined the channel
+caleb: <@caleb|caleb> has joined the channel
+keanek: <@keanek|keanek> has joined the channel
+steve: <@steve|steve> has joined the channel
+
+
+jorell: <@jorell|jorell> has joined the channel
+jorell: <@jorell|jorell> set the channel purpose: all db discussions here
+jorell: <http:\/\/docs.sequelizejs.com\/en\/latest\/>
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+evan: <@evan|evan> has joined the channel
+caleb: <@caleb|caleb> has joined the channel
+keanek: <@keanek|keanek> has joined the channel
+steve: <@steve|steve> has joined the channel
+caleb: tip: to create the Users database, run 'node User.js' in server\/models
+mattmcmurray: Perf
+
+
+jorell: <@jorell|jorell> has joined the channel
+jorell: <@jorell|jorell> set the channel purpose: all db discussions here
+jorell: <http:\/\/docs.sequelizejs.com\/en\/latest\/>
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+evan: <@evan|evan> has joined the channel
+caleb: <@caleb|caleb> has joined the channel
+keanek: <@keanek|keanek> has joined the channel
+steve: <@steve|steve> has joined the channel
+caleb: tip: to create the Users database, run 'node User.js' in server\/models
+mattmcmurray: Perf
+evan: Has anyone had issues with foreign keys not being enforced with sqlite before?
+mattmcmurray: Not that I can remember. I was doing some fk work last night, so I'll let ya know what I figure out if it works 
+evan: How were you establishing the FK rule?
+evan: I tried the 'references' attribute when setting up the model with FKs, when I look at the schema it has the rules,  but I can still insert records with FKs that don't exist
+evan: It's on my branch that I pushed, not quite done yet though
+evan: (like_dislike_user)
+mattmcmurray: Hmm, yeah I didn't check to see if the rule is enforced
+evan: Seemed to just be an issue with `upsert()`, I used `findOneOrCreate()` instead and it works fine now
+
+
+jorell: <@jorell|jorell> has joined the channel
+jorell: <@jorell|jorell> set the channel purpose: all db discussions here
+jorell: <http:\/\/docs.sequelizejs.com\/en\/latest\/>
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+evan: <@evan|evan> has joined the channel
+caleb: <@caleb|caleb> has joined the channel
+keanek: <@keanek|keanek> has joined the channel
+steve: <@steve|steve> has joined the channel
+caleb: tip: to create the Users database, run 'node User.js' in server\/models
+mattmcmurray: Perf
+evan: Has anyone had issues with foreign keys not being enforced with sqlite before?
+mattmcmurray: Not that I can remember. I was doing some fk work last night, so I'll let ya know what I figure out if it works 
+evan: How were you establishing the FK rule?
+evan: I tried the 'references' attribute when setting up the model with FKs, when I look at the schema it has the rules,  but I can still insert records with FKs that don't exist
+evan: It's on my branch that I pushed, not quite done yet though
+evan: (like_dislike_user)
+mattmcmurray: Hmm, yeah I didn't check to see if the rule is enforced
+evan: Seemed to just be an issue with `upsert()`, I used `findOneOrCreate()` instead and it works fine now
+jorell: sooooo
+jorell: I added 500 users to the table..
+evan: Nice
+evan: Did you make a script for it?
+jorell: I thought I broke it
+jorell: no :))
+jorell: I found a site that generates files for you
+evan: A sqlite file?
+jorell: JSON
+jorell: <http:\/\/mockaroo.com|mockaroo.com>
+jorell: its pretty fucking handy
+jorell: haha
+jorell: I used it in my last work term to test an app I was working on.
+jorell: told it to generate usernames and password
+evan: They have a SQL output option! That would be handy to shove into a script.
+jorell: oh they do?
+evan: Yeah
+jorell: you\u2019re right
+jorell: that\u2019s cool.
+jorell: haha
+jorell: I\u2019ve only used json and csv
+evan: This tool is sweet
+jorell: yeah. it has like 90 different types of data
+jorell: unfortunate that there\u2019s no school option.
+evan: Can you give it an array of phrases that it would just use randomly?
+jorell: you can apparnetly use Regex
+jorell: =))
+jorell: But i think since there\u2019s a city, we can fake it and just do like \u201cUniversity of \u201c + json.city
+evan: Yeah that would be a good solution
+evan: I'll use it to make a db fill script tomorrow
+jorell: Yeah, you can just wipe the current DB
+evan: OK
+
+
+jorell: <@jorell|jorell> has joined the channel
+jorell: <@jorell|jorell> set the channel purpose: all db discussions here
+jorell: <http:\/\/docs.sequelizejs.com\/en\/latest\/>
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+evan: <@evan|evan> has joined the channel
+caleb: <@caleb|caleb> has joined the channel
+keanek: <@keanek|keanek> has joined the channel
+steve: <@steve|steve> has joined the channel
+caleb: tip: to create the Users database, run 'node User.js' in server\/models
+mattmcmurray: Perf
+evan: Has anyone had issues with foreign keys not being enforced with sqlite before?
+mattmcmurray: Not that I can remember. I was doing some fk work last night, so I'll let ya know what I figure out if it works 
+evan: How were you establishing the FK rule?
+evan: I tried the 'references' attribute when setting up the model with FKs, when I look at the schema it has the rules,  but I can still insert records with FKs that don't exist
+evan: It's on my branch that I pushed, not quite done yet though
+evan: (like_dislike_user)
+mattmcmurray: Hmm, yeah I didn't check to see if the rule is enforced
+evan: Seemed to just be an issue with `upsert()`, I used `findOneOrCreate()` instead and it works fine now
+jorell: sooooo
+jorell: I added 500 users to the table..
+evan: Nice
+evan: Did you make a script for it?
+jorell: I thought I broke it
+jorell: no :))
+jorell: I found a site that generates files for you
+evan: A sqlite file?
+jorell: JSON
+jorell: <http:\/\/mockaroo.com|mockaroo.com>
+jorell: its pretty fucking handy
+jorell: haha
+jorell: I used it in my last work term to test an app I was working on.
+jorell: told it to generate usernames and password
+evan: They have a SQL output option! That would be handy to shove into a script.
+jorell: oh they do?
+evan: Yeah
+jorell: you\u2019re right
+jorell: that\u2019s cool.
+jorell: haha
+jorell: I\u2019ve only used json and csv
+evan: This tool is sweet
+jorell: yeah. it has like 90 different types of data
+jorell: unfortunate that there\u2019s no school option.
+evan: Can you give it an array of phrases that it would just use randomly?
+jorell: you can apparnetly use Regex
+jorell: =))
+jorell: But i think since there\u2019s a city, we can fake it and just do like \u201cUniversity of \u201c + json.city
+evan: Yeah that would be a good solution
+evan: I'll use it to make a db fill script tomorrow
+jorell: Yeah, you can just wipe the current DB
+evan: OK
+steve: <!channel>: just so nobody misses it, since we've just merged in user table changes, the user table is going to get rewritten
+jorell: <@steve>: Are you guys rewritting the user table or is that a task that\u2019s up for grabs? P.s. I\u2019m so used to typing out your handle as stevar.
+steve: umm <@keanek> can you answer this, i just wanted to make sure nobody gets alarmed when the table has different content than they remembered
+keanek: If we run the UserConnection.sync({force: true}), all the tables will be erased, with new columns in the user table.  If you are talking about the mockaroo thing, generating new fake users with more data is 'up for grabs'.
+jorell: Awesome.
+jorell: Thanks guys
+steve: soooo.... i tried merging with mainline and idk how to make these DB errors go away...
+steve: anyone know how to fix this???\nUnhandled rejection SequelizeDatabaseError: SQLITE_ERROR: no such table: users\n    at Query.formatError (\/home\/steve\/Gradr\/code\/server\/node_modules\/sequelize\/lib\/dialects\/sqlite\/query.js:348:14)\n    at afterExecute (\/home\/steve\/Gradr\/code\/server\/node_modules\/sequelize\/lib\/dialects\/sqlite\/query.js:112:29)\n    at Statement.errBack (\/home\/steve\/Gradr\/code\/server\/node_modules\/sqlite3\/lib\/sqlite3.js:16:21)\n\nUnhandled rejection SequelizeDatabaseError: SQLITE_ERROR: no such table: users\n    at Query.formatError (\/home\/steve\/Gradr\/code\/server\/node_modules\/sequelize\/lib\/dialects\/sqlite\/query.js:348:14)\n    at afterExecute (\/home\/steve\/Gradr\/code\/server\/node_modules\/sequelize\/lib\/dialects\/sqlite\/query.js:112:29)\n    at Statement.errBack (\/home\/steve\/Gradr\/code\/server\/node_modules\/sqlite3\/lib\/sqlite3.js:16:21)
+steve: this is now that i just deleted the sqlite db because it was giving me even more problems
+keanek: Have you gone into Users.js and uncommented line 46?
+keanek: If not, try running the server once with that line uncommented, then comment it again and see if it works.
+steve: ok that worked
+steve: i did try it, but it didn't work so i commented it again
+steve: but looks like when i deleted my old sqlite file, and then brought in the one in iteration1, it worked
+
+
+jorell: <@jorell|jorell> has joined the channel
+jorell: <@jorell|jorell> set the channel purpose: all db discussions here
+jorell: <http:\/\/docs.sequelizejs.com\/en\/latest\/>
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+evan: <@evan|evan> has joined the channel
+caleb: <@caleb|caleb> has joined the channel
+keanek: <@keanek|keanek> has joined the channel
+steve: <@steve|steve> has joined the channel
+caleb: tip: to create the Users database, run 'node User.js' in server\/models
+mattmcmurray: Perf
+evan: Has anyone had issues with foreign keys not being enforced with sqlite before?
+mattmcmurray: Not that I can remember. I was doing some fk work last night, so I'll let ya know what I figure out if it works 
+evan: How were you establishing the FK rule?
+evan: I tried the 'references' attribute when setting up the model with FKs, when I look at the schema it has the rules,  but I can still insert records with FKs that don't exist
+evan: It's on my branch that I pushed, not quite done yet though
+evan: (like_dislike_user)
+mattmcmurray: Hmm, yeah I didn't check to see if the rule is enforced
+evan: Seemed to just be an issue with `upsert()`, I used `findOneOrCreate()` instead and it works fine now
+jorell: sooooo
+jorell: I added 500 users to the table..
+evan: Nice
+evan: Did you make a script for it?
+jorell: I thought I broke it
+jorell: no :))
+jorell: I found a site that generates files for you
+evan: A sqlite file?
+jorell: JSON
+jorell: <http:\/\/mockaroo.com|mockaroo.com>
+jorell: its pretty fucking handy
+jorell: haha
+jorell: I used it in my last work term to test an app I was working on.
+jorell: told it to generate usernames and password
+evan: They have a SQL output option! That would be handy to shove into a script.
+jorell: oh they do?
+evan: Yeah
+jorell: you\u2019re right
+jorell: that\u2019s cool.
+jorell: haha
+jorell: I\u2019ve only used json and csv
+evan: This tool is sweet
+jorell: yeah. it has like 90 different types of data
+jorell: unfortunate that there\u2019s no school option.
+evan: Can you give it an array of phrases that it would just use randomly?
+jorell: you can apparnetly use Regex
+jorell: =))
+jorell: But i think since there\u2019s a city, we can fake it and just do like \u201cUniversity of \u201c + json.city
+evan: Yeah that would be a good solution
+evan: I'll use it to make a db fill script tomorrow
+jorell: Yeah, you can just wipe the current DB
+evan: OK
+steve: <!channel>: just so nobody misses it, since we've just merged in user table changes, the user table is going to get rewritten
+jorell: <@steve>: Are you guys rewritting the user table or is that a task that\u2019s up for grabs? P.s. I\u2019m so used to typing out your handle as stevar.
+steve: umm <@keanek> can you answer this, i just wanted to make sure nobody gets alarmed when the table has different content than they remembered
+keanek: If we run the UserConnection.sync({force: true}), all the tables will be erased, with new columns in the user table.  If you are talking about the mockaroo thing, generating new fake users with more data is 'up for grabs'.
+jorell: Awesome.
+jorell: Thanks guys
+steve: soooo.... i tried merging with mainline and idk how to make these DB errors go away...
+steve: anyone know how to fix this???\nUnhandled rejection SequelizeDatabaseError: SQLITE_ERROR: no such table: users\n    at Query.formatError (\/home\/steve\/Gradr\/code\/server\/node_modules\/sequelize\/lib\/dialects\/sqlite\/query.js:348:14)\n    at afterExecute (\/home\/steve\/Gradr\/code\/server\/node_modules\/sequelize\/lib\/dialects\/sqlite\/query.js:112:29)\n    at Statement.errBack (\/home\/steve\/Gradr\/code\/server\/node_modules\/sqlite3\/lib\/sqlite3.js:16:21)\n\nUnhandled rejection SequelizeDatabaseError: SQLITE_ERROR: no such table: users\n    at Query.formatError (\/home\/steve\/Gradr\/code\/server\/node_modules\/sequelize\/lib\/dialects\/sqlite\/query.js:348:14)\n    at afterExecute (\/home\/steve\/Gradr\/code\/server\/node_modules\/sequelize\/lib\/dialects\/sqlite\/query.js:112:29)\n    at Statement.errBack (\/home\/steve\/Gradr\/code\/server\/node_modules\/sqlite3\/lib\/sqlite3.js:16:21)
+steve: this is now that i just deleted the sqlite db because it was giving me even more problems
+keanek: Have you gone into Users.js and uncommented line 46?
+keanek: If not, try running the server once with that line uncommented, then comment it again and see if it works.
+steve: ok that worked
+steve: i did try it, but it didn't work so i commented it again
+steve: but looks like when i deleted my old sqlite file, and then brought in the one in iteration1, it worked
+caleb: <!channel>: I need a hand translating some raw sql to its sequelize representation. Who would be best to talk to?
+mattmcmurray: I can do my best to help at the meeting.  The docs definitely aren't great
+caleb: great, thanks
+
+
+jorell: <@jorell|jorell> has joined the channel
+jorell: <@jorell|jorell> set the channel purpose: all db discussions here
+jorell: <http:\/\/docs.sequelizejs.com\/en\/latest\/>
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+evan: <@evan|evan> has joined the channel
+caleb: <@caleb|caleb> has joined the channel
+keanek: <@keanek|keanek> has joined the channel
+steve: <@steve|steve> has joined the channel
+caleb: tip: to create the Users database, run 'node User.js' in server\/models
+mattmcmurray: Perf
+evan: Has anyone had issues with foreign keys not being enforced with sqlite before?
+mattmcmurray: Not that I can remember. I was doing some fk work last night, so I'll let ya know what I figure out if it works 
+evan: How were you establishing the FK rule?
+evan: I tried the 'references' attribute when setting up the model with FKs, when I look at the schema it has the rules,  but I can still insert records with FKs that don't exist
+evan: It's on my branch that I pushed, not quite done yet though
+evan: (like_dislike_user)
+mattmcmurray: Hmm, yeah I didn't check to see if the rule is enforced
+evan: Seemed to just be an issue with `upsert()`, I used `findOneOrCreate()` instead and it works fine now
+jorell: sooooo
+jorell: I added 500 users to the table..
+evan: Nice
+evan: Did you make a script for it?
+jorell: I thought I broke it
+jorell: no :))
+jorell: I found a site that generates files for you
+evan: A sqlite file?
+jorell: JSON
+jorell: <http:\/\/mockaroo.com|mockaroo.com>
+jorell: its pretty fucking handy
+jorell: haha
+jorell: I used it in my last work term to test an app I was working on.
+jorell: told it to generate usernames and password
+evan: They have a SQL output option! That would be handy to shove into a script.
+jorell: oh they do?
+evan: Yeah
+jorell: you\u2019re right
+jorell: that\u2019s cool.
+jorell: haha
+jorell: I\u2019ve only used json and csv
+evan: This tool is sweet
+jorell: yeah. it has like 90 different types of data
+jorell: unfortunate that there\u2019s no school option.
+evan: Can you give it an array of phrases that it would just use randomly?
+jorell: you can apparnetly use Regex
+jorell: =))
+jorell: But i think since there\u2019s a city, we can fake it and just do like \u201cUniversity of \u201c + json.city
+evan: Yeah that would be a good solution
+evan: I'll use it to make a db fill script tomorrow
+jorell: Yeah, you can just wipe the current DB
+evan: OK
+steve: <!channel>: just so nobody misses it, since we've just merged in user table changes, the user table is going to get rewritten
+jorell: <@steve>: Are you guys rewritting the user table or is that a task that\u2019s up for grabs? P.s. I\u2019m so used to typing out your handle as stevar.
+steve: umm <@keanek> can you answer this, i just wanted to make sure nobody gets alarmed when the table has different content than they remembered
+keanek: If we run the UserConnection.sync({force: true}), all the tables will be erased, with new columns in the user table.  If you are talking about the mockaroo thing, generating new fake users with more data is 'up for grabs'.
+jorell: Awesome.
+jorell: Thanks guys
+steve: soooo.... i tried merging with mainline and idk how to make these DB errors go away...
+steve: anyone know how to fix this???\nUnhandled rejection SequelizeDatabaseError: SQLITE_ERROR: no such table: users\n    at Query.formatError (\/home\/steve\/Gradr\/code\/server\/node_modules\/sequelize\/lib\/dialects\/sqlite\/query.js:348:14)\n    at afterExecute (\/home\/steve\/Gradr\/code\/server\/node_modules\/sequelize\/lib\/dialects\/sqlite\/query.js:112:29)\n    at Statement.errBack (\/home\/steve\/Gradr\/code\/server\/node_modules\/sqlite3\/lib\/sqlite3.js:16:21)\n\nUnhandled rejection SequelizeDatabaseError: SQLITE_ERROR: no such table: users\n    at Query.formatError (\/home\/steve\/Gradr\/code\/server\/node_modules\/sequelize\/lib\/dialects\/sqlite\/query.js:348:14)\n    at afterExecute (\/home\/steve\/Gradr\/code\/server\/node_modules\/sequelize\/lib\/dialects\/sqlite\/query.js:112:29)\n    at Statement.errBack (\/home\/steve\/Gradr\/code\/server\/node_modules\/sqlite3\/lib\/sqlite3.js:16:21)
+steve: this is now that i just deleted the sqlite db because it was giving me even more problems
+keanek: Have you gone into Users.js and uncommented line 46?
+keanek: If not, try running the server once with that line uncommented, then comment it again and see if it works.
+steve: ok that worked
+steve: i did try it, but it didn't work so i commented it again
+steve: but looks like when i deleted my old sqlite file, and then brought in the one in iteration1, it worked
+caleb: <!channel>: I need a hand translating some raw sql to its sequelize representation. Who would be best to talk to?
+mattmcmurray: I can do my best to help at the meeting.  The docs definitely aren't great
+caleb: great, thanks
+jorell: <!channel>: how does everyone feel about sqlite and sequelize?
+evan: I like sqlite, I tolerate sequelize
+jorell: haha fair enough.
+evan: I haven't run into THAT many issues with sequelize though, so I'm fine with still using it
+jorell: So, what does everyone else think?
+keanek: I haven't had any issues with either, although I sort of dodged working on user matches and the foreign key problems.
+caleb: I like SQLite, I would much rather be able to just use queries as I know them, as opposed to translating them into sequelize's format
+evan: Sequelize does have that ability though
+caleb: it does, though I feel like whenever I do it that way, I'm doing so in bad form, as its different from all the other instances of us accessing data
+evan: It's a tradeoff, some complex queries could look like a nested pile of garbage if we stuck with using native functions for sequelize though. I would much prefer seeing raw SQL in those cases.
+
+
