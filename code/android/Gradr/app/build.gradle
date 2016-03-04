@@ -19,9 +19,15 @@ android {
     }
 }
 
+repositories {
+    maven { url "https://jitpack.io" } //Needed for swiping
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.2.0'
     compile 'com.android.support:design:23.2.0'
+    //Credit for the swipe interface go to owner of this project https://github.com/wenchaojiang/AndroidSwipeableCardStack
+    compile 'com.github.wenchaojiang:AndroidSwipeableCardStack:0.1.3'
 }

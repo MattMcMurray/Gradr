@@ -3,6 +3,7 @@ package com.se2.gradr.gradr;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -63,6 +64,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+
+    private int signedInUserId;
+    private String signedInUsername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -267,6 +271,26 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailView.setAdapter(adapter);
     }
 
+    public void setUserInfo(int id, String username) {
+        signedInUserId = id;
+        signedInUsername = username;
+
+        login();
+    }
+
+    private void login() {
+        if (signedInUsername == null || signedInUsername.length() < 1) {
+            return;
+        }
+        if (signedInUserId <= 0) {
+            return;
+        }
+        Intent swipeIntent = new Intent(this, SwipeActivity.class);
+        swipeIntent.putExtra("username", signedInUsername);
+        swipeIntent.putExtra("id", signedInUserId);
+        startActivity(swipeIntent);
+        finish();
+    }
 
     private interface ProfileQuery {
         String[] PROJECTION = {
@@ -360,11 +384,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 showProgress(false);
                 System.out.print("ERRRRRRRRRRRRRRRRRRRRROOOOOOOOOOOOOOOOOORRRRRRRRRRR");
             } else if (results.getInt() >= 0) {
-//                finish();
                 showProgress(false);
                 System.out.println("Completed");
                 Log.d(TAG, "COMPLETED");
-                //TODO: Start the new activity?
+                setUserInfo(results.getInt(), results.getString());
             } else { //A negative number represents an error
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
