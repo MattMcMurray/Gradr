@@ -7,8 +7,6 @@ $(function() {
 
     if (!username || !user_id) {
         location.replace('/');
-    } else {
-        // TODO iteration2: verify authenticity of logged in user; right now security basically doesn't exist
     }
 
 });
