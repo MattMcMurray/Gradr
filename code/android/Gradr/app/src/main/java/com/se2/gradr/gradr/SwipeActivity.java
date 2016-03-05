@@ -1,5 +1,6 @@
 package com.se2.gradr.gradr;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,10 +12,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wenchao.cardstack.CardStack;
 
@@ -23,6 +26,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class SwipeActivity extends AppCompatActivity {
+
+    TextView passText;
+    TextView failText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +45,15 @@ public class SwipeActivity extends AppCompatActivity {
         User secondUser = new User("abigail", 2, "Abby", "Wombach", "Winnipeg", "Canada", "UManitoba", "PERS 1500", "We like sports and we don't care who knows", "I need help with my one class");
         adapter.add(secondUser);
 
+        SwipeListener listener = new SwipeListener();
         stackOCards.setAdapter(adapter);
+        stackOCards.setListener(listener);
+
+        //Get these views so that we can use them in the SwipeListener
+        passText = (TextView) findViewById(R.id.passView);
+        failText = (TextView) findViewById(R.id.failView);
 
         //Stuff that was already there when I made the activity. Might want to revisit it.
-//        setContentView(R.layout.swipe_activity);
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 //
@@ -76,6 +87,65 @@ public class SwipeActivity extends AppCompatActivity {
             return contentView;
         }
 
+    }
+
+    public class SwipeListener implements CardStack.CardEventListener {
+//        Toast myToast = null;//Toast is not the right thing here. Need alternative
+
+        @Override
+        public boolean swipeStart(int direction, float distance) {
+            return true;
+        }
+
+        @Override
+        public void discarded(int id, int direction) {
+            //When the top card gets dropped but not off screen so it goes back to the top of the stack
+        }
+
+        @Override
+        public void topCardTapped() {
+            //When you tap the top card
+        }
+
+        @Override
+        public boolean swipeContinue(int direction, float distX, float distY) {
+
+            if (direction % 2 == 0) {
+                failText.setVisibility(View.VISIBLE);
+                passText.setVisibility(View.GONE);
+                failText.setTextSize(distX/7);
+            } else {
+                failText.setVisibility(View.GONE);
+                passText.setVisibility(View.VISIBLE);
+                passText.setTextSize(distX/7);
+            }
+            return true;
+        }
+
+        /**
+         * //there are four directions
+         //  0  |  1
+         // ----------
+         //  2  |  3
+         * @param direction which one of those directions was swiped.
+         * @param distance how far into each quadrant the card went
+         * @return true is the card is dismissed. false otherwise
+         */
+        @Override
+        public boolean swipeEnd(int direction, float distance) {
+            passText.setVisibility(View.GONE);
+            failText.setVisibility(View.GONE);
+            if (distance <= 300) {
+                return false; //Didn't swipe far enough
+            }
+
+            if (direction % 2 == 0) { //If it's on the left
+                //Do rejection things
+            } else { //On the right
+                //Do match things
+            }
+            return true;
+        }
     }
 
     public class DownloadImageInBackground extends AsyncTask<ImageView, Void, Bitmap> {
