@@ -2,14 +2,17 @@ package com.se2.gradr.gradr;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.database.DataSetObserver;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -24,11 +27,14 @@ import com.wenchao.cardstack.CardStack;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Observable;
+import java.util.Observer;
 
 public class SwipeActivity extends AppCompatActivity {
 
     TextView passText;
     TextView failText;
+    CardsDataAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +45,17 @@ public class SwipeActivity extends AppCompatActivity {
         stackOCards.setContentResource(R.layout.card_layout);
         stackOCards.setStackMargin(20);
 
-        CardsDataAdapter adapter = new CardsDataAdapter(getApplicationContext());
+        ArrayAdapterObserver obs = new ArrayAdapterObserver();
+        adapter = new CardsDataAdapter(getApplicationContext());
+        adapter.setNotifyOnChange(true);
+        adapter.registerDataSetObserver(obs);
         User newUser = new User("tommyj", 1, "tommy", "John", "Winnipeg", "Canada", "UManitoba", "COMP 4380", "I'm uncool", "I need help with my one class");
         adapter.add(newUser);
         User secondUser = new User("abigail", 2, "Abby", "Wombach", "Winnipeg", "Canada", "UManitoba", "PERS 1500", "We like sports and we don't care who knows", "I need help with my one class");
         adapter.add(secondUser);
 
         SwipeListener listener = new SwipeListener();
+        listener.addObserver(obs);
         stackOCards.setAdapter(adapter);
         stackOCards.setListener(listener);
 
@@ -76,6 +86,7 @@ public class SwipeActivity extends AppCompatActivity {
         @Override
         public View getView(int position, final View contentView, ViewGroup parent){
             //Get images loading on background thread
+            System.out.print("GETVIEW CALLED");
             ImageView imageView = (ImageView) contentView.findViewById(R.id.userImage);
             String url = getString(R.string.cat_api_url) + Math.random();
             new DownloadImageInBackground(url).execute(imageView);
@@ -89,7 +100,7 @@ public class SwipeActivity extends AppCompatActivity {
 
     }
 
-    public class SwipeListener implements CardStack.CardEventListener {
+    public class SwipeListener extends Observable implements CardStack.CardEventListener {
 //        Toast myToast = null;//Toast is not the right thing here. Need alternative
 
         @Override
@@ -117,7 +128,7 @@ public class SwipeActivity extends AppCompatActivity {
             } else {
                 failText.setVisibility(View.GONE);
                 passText.setVisibility(View.VISIBLE);
-                passText.setTextSize(distX/7);
+                passText.setTextSize(distX / 7);
             }
             return true;
         }
@@ -135,7 +146,8 @@ public class SwipeActivity extends AppCompatActivity {
         public boolean swipeEnd(int direction, float distance) {
             passText.setVisibility(View.GONE);
             failText.setVisibility(View.GONE);
-            if (distance <= 300) {
+            Log.d("ADA", adapter.getCount() + "");
+            if (distance <= 500) {
                 return false; //Didn't swipe far enough
             }
 
@@ -144,6 +156,8 @@ public class SwipeActivity extends AppCompatActivity {
             } else { //On the right
                 //Do match things
             }
+            this.setChanged();
+            this.notifyObservers();
             return true;
         }
     }
@@ -181,6 +195,34 @@ public class SwipeActivity extends AppCompatActivity {
                 System.out.print("ERRROR FOR IMAGE AT URL " + url);
             }
             return result;
+        }
+    }
+
+    public class ArrayAdapterObserver extends DataSetObserver implements Observer{
+        private int totalPotentials = 0;
+
+        public ArrayAdapterObserver() {
+            super();
+            Log.d("DS", "CREATED");
+            System.out.print("CREATED OBSERVER");
+        }
+
+        //Called when Users are added to the ArrayAdapter
+        @Override
+        public void onChanged() {
+            Log.d("DS", "ADDED");
+            System.out.print("CHANGED");
+            totalPotentials++;
+        }
+
+        //Called when Swipes occur
+        @Override
+        public void update(Observable observable, Object object) {
+            Log.d("DS", "SWIPED");
+            totalPotentials--;
+            if (totalPotentials < 2) {
+                //TODO: get new batch
+            }
         }
     }
 
