@@ -25,3 +25,28 @@ body {
 	display: none;
 }
 
+/*.name {
+	margin: 10px 10px 0px 10px ;
+
+}
+
+.username {
+	
+	margin: 0px 10px 10px 10px;
+}*/
+.profile-pic {
+	float: right;
+	
+}
+.attr {
+	margin: 10px 10px 0px 10px ;
+}
+
+h4.attr {
+	margin: 10px 10px 10px 10px ;	
+}
+
+.profile {
+	color: black;
+	margin: 10px 10px 0px 10px ;
+}

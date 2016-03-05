@@ -8,10 +8,6 @@ var app = express();
 var body_parser = require('body-parser');
 var parseArgs = require('minimist');
 
-// stub models
-var stubUser = require('./stub_models/StubUser.js');
-var stubLikes = require('./stub_models/StubUserMatches.js');
-
 app.use(body_parser.urlencoded({ extended: true })); // tell node how we want to parse form data
 app.use(body_parser.json()); // tell node to use json for form parsing
 app.use(express.static(__dirname + '/public')); // tell express where the clientside files are
@@ -33,9 +29,8 @@ var server = app.listen(port, function() {
 });
 
 function processOptions(args) {
-    var options = ['fill_database', 'clear_database', 'stub_users', 'stub_likes', 'stub_all'];
+    var options = ['fill_database', 'clear_database'];
     var db = require('./database.js');
-
 
     // minimist uses '_' to hold any arguments not associated with an option, not needed
     delete args._; 
@@ -48,19 +43,6 @@ function processOptions(args) {
                 break;
             case options[1]:
                 db.clearDatabase(args.env);
-                break;
-            case options[2]:
-                api.injectUser(stubUser);
-                console.log("RUNNING WITH USER DB STUBBED");
-                break;
-            case options[3]:
-                api.injectLikes(stubLikes);
-                console.log("RUNNING WITH LIKES TABLE STUBBED");
-                break;
-            case options[4]:
-                api.injectLikes(stubUser);
-                api.injectLikes(stubLikes);
-                console.log("EVERYTHING IS A STUB!");
                 break;
             default:
                 console.log("Invalid option name specified. [%s]", arg);

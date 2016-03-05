@@ -1,9 +1,10 @@
 var app = require('../main.js');
 var request = require('supertest');
 var assert = require('assertthat'); // View README for documentation https://github.com/thenativeweb/assertthat
-var user = require('../stub_models/StubUser.js');
+var user = require('../data_access/UserDataAccess.js');
 
 describe('User', function() {
+    user.init('stub');
     describe('User getUser', function() {
         it('requests a user', function(done) {
             user.getUser('bairosns').then(function(data) {
@@ -38,6 +39,15 @@ describe('User', function() {
             user.getUsersById([]).then(function(data) {
                 assert.that(data).is.not.null();
                 assert.that(data.length).is.equalTo(0);
+                done();
+            });
+        });
+
+        it('requests a list of users but uses mixed ids', function(done) {
+            user.getUsersById([111, 404]).then(function(data) {
+                console.log(data);
+                assert.that(data).is.not.null();
+                assert.that(data.length).is.equalTo(1);
                 done();
             });
         });
@@ -86,9 +96,34 @@ describe('User', function() {
 
     describe('User getRandom', function() {
         it('gets a random user', function(done) {
-            user.getRandom().then(function(data) {
+            user.getRandom(111).then(function(data) {
                 assert.that(data.dataValues).is.not.null();
-                assert.that(data.dataValues.username).is.not.null();
+                assert.that(data.dataValues.username).is.equalTo('calebmueller');
+                done();
+            });
+        });
+
+        it('gets a different random user', function(done) {
+            user.getRandom(222).then(function(data) {
+                assert.that(data.dataValues).is.not.null();
+                assert.that(data.dataValues.username).is.equalTo('mattmcmurray');
+                done();
+            });
+        });
+    });
+
+    describe('User removeUser', function() {
+        it('removes a user', function(done) {
+            user.removeUser(333).then(function(data) {
+                assert.that(data).is.not.null();
+                assert.that(data.id).is.equalTo(333);
+                done();
+            });
+        });
+
+        it('removes an non-existant user', function(done) {
+            user.removeUser(404).then(function(data) {
+                assert.that(data).is.null();
                 done();
             });
         });

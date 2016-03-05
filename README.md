@@ -1,5 +1,7 @@
 ### For the marker:
-- Our Trello page for iteration 1 (task tracking): https://trello.com/b/mpbIdgMg/iteration-1
+- Our Trello page 
+    - for iteration 1 (task tracking): https://trello.com/b/mpbIdgMg/iteration-1
+    - for iteration 2: https://trello.com/b/JOCDOuCr
 - To run the server:
     - use a UNIX based system
     - `cd` into `Gradr/code/server`
@@ -7,9 +9,14 @@
     - run `sudo node main.js`
 - To run tests:
     - `cd` into `Gradr/code/server`
-    - install mocha testing framework with `npm install -g mocha`
+    - install mocha testing framework with `sudo npm install -g mocha jsdom mocha-jsdom`
     - Make sure you've run the server once (this creates all tables for database and initializes things properly)
     - run `sudo ./run_tests.sh`
+- To run Nightwatch (selenium) tests:
+    - install Nighwatch globally `sudo npm install -g nightwatch`
+    - `cd` into `Gradr/code/server`
+    - run `nightwatch`
+    - Google Chrome will open and close multiple times while tests run
 
 ### Getting started and setting up the dev environment:
 - Set up a virtual machine running Ubuntu (or use your Ubuntu machine)

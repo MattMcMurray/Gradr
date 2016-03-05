@@ -77,3 +77,9 @@ $('#logout').on('click', function() {
 });
 
 $('#home').attr('href', '/main');
+
+
+module.exports = {
+    toTitleCase,
+    getNewUser
+}

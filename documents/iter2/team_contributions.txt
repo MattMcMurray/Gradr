@@ -1,0 +1,43 @@
+This is the list of what everyone has done so far:
+
+Mathieu McMurray
+-Some integration tests
+-Nightwatch tests
+-Front end tests
+-"Swiping" front-end as well as a good chunk of the back end
+-UML diagram for iter1
+-Storing a user session on login
+
+Caleb Mueller
+-Nightwatch tests
+-Delete user functionality
+-Logo design
+-New User creation
+-Get matches functionality
+
+Keane Kraus
+-Backend and api of User
+-Testing for User and api
+-Minor work on Profile page
+-Tests for removeUser, api, user match
+-Hotfixes
+
+Steven Bairos-Novak
+-Vision statement
+-Plan for iteration 1 & 2
+-Profile edit page
+-User rating API & tests
+-Stubs for Users, UserMatches, Likes
+
+Jorell Linsangan
+-Login page
+-DB unit tests
+-Validation on sign in page
+-Profile page for matches
+-Initial setup of the database including which ORM to use.
+
+Evan Hunzinger
+-Added a data access layer for accessing stub and database models
+-Implemented user matches page
+-Added feature to bold the menu item related to the current page
+-Various tests
