@@ -34,6 +34,10 @@ public class User {
         this.helpDescription = helpDescription;
     }
 
+    public String toString() {
+        return username + id;
+    }
+
     public String getFirstName() {
         return firstName;
     }
