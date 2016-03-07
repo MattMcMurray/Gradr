@@ -46,7 +46,3 @@ $("#submitComment").click(function(event){
 function cleanComment(comment) {
 	return comment.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
-
-module.exports = {
-	cleanComment
-}

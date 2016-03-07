@@ -5,11 +5,16 @@ $(function() {
     var username = sessionStorage.getItem('username');
     var user_id = sessionStorage.getItem('user_id');
 
+    
+
     if (!username || !user_id) {
         location.replace('/');
     }
 
 });
+
+var socket = io();
+socket.emit('login', {userId: sessionStorage.getItem('user_id')});
 
 $('#likeButton').click(function(e) {
     e.preventDefault();
@@ -77,7 +82,7 @@ $('#logout').on('click', function() {
 $('#home').attr('href', '/main');
 
 
-module.exports = {
-    toTitleCase,
-    getNewUser
-}
+// module.exports = {
+//     toTitleCase,
+//     getNewUser
+// }

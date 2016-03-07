@@ -7,6 +7,8 @@ block stylesheets
 
 block scripts
 	script(src='/js/matchUserProfile.js')
+	script(src='/js/chat.js')
+
 
 
 block content
@@ -62,3 +64,10 @@ block content
 					.tab-pane.attr#contactInfo(role="tabpanel")
 						h4 Email: !{email}
 						h4 City: !{city}
+						.panel.panel-default
+							.panel-body
+								ul#messages
+								form(action="")
+									input#m(autocomplete="off")
+									button Send
+
