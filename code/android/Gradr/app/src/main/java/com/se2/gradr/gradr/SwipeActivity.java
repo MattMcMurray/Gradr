@@ -28,6 +28,7 @@ import android.widget.Toast;
 
 import com.wenchao.cardstack.CardStack;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -53,20 +54,19 @@ public class SwipeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.swipe_activity);
 
+        //Initialize the card view
         CardStack stackOCards = (CardStack) findViewById(R.id.container);
         stackOCards.setContentResource(R.layout.card_layout);
         stackOCards.setStackMargin(20);
 
+        //ArrayAdapter to pass to the card stack
         ArrayAdapterObserver obs = new ArrayAdapterObserver();
         adapter = new CardsDataAdapter(getApplicationContext());
         adapter.setNotifyOnChange(true);
         adapter.registerDataSetObserver(obs);
-        User newUser = new User("tommyj", 1, "tommy", "John", "Winnipeg", "Canada", "UManitoba", "COMP 4380", "I'm uncool", "I need help with my one class");
-        adapter.add(newUser);
         stackOCards.setAdapter(adapter);
-        User secondUser = new User("abigail", 2, "Abby", "Wombach", "Winnipeg", "Canada", "UManitoba", "PERS 1500", "We like sports and we don't care who knows", "I need help with my one class");
-        adapter.add(secondUser);
 
+        //Observes how many cards we have, makes API call when needed
         SwipeListener listener = new SwipeListener();
         listener.addObserver(obs);
         stackOCards.setListener(listener);
@@ -75,6 +75,7 @@ public class SwipeActivity extends AppCompatActivity {
         passText = (TextView) findViewById(R.id.passView);
         failText = (TextView) findViewById(R.id.failView);
 
+        //Find the loading icon and then load the first batch of users
         mProgressView = findViewById(R.id.load_progress);
         loadBatch();
 
@@ -242,20 +243,24 @@ public class SwipeActivity extends AppCompatActivity {
     /**
      * Asynchronously fetch a batch of users to attempt to match with next
      */
-    public class GetPotentialTask extends AsyncTask<Void, Void, User> {
+    public class GetPotentialTask extends AsyncTask<Void, Void, User[]> {
 
         private int userId;
+        private final int batchSize = 4;
 
         GetPotentialTask(int userId) {
             this.userId = userId;
         }
 
         @Override
-        protected void onPostExecute(final User user) {
+        protected void onPostExecute(final User[] users) {
             System.out.println("HERE2");
-            if (user != null) {
-                System.out.println("ADDING NEW ONW");
-                adapter.add(user);
+            if (users != null) {
+                System.out.println("ADDING NEW ONES");
+                for (int i = 0; i < users.length; i++) {
+                    adapter.add(users[i]);
+                }
+
             } else {
                 System.out.println("NULL USER");
             }
@@ -263,10 +268,9 @@ public class SwipeActivity extends AppCompatActivity {
         }
 
         @Override
-        protected User doInBackground(Void... params) {
+        protected User[] doInBackground(Void... params) {
 
-            //TODO: once we've built a get a batch function, use that instead
-            String stringUrl = getString(R.string.http_address_server) + "/api/randomUser?currUserId=" + userId;
+            String stringUrl = getString(R.string.http_address_server) + "/api/userBatch?currUserId=" + userId + "&batchSize=" + batchSize;
 
             try {
                 JSONObject json = GetRequester.doAGetRequest(stringUrl);
@@ -274,7 +278,13 @@ public class SwipeActivity extends AppCompatActivity {
                     System.out.println("JSON was null");
                     return null;
                 }
-                return userFromJson(json);
+                JSONArray usersJson = json.getJSONArray("users");
+                User[] users = new User[usersJson.length()];
+                for (int i = 0; i < usersJson.length(); i++) {
+                    users[i] = userFromJson((JSONObject)usersJson.get(i));
+                    System.out.println(users[i].toString());
+                }
+                return users;
 
             } catch (Exception e) {
                 System.out.println("ERROR while parsing randomUser");
@@ -289,7 +299,7 @@ public class SwipeActivity extends AppCompatActivity {
         // exist, it throws an exception instead of just returning null. So we'll have to go
         // through and get each field individually...
         public User userFromJson(JSONObject json) throws JSONException {
-            if (!json.has("username") || !json.has("userID")) {
+            if (!json.has("username") || !json.has("id")) {
                 System.out.println("ERROR - Potential match doesn't have username/userID");
                 return null;
             }
@@ -328,7 +338,7 @@ public class SwipeActivity extends AppCompatActivity {
             }
 
             User user = new User(json.getString("username"),
-                    json.getInt("userID"), firstname, lastname, city,
+                    json.getInt("id"), firstname, lastname, city,
                     country, school, courses, generalDescription, helpDescription);
             return user;
         }
