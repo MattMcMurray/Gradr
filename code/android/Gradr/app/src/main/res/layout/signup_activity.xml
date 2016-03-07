@@ -62,10 +62,30 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/password"
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/prompt_password"
+            android:imeActionId="@+id/login"
+            android:imeActionLabel="@string/action_login"
+            android:imeOptions="actionUnspecified"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:background="@drawable/edittext_rounded_corners"
+            android:password="false" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/confirm_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/prompt_password"
+                android:hint="@string/prompt_confirm_password"
                 android:imeActionId="@+id/login"
                 android:imeActionLabel="@string/action_login"
                 android:imeOptions="actionUnspecified"
@@ -85,7 +105,7 @@
             android:layout_marginTop="16dp"
             android:textStyle="bold"
             android:background="#4b86c8"
-            android:text="@string/action_login" />
+            android:text="@string/action_register" />
 
         <Button
             style="?android:textAppearanceSmall"
@@ -93,7 +113,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/action_sign_up"
+            android:text="@string/action_cancel"
             android:textStyle="bold"
             android:background="#e9992a" />
 
