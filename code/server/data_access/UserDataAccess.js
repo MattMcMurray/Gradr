@@ -36,6 +36,10 @@ var getRandom = function(currUserID) {
     return userDAO.getRandom(currUserID);
 }
 
+var getRandomBatch = function(currUserID, size) {
+    return userDAO.getRandomBatch(currUserID, size);
+}
+
 var removeUser = function(userID) {
     return userDAO.removeUser(userID);
 }
@@ -46,6 +50,7 @@ module.exports = {
     getUsersById: getUsersById,
     createUser: createUser,
     getRandom: getRandom,
+    getRandomBatch: getRandomBatch,
     getAllUsers: getAllUsers,
     removeUser: removeUser,
     createUserProfile:createUserProfile

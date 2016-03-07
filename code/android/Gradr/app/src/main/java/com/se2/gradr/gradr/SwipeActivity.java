@@ -69,13 +69,16 @@ public class SwipeActivity extends AppCompatActivity {
 
         SwipeListener listener = new SwipeListener();
         listener.addObserver(obs);
-//        stackOCards.setAdapter(adapter);
         stackOCards.setListener(listener);
 
         //Get these views so that we can use them in the SwipeListener
         passText = (TextView) findViewById(R.id.passView);
         failText = (TextView) findViewById(R.id.failView);
-//        new GetPotentialTask(207).execute();
+
+        mProgressView = findViewById(R.id.load_progress);
+        loadBatch();
+
+
         //Stuff that was already there when I made the activity. Might want to revisit it.
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
@@ -88,8 +91,6 @@ public class SwipeActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
-        mProgressView = findViewById(R.id.load_progress);
-        loadBatch();
     }
 
     public void loadBatch() {
@@ -210,43 +211,7 @@ public class SwipeActivity extends AppCompatActivity {
         }
     }
 
-    public class DownloadImageInBackground extends AsyncTask<ImageView, Void, Bitmap> {
-        ImageView imageView = null;
-        String url;
-
-        public DownloadImageInBackground(String url) {
-            this.url = url;
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap downloadedImage) {
-            imageView.setImageBitmap(downloadedImage);
-        }
-
-        @Override
-        protected Bitmap doInBackground(ImageView... imageViews) {
-            this.imageView = imageViews[0];
-            return download(url);
-        }
-
-        protected Bitmap download(String url) {
-            Bitmap result =null;
-            try{
-                URL theUrl = new URL(url);
-                HttpURLConnection con = (HttpURLConnection)theUrl.openConnection();
-                InputStream is = con.getInputStream();
-                result = BitmapFactory.decodeStream(is);
-                if (null != result)
-                    return result;
-
-            } catch(Exception e) {
-                System.out.print("ERRROR FOR IMAGE AT URL " + url);
-            }
-            return result;
-        }
-    }
-
-    public class ArrayAdapterObserver extends DataSetObserver implements Observer{
+    public class ArrayAdapterObserver extends DataSetObserver implements Observer {
         private int totalPotentials = 0;
 
         public ArrayAdapterObserver() {
@@ -275,8 +240,7 @@ public class SwipeActivity extends AppCompatActivity {
     }
 
     /**
-     * Represents an asynchronous login/registration task used to authenticate
-     * the user.
+     * Asynchronously fetch a batch of users to attempt to match with next
      */
     public class GetPotentialTask extends AsyncTask<Void, Void, User> {
 
@@ -301,6 +265,7 @@ public class SwipeActivity extends AppCompatActivity {
         @Override
         protected User doInBackground(Void... params) {
 
+            //TODO: once we've built a get a batch function, use that instead
             String stringUrl = getString(R.string.http_address_server) + "/api/randomUser?currUserId=" + userId;
 
             try {
