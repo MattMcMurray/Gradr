@@ -21,4 +21,6 @@
     <!-- Strings related to swiping -->
     <string name="cat_api_url">"http://thecatapi.com/api/images/get?format=src&amp;type=jpg&amp;size=small"
     </string>
+    <string name="sign_up">Sign up</string>
+    <string name="login">Login</string>
 </resources>
