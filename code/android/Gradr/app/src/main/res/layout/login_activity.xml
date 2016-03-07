@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/footer_lodyas"
     tools:context="com.se2.gradr.gradr.LoginActivity">
 
     <!-- Login progress -->
@@ -41,7 +42,8 @@
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:background="@drawable/edittext_rounded_corners"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -59,7 +61,8 @@
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:background="@drawable/edittext_rounded_corners"/>
 
             </android.support.design.widget.TextInputLayout>
 
