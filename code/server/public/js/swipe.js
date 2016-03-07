@@ -13,8 +13,6 @@ $(function() {
 
 });
 
-var socket = io();
-socket.emit('login', {userId: sessionStorage.getItem('user_id')});
 
 $('#likeButton').click(function(e) {
     e.preventDefault();
