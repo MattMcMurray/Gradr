@@ -4,19 +4,14 @@
     android:layout_height="match_parent"
     android:background="@drawable/footer_lodyas">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
+    <!-- Load User progress -->
+    <ProgressBar
+        android:id="@+id/load_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        android:id="@+id/view">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary" />
-
-    </android.support.design.widget.AppBarLayout>
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
 
     <com.wenchao.cardstack.CardStack
         android:id="@+id/container"
@@ -63,7 +58,19 @@
         android:gravity="center"
         android:visibility="gone"/>
 
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:id="@+id/view">
 
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary" />
+
+    </android.support.design.widget.AppBarLayout>
 
     <!--<include layout="@layout/content_swipe" />-->
 

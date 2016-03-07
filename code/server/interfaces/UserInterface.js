@@ -20,6 +20,9 @@ UserInterface.prototype = {
     getRandom: function(currUserID) {
         throw "function getRandom() not implemented";
     },
+    getRandomBatch: function(currUserID, size) {
+        throw "function getRandomBatch() not implemented"
+    },
     removeUser: function(userID) {
         throw "function removeUser() not implemented";
     }

@@ -225,5 +225,23 @@ describe('Database query tests', function() {
 			});
 		});
 
+		describe('getRandomBatch', function() {
+			it('returns a set of random users that aren\'t the requesting user and have not been rated by the requester. normal case', function(done) {
+				User.getRandomBatch(1, 10).then(function(users){
+					assert.that(users).is.not.null();
+					assert.that(users.length).is.equalTo(10);
+					done();
+				});
+			});
+
+			it('returns a set of random users that aren\'t the requesting user and have not been rated by the requester. giant request', function(done) {
+				User.getRandomBatch(1, 1000).then(function(users){
+					assert.that(users).is.not.null();
+					assert.that(users.length).is.greaterThan(200); //Should have all users, since we want to freely add more test users, this will ensure we have them all
+					done();
+				});
+			});
+		});
+
 	});
 });

@@ -1,15 +1,22 @@
 package com.se2.gradr.gradr;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.annotation.TargetApi;
 import android.app.Dialog;
 import android.content.Context;
+import android.database.DataSetObserver;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -21,14 +28,25 @@ import android.widget.Toast;
 
 import com.wenchao.cardstack.CardStack;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Observable;
+import java.util.Observer;
 
 public class SwipeActivity extends AppCompatActivity {
 
     TextView passText;
     TextView failText;
+    CardsDataAdapter adapter;
+
+    private View mProgressView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,19 +57,27 @@ public class SwipeActivity extends AppCompatActivity {
         stackOCards.setContentResource(R.layout.card_layout);
         stackOCards.setStackMargin(20);
 
-        CardsDataAdapter adapter = new CardsDataAdapter(getApplicationContext());
+        ArrayAdapterObserver obs = new ArrayAdapterObserver();
+        adapter = new CardsDataAdapter(getApplicationContext());
+        adapter.setNotifyOnChange(true);
+        adapter.registerDataSetObserver(obs);
         User newUser = new User("tommyj", 1, "tommy", "John", "Winnipeg", "Canada", "UManitoba", "COMP 4380", "I'm uncool", "I need help with my one class");
         adapter.add(newUser);
+        stackOCards.setAdapter(adapter);
         User secondUser = new User("abigail", 2, "Abby", "Wombach", "Winnipeg", "Canada", "UManitoba", "PERS 1500", "We like sports and we don't care who knows", "I need help with my one class");
         adapter.add(secondUser);
 
         SwipeListener listener = new SwipeListener();
-        stackOCards.setAdapter(adapter);
+        listener.addObserver(obs);
         stackOCards.setListener(listener);
 
         //Get these views so that we can use them in the SwipeListener
         passText = (TextView) findViewById(R.id.passView);
         failText = (TextView) findViewById(R.id.failView);
+
+        mProgressView = findViewById(R.id.load_progress);
+        loadBatch();
+
 
         //Stuff that was already there when I made the activity. Might want to revisit it.
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -65,6 +91,37 @@ public class SwipeActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
+    }
+
+    public void loadBatch() {
+        showProgress(true);
+        new GetPotentialTask(207).execute();
+    }
+
+    /**
+     * Shows the progress UI and hides the login form.
+     */
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
+    private void showProgress(final boolean show) {
+        // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
+        // for very easy animations. If available, use these APIs to fade-in
+        // the progress spinner.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
+            int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
+
+            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+            mProgressView.animate().setDuration(shortAnimTime).alpha(
+                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+                }
+            });
+        } else {
+            // The ViewPropertyAnimator APIs are not available, so simply show
+            // and hide the relevant UI components.
+            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+        }
     }
 
     public class CardsDataAdapter extends ArrayAdapter<User> {
@@ -81,7 +138,9 @@ public class SwipeActivity extends AppCompatActivity {
             new DownloadImageInBackground(url).execute(imageView);
 
             User user = getItem(position);
-            TextView v = (TextView)(contentView.findViewById(R.id.name));
+            TextView v =(TextView) (contentView.findViewById(R.id.username));
+            v.setText(user.getUsername());
+            v = (TextView)(contentView.findViewById(R.id.name));
             v.setText(user.getFirstName() + " " + user.getLastName());
 
             return contentView;
@@ -89,7 +148,7 @@ public class SwipeActivity extends AppCompatActivity {
 
     }
 
-    public class SwipeListener implements CardStack.CardEventListener {
+    public class SwipeListener extends Observable implements CardStack.CardEventListener {
 //        Toast myToast = null;//Toast is not the right thing here. Need alternative
 
         @Override
@@ -117,7 +176,7 @@ public class SwipeActivity extends AppCompatActivity {
             } else {
                 failText.setVisibility(View.GONE);
                 passText.setVisibility(View.VISIBLE);
-                passText.setTextSize(distX/7);
+                passText.setTextSize(distX / 7);
             }
             return true;
         }
@@ -135,9 +194,13 @@ public class SwipeActivity extends AppCompatActivity {
         public boolean swipeEnd(int direction, float distance) {
             passText.setVisibility(View.GONE);
             failText.setVisibility(View.GONE);
-            if (distance <= 300) {
+            if (distance <= 500) {
                 return false; //Didn't swipe far enough
             }
+
+            //Tell the observer in case we need to get a new batch
+            this.setChanged();
+            this.notifyObservers();
 
             if (direction % 2 == 0) { //If it's on the left
                 //Do rejection things
@@ -148,40 +211,126 @@ public class SwipeActivity extends AppCompatActivity {
         }
     }
 
-    public class DownloadImageInBackground extends AsyncTask<ImageView, Void, Bitmap> {
-        ImageView imageView = null;
-        String url;
+    public class ArrayAdapterObserver extends DataSetObserver implements Observer {
+        private int totalPotentials = 0;
 
-        public DownloadImageInBackground(String url) {
-            this.url = url;
+        public ArrayAdapterObserver() {
+            super();
+            Log.d("DS", "CREATED");
+            System.out.print("CREATED OBSERVER");
         }
 
+        //Called when Users are added to the ArrayAdapter
         @Override
-        protected void onPostExecute(Bitmap downloadedImage) {
-            imageView.setImageBitmap(downloadedImage);
+        public void onChanged() {
+            Log.d("DS", "ADDED");
+            System.out.print("CHANGED");
+            totalPotentials++;
         }
 
+        //Called when Swipes occur
         @Override
-        protected Bitmap doInBackground(ImageView... imageViews) {
-            this.imageView = imageViews[0];
-            return download(url);
-        }
-
-        protected Bitmap download(String url) {
-            Bitmap result =null;
-            try{
-                URL theUrl = new URL(url);
-                HttpURLConnection con = (HttpURLConnection)theUrl.openConnection();
-                InputStream is = con.getInputStream();
-                result = BitmapFactory.decodeStream(is);
-                if (null != result)
-                    return result;
-
-            } catch(Exception e) {
-                System.out.print("ERRROR FOR IMAGE AT URL " + url);
+        public void update(Observable observable, Object object) {
+            Log.d("DS", "SWIPED");
+            totalPotentials--;
+            if (totalPotentials == 0) {
+                loadBatch();
             }
-            return result;
         }
     }
 
+    /**
+     * Asynchronously fetch a batch of users to attempt to match with next
+     */
+    public class GetPotentialTask extends AsyncTask<Void, Void, User> {
+
+        private int userId;
+
+        GetPotentialTask(int userId) {
+            this.userId = userId;
+        }
+
+        @Override
+        protected void onPostExecute(final User user) {
+            System.out.println("HERE2");
+            if (user != null) {
+                System.out.println("ADDING NEW ONW");
+                adapter.add(user);
+            } else {
+                System.out.println("NULL USER");
+            }
+            showProgress(false);
+        }
+
+        @Override
+        protected User doInBackground(Void... params) {
+
+            //TODO: once we've built a get a batch function, use that instead
+            String stringUrl = getString(R.string.http_address_server) + "/api/randomUser?currUserId=" + userId;
+
+            try {
+                JSONObject json = GetRequester.doAGetRequest(stringUrl);
+                if (json == null) {
+                    System.out.println("JSON was null");
+                    return null;
+                }
+                return userFromJson(json);
+
+            } catch (Exception e) {
+                System.out.println("ERROR while parsing randomUser");
+                System.out.println(e.toString());
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        // So apparently, if we do json.getString(fieldname) on a field that doesn't
+        // exist, it throws an exception instead of just returning null. So we'll have to go
+        // through and get each field individually...
+        public User userFromJson(JSONObject json) throws JSONException {
+            if (!json.has("username") || !json.has("userID")) {
+                System.out.println("ERROR - Potential match doesn't have username/userID");
+                return null;
+            }
+
+            String firstname = "";
+            if (json.has("firstname")) {
+                firstname = json.getString("firstname");
+            }
+            String lastname = "";
+            if (json.has("lastname")) {
+                firstname = json.getString("lastname");
+            }
+            String city = "";
+            if (json.has("city")) {
+                firstname = json.getString("city");
+            }
+            String country = "";
+            if (json.has("country")) {
+                firstname = json.getString("country");
+            }
+            String school = "";
+            if (json.has("school")) {
+                firstname = json.getString("school");
+            }
+            String courses = "";
+            if (json.has("courses")) {
+                firstname = json.getString("courses");
+            }
+            String generalDescription = "";
+            if (json.has("generalDescription")) {
+                firstname = json.getString("generalDescription");
+            }
+            String helpDescription = "";
+            if (json.has("helpDescription")) {
+                firstname = json.getString("helpDescription");
+            }
+
+            User user = new User(json.getString("username"),
+                    json.getInt("userID"), firstname, lastname, city,
+                    country, school, courses, generalDescription, helpDescription);
+            return user;
+        }
+    }
 }
