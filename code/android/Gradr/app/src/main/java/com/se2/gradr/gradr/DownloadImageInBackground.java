@@ -42,7 +42,8 @@ public class DownloadImageInBackground extends AsyncTask<ImageView, Void, Bitmap
                 return result;
 
         } catch(Exception e) {
-            System.out.print("ERRROR FOR IMAGE AT URL " + url);
+            System.out.println("ERRROR FOR IMAGE AT URL " + url);
+            System.out.println(e.toString());
         }
         return result;
     }

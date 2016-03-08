@@ -3,8 +3,10 @@ package com.se2.gradr.gradr;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -16,6 +18,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,22 +43,34 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.jar.Attributes;
 
 public class SwipeActivity extends AppCompatActivity {
 
-    TextView passText;
-    TextView failText;
-    CardsDataAdapter adapter;
 
-    private View mProgressView;
+    private String username;
+    private int userId;
+
+    private TextView passText;
+    private TextView failText;
+    private CardsDataAdapter adapter;
+    private CardStack stackOCards;
+    private SwipeListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.swipe_activity);
 
+        Intent starter = getIntent();
+        userId = starter.getIntExtra("id", -1);
+        username = starter.getStringExtra("username");
+        if (username == null || username.length() < 1 || userId < 0) {
+            finish(); //Basically, we kill the app.
+        }
+
         //Initialize the card view
-        CardStack stackOCards = (CardStack) findViewById(R.id.container);
+        stackOCards = (CardStack) findViewById(R.id.container);
         stackOCards.setContentResource(R.layout.card_layout);
         stackOCards.setStackMargin(20);
 
@@ -63,11 +78,10 @@ public class SwipeActivity extends AppCompatActivity {
         ArrayAdapterObserver obs = new ArrayAdapterObserver();
         adapter = new CardsDataAdapter(getApplicationContext());
         adapter.setNotifyOnChange(true);
-        adapter.registerDataSetObserver(obs);
         stackOCards.setAdapter(adapter);
 
         //Observes how many cards we have, makes API call when needed
-        SwipeListener listener = new SwipeListener();
+        listener = new SwipeListener();
         listener.addObserver(obs);
         stackOCards.setListener(listener);
 
@@ -75,9 +89,7 @@ public class SwipeActivity extends AppCompatActivity {
         passText = (TextView) findViewById(R.id.passView);
         failText = (TextView) findViewById(R.id.failView);
 
-        //Find the loading icon and then load the first batch of users
-        mProgressView = findViewById(R.id.load_progress);
-        loadBatch();
+        new GetPotentials(userId).execute();
 
 
         //Stuff that was already there when I made the activity. Might want to revisit it.
@@ -92,37 +104,6 @@ public class SwipeActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
-    }
-
-    public void loadBatch() {
-        showProgress(true);
-        new GetPotentialTask(207).execute();
-    }
-
-    /**
-     * Shows the progress UI and hides the login form.
-     */
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
-    private void showProgress(final boolean show) {
-        // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
-        // for very easy animations. If available, use these APIs to fade-in
-        // the progress spinner.
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
-            int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
-
-            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-            mProgressView.animate().setDuration(shortAnimTime).alpha(
-                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-                }
-            });
-        } else {
-            // The ViewPropertyAnimator APIs are not available, so simply show
-            // and hide the relevant UI components.
-            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
-        }
     }
 
     public class CardsDataAdapter extends ArrayAdapter<User> {
@@ -195,47 +176,35 @@ public class SwipeActivity extends AppCompatActivity {
         public boolean swipeEnd(int direction, float distance) {
             passText.setVisibility(View.GONE);
             failText.setVisibility(View.GONE);
-            if (distance <= 500) {
+            if (distance <= 400) {
                 return false; //Didn't swipe far enough
             }
+
+            int likeeId = adapter.getItem(stackOCards.getCurrIndex()).getId();
 
             //Tell the observer in case we need to get a new batch
             this.setChanged();
             this.notifyObservers();
-
+            System.out.println("Notified?");
             if (direction % 2 == 0) { //If it's on the left
-                //Do rejection things
+                new UserMatchHelper(userId).execute("dislikeUser", "" + likeeId);
             } else { //On the right
-                //Do match things
+                new UserMatchHelper(userId).execute("likeUser", "" + likeeId);
             }
             return true;
         }
     }
 
-    public class ArrayAdapterObserver extends DataSetObserver implements Observer {
-        private int totalPotentials = 0;
-
-        public ArrayAdapterObserver() {
-            super();
-            Log.d("DS", "CREATED");
-            System.out.print("CREATED OBSERVER");
-        }
-
-        //Called when Users are added to the ArrayAdapter
-        @Override
-        public void onChanged() {
-            Log.d("DS", "ADDED");
-            System.out.print("CHANGED");
-            totalPotentials++;
-        }
+    public class ArrayAdapterObserver implements Observer {
+//        private int totalPotentials = 0;
 
         //Called when Swipes occur
         @Override
         public void update(Observable observable, Object object) {
-            Log.d("DS", "SWIPED");
-            totalPotentials--;
-            if (totalPotentials == 0) {
-                loadBatch();
+            if (stackOCards.getCurrIndex() == adapter.getCount()-1) {
+                adapter.clear();
+
+                new GetPotentials(userId).execute();
             }
         }
     }
@@ -243,20 +212,21 @@ public class SwipeActivity extends AppCompatActivity {
     /**
      * Asynchronously fetch a batch of users to attempt to match with next
      */
-    public class GetPotentialTask extends AsyncTask<Void, Void, User[]> {
+    public class GetPotentials extends AsyncTask<Void, Void, User[]> {
 
         private int userId;
         private final int batchSize = 4;
 
-        GetPotentialTask(int userId) {
+        GetPotentials(int userId) {
             this.userId = userId;
         }
 
         @Override
         protected void onPostExecute(final User[] users) {
-            System.out.println("HERE2");
             if (users != null) {
-                System.out.println("ADDING NEW ONES");
+                stackOCards.reset(true); //This resets the index of the stack. It does not reset the ArrayAdapter
+                stackOCards.setListener(listener); //This needs to be set again because everything is reset by the reset call
+
                 for (int i = 0; i < users.length; i++) {
                     adapter.add(users[i]);
                 }
@@ -264,7 +234,6 @@ public class SwipeActivity extends AppCompatActivity {
             } else {
                 System.out.println("NULL USER");
             }
-            showProgress(false);
         }
 
         @Override
@@ -287,6 +256,7 @@ public class SwipeActivity extends AppCompatActivity {
                 return users;
 
             } catch (Exception e) {
+                new AlertDialog.Builder(getApplicationContext()).setMessage("This current build only works when you have a server running. You probably got a 404 because the userBatch function isn't on AWS yet.").show();
                 System.out.println("ERROR while parsing randomUser");
                 System.out.println(e.toString());
                 e.printStackTrace();
@@ -343,4 +313,41 @@ public class SwipeActivity extends AppCompatActivity {
             return user;
         }
     }
+
+    /**
+     * Asynchronously send a POST request containing info about whether or not the users matched
+     */
+    public class UserMatchHelper extends AsyncTask<String, Void, Void> {
+        private int likerId;
+
+        UserMatchHelper(int userId) {
+            this.likerId = userId;
+        }
+
+        /*
+            params[0] should be either likeUser or dislikeUser
+            params[1] should be a String of the likee's userID
+         */
+        @Override
+        protected Void doInBackground(String... params) {
+            String stringUrl = getString(R.string.http_address_server) + "/api/" + params[0] + "?liker_id=" + likerId + "&likee_id=" + params[1];
+            try {
+                JSONObject postParams = new JSONObject();
+                postParams.put("liker_id", likerId);
+                postParams.put("likee_id", params[1]);
+
+                JSONObject json = PostRequester.doAPostRequest(stringUrl, postParams);
+                if (json == null) {
+                    System.out.println("JSON was null for like/dislike");
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR while parsing randomUser");
+                System.out.println(e.toString());
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+    }
+
 }
