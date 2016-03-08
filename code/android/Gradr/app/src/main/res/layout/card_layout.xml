@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/userImage"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="0.70" />
+        android:layout_weight="0.70"
+        android:src="@drawable/loading"/>
 
 
     <TextView

@@ -330,56 +330,20 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             String stringUrl = getString(R.string.http_address_server) + "/api/login";
 
             try {
-                URL url = new URL(stringUrl);
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setDoOutput(true);
-                connection.setDoInput(true);
-                connection.setRequestProperty("Content-Type", "application/json");
-                connection.setRequestProperty("Accept", "application/json");
-                connection.setRequestMethod("POST");
-
                 JSONObject credentials   = new JSONObject();
                 credentials.put("username", mUsername);
                 credentials.put("password", mPassword);
 
-                OutputStreamWriter wr = new OutputStreamWriter(connection.getOutputStream());
-                wr.write(credentials.toString());
-                wr.flush();
+                JSONObject json = PostRequester.doAPostRequest(stringUrl, credentials);
 
-                StringBuilder sb = new StringBuilder();
-                int httpRes = connection.getResponseCode();
-                System.out.println("HERE");
-                if(httpRes == HttpURLConnection.HTTP_OK){
-                    System.out.println("WORKED");
-                    BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(),"utf-8"));
-                    String line = null;
-                    while ((line = br.readLine()) != null) {
-                        sb.append(line);
-                    }
-
-                    br.close();
-
-                    System.out.println(""+sb.toString());
-
-                    //Actually get the values we care about:
-                    JSONObject json = new JSONObject(sb.toString());
-                    String username = json.getJSONObject("user").getString("username");
-                    String id = json.getJSONObject("user").getString("id");
-                    System.out.println(username + " " + id);
-                    return new LoginResult(Integer.parseInt(id), username);
-
-                }else{
-                    System.out.println("NOT WORKED");
-                    System.out.println(httpRes);
-                    System.out.println(connection.getResponseMessage());
-                    return new LoginResult(httpRes * -1, connection.getResponseMessage());
-                }
-
+                String username = json.getJSONObject("user").getString("username");
+                String id = json.getJSONObject("user").getString("id");
+                System.out.println(username + " " + id);
+                return new LoginResult(Integer.parseInt(id), username);
             } catch (Exception e) {
-
+                System.out.println("ERROR ON SIGN IN " + e.toString());
+                return new LoginResult(-1, e.toString());
             }
-
-            return null;
         }
 
         @Override
@@ -390,6 +354,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             if (results == null) {
                 //Something strange went wrong.
                 showProgress(false);
+                mPasswordView.setError("Something unexpected occured. Couldn't sign in.");
                 System.out.print("ERRRRRRRRRRRRRRRRRRRRROOOOOOOOOOOOOOOOOORRRRRRRRRRR");
             } else if (results.getInt() >= 0) {
                 showProgress(false);

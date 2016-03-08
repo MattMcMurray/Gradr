@@ -1,5 +1,7 @@
 package com.se2.gradr.gradr;
 
+import android.provider.SyncStateContract;
+
 import java.sql.Date;
 
 /**
@@ -32,6 +34,19 @@ public class User {
         this.courses = courses;
         this.generalDescription = generalDescription;
         this.helpDescription = helpDescription;
+    }
+
+    public User() {
+        username = "test";
+        id = 0;
+        firstName = "test";
+        lastName = "test";
+        city = "test";
+        country = "test";
+        school = "test";
+        courses = "test";
+        generalDescription = "test";
+        helpDescription = "test";
     }
 
     public String toString() {
