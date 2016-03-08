@@ -18,5 +18,16 @@ public class SignUpActivity extends LoginActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup_activity);
         // Set up the login form.
+
+        Button mLoginButton = (Button) findViewById(R.id.cancel_button);
+        mLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cancelRegistration();
+            }
+        });
+    }
+    private void cancelRegistration() {
+        finish();
     }
 }
