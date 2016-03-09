@@ -1,51 +1,32 @@
 package com.se2.gradr.gradr;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.annotation.TargetApi;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.database.DataSetObserver;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.se2.gradr.gradr.helpers.DownloadImageInBackground;
+import com.se2.gradr.gradr.helpers.GetRequester;
+import com.se2.gradr.gradr.helpers.JsonConverter;
+import com.se2.gradr.gradr.helpers.PostRequester;
 import com.wenchao.cardstack.CardStack;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.jar.Attributes;
 
 public class SwipeActivity extends AppCompatActivity {
 
@@ -127,9 +108,16 @@ public class SwipeActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
+        if (id == R.id.action_logout) {
+            System.out.println("NOT IMPLEMENTED");
+        } else if (id == R.id.action_matches) {
+            Intent matchesIntent = new Intent(this, MatchListActivity.class);
+            matchesIntent.putExtra("username", username);
+            matchesIntent.putExtra("id", userId);
+            startActivity(matchesIntent);
+        } else if (id == R.id.action_profile) {
+            System.out.println("NOT IMPLEMENTED");
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -143,11 +131,12 @@ public class SwipeActivity extends AppCompatActivity {
         @Override
         public View getView(int position, final View contentView, ViewGroup parent){
             //Get images loading on background thread
+            User user = getItem(position);
             ImageView imageView = (ImageView) contentView.findViewById(R.id.userImage);
             String url = getString(R.string.cat_api_url) + Math.random();
-            new DownloadImageInBackground(url).execute(imageView);
+            new DownloadImageInBackground(url, user).execute(imageView);
 
-            User user = getItem(position);
+
             TextView v =(TextView) (contentView.findViewById(R.id.username));
             v.setText(user.getUsername());
             v = (TextView)(contentView.findViewById(R.id.name));
@@ -278,13 +267,13 @@ public class SwipeActivity extends AppCompatActivity {
                 JSONArray usersJson = json.getJSONArray("users");
                 User[] users = new User[usersJson.length()];
                 for (int i = 0; i < usersJson.length(); i++) {
-                    users[i] = userFromJson((JSONObject)usersJson.get(i));
+                    users[i] = JsonConverter.userFromJson((JSONObject) usersJson.get(i));
                     System.out.println(users[i].toString());
                 }
                 return users;
 
             } catch (Exception e) {
-                new AlertDialog.Builder(getApplicationContext()).setMessage("This current build only works when you have a server running. You probably got a 404 because the userBatch function isn't on AWS yet.").show();
+//                new AlertDialog.Builder(getApplicationContext()).setMessage("This current build only works when you have a server running. You probably got a 404 because the userBatch function isn't on AWS yet.").show();
                 System.out.println("ERROR while parsing randomUser");
                 System.out.println(e.toString());
                 e.printStackTrace();
@@ -293,53 +282,7 @@ public class SwipeActivity extends AppCompatActivity {
             return null;
         }
 
-        // So apparently, if we do json.getString(fieldname) on a field that doesn't
-        // exist, it throws an exception instead of just returning null. So we'll have to go
-        // through and get each field individually...
-        public User userFromJson(JSONObject json) throws JSONException {
-            if (!json.has("username") || !json.has("id")) {
-                System.out.println("ERROR - Potential match doesn't have username/userID");
-                return null;
-            }
 
-            String firstname = "";
-            if (json.has("firstname")) {
-                firstname = json.getString("firstname");
-            }
-            String lastname = "";
-            if (json.has("lastname")) {
-                firstname = json.getString("lastname");
-            }
-            String city = "";
-            if (json.has("city")) {
-                firstname = json.getString("city");
-            }
-            String country = "";
-            if (json.has("country")) {
-                firstname = json.getString("country");
-            }
-            String school = "";
-            if (json.has("school")) {
-                firstname = json.getString("school");
-            }
-            String courses = "";
-            if (json.has("courses")) {
-                firstname = json.getString("courses");
-            }
-            String generalDescription = "";
-            if (json.has("generalDescription")) {
-                firstname = json.getString("generalDescription");
-            }
-            String helpDescription = "";
-            if (json.has("helpDescription")) {
-                firstname = json.getString("helpDescription");
-            }
-
-            User user = new User(json.getString("username"),
-                    json.getInt("id"), firstname, lastname, city,
-                    country, school, courses, generalDescription, helpDescription);
-            return user;
-        }
     }
 
     /**

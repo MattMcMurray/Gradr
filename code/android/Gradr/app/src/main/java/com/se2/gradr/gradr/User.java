@@ -1,6 +1,10 @@
 package com.se2.gradr.gradr;
 
+import android.graphics.Bitmap;
 import android.provider.SyncStateContract;
+import android.widget.ImageView;
+
+import com.se2.gradr.gradr.helpers.DownloadImageInBackground;
 
 import java.sql.Date;
 
@@ -20,6 +24,9 @@ public class User {
     private String generalDescription;
     private String helpDescription;
     private Date birthdate;
+
+    private Bitmap bmp = null;
+    private boolean imageRequestInTransit = false;
 
     public User(String username, int id, String firstName, String lastName,
                 String city, String country, String school,
@@ -131,5 +138,35 @@ public class User {
 
     public int getId() {
         return id;
+    }
+
+    public Bitmap getBmp() {
+        return bmp;
+    }
+
+    public void setBmp(Bitmap bmp) {
+        this.bmp = bmp;
+    }
+
+    public boolean hasImage() {
+        if (bmp == null) {
+            return false;
+        }
+        return true;
+    }
+
+    public void setImage(ImageView iv) {
+        if (bmp == null) {
+            if (imageRequestInTransit) {
+                return;
+            }
+            imageRequestInTransit = true;
+            String url = "http://thecatapi.com/api/images/get?format=src&type=jpg&size=small" + Math.random();
+            new DownloadImageInBackground(url, this).execute(iv);
+            //We don't ever unset the imageInTransit flag because even once we get the image back, we don't want to ever load a second image for this user
+        }
+        else {
+            iv.setImageBitmap(bmp);
+        }
     }
 }

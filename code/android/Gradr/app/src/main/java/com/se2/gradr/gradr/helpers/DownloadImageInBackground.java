@@ -1,9 +1,11 @@
-package com.se2.gradr.gradr;
+package com.se2.gradr.gradr.helpers;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.widget.ImageView;
+
+import com.se2.gradr.gradr.User;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -15,9 +17,11 @@ import java.net.URL;
 public class DownloadImageInBackground extends AsyncTask<ImageView, Void, Bitmap> {
     ImageView imageView = null;
     String url;
+    User user;
 
-    public DownloadImageInBackground(String url) {
+    public DownloadImageInBackground(String url, User user) {
         this.url = url;
+        this.user = user;
     }
 
     @Override
@@ -28,7 +32,9 @@ public class DownloadImageInBackground extends AsyncTask<ImageView, Void, Bitmap
     @Override
     protected Bitmap doInBackground(ImageView... imageViews) {
         this.imageView = imageViews[0];
-        return download(url);
+        Bitmap result = download(url);
+        user.setBmp(result);
+        return result;
     }
 
     protected Bitmap download(String url) {

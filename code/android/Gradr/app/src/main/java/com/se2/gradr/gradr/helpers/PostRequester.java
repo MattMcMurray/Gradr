@@ -1,4 +1,4 @@
-package com.se2.gradr.gradr;
+package com.se2.gradr.gradr.helpers;
 
 import android.os.AsyncTask;
 
