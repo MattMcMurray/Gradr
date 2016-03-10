@@ -1,5 +1,6 @@
 package com.se2.gradr.gradr;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -23,6 +24,13 @@ import android.widget.TextView;
 import com.se2.gradr.gradr.fragments.ViewMatchFragment;
 
 public class ViewMatchActivity extends AppCompatActivity implements ViewMatchFragment.OnFragmentInteractionListener{
+
+    //currUser info
+    private int userId;
+    private String username;
+
+    //The current match we're viewing
+    private UserAndImage currMatch;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -50,6 +58,16 @@ public class ViewMatchActivity extends AppCompatActivity implements ViewMatchFra
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Intent starter = getIntent();
+        userId = starter.getIntExtra("id", -1);
+        username = starter.getStringExtra("username");
+        if (username == null || username.length() < 1 || userId < 0) {
+            finish(); //Go back, we won't allow access to this without having the username and id
+        }
+        User currUser = (User) starter.getSerializableExtra("match");
+        currMatch = new UserAndImage(currUser);
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -60,7 +78,6 @@ public class ViewMatchActivity extends AppCompatActivity implements ViewMatchFra
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
 
     }
 
@@ -139,7 +156,9 @@ public class ViewMatchActivity extends AppCompatActivity implements ViewMatchFra
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position) {
                 case 0:
-                    ViewMatchFragment vmf = new ViewMatchFragment();
+                    ViewMatchFragment vmf = ViewMatchFragment.newInstance(userId, username, currMatch.getUser());
+//                    ViewMatchFragment vmf = new ViewMatchFragment();
+//                    vmf.setArguments(fragBun);
                     return vmf;
                 default:
                     return PlaceholderFragment.newInstance(position + 1);

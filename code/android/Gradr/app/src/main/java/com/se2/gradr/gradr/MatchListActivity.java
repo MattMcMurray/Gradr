@@ -32,7 +32,7 @@ public class MatchListActivity extends AppCompatActivity {
     private String username;
 
     private ListView matchesList;
-    private ArrayList<User> matches = null;
+    private ArrayList<UserAndImage> matches = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +49,7 @@ public class MatchListActivity extends AppCompatActivity {
             finish(); //Go back, we won't allow access to this without having the username and id
         }
 
-        matches = new ArrayList<User>();
+        matches = new ArrayList<UserAndImage>();
         new GetMatchesTask().execute();
 
         matchesList = (ListView) findViewById(R.id.match_list_view);
@@ -61,17 +61,11 @@ public class MatchListActivity extends AppCompatActivity {
                 }
                 Intent viewMatchIntent = new Intent(MatchListActivity.this, ViewMatchActivity.class);
                 viewMatchIntent.putExtra("username", username);
-                viewMatchIntent.putExtra("userId", userId);
+                viewMatchIntent.putExtra("id", userId);
 
-                /* Considered only passing the matchId and then making a new API call,
-                 * decided we're better off passing the basic pieces of the user so that we don't
-                 * have to wait for the HTTP GET request to return before populating the fields
-                 *
-                 * Also, Users are not serializable because they have a Bitmap field. We've decided
-                 * that having the image stored within a User is
-                 */
-                viewMatchIntent.putExtra("matchId", matches.get(position).getId());
-                viewMatchIntent.putExtra("match", matches.get(position));
+                //We can't serialize the image, but the rest of the user is serializable.
+                //We'll have to get the image again on the other side
+                viewMatchIntent.putExtra("match", matches.get(position).getUser());
                 startActivity(viewMatchIntent);
             }
         });
@@ -95,10 +89,11 @@ public class MatchListActivity extends AppCompatActivity {
         if (id == R.id.action_logout) {
             System.out.println("NOT IMPLEMENTED");
         } else if (id == R.id.action_matches) {
-            Intent matchesIntent = new Intent(this, MatchListActivity.class);
-            matchesIntent.putExtra("username", username);
-            matchesIntent.putExtra("id", userId);
-            startActivity(matchesIntent);
+            //Do nothing, we're already there...
+//            Intent matchesIntent = new Intent(this, MatchListActivity.class);
+//            matchesIntent.putExtra("username", username);
+//            matchesIntent.putExtra("id", userId);
+//            startActivity(matchesIntent);
         } else if (id == R.id.action_profile) {
             System.out.println("NOT IMPLEMENTED");
         }
@@ -108,10 +103,10 @@ public class MatchListActivity extends AppCompatActivity {
 
     public class MatchListAdapter extends BaseAdapter {
         Context context;
-        ArrayList<User> matches;
+        ArrayList<UserAndImage> matches;
         private LayoutInflater inflater = null;
 
-        public MatchListAdapter(Context context, ArrayList<User> matches) {
+        public MatchListAdapter(Context context, ArrayList<UserAndImage> matches) {
             this.context = context;
             this.matches = matches;
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -133,7 +128,7 @@ public class MatchListActivity extends AppCompatActivity {
             if (view == null) {
                 view = inflater.inflate(R.layout.match_row, null);
             }
-            User user = matches.get(position);
+            UserAndImage user = matches.get(position);
             ImageView imageView = (ImageView) view.findViewById(R.id.match_image);
             user.setImage(imageView);
 
@@ -158,21 +153,22 @@ public class MatchListActivity extends AppCompatActivity {
     }
 
 
-    public class GetMatchesTask extends AsyncTask<Void, Void, ArrayList<User>> {
+    public class GetMatchesTask extends AsyncTask<Void, Void, ArrayList<UserAndImage>> {
         @Override
-        protected void onPostExecute(ArrayList<User> users) {
+        protected void onPostExecute(ArrayList<UserAndImage> users) {
             matchesList.setAdapter(new MatchListAdapter(getApplicationContext(), users));
         }
 
         @Override
-        protected ArrayList<User> doInBackground(Void... params) {
+        protected ArrayList<UserAndImage> doInBackground(Void... params) {
             String url = getString(R.string.http_address_server) + "/api/getPotentialMatches?userId=" + userId;
 //            ArrayList<User> users = new ArrayList<User>();
             try {
                 JSONObject json = GetRequester.doAGetRequest(url);
                 JSONArray jsonArr = json.getJSONArray("matches");
                 for (int i = 0; i < jsonArr.length(); i++) {
-                    matches.add(JsonConverter.userFromJson((JSONObject) jsonArr.get(i)));
+                    User curr = JsonConverter.userFromJson((JSONObject) jsonArr.get(i));
+                    matches.add(new UserAndImage(curr));
                 }
             } catch (Exception e) {
                 System.out.println(e.toString());

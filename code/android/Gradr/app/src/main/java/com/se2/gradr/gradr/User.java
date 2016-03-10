@@ -26,9 +26,6 @@ public class User implements Serializable {
     private String helpDescription;
     private Date birthdate;
 
-    private Bitmap bmp = null;
-    private boolean imageRequestInTransit = false;
-
     public User(String username, int id, String firstName, String lastName,
                 String city, String country, String school,
                 String courses, String generalDescription, String helpDescription) {
@@ -62,7 +59,6 @@ public class User implements Serializable {
     }
 
     public String getFirstName() {
-        System.out.println(firstName);
         return firstName;
     }
 
@@ -71,7 +67,6 @@ public class User implements Serializable {
     }
 
     public String getLastName() {
-        System.out.println(lastName);
         return lastName;
     }
 
@@ -136,41 +131,10 @@ public class User implements Serializable {
     }
 
     public String getUsername() {
-        System.out.println(username);
         return username;
     }
 
     public int getId() {
         return id;
-    }
-
-    public Bitmap getBmp() {
-        return bmp;
-    }
-
-    public void setBmp(Bitmap bmp) {
-        this.bmp = bmp;
-    }
-
-    public boolean hasImage() {
-        if (bmp == null) {
-            return false;
-        }
-        return true;
-    }
-
-    public void setImage(ImageView iv) {
-        if (bmp == null) {
-            if (imageRequestInTransit) {
-                return;
-            }
-            imageRequestInTransit = true;
-            String url = "http://thecatapi.com/api/images/get?format=src&type=jpg&size=small" + Math.random();
-            new DownloadImageInBackground(url, this).execute(iv);
-            //We don't ever unset the imageInTransit flag because even once we get the image back, we don't want to ever load a second image for this user
-        }
-        else {
-            iv.setImageBitmap(bmp);
-        }
     }
 }

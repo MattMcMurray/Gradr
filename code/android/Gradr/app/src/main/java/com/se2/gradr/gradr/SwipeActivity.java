@@ -3,6 +3,8 @@ package com.se2.gradr.gradr;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +27,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -77,20 +82,6 @@ public class SwipeActivity extends AppCompatActivity {
         failText = (TextView) findViewById(R.id.failView);
 
         new GetPotentials(userId).execute();
-
-
-        //Stuff that was already there when I made the activity. Might want to revisit it.
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
     }
 
     @Override
@@ -102,9 +93,7 @@ public class SwipeActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -134,9 +123,9 @@ public class SwipeActivity extends AppCompatActivity {
             User user = getItem(position);
             ImageView imageView = (ImageView) contentView.findViewById(R.id.userImage);
             String url = getString(R.string.cat_api_url) + Math.random();
-            new DownloadImageInBackground(url, user).execute(imageView);
+            new ImageDownloader(url).execute(imageView);
 
-
+            //Set the values on the User's card
             TextView v =(TextView) (contentView.findViewById(R.id.username));
             v.setText(user.getUsername());
             v = (TextView)(contentView.findViewById(R.id.name));
@@ -200,14 +189,13 @@ public class SwipeActivity extends AppCompatActivity {
             int likeeId = adapter.getItem(stackOCards.getCurrIndex()).getId();
 
             //Tell the observer in case we need to get a new batch
-            this.setChanged();
-            this.notifyObservers();
-            System.out.println("Notified?");
             if (direction % 2 == 0) { //If it's on the left
                 new UserMatchHelper(userId).execute("dislikeUser", "" + likeeId);
             } else { //On the right
                 new UserMatchHelper(userId).execute("likeUser", "" + likeeId);
             }
+            this.setChanged();
+            this.notifyObservers();
             return true;
         }
     }
@@ -268,7 +256,6 @@ public class SwipeActivity extends AppCompatActivity {
                 User[] users = new User[usersJson.length()];
                 for (int i = 0; i < usersJson.length(); i++) {
                     users[i] = JsonConverter.userFromJson((JSONObject) usersJson.get(i));
-                    System.out.println(users[i].toString());
                 }
                 return users;
 
@@ -318,6 +305,49 @@ public class SwipeActivity extends AppCompatActivity {
             }
 
             return null;
+        }
+    }
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+    //Unfortunately, the Swipe Cards repo that we're using isn't as flexible as originally anticipated
+    //This function class is specific to the CardStack. For all other image pages, use
+    //the class DownloadImageInBackground
+    public class ImageDownloader extends AsyncTask<ImageView, Void, Bitmap> {
+        private ImageView imageView = null;
+        private String url;
+
+        public ImageDownloader(String url) {
+            this.url = url;
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap downloadedImage) {
+            imageView.setImageBitmap(downloadedImage);
+        }
+
+        @Override
+        protected Bitmap doInBackground(ImageView... imageViews) {
+            this.imageView = imageViews[0];
+            Bitmap result = download(url);
+            return result;
+        }
+
+        protected Bitmap download(String url) {
+            Bitmap result =null;
+            try{
+                URL theUrl = new URL(url);
+                HttpURLConnection con = (HttpURLConnection)theUrl.openConnection();
+                InputStream is = con.getInputStream();
+                result = BitmapFactory.decodeStream(is);
+                if (null != result)
+                    return result;
+
+            } catch(Exception e) {
+                System.out.println("ERRROR FOR IMAGE AT URL " + url);
+                System.out.println(e.toString());
+            }
+            return result;
         }
     }
 
