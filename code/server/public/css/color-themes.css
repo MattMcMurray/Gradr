@@ -1,0 +1,69 @@
+/***************/
+/* WATER THEME */
+/***************/
+
+body.theme-water  .navbar-inverse {
+	background-color: #0A2D46;
+}
+
+body.theme-water {
+	background: url("/img/waves.png");
+	color: #080417;
+}
+
+body.theme-water .logo {
+	background: rgba(0, 0, 0, .5); /* Black w/ 50% opacity */
+	padding-bottom: 20px;
+	border-radius: 30px;
+}
+
+body.theme-water #home {
+	color: white;
+}
+
+body.theme-water #home:hover {
+	color: #01518A;
+}
+
+body.theme-water .btn-warning {
+	background-color: black;
+	border-color: black;
+}
+
+/**************/
+/* FIRE THEME */
+/**************/
+
+body.theme-fire  .navbar-inverse {
+	background-color: #A6170A;
+}
+
+body.theme-fire {
+	background: url("/img/stardust.png");
+	color: #F28A2E;
+}
+
+/*body.theme-fire .logo {
+	background: rgba(0, 0, 0, .5);  Black w/ 50% opacity 
+	padding-bottom: 20px;
+	border-radius: 30px;
+}
+*/
+body.theme-fire #home {
+	color: white;
+}
+
+body.theme-fire #home:hover {
+	color: #F28A2E;
+}
+
+body.theme-fire .btn-warning {
+	background-color: #D94B18;
+	border-color: #D94B18;
+}
+
+body.theme-fire .btn-primary {
+	background-color: #0D0D0D;
+	border-color: #A6170A;
+	border-width: 2px;
+}
