@@ -6,12 +6,13 @@ import android.widget.ImageView;
 
 import com.se2.gradr.gradr.helpers.DownloadImageInBackground;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
  * Created by steve on 03/03/16.
  */
-public class User {
+public class User implements Serializable {
     private String username;
     private int id;
 

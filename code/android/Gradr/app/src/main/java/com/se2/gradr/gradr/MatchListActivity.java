@@ -62,7 +62,16 @@ public class MatchListActivity extends AppCompatActivity {
                 Intent viewMatchIntent = new Intent(MatchListActivity.this, ViewMatchActivity.class);
                 viewMatchIntent.putExtra("username", username);
                 viewMatchIntent.putExtra("userId", userId);
+
+                /* Considered only passing the matchId and then making a new API call,
+                 * decided we're better off passing the basic pieces of the user so that we don't
+                 * have to wait for the HTTP GET request to return before populating the fields
+                 *
+                 * Also, Users are not serializable because they have a Bitmap field. We've decided
+                 * that having the image stored within a User is
+                 */
                 viewMatchIntent.putExtra("matchId", matches.get(position).getId());
+                viewMatchIntent.putExtra("match", matches.get(position));
                 startActivity(viewMatchIntent);
             }
         });

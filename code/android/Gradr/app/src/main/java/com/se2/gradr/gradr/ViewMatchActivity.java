@@ -1,5 +1,6 @@
 package com.se2.gradr.gradr;
 
+import android.net.Uri;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,7 +20,9 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
-public class ViewMatchActivity extends AppCompatActivity {
+import com.se2.gradr.gradr.fragments.ViewMatchFragment;
+
+public class ViewMatchActivity extends AppCompatActivity implements ViewMatchFragment.OnFragmentInteractionListener{
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -35,6 +38,10 @@ public class ViewMatchActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+
+    public void onFragmentInteraction(Uri uri) {
+        //This function is required when adding fragments
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +64,7 @@ public class ViewMatchActivity extends AppCompatActivity {
 
     }
 
-
+    //Required to show the toolbar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -65,6 +72,7 @@ public class ViewMatchActivity extends AppCompatActivity {
         return true;
     }
 
+    //Executes calls when you click the toolbar
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -81,6 +89,7 @@ public class ViewMatchActivity extends AppCompatActivity {
 
     /**
      * A placeholder fragment containing a simple view.
+     * Will be deleted once we implement the other fragments
      */
     public static class PlaceholderFragment extends Fragment {
         /**
@@ -128,7 +137,14 @@ public class ViewMatchActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            switch (position) {
+                case 0:
+                    ViewMatchFragment vmf = new ViewMatchFragment();
+                    return vmf;
+                default:
+                    return PlaceholderFragment.newInstance(position + 1);
+            }
+
         }
 
         @Override
