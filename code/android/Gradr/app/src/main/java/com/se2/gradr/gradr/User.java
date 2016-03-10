@@ -61,6 +61,7 @@ public class User {
     }
 
     public String getFirstName() {
+        System.out.println(firstName);
         return firstName;
     }
 
@@ -69,6 +70,7 @@ public class User {
     }
 
     public String getLastName() {
+        System.out.println(lastName);
         return lastName;
     }
 
@@ -133,6 +135,7 @@ public class User {
     }
 
     public String getUsername() {
+        System.out.println(username);
         return username;
     }
 

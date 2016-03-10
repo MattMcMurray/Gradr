@@ -24,31 +24,31 @@ public class JsonConverter {
         }
         String lastname = "";
         if (json.has("lastname")) {
-            firstname = json.getString("lastname");
+            lastname = json.getString("lastname");
         }
         String city = "";
         if (json.has("city")) {
-            firstname = json.getString("city");
+            city = json.getString("city");
         }
         String country = "";
         if (json.has("country")) {
-            firstname = json.getString("country");
+            country = json.getString("country");
         }
         String school = "";
         if (json.has("school")) {
-            firstname = json.getString("school");
+            school = json.getString("school");
         }
         String courses = "";
         if (json.has("courses")) {
-            firstname = json.getString("courses");
+            courses = json.getString("courses");
         }
         String generalDescription = "";
         if (json.has("generalDescription")) {
-            firstname = json.getString("generalDescription");
+            generalDescription = json.getString("generalDescription");
         }
         String helpDescription = "";
         if (json.has("helpDescription")) {
-            firstname = json.getString("helpDescription");
+            helpDescription = json.getString("helpDescription");
         }
 
         User user = new User(json.getString("username"),
