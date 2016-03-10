@@ -53,6 +53,10 @@ body.theme-fire #home {
 	color: white;
 }
 
+body.theme-fire #logout {
+	color: white;
+}
+
 body.theme-fire #home:hover {
 	color: #F28A2E;
 }
