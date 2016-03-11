@@ -21,9 +21,12 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
+import com.se2.gradr.gradr.fragments.ChatMatchFragment;
+import com.se2.gradr.gradr.fragments.RateMatchFragment;
 import com.se2.gradr.gradr.fragments.ViewMatchFragment;
 
-public class ViewMatchActivity extends AppCompatActivity implements ViewMatchFragment.OnFragmentInteractionListener{
+public class ViewMatchActivity extends AppCompatActivity implements ViewMatchFragment.OnFragmentInteractionListener,
+        RateMatchFragment.OnFragmentInteractionListener, ChatMatchFragment.OnFragmentInteractionListener{
 
     //currUser info
     private int userId;
@@ -157,9 +160,13 @@ public class ViewMatchActivity extends AppCompatActivity implements ViewMatchFra
             switch (position) {
                 case 0:
                     ViewMatchFragment vmf = ViewMatchFragment.newInstance(userId, username, currMatch.getUser());
-//                    ViewMatchFragment vmf = new ViewMatchFragment();
-//                    vmf.setArguments(fragBun);
                     return vmf;
+                case 1:
+                    RateMatchFragment rmf = RateMatchFragment.newInstance(userId, username, currMatch.getUser());
+                    return rmf;
+                case 2:
+                    ChatMatchFragment cmf = ChatMatchFragment.newInstance(userId, username, currMatch.getUser());
+                    return cmf;
                 default:
                     return PlaceholderFragment.newInstance(position + 1);
             }

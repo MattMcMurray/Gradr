@@ -7,7 +7,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.se2.gradr.gradr.R;
@@ -23,18 +26,22 @@ import com.se2.gradr.gradr.ViewMatchActivity;
  * Use the {@link ViewMatchFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ViewMatchFragment extends Fragment {
+public class RateMatchFragment extends Fragment {
+
+    private final int RATING_OUT_OF = 5;
 
     private int userId;
     private String username;
     private UserAndImage match;
+
+    private Integer[] ratingOptions;
 
     private OnFragmentInteractionListener mListener;
 
     //We call findViewById on this guy
     private View rootView;
 
-    public ViewMatchFragment() {
+    public RateMatchFragment() {
         // Required empty public constructor
     }
 
@@ -47,8 +54,8 @@ public class ViewMatchFragment extends Fragment {
      * @param match a User object containing info about the match we're investigating
      * @return A new instance of fragment ViewMatchFragment.
      */
-    public static ViewMatchFragment newInstance(int userId, String username, User match) {
-        ViewMatchFragment fragment = new ViewMatchFragment();
+    public static RateMatchFragment newInstance(int userId, String username, User match) {
+        RateMatchFragment fragment = new RateMatchFragment();
         Bundle args = new Bundle();
         args.putInt("id", userId);
         args.putString("username", username);
@@ -66,14 +73,19 @@ public class ViewMatchFragment extends Fragment {
             User currMatch = (User) getArguments().getSerializable("match");
             match = new UserAndImage(currMatch);
         }
+        ratingOptions = new Integer[RATING_OUT_OF];
+        for (int i = 0; i < RATING_OUT_OF; i++) {
+            ratingOptions[i] = i+1;
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_view_match, container, false);
+        rootView = inflater.inflate(R.layout.fragment_rate_match, container, false);
         populateFields();
+        getRatings();
         return rootView;
     }
 
@@ -94,31 +106,27 @@ public class ViewMatchFragment extends Fragment {
         mListener = null;
     }
 
-
     public void populateFields() {
-        ImageView imageView = (ImageView) rootView.findViewById(R.id.match_image);
-        match.setImage(imageView);
+        Spinner ratingSpinner = (Spinner) rootView.findViewById(R.id.rating_spinner);
+        ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(rootView.getContext(),
+                 android.R.layout.simple_spinner_item,  ratingOptions);
+        ratingSpinner.setAdapter(adapter);
 
         TextView tv = (TextView) rootView.findViewById(R.id.match_name);
         tv.setText(match.getFirstName() + " " + match.getLastName());
 
-        tv = (TextView) rootView.findViewById(R.id.match_courses);
-        tv.setText(match.getCourses());
+        final Button submit = (Button) rootView.findViewById(R.id.submit_rating_button);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: POST the review
 
-        tv = (TextView) rootView.findViewById(R.id.match_school);
-        tv.setText(match.getSchool());
+            }
+        });
+    }
 
-        tv = (TextView) rootView.findViewById(R.id.match_city);
-        tv.setText(match.getCity());
-
-        tv = (TextView) rootView.findViewById(R.id.match_country);
-        tv.setText(match.getCountry());
-
-        tv = (TextView) rootView.findViewById(R.id.match_generalDescription);
-        tv.setText(match.getGeneralDescription());
-
-        tv = (TextView) rootView.findViewById(R.id.match_helpDescription);
-        tv.setText(match.getHelpDescription());
+    public void getRatings() {
+        //TODO: GET the ratings for this user. Also, need to add textbox where we'll put their aggregate rating
     }
 
     /**
@@ -126,7 +134,7 @@ public class ViewMatchFragment extends Fragment {
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p/>
+     * <p>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
