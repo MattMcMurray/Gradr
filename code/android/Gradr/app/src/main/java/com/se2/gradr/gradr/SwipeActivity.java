@@ -1,52 +1,41 @@
 package com.se2.gradr.gradr;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.annotation.TargetApi;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.database.DataSetObserver;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.AttributeSet;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.se2.gradr.gradr.helpers.DownloadImageInBackground;
+import com.se2.gradr.gradr.helpers.GetRequester;
+import com.se2.gradr.gradr.helpers.JsonConverter;
+import com.se2.gradr.gradr.helpers.PostRequester;
 import com.wenchao.cardstack.CardStack;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.jar.Attributes;
 
 public class SwipeActivity extends AppCompatActivity {
 
+    Toolbar toolbar;
 
     private String username;
     private int userId;
@@ -69,6 +58,9 @@ public class SwipeActivity extends AppCompatActivity {
             finish(); //Basically, we kill the app.
         }
 
+        toolbar =  (Toolbar) findViewById(R.id.tool_bar);
+        setSupportActionBar(toolbar);
+
         //Initialize the card view
         stackOCards = (CardStack) findViewById(R.id.container);
         stackOCards.setContentResource(R.layout.card_layout);
@@ -90,20 +82,33 @@ public class SwipeActivity extends AppCompatActivity {
         failText = (TextView) findViewById(R.id.failView);
 
         new GetPotentials(userId).execute();
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
 
-        //Stuff that was already there when I made the activity. Might want to revisit it.
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-//
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_logout) {
+            System.out.println("NOT IMPLEMENTED");
+        } else if (id == R.id.action_matches) {
+            Intent matchesIntent = new Intent(this, MatchListActivity.class);
+            matchesIntent.putExtra("username", username);
+            matchesIntent.putExtra("id", userId);
+            startActivity(matchesIntent);
+        } else if (id == R.id.action_profile) {
+            System.out.println("NOT IMPLEMENTED");
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     public class CardsDataAdapter extends ArrayAdapter<User> {
@@ -115,11 +120,12 @@ public class SwipeActivity extends AppCompatActivity {
         @Override
         public View getView(int position, final View contentView, ViewGroup parent){
             //Get images loading on background thread
+            User user = getItem(position);
             ImageView imageView = (ImageView) contentView.findViewById(R.id.userImage);
             String url = getString(R.string.cat_api_url) + Math.random();
-            new DownloadImageInBackground(url).execute(imageView);
+            new ImageDownloader(url).execute(imageView);
 
-            User user = getItem(position);
+            //Set the values on the User's card
             TextView v =(TextView) (contentView.findViewById(R.id.username));
             v.setText(user.getUsername());
             v = (TextView)(contentView.findViewById(R.id.name));
@@ -183,14 +189,13 @@ public class SwipeActivity extends AppCompatActivity {
             int likeeId = adapter.getItem(stackOCards.getCurrIndex()).getId();
 
             //Tell the observer in case we need to get a new batch
-            this.setChanged();
-            this.notifyObservers();
-            System.out.println("Notified?");
             if (direction % 2 == 0) { //If it's on the left
                 new UserMatchHelper(userId).execute("dislikeUser", "" + likeeId);
             } else { //On the right
                 new UserMatchHelper(userId).execute("likeUser", "" + likeeId);
             }
+            this.setChanged();
+            this.notifyObservers();
             return true;
         }
     }
@@ -250,13 +255,12 @@ public class SwipeActivity extends AppCompatActivity {
                 JSONArray usersJson = json.getJSONArray("users");
                 User[] users = new User[usersJson.length()];
                 for (int i = 0; i < usersJson.length(); i++) {
-                    users[i] = userFromJson((JSONObject)usersJson.get(i));
-                    System.out.println(users[i].toString());
+                    users[i] = JsonConverter.userFromJson((JSONObject) usersJson.get(i));
                 }
                 return users;
 
             } catch (Exception e) {
-                new AlertDialog.Builder(getApplicationContext()).setMessage("This current build only works when you have a server running. You probably got a 404 because the userBatch function isn't on AWS yet.").show();
+//                new AlertDialog.Builder(getApplicationContext()).setMessage("This current build only works when you have a server running. You probably got a 404 because the userBatch function isn't on AWS yet.").show();
                 System.out.println("ERROR while parsing randomUser");
                 System.out.println(e.toString());
                 e.printStackTrace();
@@ -265,53 +269,7 @@ public class SwipeActivity extends AppCompatActivity {
             return null;
         }
 
-        // So apparently, if we do json.getString(fieldname) on a field that doesn't
-        // exist, it throws an exception instead of just returning null. So we'll have to go
-        // through and get each field individually...
-        public User userFromJson(JSONObject json) throws JSONException {
-            if (!json.has("username") || !json.has("id")) {
-                System.out.println("ERROR - Potential match doesn't have username/userID");
-                return null;
-            }
 
-            String firstname = "";
-            if (json.has("firstname")) {
-                firstname = json.getString("firstname");
-            }
-            String lastname = "";
-            if (json.has("lastname")) {
-                firstname = json.getString("lastname");
-            }
-            String city = "";
-            if (json.has("city")) {
-                firstname = json.getString("city");
-            }
-            String country = "";
-            if (json.has("country")) {
-                firstname = json.getString("country");
-            }
-            String school = "";
-            if (json.has("school")) {
-                firstname = json.getString("school");
-            }
-            String courses = "";
-            if (json.has("courses")) {
-                firstname = json.getString("courses");
-            }
-            String generalDescription = "";
-            if (json.has("generalDescription")) {
-                firstname = json.getString("generalDescription");
-            }
-            String helpDescription = "";
-            if (json.has("helpDescription")) {
-                firstname = json.getString("helpDescription");
-            }
-
-            User user = new User(json.getString("username"),
-                    json.getInt("id"), firstname, lastname, city,
-                    country, school, courses, generalDescription, helpDescription);
-            return user;
-        }
     }
 
     /**
@@ -347,6 +305,49 @@ public class SwipeActivity extends AppCompatActivity {
             }
 
             return null;
+        }
+    }
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+    //Unfortunately, the Swipe Cards repo that we're using isn't as flexible as originally anticipated
+    //This function class is specific to the CardStack. For all other image pages, use
+    //the class DownloadImageInBackground
+    public class ImageDownloader extends AsyncTask<ImageView, Void, Bitmap> {
+        private ImageView imageView = null;
+        private String url;
+
+        public ImageDownloader(String url) {
+            this.url = url;
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap downloadedImage) {
+            imageView.setImageBitmap(downloadedImage);
+        }
+
+        @Override
+        protected Bitmap doInBackground(ImageView... imageViews) {
+            this.imageView = imageViews[0];
+            Bitmap result = download(url);
+            return result;
+        }
+
+        protected Bitmap download(String url) {
+            Bitmap result =null;
+            try{
+                URL theUrl = new URL(url);
+                HttpURLConnection con = (HttpURLConnection)theUrl.openConnection();
+                InputStream is = con.getInputStream();
+                result = BitmapFactory.decodeStream(is);
+                if (null != result)
+                    return result;
+
+            } catch(Exception e) {
+                System.out.println("ERRROR FOR IMAGE AT URL " + url);
+                System.out.println(e.toString());
+            }
+            return result;
         }
     }
 

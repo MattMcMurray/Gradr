@@ -1,4 +1,4 @@
-package com.se2.gradr.gradr;
+package com.se2.gradr.gradr.helpers;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,7 +33,7 @@ public class GetRequester {
 
             return new JSONObject(stringBuilder.toString());
         } else {
-            throw new IOException("httpConnection erro\n" + httpRes + " - "+ connection.getResponseCode());
+            throw new IOException("httpConnection error\n" + httpRes + " - "+ connection.getResponseCode());
         }
     }
 }

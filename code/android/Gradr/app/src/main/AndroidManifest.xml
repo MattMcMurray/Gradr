@@ -32,6 +32,14 @@
         <activity
             android:name=".SwipeActivity"
             android:label="@string/title_activity_swipe"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MatchListActivity"
+            android:label="@string/title_activity_match_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ViewMatchActivity"
+            android:label="@string/title_activity_view_match"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
