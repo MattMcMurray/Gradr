@@ -23,7 +23,7 @@ import com.se2.gradr.gradr.ViewMatchActivity;
  * Use the {@link ViewMatchFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ViewMatchFragment extends Fragment {
+public class ChatMatchFragment extends Fragment {
 
     private int userId;
     private String username;
@@ -34,7 +34,7 @@ public class ViewMatchFragment extends Fragment {
     //We call findViewById on this guy
     private View rootView;
 
-    public ViewMatchFragment() {
+    public ChatMatchFragment() {
         // Required empty public constructor
     }
 
@@ -47,8 +47,8 @@ public class ViewMatchFragment extends Fragment {
      * @param match a User object containing info about the match we're investigating
      * @return A new instance of fragment ViewMatchFragment.
      */
-    public static ViewMatchFragment newInstance(int userId, String username, User match) {
-        ViewMatchFragment fragment = new ViewMatchFragment();
+    public static ChatMatchFragment newInstance(int userId, String username, User match) {
+        ChatMatchFragment fragment = new ChatMatchFragment();
         Bundle args = new Bundle();
         args.putInt("id", userId);
         args.putString("username", username);
@@ -72,10 +72,10 @@ public class ViewMatchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_view_match, container, false);
-        populateFields();
+        rootView = inflater.inflate(R.layout.fragment_chat_match, container, false);
         return rootView;
     }
+
 
     @Override
     public void onAttach(Context context) {
@@ -92,33 +92,6 @@ public class ViewMatchFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
-    }
-
-
-    public void populateFields() {
-        ImageView imageView = (ImageView) rootView.findViewById(R.id.match_image);
-        match.setImage(imageView);
-
-        TextView tv = (TextView) rootView.findViewById(R.id.match_name);
-        tv.setText(match.getFirstName() + " " + match.getLastName());
-
-        tv = (TextView) rootView.findViewById(R.id.match_courses);
-        tv.setText(match.getCourses());
-
-        tv = (TextView) rootView.findViewById(R.id.match_school);
-        tv.setText(match.getSchool());
-
-        tv = (TextView) rootView.findViewById(R.id.match_city);
-        tv.setText(match.getCity());
-
-        tv = (TextView) rootView.findViewById(R.id.match_country);
-        tv.setText(match.getCountry());
-
-        tv = (TextView) rootView.findViewById(R.id.match_generalDescription);
-        tv.setText(match.getGeneralDescription());
-
-        tv = (TextView) rootView.findViewById(R.id.match_helpDescription);
-        tv.setText(match.getHelpDescription());
     }
 
     /**
