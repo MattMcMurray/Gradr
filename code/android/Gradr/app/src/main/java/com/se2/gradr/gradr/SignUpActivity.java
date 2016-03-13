@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.se2.gradr.gradr.helpers.PostRequester;
+
 import org.json.JSONObject;
 
 /**
@@ -59,31 +61,48 @@ public class SignUpActivity extends LoginActivity {
 
     private void attemptRegistration() {
 
+        String username = "";
+        String password = "";
+        String confirmPassword = "";
+        new RegisterAccountHelper(username,password,confirmPassword).execute();
+        finish();
+    }
 
+    /**
+     * Asynchronously send a POST request containing info about whether or not the users matched
+     */
+    public class RegisterAccountHelper extends AsyncTask<String, Void, Void> {
+        private String username;
+        private String password;
+        private String confirmPassword;
 
-        String mUsername = "rob";
-        String mPassword = "pixel";
-        String mConfirmPassword = "pixel";
-
-        String stringUrl = getString(R.string.http_address_server) + "/api/NewUser";
-
-        try {
-            JSONObject credentials = new JSONObject();
-            credentials.put("username", mUsername);
-            credentials.put("password", mPassword);
-            credentials.put("confirmPassword", mConfirmPassword);
-
-            JSONObject json = PostRequester.doAPostRequest(stringUrl, credentials);
-
-            String username = json.getJSONObject("user").getString("username");
-            String id = json.getJSONObject("user").getString("id");
-            System.out.println(username + " " + id);
-
-            finish();
-        } catch (Exception e) {
-            System.out.println("ERROR ON REGISTRATION " + e.toString());
+        RegisterAccountHelper(String username, String password, String confirmPassword) {
+            this.username = username;
+            this.password = password;
+            this.confirmPassword = confirmPassword;
         }
 
+        @Override
+        protected Void doInBackground(String... params) {
+            String stringUrl = getString(R.string.http_address_server) + "/api/NewUser?username=" + username + "&password=" + password + "&confirmPassword=" + confirmPassword;
+            try {
+                JSONObject postParams = new JSONObject();
+                postParams.put("username", username);
+                postParams.put("password", password);
+                postParams.put("confirmPassword", confirmPassword);
+
+                JSONObject json = PostRequester.doAPostRequest(stringUrl, postParams);
+                if (json == null) {
+                    System.out.println("JSON was null for registering new user");
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR while registering new user");
+                System.out.println(e.toString());
+                e.printStackTrace();
+            }
+
+            return null;
+        }
     }
 
 }
