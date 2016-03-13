@@ -119,3 +119,53 @@ body.theme-earth .btn-primary {
 body.theme-earth .lead {
 	color: #136902;
 }
+
+/*************/
+/* AIR THEME */
+/*************/
+
+body.theme-air  .navbar-inverse {
+	background-color: #330420;
+}
+
+body.theme-air {
+	background: url("/img/new_year_background.png");
+	color: #136902;
+}
+
+body.theme-air .logo {
+	background: rgba(0, 0, 0, .5); /* Black w/ 50% opacity */
+	padding-bottom: 20px;
+	border-radius: 30px;
+}
+
+body.theme-air #home {
+	color: #FFEE00;
+}
+
+body.theme-air #home:hover {
+	color: #DB0085;
+}
+
+body.theme-air #logout {
+	color: white;
+}
+
+body.theme-air #logout:hover {
+	color: #DB0085;
+}
+
+body.theme-air .btn-warning {
+	background-color: #0A3700;
+	border-color: #0A3700;
+}
+
+body.theme-air .btn-primary {
+	background-color: #401E00;
+	border-color: #401E00;
+	border-width: 2px;
+}
+
+body.theme-air .lead {
+	color: #413D05;
+}
