@@ -1,4 +1,4 @@
-/***************/
+/**************/
 /* WATER THEME */
 /***************/
 
@@ -30,6 +30,10 @@ body.theme-water .btn-warning {
 	border-color: black;
 }
 
+body.theme-water .lead {
+	color: #0A2D46;
+}
+
 /**************/
 /* FIRE THEME */
 /**************/
@@ -43,12 +47,6 @@ body.theme-fire {
 	color: #F28A2E;
 }
 
-/*body.theme-fire .logo {
-	background: rgba(0, 0, 0, .5);  Black w/ 50% opacity 
-	padding-bottom: 20px;
-	border-radius: 30px;
-}
-*/
 body.theme-fire #home {
 	color: white;
 }
@@ -70,4 +68,54 @@ body.theme-fire .btn-primary {
 	background-color: #0D0D0D;
 	border-color: #A6170A;
 	border-width: 2px;
+}
+
+/***************/
+/* EARTH THEME */
+/***************/
+
+body.theme-earth  .navbar-inverse {
+	background-color: #401E00;
+}
+
+body.theme-earth {
+	background: url("/img/upfeathers.png");
+	color: #136902;
+}
+
+body.theme-earth .logo {
+	background: rgba(0, 0, 0, .5); /* Black w/ 50% opacity */
+	padding-bottom: 20px;
+	border-radius: 30px;
+}
+
+body.theme-earth #home {
+	color: #136928;
+}
+
+body.theme-earth #home:hover {
+	color: #1C6F77;
+}
+
+body.theme-earth #logout {
+	color: white;
+}
+
+body.theme-earth #logout:hover {
+	color: #1C6F77;
+}
+
+body.theme-earth .btn-warning {
+	background-color: #0A3700;
+	border-color: #0A3700;
+}
+
+body.theme-earth .btn-primary {
+	background-color: #401E00;
+	border-color: #401E00;
+	border-width: 2px;
+}
+
+body.theme-earth .lead {
+	color: #136902;
 }
