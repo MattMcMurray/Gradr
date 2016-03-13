@@ -42,6 +42,9 @@ var User = DBConnection.define('users', {
     }, 
     dateOfBirth: {
         type: Sequelize.DATE
+    },
+    theme: {
+        type: Sequelize.INTEGER
     }
 });
 
@@ -105,6 +108,25 @@ UserDB.prototype.createUserProfile = function(userData) {
     },
     {
         where: { username: userData.username}
+    });
+};
+
+UserDB.prototype.setTheme = function (userID, theme) {
+    return User.update({
+        theme: theme
+    },
+    {
+        where: { id: userID }
+    });
+};
+
+UserDB.prototype.getTheme = function (userID) {
+    return User.findOne({
+        attributes: ['theme'],
+
+        where: {
+            id: userID
+        }
     });
 };
 
