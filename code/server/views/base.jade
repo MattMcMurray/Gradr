@@ -34,9 +34,33 @@ html(lang='en')
                 span.icon-bar
                 span.icon-bar
             a.navbar-brand#home(href='/main') Gradr
-            a.navbar-brand.anonymous(href='/profile') Profile
-            a.navbar-brand.anonymous#matchesLink(href='/') Matches
-            a.navbar-brand.navbar-right.anonymous#logout(href="/") Logout
+
+            .collapse.navbar-collapse#navbar-collapse
+                ul.nav.navbar-nav
+                    li
+                        a.navbar-brand.anonymous(href='/profile') Profile
+                    li
+                        a.navbar-brand.anonymous#matchesLink(href='/') Matches
+
+                ul.nav.navbar-nav.navbar-right
+                    li.dropdown
+                        a.navbar-brand.dropdown-toggle(data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false")
+                            | Themes
+                            span.caret
+                        ul.dropdown-menu
+                            li 
+                                a#theme-original Original Theme
+                            li 
+                                a#theme-earth Earth Theme
+                            li 
+                                a#theme-air Air Theme
+                            li 
+                                a#theme-water Water Theme
+                            li 
+                                a#theme-fire Fire Theme
+                    li
+                        a.navbar-brand.anonymous#logout(href="/") Logout
+
     .container.text-center
         .logo
             img(src='/img/gradr_logo.png')
@@ -53,4 +77,5 @@ html(lang='en')
     script(src='/js/login.js')
     script(src='/js/gradr.js')
     script(src='/js/matchList.js')
+    script(src='/js/themeSwitcher.js')
     block scripts
