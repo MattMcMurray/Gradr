@@ -22,8 +22,9 @@ import org.json.JSONObject;
 public class SignUpActivity extends LoginActivity {
 
     // UI references.
-    private AutoCompleteTextView mEmailView;
+    private EditText mUsernameView;
     private EditText mPasswordView;
+    private EditText mConfirmPasswordView;
     private View mProgressView;
     private View mLoginFormView;
 
@@ -33,6 +34,20 @@ public class SignUpActivity extends LoginActivity {
         setContentView(R.layout.signup_activity);
 
         // Set up the signup form.
+
+        mUsernameView = (EditText) findViewById(R.id.username);
+        mPasswordView = (EditText) findViewById(R.id.password);
+        mConfirmPasswordView = (EditText) findViewById(R.id.confirm_password);
+        mConfirmPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
+                if (id == R.id.login || id == EditorInfo.IME_NULL) {
+                    attemptRegistration();
+                    return true;
+                }
+                return false;
+            }
+        });
 
         Button mCancelButton = (Button) findViewById(R.id.cancel_button);
         mCancelButton.setOnClickListener(new View.OnClickListener() {
@@ -61,11 +76,38 @@ public class SignUpActivity extends LoginActivity {
 
     private void attemptRegistration() {
 
-        String username = "";
-        String password = "";
-        String confirmPassword = "";
-        new RegisterAccountHelper(username,password,confirmPassword).execute();
-        finish();
+        String username = mUsernameView.getText().toString();
+        String password = mPasswordView.getText().toString();;
+        String confirmPassword = mConfirmPasswordView.getText().toString();
+        View focusView = null;
+        boolean cancel = false;
+
+        if (TextUtils.isEmpty(username)) {
+            mUsernameView.setError(getString(R.string.error_invalid_username));
+            focusView = mUsernameView;
+            cancel = true;
+        } else if (TextUtils.isEmpty(password)) {
+            mPasswordView.setError(getString(R.string.error_invalid_password));
+            focusView = mPasswordView;
+            cancel = true;
+        } else if (TextUtils.isEmpty(confirmPassword)) {
+            mConfirmPasswordView.setError(getString(R.string.error_invalid_password));
+            focusView = mConfirmPasswordView;
+            cancel = true;
+        } else if (!confirmPassword.equals(password)) {
+            mConfirmPasswordView.setError(getString(R.string.error_password_match));
+            focusView = mConfirmPasswordView;
+            cancel = true;
+        }
+
+        if(cancel) {
+            // There was an error; don't attempt login and focus the first
+            // form field with an error.
+            focusView.requestFocus();
+        } else {
+            new RegisterAccountHelper(username, password, confirmPassword).execute();
+            finish();
+        }
     }
 
     /**
