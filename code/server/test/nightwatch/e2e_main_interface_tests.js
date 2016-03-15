@@ -134,5 +134,20 @@ module.exports = {
 						this.assert.equal(found.value, birthYear);
 			})
 			.end();
+	},
+
+	'Ensure no themes applied' : function(browser) {
+		browser
+			.url(appURL) 
+			.waitForElementVisible('/html/body', 10000)
+			.setValue('//*[@id="username"]', newUserName)
+			.setValue('//*[@id="password"]', newUserPass)
+			.click('//*[@id="login-form"]/button')
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.assert.cssClassNotPresent('/html/body', 'theme-water')
+			.assert.cssClassNotPresent('/html/body', 'theme-fire')
+			.assert.cssClassNotPresent('/html/body', 'theme-earth')
+			.assert.cssClassNotPresent('/html/body', 'theme-air')
+			.end();
 	}
 }
