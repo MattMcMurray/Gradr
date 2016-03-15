@@ -109,9 +109,6 @@ function postTheme(theme) {
 	$.ajax({
 		type: 'POST',
 		url: '/api/setTheme',
-		data: {userId: sessionStorage.getItem('user_id'), theme: theme},
-		success: function(data) {
-			console.log("GREAT SUCCESS");
-		}
+		data: {userId: sessionStorage.getItem('user_id'), theme: theme}
 	});
 }
