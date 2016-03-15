@@ -177,7 +177,7 @@ describe('api', function() {
             .end(function(err, res) {
                 if(err) done(err);
                 assert.that(res.body.users).is.not.null();
-                assert.that(res.body.users.length).is.not.equalTo(3); //Because we're using the stub
+                assert.that(res.body.users.length).is.equalTo(3); //Because we're using the stub
                 done();
             });
         });
@@ -433,6 +433,34 @@ describe('api', function() {
             .end(function(err, res) {
                 assert.that(res.body).is.not.null();
                 assert.that(res.body.error).is.not.null();
+                done();
+            });
+        });
+    });
+
+    describe('GET /api/getTheme', function () {
+        it('gets theme for a user', function(done) {
+            request(app)
+            .get('/api/getTheme?user=111')
+            .expect(200)
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.theme).is.not.null();
+                assert.that(res.body.status).is.equalTo('OK');
+                assert.that(res.body.theme).is.equalTo(2);
+                done();
+            });
+        });
+    });
+
+    describe('POST /api/setTheme', function () {
+        it('sets theme for a user', function(done) {
+            request(app)
+            .post('/api/setTheme')
+            .send({'userId': 111, 'theme': 4})
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.status).is.equalTo('OK') ;
                 done();
             });
         });

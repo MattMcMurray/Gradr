@@ -90,7 +90,8 @@ UserDB.prototype.createUser = function(userData) {
         courses: '',
         generalDescription: '',
         helpDescription: '',
-        dateOfBirth: null
+        dateOfBirth: null,
+        theme: 1
     });
 };
 

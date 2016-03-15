@@ -114,7 +114,7 @@ describe('User', function() {
 
     describe('User getRandomBatch', function() {
         it('gets a random set of users', function(done) {
-            user.getRandom(111, 2).then(function(data) {
+            user.getRandomBatch(111, 2).then(function(data) {
                 assert.that(data).is.not.null();
                 assert.that(data.length).is.equalTo(2);
                 done();
@@ -122,7 +122,7 @@ describe('User', function() {
         });
 
         it('gets a different random set of users', function(done) {
-            user.getRandom(444).then(function(data) {
+            user.getRandomBatch(444,1).then(function(data) {
                 assert.that(data).is.not.null();
                 assert.that(data.length).is.equalTo(3);
                 done();
@@ -143,6 +143,28 @@ describe('User', function() {
             user.removeUser(404).then(function(data) {
                 assert.that(data).is.null();
                 done();
+            });
+        });
+    });
+
+    describe('User getTheme', function() {
+        it('gets a theme integer from a user', function(done) {
+            user.getTheme(111).then(function(data) {
+                assert.that(data).is.not.null();
+                assert.that(data.dataValues.theme).is.equalTo(2);
+                done();
+            });
+        });
+    });
+
+    describe('User setTheme', function() {
+        it('sets a theme for a user', function(done) {
+            user.setTheme(222, 4).then(function(data) {
+                user.getTheme(222).then(function(data) {
+                    assert.that(data).is.not.null();
+                    assert.that(data.dataValues.theme).is.equalTo(4);
+                    done();
+                });
             });
         });
     });

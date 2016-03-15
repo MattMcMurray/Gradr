@@ -25,6 +25,12 @@ UserInterface.prototype = {
     },
     removeUser: function(userID) {
         throw "function removeUser() not implemented";
+    },
+    getTheme: function(userID) {
+        throw "function getTheme() not implemented";
+    },
+    setTheme: function(userID, theme) {
+        throw "function setTheme() not implemented";
     }
 }
 

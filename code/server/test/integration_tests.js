@@ -18,6 +18,7 @@ var country = 'Canada';
 var courses = 'COMP 1010, STAT 1000, MATH 1500';
 var school = 'University of Manitoba';
 var generalDescription = 'I am awesome and dedicated';
+var theme = 1;
 var userID;
 
 describe('Integration Tests', function() {
@@ -110,6 +111,8 @@ describe('Integration Tests', function() {
         });
     });
 
+    
+
     describe('Getting more details about a user', function() {
 
         it('Fetch a user and ensure details are delivered', function(done) {
@@ -157,6 +160,7 @@ describe('Integration Tests', function() {
                 assert.that(res.body.message).is.equalTo('User profile updated');
                 done();
             });
+
         });
 
         it('Ensure that the changes made to the user are reflected', function(done) {
@@ -172,6 +176,7 @@ describe('Integration Tests', function() {
                 assert.that(res.body.user.school).is.equalTo(school);
                 assert.that(res.body.user.courses).is.equalTo(courses);
                 assert.that(res.body.user.generalDescription).is.equalTo(generalDescription);
+                assert.that(res.body.user.theme).is.equalTo(theme);
                 done();
             });
         });

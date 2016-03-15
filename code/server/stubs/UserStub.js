@@ -12,6 +12,7 @@ function UserStub() {
         firstname: 'steve',
         lastname: 'bairosns',
         id: 111,
+        theme: 2,
     };
 
     user2 = {
@@ -22,6 +23,7 @@ function UserStub() {
         id: 222,
         firstname: 'matt',
         lastname: 'mcmurray',
+        theme: 1,
     };
 
     user3 = {
@@ -147,12 +149,15 @@ UserStub.prototype.getRandom = function(currUserID) {
 };
 
 UserStub.prototype.getRandomBatch = function(currUserID, size) {
+    var result;
+    if (currUserID == 111) {
+        var test = userList.slice(1,4);
+        result = test;
+    } else {
+        result = userList;
+    }
     return new Promise(function(resolve, reject) {
-        if (currUserID == 111) {
-            resolve(users.slice(1,3));
-        } else {
-            resolve(users);
-        }
+        resolve(result);
     });
 }
 
@@ -169,6 +174,26 @@ UserStub.prototype.removeUser = function(userID) {
         resolve(removed);
     });
 };
+
+UserStub.prototype.getTheme = function(userID) {
+    var user = findUser('id', userID);
+    result = {
+        dataValues: {
+            theme: user.theme
+        }
+    }
+    return new Promise(function(resolve, reject) {
+        resolve(result);
+    });
+}
+
+UserStub.prototype.setTheme = function(userID, theme) {
+    var user = findUser('id', userID);
+    user.theme = theme;
+    return new Promise(function(resolve, reject) {
+        resolve(theme);
+    });
+}
 
 module.exports = UserStub;
 
