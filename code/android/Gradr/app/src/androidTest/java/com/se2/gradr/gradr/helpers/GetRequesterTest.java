@@ -25,24 +25,39 @@ public class GetRequesterTest extends TestCase {
     }
 
     public void testGetRequester() {
+        // Build Response JSON Object
+        JSONObject expectedResponse = new JSONObject();
+        try {
+            expectedResponse.put("status", "OK");
+        } catch (JSONException e) {
+            Log.e("EXCEPTION", "Exception thrown in GetRequestTest: " + e.getMessage());
+        }
 
+
+        // Build fake HTTP response
+        RecordedRequest req = null;
         MockResponse mockResponse = new MockResponse()
                 .addHeader("Content-Type", "application/json; charset=utf-8")
                 .addHeader("Cache-Control", "no-cache")
-                .setBody("{status: 'OK'}")
+                .setBody(expectedResponse.toString())
                 .setResponseCode(200);
 
+        // Add the response to the mock server's queue
         mServer.enqueue(mockResponse);
 
         String reqUrlString = mServer.getUrl("/").toString();
         try {
-            Log.d("DEBUG", "Placing GET request");
+            // Send the request and get the response
             response = GetRequester.doAGetRequest(reqUrlString);
-            RecordedRequest req = mServer.takeRequest();
+            req = mServer.takeRequest();
         } catch (Exception e) {
             Log.e("EXCEPTION", "Exception thrown in GetRequestTest: " + e.getMessage());
         }
 
-        Log.d("JSON Response", response.toString());
+        // Assert response is as expected
+        assertNotNull(req);
+        assertEquals("GET", req.getMethod());
+        assertNotNull(response);
+        assertEquals(expectedResponse.toString(), response.toString());
     }
 }
