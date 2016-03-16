@@ -4,6 +4,10 @@ var DBConnection = require('../database.js').sequelize;
 var MessagesDAO = require('../data_access/MessagesDataAccess.js');
 
 var Messages = DBConnection.define('messages', {
+	id: {
+		type: Sequelize.INTEGER,
+		primaryKey: true
+	},
 	message: {
 		type: Sequelize.STRING,
 		allowNull: false
@@ -43,7 +47,7 @@ MessagesDB.prototype.getMessages = function(sender, receiver) {
 	return Messages.findAll({
 		where: {
 			receiver: receiver,
-			sent: false
+			sender: sender
 		}
 	});
 }

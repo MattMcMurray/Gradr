@@ -19,8 +19,8 @@ module.exports = function(io) {
 	    		console.log(each);
 	    	}
 	    	//check for unsent messages, if there are unsent messages, send it.
-	    	MessagesDAO.getMessages(null, credentials.userId).then(function(messages) {
-
+	    	MessagesDAO.getMessages(credentials.sender, credentials.userId).then(function(messages) {
+	    		console.log(messages);
 	    		if (messages.length > 0 ) {
 	    			socket.emit('send messages to user', messages);
 	    		} 

@@ -1,6 +1,6 @@
 var socket = io();
 
-socket.emit('online', {userId: sessionStorage.getItem('user_id')});
+socket.emit('online', {sender: $('#profileId').html() ,userId: sessionStorage.getItem('user_id')});
 
 $('form').submit(function(event){
 	event.preventDefault();
@@ -17,8 +17,8 @@ socket.on('send message', function(msg){
 socket.on('send messages to user', function(messages){
 	console.log(messages);
 	for (var i = 0; i < messages.length; i++) {
-		console.log(messages[i].messages);
-		$("#messages").append($('<li>').text(messages[i].messages));
+		console.log(messages[i].message);
+		$("#messages").append($('<li>').text(messages[i].message));
 	}
 });
 
