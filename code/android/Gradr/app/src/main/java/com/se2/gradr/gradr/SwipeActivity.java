@@ -297,7 +297,8 @@ public class SwipeActivity extends AppCompatActivity {
                 postParams.put("liker_id", likerId);
                 postParams.put("likee_id", params[1]);
 
-                JSONObject json = PostRequester.doAPostRequest(stringUrl, postParams);
+                String jsonString = PostRequester.doAPostRequest(stringUrl, postParams);
+                JSONObject json = new JSONObject(jsonString);
                 if (json == null) {
                     System.out.println("JSON was null for like/dislike");
                 }
