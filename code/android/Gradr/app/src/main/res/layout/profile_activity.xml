@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/label_username"
-            android:id="@+id/textView" />
+            android:id="@+id/label_username" />
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -116,6 +116,54 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/prompt_last_name"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:background="@drawable/edittext_rounded_corners"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/tb_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/prompt_city"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:background="@drawable/edittext_rounded_corners"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/tb_country"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/prompt_country"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:background="@drawable/edittext_rounded_corners"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/tb_courses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/prompt_courses"
                 android:inputType="text"
                 android:maxLines="1"
                 android:singleLine="true"
