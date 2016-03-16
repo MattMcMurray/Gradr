@@ -133,7 +133,8 @@ public class SignUpActivity extends LoginActivity {
                 postParams.put("password", password);
                 postParams.put("confirmPassword", confirmPassword);
 
-                JSONObject json = PostRequester.doAPostRequest(stringUrl, postParams);
+                String jsonString = PostRequester.doAPostRequest(stringUrl, postParams);
+                JSONObject json = new JSONObject(jsonString);
                 if (json == null) {
                     System.out.println("JSON was null for registering new user");
                 }

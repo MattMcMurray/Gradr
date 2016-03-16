@@ -335,7 +335,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 credentials.put("username", mUsername);
                 credentials.put("password", mPassword);
 
-                JSONObject json = PostRequester.doAPostRequest(stringUrl, credentials);
+                String jsonString = PostRequester.doAPostRequest(stringUrl, credentials);
+                JSONObject json = new JSONObject(jsonString);
 
                 String username = json.getJSONObject("user").getString("username");
                 String id = json.getJSONObject("user").getString("id");

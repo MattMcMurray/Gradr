@@ -20,7 +20,7 @@ import java.net.URL;
 //Basically, pass in the URL and the parameters as a JSONObject, and this returns the JSONObject results.
 //Will throw an IOException if it doesn't work
 public class PostRequester {
-    public static JSONObject doAPostRequest(String stringUrl, JSONObject params) throws MalformedURLException, IOException, JSONException {
+    public static String doAPostRequest(String stringUrl, JSONObject params) throws MalformedURLException, IOException, JSONException {
         java.net.URL url = new URL(stringUrl);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setDoOutput(true);
@@ -47,7 +47,8 @@ public class PostRequester {
         reader.close();
         System.out.println(""+stringBuilder.toString());
 
-        return new JSONObject(stringBuilder.toString());
+
+        return stringBuilder.toString();
 
     }
 

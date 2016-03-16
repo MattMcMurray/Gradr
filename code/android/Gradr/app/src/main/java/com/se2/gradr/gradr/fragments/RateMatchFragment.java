@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -24,6 +25,7 @@ import com.se2.gradr.gradr.UserAndImage;
 import com.se2.gradr.gradr.ViewMatchActivity;
 import com.se2.gradr.gradr.helpers.GetRequester;
 import com.se2.gradr.gradr.helpers.JsonConverter;
+import com.se2.gradr.gradr.helpers.PostRequester;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -105,7 +107,6 @@ public class RateMatchFragment extends Fragment {
         ratingList = (ListView) rootView.findViewById(R.id.rating_list);
         ratingFloat = (TextView) rootView.findViewById(R.id.average_int);
         populateFields();
-        getRatings();
         return rootView;
     }
 
@@ -140,17 +141,16 @@ public class RateMatchFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: POST the review
+                EditText commentBox = (EditText) rootView.findViewById(R.id.rating_comment);
 
+                Spinner ratingSpinner = (Spinner) rootView.findViewById(R.id.rating_spinner);
+
+                Rating curr = new Rating(commentBox.getText().toString(), Integer.parseInt(ratingSpinner.getSelectedItem().toString()));
+                System.out.println("CURR = " + curr.getComment() + " rating " + curr.getScore());
+                new RaterHelper(userId, match.getId()).execute(curr);
             }
         });
     }
-
-    public void getRatings() {
-        //TODO: GET the ratings for this user. Also, need to add textbox where we'll put their aggregate rating
-    }
-
-
 
     public class RatingListAdapter extends BaseAdapter {
         Context context;
@@ -196,7 +196,51 @@ public class RateMatchFragment extends Fragment {
         }
     }
 
+    /**
+     * Asynchronously send a POST request containing info about whether or not the users matched
+     */
+    public class RaterHelper extends AsyncTask<Rating, Void, String> {
+        private int raterId;
+        private int rateeId;
 
+        RaterHelper(int raterId, int rateeId) {
+            this.raterId = raterId;
+            this.rateeId = rateeId;
+        }
+
+        @Override
+        protected void onPostExecute(String res) {
+            if (res.equals("true")) {
+                new GetRatingsTask().execute();
+            } else {
+                System.out.println("POSTing rating failed");
+            }
+        }
+
+        /*
+            params[0] should be a rating object containing the rating that was given
+         */
+        @Override
+        protected String doInBackground(Rating... params) {
+            String stringUrl = getString(R.string.http_address_server) + "/api/rateUser";
+            String res = "false";
+            try {
+                JSONObject postParams = new JSONObject();
+                postParams.put("rater_id", raterId);
+                postParams.put("ratee_id", rateeId);
+                postParams.put("rating", params[0].getScore());
+                postParams.put("comment", params[0].getComment());
+
+                res = PostRequester.doAPostRequest(stringUrl, postParams);
+            } catch (Exception e) {
+                System.out.println("ERROR while parsing the output for ratings");
+                System.out.println(e.toString());
+                e.printStackTrace();
+            }
+
+            return res;
+        }
+    }
 
 
     public class GetRatingsTask extends AsyncTask<Void, Void, JSONObject> {
