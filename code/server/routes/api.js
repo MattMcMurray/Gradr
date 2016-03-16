@@ -181,7 +181,7 @@ router.post('/deleteUser', function(req, res) {
 
 /* Messages API Calls*/
 router.get('/getMessages', function(req,res) {
-	MessagesDAO.getMessages(req.body.sender, req.body.receiver).then(function(messages) {
+	MessagesDAO.getMessages(req.query.sender, req.query.receiver).then(function(messages) {
 		res.json(messages);
 	});
 });
