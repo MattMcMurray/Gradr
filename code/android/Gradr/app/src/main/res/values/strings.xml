@@ -5,6 +5,7 @@
     <string name="prompt_username">Username</string>
     <string name="prompt_password">Password</string>
     <string name="prompt_confirm_password">Confirm Password</string>
+
     <string name="action_cancel">Cancel</string>
     <string name="action_sign_up">Sign up</string>
     <string name="action_login">Login</string>
@@ -35,6 +36,17 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_view_match">ViewMatchActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
+
+    <string name="prompt_about">About You</string>
+    <string name="prompt_help">I Need Help With</string>
+    <string name="prompt_school">School</string>
+    <string name="prompt_first_name">First Name</string>
+    <string name="prompt_last_name">Last Name</string>
+    <string name="prompt_city">City</string>
+    <string name="prompt_country">Country</string>
+    <string name="prompt_courses">Courses</string>
+    <string name="prompt_dob">Date of Birth (YYYY-MM-DD)</string>
+    <string name="label_username">Username</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
