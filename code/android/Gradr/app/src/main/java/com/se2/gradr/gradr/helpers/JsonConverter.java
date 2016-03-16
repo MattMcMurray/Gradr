@@ -1,5 +1,6 @@
 package com.se2.gradr.gradr.helpers;
 
+import com.se2.gradr.gradr.Rating;
 import com.se2.gradr.gradr.User;
 
 import org.json.JSONException;
@@ -55,5 +56,18 @@ public class JsonConverter {
                 json.getInt("id"), firstname, lastname, city,
                 country, school, courses, generalDescription, helpDescription);
         return user;
+    }
+
+    public static Rating ratingFromJson (JSONObject json) throws JSONException {
+        if (!json.has("rating")) {
+            System.out.println("ERROR - Rating doesn't contain a number");
+        }
+        String comment = "";
+        if (json.has("comment")) {
+            comment = json.getString("comment");
+        }
+
+        Rating rating = new Rating(comment, json.getInt("rating"));
+        return rating;
     }
 }
