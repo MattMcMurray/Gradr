@@ -3,8 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:fitsSystemWindows="true"
     android:orientation="vertical"
+    android:background="@drawable/footer_lodyas"
     tools:context="com.se2.gradr.gradr.MatchListActivity">
 
     <android.support.design.widget.AppBarLayout
@@ -33,15 +35,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#095832"
-        android:padding="12px">
+        android:padding="16dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/label_username"
-            android:id="@+id/label_username" />
+            android:textColor="#91FBFF"
+            android:id="@+id/label_username"
+            android:textSize="18pt" />
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -167,6 +170,23 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:singleLine="true"
+                android:background="@drawable/edittext_rounded_corners"/>
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/tb_dob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/prompt_dob"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:onClick="setBirthdate"
                 android:background="@drawable/edittext_rounded_corners"/>
 
         </android.support.design.widget.TextInputLayout>

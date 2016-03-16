@@ -6,11 +6,25 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
+import android.widget.EditText;
+import android.widget.TextView;
 
 /**
  * Created by maverickmueller on 3/15/2016.
  */
 public class ProfileActivity extends AppCompatActivity {
+
+    private EditText mAboutView;
+    private EditText mHelpView;
+    private EditText mSchoolView;
+    private EditText mFirstNameView;
+    private EditText mLastNameView;
+    private EditText mCityView;
+    private EditText mCountryView;
+    private EditText mCoursesView;
+
+    private TextView mUsernameView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +32,19 @@ public class ProfileActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mAboutView = (EditText) findViewById(R.id.tb_about);
+        mHelpView = (EditText) findViewById(R.id.tb_help);
+        mSchoolView = (EditText) findViewById(R.id.tb_school);
+        mFirstNameView = (EditText) findViewById(R.id.tb_first_name);
+        mLastNameView = (EditText) findViewById(R.id.tb_last_name);
+        mCityView = (EditText) findViewById(R.id.tb_city);
+        mCountryView = (EditText) findViewById(R.id.tb_country);
+        mCoursesView = (EditText) findViewById(R.id.tb_courses);
+
+        mUsernameView = (TextView) findViewById(R.id.label_username);
+        mUsernameView.setText("Caleb the Mighty");
+
     }
 
     @Override
@@ -47,5 +74,9 @@ public class ProfileActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setBirthdate() {
+
     }
 }
