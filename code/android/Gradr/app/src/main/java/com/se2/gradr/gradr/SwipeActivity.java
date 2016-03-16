@@ -105,7 +105,10 @@ public class SwipeActivity extends AppCompatActivity {
             matchesIntent.putExtra("id", userId);
             startActivity(matchesIntent);
         } else if (id == R.id.action_profile) {
-            System.out.println("NOT IMPLEMENTED");
+            Intent matchesIntent = new Intent(this, MatchListActivity.class);
+            matchesIntent.putExtra("username", "caleb");
+            matchesIntent.putExtra("id", 205);
+            startActivity(matchesIntent);
         }
 
         return super.onOptionsItemSelected(item);
