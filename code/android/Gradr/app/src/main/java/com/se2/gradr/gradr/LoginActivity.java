@@ -31,13 +31,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.se2.gradr.gradr.helpers.PostRequester;
+
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,7 +57,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private UserLoginTask mAuthTask = null;
 
     // UI references.
-    private AutoCompleteTextView mEmailView;
+    private AutoCompleteTextView mUsernameView;
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
@@ -73,7 +70,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
         // Set up the login form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
+        mUsernameView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
 
         mPasswordView = (EditText) findViewById(R.id.password);
@@ -88,11 +85,19 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-        mEmailSignInButton.setOnClickListener(new OnClickListener() {
+        Button mLoginButton = (Button) findViewById(R.id.login_button);
+        mLoginButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 attemptLogin();
+            }
+        });
+
+        Button mSignUpButton = (Button) findViewById(R.id.sign_up_button);
+        mSignUpButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showSignUpActivity();
             }
         });
 
@@ -116,7 +121,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             return true;
         }
         if (shouldShowRequestPermissionRationale(READ_CONTACTS)) {
-            Snackbar.make(mEmailView, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
+            Snackbar.make(mUsernameView, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
                     .setAction(android.R.string.ok, new View.OnClickListener() {
                         @Override
                         @TargetApi(Build.VERSION_CODES.M)
@@ -143,6 +148,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
     }
 
+    private void showSignUpActivity() {
+        Intent signUpIntent = new Intent(this, SignUpActivity.class);
+        startActivity(signUpIntent);
+    }
 
     /**
      * Attempts to sign in or register the account specified by the login form.
@@ -155,11 +164,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
 
         // Reset errors.
-        mEmailView.setError(null);
+        mUsernameView.setError(null);
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
+        String email = mUsernameView.getText().toString();
         String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
@@ -174,8 +183,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         // Check for a valid email address.
         if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
-            focusView = mEmailView;
+            mUsernameView.setError(getString(R.string.error_field_required));
+            focusView = mUsernameView;
             cancel = true;
         }
 
@@ -268,7 +277,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 new ArrayAdapter<>(LoginActivity.this,
                         android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
 
-        mEmailView.setAdapter(adapter);
+        mUsernameView.setAdapter(adapter);
     }
 
     public void setUserInfo(int id, String username) {
@@ -322,56 +331,21 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             String stringUrl = getString(R.string.http_address_server) + "/api/login";
 
             try {
-                URL url = new URL(stringUrl);
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setDoOutput(true);
-                connection.setDoInput(true);
-                connection.setRequestProperty("Content-Type", "application/json");
-                connection.setRequestProperty("Accept", "application/json");
-                connection.setRequestMethod("POST");
-
                 JSONObject credentials   = new JSONObject();
                 credentials.put("username", mUsername);
                 credentials.put("password", mPassword);
 
-                OutputStreamWriter wr = new OutputStreamWriter(connection.getOutputStream());
-                wr.write(credentials.toString());
-                wr.flush();
+                String jsonString = PostRequester.doAPostRequest(stringUrl, credentials);
+                JSONObject json = new JSONObject(jsonString);
 
-                StringBuilder sb = new StringBuilder();
-                int httpRes = connection.getResponseCode();
-                System.out.println("HERE");
-                if(httpRes == HttpURLConnection.HTTP_OK){
-                    System.out.println("WORKED");
-                    BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream(),"utf-8"));
-                    String line = null;
-                    while ((line = br.readLine()) != null) {
-                        sb.append(line);
-                    }
-
-                    br.close();
-
-                    System.out.println(""+sb.toString());
-
-                    //Actually get the values we care about:
-                    JSONObject json = new JSONObject(sb.toString());
-                    String username = json.getJSONObject("user").getString("username");
-                    String id = json.getJSONObject("user").getString("id");
-                    System.out.println(username + " " + id);
-                    return new LoginResult(Integer.parseInt(id), username);
-
-                }else{
-                    System.out.println("NOT WORKED");
-                    System.out.println(httpRes);
-                    System.out.println(connection.getResponseMessage());
-                    return new LoginResult(httpRes * -1, connection.getResponseMessage());
-                }
-
+                String username = json.getJSONObject("user").getString("username");
+                String id = json.getJSONObject("user").getString("id");
+                System.out.println(username + " " + id);
+                return new LoginResult(Integer.parseInt(id), username);
             } catch (Exception e) {
-
+                System.out.println("ERROR ON SIGN IN " + e.toString());
+                return new LoginResult(-1, e.toString());
             }
-
-            return null;
         }
 
         @Override
@@ -382,6 +356,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             if (results == null) {
                 //Something strange went wrong.
                 showProgress(false);
+                mPasswordView.setError("Something unexpected occured. Couldn't sign in.");
                 System.out.print("ERRRRRRRRRRRRRRRRRRRRROOOOOOOOOOOOOOOOOORRRRRRRRRRR");
             } else if (results.getInt() >= 0) {
                 showProgress(false);

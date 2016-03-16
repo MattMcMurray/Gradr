@@ -1,11 +1,18 @@
 package com.se2.gradr.gradr;
 
+import android.graphics.Bitmap;
+import android.provider.SyncStateContract;
+import android.widget.ImageView;
+
+import com.se2.gradr.gradr.helpers.DownloadImageInBackground;
+
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
  * Created by steve on 03/03/16.
  */
-public class User {
+public class User implements Serializable {
     private String username;
     private int id;
 
@@ -32,6 +39,23 @@ public class User {
         this.courses = courses;
         this.generalDescription = generalDescription;
         this.helpDescription = helpDescription;
+    }
+
+    public User() {
+        username = "test";
+        id = 0;
+        firstName = "test";
+        lastName = "test";
+        city = "test";
+        country = "test";
+        school = "test";
+        courses = "test";
+        generalDescription = "test";
+        helpDescription = "test";
+    }
+
+    public String toString() {
+        return username + id;
     }
 
     public String getFirstName() {

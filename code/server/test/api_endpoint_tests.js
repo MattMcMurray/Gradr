@@ -168,6 +168,21 @@ describe('api', function() {
         });
     });
 
+    describe('GET /userBatch', function() {
+        it('gets a random set of users', function(done) {
+            request(app)
+            .get('/api/userBatch?currUserId=1&batchSize=10')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.users).is.not.null();
+                assert.that(res.body.users.length).is.not.equalTo(3); //Because we're using the stub
+                done();
+            });
+        });
+    });
+
     describe ('GET /api/getPotentialMatches', function() {
         it('requests a list of users that are a match for a provided userID', function(done) {
             request(app)
