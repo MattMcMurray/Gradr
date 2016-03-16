@@ -1,0 +1,26 @@
+block chat
+.chat-sidebar
+	if users
+
+		for user in users
+			.sidebar-name
+				a(href="javascript:register_popup('#{userId}', '#{firstName} #{lastName}')")
+					span #{firstName} #{lastName}
+	else
+		.sidebar-name
+			a(href="javascript:register_popup('testuser','Test User')")
+				span Test User
+		.sidebar-name
+			a(href="javascript:register_popup('testuser','Test User')")
+				span Test User
+		.sidebar-name
+			a(href="javascript:register_popup('testuser','Test User')")
+				span Test User
+		.sidebar-name
+			a(href="javascript:register_popup('testuser','Test User')")
+				span Test User
+		.sidebar-name
+			a(href="javascript:register_popup('testuser','Test User')")
+				span Test User
+
+	

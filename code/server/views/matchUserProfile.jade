@@ -4,10 +4,12 @@ block stylesheets
 	link(href='/css/index.css', rel='stylesheet')
 	link(href='/css/swipe.css', rel='stylesheet')
 	link(href='/css/ratings.css', rel='stylesheet')
+	link(href='/css/chat.css', rel='stylesheet')
 
 block scripts
 	script(src='/js/matchUserProfile.js')
 	script(src='/js/chat.js')
+	script(src='/js/chatbar.js') 
 
 
 
@@ -70,4 +72,5 @@ block content
 								form(action="")
 									input#m(autocomplete="off")
 									button Send
+		include ./chatbar.jade
 

@@ -2,12 +2,13 @@ extends ./base.jade
 
 block stylesheets
     link(href='/css/style.css', rel='stylesheet')
+    link(href='/css/chat.css', rel='stylesheet')
 
 block content
     div.container.pad-top
         div#matchesContainer
             each user in matches
-                a(href="/MatchProfile?user=#{user.id}")
+                a(href="/MatchProfile?user=#{user.id}" value="#{user.id}")
                     div.col-sm-6.col-md-4
                         div.thumbnail
                             img(src='http://thecatapi.com/api/images/get?format=src&type=jpg&size=small')
@@ -15,6 +16,10 @@ block content
                                 h4 #{user.firstname} #{user.lastname}
                                 p <b>School:</b> #{user.school}
                                 p <b>Courses:</b> #{user.courses}
+        include ./chatbar.jade
+
 
 block scripts
     script(src='/js/matches.js')
+    script(src='/js/chat.js')
+    script(src='/js/chatbar.js') 
