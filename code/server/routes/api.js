@@ -181,11 +181,15 @@ router.post('/deleteUser', function(req, res) {
 
 /* Messages API Calls*/
 router.get('/getMessages', function(req,res) {
-
+	MessagesDAO.getMessages(req.body.sender, req.body.receiver).then(function(messages) {
+		res.json(messages);
+	});
 });
 
 router.post('/saveMessage', function(req,res) {
-
+	MessagesDAO.saveMessage(req.body).then(function(message){
+		res.json(message);
+	})
 });
 
 function getCredentials(req){
