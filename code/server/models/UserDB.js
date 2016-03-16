@@ -131,6 +131,33 @@ UserDB.prototype.getRandom = function(currUserID) {
     });
 };
 
+UserDB.prototype.getRandomBatch = function(currUserID, size) {
+    return UserMatchDAO.getPreviouslyRatedIds(currUserID).then(function(prevRatedUsers) {
+        var idCondition;
+        if(prevRatedUsers.length == 0) {
+            idCondition = {
+                $ne: currUserID
+            };
+        } else {
+            idCondition = {
+                $ne: currUserID,
+                $notIn: prevRatedUsers
+            };
+        }
+        return User.findAll({
+                where: {
+                    id: idCondition
+                }
+            }).then(function(users){
+                if (users.length <= size) {
+                    return users;
+                }
+                var startPos = Math.floor(Math.random() * (users.length - size));
+                return users.slice(startPos, startPos + size);
+        });
+    });
+};
+
 UserDB.prototype.removeUser = function(userId) {
     return User.destroy({
         where: {
