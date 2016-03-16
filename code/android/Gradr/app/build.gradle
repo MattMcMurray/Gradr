@@ -17,6 +17,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 repositories {
@@ -26,9 +29,13 @@ repositories {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
+    testCompile 'org.json:json:20140107'
+    testCompile 'org.mockito:mockito-core:1.+'
     //Credit for the swipe interface go to owner of this project https://github.com/wenchaojiang/AndroidSwipeableCardStack
     compile 'com.android.support:appcompat-v7:23.2.0'
     compile 'com.android.support:design:23.2.0'
     compile 'com.github.wenchaojiang:AndroidSwipeableCardStack:0.1.3'
     compile 'com.android.support:support-v4:23.2.0'
 }
+
+

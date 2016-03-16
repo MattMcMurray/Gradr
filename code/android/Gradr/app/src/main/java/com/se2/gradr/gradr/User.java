@@ -41,6 +41,23 @@ public class User implements Serializable {
         this.helpDescription = helpDescription;
     }
 
+    public User(String username, int id, String firstName, String lastName,
+                String city, String country, String school,
+                String courses, String generalDescription, String helpDescription,
+                Date birthdate) {
+        this.username = username;
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.city = city;
+        this.country = country;
+        this.school = school;
+        this.courses = courses;
+        this.generalDescription = generalDescription;
+        this.helpDescription = helpDescription;
+        this.birthdate = birthdate;
+    }
+
     public User() {
         username = "test";
         id = 0;
