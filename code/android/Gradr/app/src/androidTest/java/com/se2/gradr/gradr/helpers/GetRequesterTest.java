@@ -14,19 +14,15 @@ import org.json.JSONObject;
 public class GetRequesterTest extends TestCase {
     private MockWebServer mServer;
     private JSONObject response;
+    private JSONObject expectedResponse = new JSONObject();
+    private RecordedRequest req = null;
 
     public void setUp() throws Exception {
         mServer = new MockWebServer();
         mServer.play();
-    }
 
-    public void tearDown() throws Exception {
-        mServer.shutdown();
-    }
-
-    public void testGetRequester() {
         // Build Response JSON Object
-        JSONObject expectedResponse = new JSONObject();
+        expectedResponse = new JSONObject();
         try {
             expectedResponse.put("status", "OK");
         } catch (JSONException e) {
@@ -35,7 +31,6 @@ public class GetRequesterTest extends TestCase {
 
 
         // Build fake HTTP response
-        RecordedRequest req = null;
         MockResponse mockResponse = new MockResponse()
                 .addHeader("Content-Type", "application/json; charset=utf-8")
                 .addHeader("Cache-Control", "no-cache")
@@ -44,7 +39,13 @@ public class GetRequesterTest extends TestCase {
 
         // Add the response to the mock server's queue
         mServer.enqueue(mockResponse);
+    }
 
+    public void tearDown() throws Exception {
+        mServer.shutdown();
+    }
+
+    public void testGetRequester() {
         String reqUrlString = mServer.getUrl("/").toString();
         try {
             // Send the request and get the response
