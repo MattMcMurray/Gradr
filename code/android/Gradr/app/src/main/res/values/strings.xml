@@ -2,24 +2,26 @@
     <string name="app_name">Gradr</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Username</string>
+    <string name="prompt_username">Username</string>
     <string name="prompt_password">Password</string>
     <string name="prompt_confirm_password">Confirm Password</string>
     <string name="action_cancel">Cancel</string>
     <string name="action_sign_up">Sign up</string>
     <string name="action_login">Login</string>
     <string name="action_register">Register</string>
-    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_username">This username is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_password_match">Your passwords do not match</string>
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
     <!-- Steve's localhost -->
     <!--<string name="http_address_server">"http://192.168.100.105"</string>-->
-    <string name="http_address_server">"http://ec2-52-26-203-11.us-west-2.compute.amazonaws.com"
-    </string>
+    <string name="http_address_server">"http://192.168.100.119"</string>
+    <!-- <string name="http_address_server">"http://ec2-52-26-203-11.us-west-2.compute.amazonaws.com"
+    </string> -->
     <string name="title_activity_swipe">Find new study buddies</string>
 
     <!-- Strings related to swiping -->
