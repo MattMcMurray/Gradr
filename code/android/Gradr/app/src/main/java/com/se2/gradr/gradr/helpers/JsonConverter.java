@@ -72,11 +72,12 @@ public class JsonConverter {
         return rating;
     }
 
-    public static Message messageFromJson(JSONObject json) throws JSONException {
+    public static Message messageFromJson(JSONObject json) throws Exception {
         if (!json.has("message") || !json.has("createdAt") || !json.has("sender") || !json.has("receiver")) {
             System.out.println("ERROR - Message doesn't contain proper data");
         }
-        Message message = new Message(json.getString("message"),json.getString("sender"),json.getString("receiver"), json.getString("createdAt"));
+
+        Message message = new Message(json.getString("message"), json.getString("sender"), json.getString("receiver"), json.getString("createdAt"));
 
         return message;
     }

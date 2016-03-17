@@ -7,6 +7,8 @@ $('form').submit(function(event){
 
 	console.log("send message");
 	socket.emit('private message',{sender: sessionStorage.getItem('user_id') ,receiver: $('#profileId').html() , body:$('#m').val()} );
+	$('#messages').append($('<li class=\'receiver\'>').text($("#m").val()));
+	$("#m").val("");
 	return false;
 });
 
@@ -18,12 +20,12 @@ socket.on('send messages to user', function(messages){
 	console.log(messages);
 	for (var i = 0; i < messages.length; i++) {
 		console.log(messages[i].message);
-		$("#messages").append($('<li>').text(messages[i].message));
+		$("#messages").append($('<li class=\'sender\'>').text(messages[i].message));
 	}
 });
 
 socket.on('error message', function(msg) {
-	$('#messages').append($('<li>').text(msg));
+	$('#messages').append($('<li class=\'error\'>').text(msg));
 });
 
 socket.on('online matches', function(onlineMatches) {

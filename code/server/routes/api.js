@@ -232,6 +232,7 @@ router.get('/getTheme', function (req, res) {
 			});
 		}
 	});
+<<<<<<< HEAD
 });
 
 function getCredentials(req){

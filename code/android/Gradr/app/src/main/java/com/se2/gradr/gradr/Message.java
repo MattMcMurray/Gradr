@@ -10,17 +10,12 @@ public class Message {
     private Date timestamp;
     private String message;
 
-    public Message(String message, String sender, String receiver, String time) {
+    public Message(String message, String sender, String receiver, String time) throws Exception {
         this.message = message;
         time = time.replace('T', ' ');
         DateFormat formatter = new SimpleDateFormat("yyyy-dd-MM HH:mm:ss");
-        try {
-            java.util.Date temp = (java.util.Date) formatter.parse(time);
-            this.timestamp = new Date(temp.getTime());
-        } catch (Exception e) {
-            System.out.println("ERROR - Parsing time");
-            System.out.println(e.toString());
-        }
+        java.util.Date temp = (java.util.Date) formatter.parse(time);
+        this.timestamp = new Date(temp.getTime());
         this.sender = Integer.parseInt(sender);
         this.receiver = Integer.parseInt(receiver);
     }
