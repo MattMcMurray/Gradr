@@ -24,14 +24,14 @@
     </android.support.design.widget.AppBarLayout>
 
     <ScrollView
-        android:id="@+id/profile_form"
+        android:id="@+id/profile_scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
     </ScrollView>
 
     <LinearLayout
-        android:id="@+id/email_login_form"
+        android:id="@+id/profile_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -186,7 +186,6 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:onClick="setBirthdate"
                 android:background="@drawable/edittext_rounded_corners"/>
 
         </android.support.design.widget.TextInputLayout>

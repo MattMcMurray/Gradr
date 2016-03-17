@@ -104,11 +104,13 @@ public class SwipeActivity extends AppCompatActivity {
             matchesIntent.putExtra("username", username);
             matchesIntent.putExtra("id", userId);
             startActivity(matchesIntent);
+            finish();
         } else if (id == R.id.action_profile) {
-            Intent matchesIntent = new Intent(this, MatchListActivity.class);
-            matchesIntent.putExtra("username", "caleb");
-            matchesIntent.putExtra("id", 205);
-            startActivity(matchesIntent);
+            Intent profileIntent = new Intent(this, ProfileActivity.class);
+            profileIntent.putExtra("username", "caleb");
+            profileIntent.putExtra("id", 205);
+            startActivity(profileIntent);
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

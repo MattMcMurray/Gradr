@@ -95,7 +95,11 @@ public class MatchListActivity extends AppCompatActivity {
 //            matchesIntent.putExtra("id", userId);
 //            startActivity(matchesIntent);
         } else if (id == R.id.action_profile) {
-            System.out.println("NOT IMPLEMENTED");
+            Intent profileIntent = new Intent(this, ProfileActivity.class);
+            profileIntent.putExtra("username", "caleb");
+            profileIntent.putExtra("id", 205);
+            startActivity(profileIntent);
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

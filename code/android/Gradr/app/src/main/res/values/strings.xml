@@ -20,8 +20,8 @@
     </string>
     <!-- Steve's localhost -->
     <!--<string name="http_address_server">"http://192.168.100.105"</string>-->
-    <!--<string name="http_address_server">"http://192.168.100.119"</string>-->
-    <string name="http_address_server">"http://ec2-52-26-203-11.us-west-2.compute.amazonaws.com"
+    <string name="http_address_server">"http://192.168.100.119"
+    <!--<string name="http_address_server">"http://ec2-52-26-203-11.us-west-2.compute.amazonaws.com"-->
     </string>
     <string name="title_activity_swipe">Find new study buddies</string>
 
@@ -37,6 +37,7 @@
     <string name="title_activity_view_match">ViewMatchActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
 
+    <string name="title_activity_profile">Profile</string>
     <string name="prompt_about">About You</string>
     <string name="prompt_help">I Need Help With</string>
     <string name="prompt_school">School</string>

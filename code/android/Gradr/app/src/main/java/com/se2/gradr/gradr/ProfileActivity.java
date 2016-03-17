@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -14,33 +15,35 @@ import android.widget.TextView;
  */
 public class ProfileActivity extends AppCompatActivity {
 
-    private EditText mAboutView;
-    private EditText mHelpView;
-    private EditText mSchoolView;
-    private EditText mFirstNameView;
-    private EditText mLastNameView;
-    private EditText mCityView;
-    private EditText mCountryView;
-    private EditText mCoursesView;
+    private AutoCompleteTextView mAboutView;
+    private AutoCompleteTextView mHelpView;
+    private AutoCompleteTextView mSchoolView;
+    private AutoCompleteTextView mFirstNameView;
+    private AutoCompleteTextView mLastNameView;
+    private AutoCompleteTextView mCityView;
+    private AutoCompleteTextView mCountryView;
+    private AutoCompleteTextView mCoursesView;
 
     private TextView mUsernameView;
+
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_activity);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mAboutView = (EditText) findViewById(R.id.tb_about);
-        mHelpView = (EditText) findViewById(R.id.tb_help);
-        mSchoolView = (EditText) findViewById(R.id.tb_school);
-        mFirstNameView = (EditText) findViewById(R.id.tb_first_name);
-        mLastNameView = (EditText) findViewById(R.id.tb_last_name);
-        mCityView = (EditText) findViewById(R.id.tb_city);
-        mCountryView = (EditText) findViewById(R.id.tb_country);
-        mCoursesView = (EditText) findViewById(R.id.tb_courses);
+        mAboutView = (AutoCompleteTextView) findViewById(R.id.tb_about);
+        mHelpView = (AutoCompleteTextView) findViewById(R.id.tb_help);
+        mSchoolView = (AutoCompleteTextView) findViewById(R.id.tb_school);
+        mFirstNameView = (AutoCompleteTextView) findViewById(R.id.tb_first_name);
+        mLastNameView = (AutoCompleteTextView) findViewById(R.id.tb_last_name);
+        mCityView = (AutoCompleteTextView) findViewById(R.id.tb_city);
+        mCountryView = (AutoCompleteTextView) findViewById(R.id.tb_country);
+        mCoursesView = (AutoCompleteTextView) findViewById(R.id.tb_courses);
 
         mUsernameView = (TextView) findViewById(R.id.label_username);
         mUsernameView.setText("Caleb the Mighty");
