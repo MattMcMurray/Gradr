@@ -45,10 +45,17 @@ MessagesDB.prototype.constructor = MessagesDB;
 
 MessagesDB.prototype.getMessages = function(sender, receiver) {
 	return Messages.findAll({
-		where: {
-			receiver: receiver,
-			sender: sender
-		}
+		where: 
+			{	sender: sender, receiver: receiver }
+	});
+}
+
+MessagesDB.prototype.getAllMessages = function(sender, receiver) {
+	return Messages.findAll({
+		where: Sequelize.or (
+			{	sender: receiver, receiver: sender }, 
+			{	sender: sender, receiver: receiver }
+		)
 	});
 }
 

@@ -16,6 +16,10 @@ var getMessages = function(sender, receiver) {
 	return messagesDAO.getMessages(sender, receiver);
 }
 
+var getAllMessages = function(sender, receiver) {
+    return messagesDAO.getAllMessages(sender, receiver);
+}
+
 var saveMessage = function(messageObject) {
 	return messagesDAO.saveMessage(messageObject);
 }
@@ -23,5 +27,6 @@ var saveMessage = function(messageObject) {
 module.exports = {
 	init: init,
 	getMessages: getMessages,
-	saveMessage: saveMessage
+	saveMessage: saveMessage,
+    getAllMessages: getAllMessages
 }
