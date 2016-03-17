@@ -26,6 +26,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Date;
+
 /**
  * Created by maverickmueller on 3/15/2016.
  */
@@ -180,17 +182,28 @@ public class ProfileActivity extends AppCompatActivity {
         /* TO DO*/
 
         private int id;
+        private String username, about, help, school, firstName, lastName, city, country, courses;
+        private Date dob;
 
-        SaveProfileHelper(int id) {
+        SaveProfileHelper(int id, String username, String about, String help, String school, String firstName, String lastName, String city, String country, String courses) {
             this.id = id;
+            this.username = username;
+            this.about = about;
+            this.help = help;
+            this.school = school;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.city = city;
+            this.country = country;
+            this.courses = courses;
         }
 
         @Override
         protected Void doInBackground(String... params) {
-            String stringUrl = getString(R.string.http_address_server) + "/api/getUser?user=" + username;
+            String stringUrl = getString(R.string.http_address_server) + "/api/ProfileUpdate?user=" + username;
             System.out.println("string irl: " + stringUrl);
             try {
-                JSONObject json = GetRequester.doAGetRequest(stringUrl);
+                JSONObject json = PostRequester.doAPostRequest()
                 if (json == null) {
                     System.out.println("JSON was null for obtaining user info");
                 } else {
