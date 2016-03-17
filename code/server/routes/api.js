@@ -188,6 +188,31 @@ router.post('/deleteUser', function(req, res) {
 	});
 });
 
+router.post('/setTheme', function (req, res) {
+	UserDAO.setTheme(req.body.userId, req.body.theme).then(function(result) {
+		if (result.error) {
+			res.status(500).send("Internal server error");
+		} else {
+			res.json({
+				status: 'OK'
+			});
+		}
+	});
+});
+
+router.get('/getTheme', function (req, res) {
+	UserDAO.getTheme(req.query.user).then(function (result) {
+		if (result.error) {
+			res.status(500).send("Internal server error");
+		} else {
+			res.json({
+				status: 'OK',
+				theme: result.dataValues.theme
+			});
+		}
+	});
+})
+
 function getCredentials(req){
 	return {username: req.body.username, password: req.body.password};
 }

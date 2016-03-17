@@ -21,6 +21,9 @@ Keane Kraus
 -Minor work on Profile page
 -Tests for removeUser, api, user match
 -Hotfixes
+-Android chat UI and business logic
+-Android unit tests (with Matt)
+-Testing for chat api and backend
 
 Steven Bairos-Novak
 -Vision statement
