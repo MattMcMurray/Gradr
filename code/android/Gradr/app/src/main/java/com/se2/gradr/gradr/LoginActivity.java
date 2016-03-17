@@ -331,7 +331,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             String stringUrl = getString(R.string.http_address_server) + "/api/login";
 
             try {
-                JSONObject credentials   = new JSONObject();
+                JSONObject credentials = new JSONObject();
                 credentials.put("username", mUsername);
                 credentials.put("password", mPassword);
 

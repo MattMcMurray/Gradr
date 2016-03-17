@@ -25,6 +25,7 @@ import com.se2.gradr.gradr.helpers.PostRequester;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.Date;
 
@@ -36,14 +37,16 @@ public class ProfileActivity extends AppCompatActivity {
     private String username;
     private int userId;
 
-    private AutoCompleteTextView mAboutView;
-    private AutoCompleteTextView mHelpView;
-    private AutoCompleteTextView mSchoolView;
-    private AutoCompleteTextView mFirstNameView;
-    private AutoCompleteTextView mLastNameView;
-    private AutoCompleteTextView mCityView;
-    private AutoCompleteTextView mCountryView;
-    private AutoCompleteTextView mCoursesView;
+    private TextView mAboutView;
+    private TextView mHelpView;
+    private TextView mSchoolView;
+    private TextView mFirstNameView;
+    private TextView mLastNameView;
+    private TextView mCityView;
+    private TextView mCountryView;
+    private TextView mCoursesView;
+
+    private TextView mDobView;
 
     private LinearLayout mProfileFormView;
     private ProgressBar mProgressView;
@@ -78,11 +81,12 @@ public class ProfileActivity extends AppCompatActivity {
         mCoursesView = (AutoCompleteTextView) findViewById(R.id.tb_courses);
         mProfileFormView = (LinearLayout) findViewById(R.id.profile_form);
         mProgressView = (ProgressBar) findViewById(R.id.profile_progress);
+        mDobView = (AutoCompleteTextView) findViewById(R.id.tb_dob);
 
         mUsernameView = (TextView) findViewById(R.id.label_username);
         mUsernameView.setText(username);
 
-        Button mSaveButton = (Button) findViewById(R.id.login_button);
+        Button mSaveButton = (Button) findViewById(R.id.save_button);
         mSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -134,7 +138,7 @@ public class ProfileActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(String... params) {
             String stringUrl = getString(R.string.http_address_server) + "/api/getUser?user=" + username;
-            System.out.println("string irl: " + stringUrl);
+            System.out.println("string url: " + stringUrl);
             try {
                 JSONObject json = GetRequester.doAGetRequest(stringUrl);
                 if (json == null) {
@@ -183,9 +187,9 @@ public class ProfileActivity extends AppCompatActivity {
 
         private int id;
         private String username, about, help, school, firstName, lastName, city, country, courses;
-        private Date dob;
+        //private Date dob;
 
-        SaveProfileHelper(int id, String username, String about, String help, String school, String firstName, String lastName, String city, String country, String courses, Date dob) {
+        SaveProfileHelper(int id, String username, String about, String help, String school, String firstName, String lastName, String city, String country, String courses /*Date dob*/) {
             this.id = id;
             this.username = username;
             this.about = about;
@@ -196,7 +200,7 @@ public class ProfileActivity extends AppCompatActivity {
             this.city = city;
             this.country = country;
             this.courses = courses;
-            this.dob = dob;
+            //this.dob = dob;
         }
 
         @Override
@@ -205,23 +209,24 @@ public class ProfileActivity extends AppCompatActivity {
 
             try {
                 JSONObject profileInfo   = new JSONObject();
+                profileInfo.put("id",userId);
                 profileInfo.put("username", username);
-                profileInfo.put("",about);
-                profileInfo.put("",help);
-                profileInfo.put("",school);
-                profileInfo.put("",firstName);
-                profileInfo.put("",lastName);
-                profileInfo.put("",city);
-                profileInfo.put("",country);
-                profileInfo.put("",courses);
-                profileInfo.put("",dob);
+                profileInfo.put("generalDescription",about);
+                profileInfo.put("helpDescription",help);
+                profileInfo.put("school",school);
+                profileInfo.put("firstname",firstName);
+                profileInfo.put("lastname",lastName);
+                profileInfo.put("city",city);
+                profileInfo.put("country",country);
+                profileInfo.put("courses",courses);
+                //profileInfo.put("",dob);
 
                 String jsonString = PostRequester.doAPostRequest(stringUrl,profileInfo);
                 if (jsonString == null) {
-                    System.out.println("JSON was null for obtaining user info");
+                    System.out.println("JSON was null for saving user info");
                 }
             } catch (Exception e) {
-                System.out.println("ERROR while obtaining user info");
+                System.out.println("ERROR while saving user info");
                 System.out.println(e.toString());
                 e.printStackTrace();
             }
@@ -265,10 +270,24 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void save()
     {
+        String about, help, school, firstName, lastName, city, country, courses;
+        Date dob;
 
-    }
+        showProgress(true);
 
-    private void setBirthdate() {
+        about = mAboutView.getText().toString();
+        help = mHelpView.getText().toString();
+        school = mSchoolView.getText().toString();
+        firstName = mFirstNameView.getText().toString();
+        lastName = mLastNameView.getText().toString();
+        city = mCityView.getText().toString();
+        country = mCountryView.getText().toString();
+        courses = mCoursesView.getText().toString();
 
+        //dob = (Date) mDobView.getText().toString();
+
+
+        new SaveProfileHelper(userId,username,about,help,school,firstName,lastName,city,country,courses).execute();
+        new LoadProfileHelper(userId).execute();
     }
 }
