@@ -185,7 +185,7 @@ public class ProfileActivity extends AppCompatActivity {
         private String username, about, help, school, firstName, lastName, city, country, courses;
         private Date dob;
 
-        SaveProfileHelper(int id, String username, String about, String help, String school, String firstName, String lastName, String city, String country, String courses) {
+        SaveProfileHelper(int id, String username, String about, String help, String school, String firstName, String lastName, String city, String country, String courses, Date dob) {
             this.id = id;
             this.username = username;
             this.about = about;
@@ -196,18 +196,29 @@ public class ProfileActivity extends AppCompatActivity {
             this.city = city;
             this.country = country;
             this.courses = courses;
+            this.dob = dob;
         }
 
         @Override
         protected Void doInBackground(String... params) {
-            String stringUrl = getString(R.string.http_address_server) + "/api/ProfileUpdate?user=" + username;
-            System.out.println("string irl: " + stringUrl);
+            String stringUrl = getString(R.string.http_address_server) + "/api/ProfileUpdate";
+
             try {
-                JSONObject json = PostRequester.doAPostRequest()
-                if (json == null) {
+                JSONObject profileInfo   = new JSONObject();
+                profileInfo.put("username", username);
+                profileInfo.put("",about);
+                profileInfo.put("",help);
+                profileInfo.put("",school);
+                profileInfo.put("",firstName);
+                profileInfo.put("",lastName);
+                profileInfo.put("",city);
+                profileInfo.put("",country);
+                profileInfo.put("",courses);
+                profileInfo.put("",dob);
+
+                String jsonString = PostRequester.doAPostRequest(stringUrl,profileInfo);
+                if (jsonString == null) {
                     System.out.println("JSON was null for obtaining user info");
-                } else {
-                    System.out.println("GOT ONE: " + json.toString());
                 }
             } catch (Exception e) {
                 System.out.println("ERROR while obtaining user info");
