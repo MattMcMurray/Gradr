@@ -49,6 +49,7 @@
     <string name="prompt_dob">Date of Birth (YYYY-MM-DD)</string>
     <string name="label_username">Username</string>
     <string name="action_save">Save</string>
+    <string name="error_invalid_date">Invalid date</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -27,7 +27,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by maverickmueller on 3/15/2016.
@@ -171,6 +175,7 @@ public class ProfileActivity extends AppCompatActivity {
                         mCityView.setText(user.getString("city"));
                         mCountryView.setText(user.getString("country"));
                         mCoursesView.setText(user.getString("courses"));
+                        mDobView.setText(user.getString("dateOfBirth").substring(0,10));
                     } catch (Exception e) {
                         System.out.println("Error parsing returned JSON: " + e.getMessage());
                     }
@@ -187,9 +192,9 @@ public class ProfileActivity extends AppCompatActivity {
 
         private int id;
         private String username, about, help, school, firstName, lastName, city, country, courses;
-        //private Date dob;
+        private Date dob;
 
-        SaveProfileHelper(int id, String username, String about, String help, String school, String firstName, String lastName, String city, String country, String courses /*Date dob*/) {
+        SaveProfileHelper(int id, String username, String about, String help, String school, String firstName, String lastName, String city, String country, String courses, Date dob) {
             this.id = id;
             this.username = username;
             this.about = about;
@@ -200,7 +205,7 @@ public class ProfileActivity extends AppCompatActivity {
             this.city = city;
             this.country = country;
             this.courses = courses;
-            //this.dob = dob;
+            this.dob = dob;
         }
 
         @Override
@@ -219,7 +224,9 @@ public class ProfileActivity extends AppCompatActivity {
                 profileInfo.put("city",city);
                 profileInfo.put("country",country);
                 profileInfo.put("courses",courses);
-                //profileInfo.put("",dob);
+                profileInfo.put("dateOfBirth",dob);
+
+                System.out.println("SENDING - " + profileInfo.toString());
 
                 String jsonString = PostRequester.doAPostRequest(stringUrl,profileInfo);
                 if (jsonString == null) {
@@ -284,10 +291,21 @@ public class ProfileActivity extends AppCompatActivity {
         country = mCountryView.getText().toString();
         courses = mCoursesView.getText().toString();
 
-        //dob = (Date) mDobView.getText().toString();
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+        try {
+            dob = format.parse(mDobView.getText().toString());
+            if (mDobView.getText().toString().length() != 10)
+            {
+                throw new ParseException("Not a valid date", -1);
+            }
+            new SaveProfileHelper(userId,username,about,help,school,firstName,lastName,city,country,courses,dob).execute();
+            new LoadProfileHelper(userId).execute();
+        } catch (ParseException e){
+            System.out.println("Date formatted incorrectly: " + e.getMessage());
+            mDobView.setError(getString(R.string.error_invalid_date));
+            mDobView.requestFocus();
+            showProgress(false);
+        }
 
-
-        new SaveProfileHelper(userId,username,about,help,school,firstName,lastName,city,country,courses).execute();
-        new LoadProfileHelper(userId).execute();
     }
 }
