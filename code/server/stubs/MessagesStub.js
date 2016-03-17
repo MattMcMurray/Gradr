@@ -8,28 +8,30 @@ function MessagesStub() {
 		sender: 205,
 		receiver: 206,
 		sent: false
-	},
+	};
 	message2 = {
 		message: "Doing well, you?",
 		sender: 206,
 		receiver: 205,
 		sent: false
-	},
-	message2 = {
+	};
+	message3 = {
 		message: "I'm doing pretty well as well. Thanks!",
 		sender: 205,
 		receiver: 206,
 		sent: false
-	}
+	};
 
-	messageList = [message1, message2, message3];
+	messageList = [];
+	messageList.push(message1);
+	messageList.push(message2);
+	messageList.push(message3);
 }
 
 MessagesStub.prototype = new MessagesInterface();
 MessagesStub.prototype.constructor = MessagesStub;
 
 MessagesStub.prototype.getMessages = function(sender, receiver) {
-
 	return new Promise(function(resolve, reject) {
 		resolve(findMessage(sender, receiver));
 	}).catch(function(error) {
@@ -38,7 +40,15 @@ MessagesStub.prototype.getMessages = function(sender, receiver) {
 
 }
 
-MessagesStub.prototype.saveMessages = function(messageObject) {
+MessagesStub.prototype.getAllMessages = function(sender, receiver) {
+	return new Promise(function(resolve, reject) {
+		resolve(findMessage(sender, receiver).concat(findMessage(receiver, sender)));
+	}).catch(function(error) {
+		reject(error);
+	});
+}
+
+MessagesStub.prototype.saveMessage = function(messageObject) {
 	
 	return new Promise (function(resolve, reject) {
 		messageList.push(messageObject);
@@ -57,10 +67,10 @@ module.exports = MessagesStub;
 function findMessage(sender, receiver) {
 	var messages = [];
 	//retrieve message for receiver
-	for (var message in messageList) {
 
-		if (message.receiver == receiver && message.sent == false) {
-			messages.push(message);
+	for (var i =0; i < messageList.length; i++) {
+		if (messageList[i].sender == sender && messageList[i].receiver == receiver && messageList[i].sent == false) {
+			messages.push(messageList[i]);
 		}
 	}
 
