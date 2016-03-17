@@ -190,7 +190,6 @@ router.post('/deleteUser', function(req, res) {
 	});
 });
 
-
 /* Messages API Calls*/
 router.get('/getMessages', function(req,res) {
 	MessagesDAO.getMessages(req.query.sender, req.query.receiver).then(function(messages) {
@@ -208,6 +207,31 @@ router.post('/saveMessage', function(req,res) {
 	MessagesDAO.saveMessage(req.body).then(function(message){
 		res.json(message);
 	})
+});
+
+router.post('/setTheme', function (req, res) {
+	UserDAO.setTheme(req.body.userId, req.body.theme).then(function(result) {
+		if (result.error) {
+			res.status(500).send("Internal server error");
+		} else {
+			res.json({
+				status: 'OK'
+			});
+		}
+	});
+});
+
+router.get('/getTheme', function (req, res) {
+	UserDAO.getTheme(req.query.user).then(function (result) {
+		if (result.error) {
+			res.status(500).send("Internal server error");
+		} else {
+			res.json({
+				status: 'OK',
+				theme: result.dataValues.theme
+			});
+		}
+	});
 });
 
 function getCredentials(req){

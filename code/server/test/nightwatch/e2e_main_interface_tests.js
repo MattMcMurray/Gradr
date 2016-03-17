@@ -134,5 +134,74 @@ module.exports = {
 						this.assert.equal(found.value, birthYear);
 			})
 			.end();
+	},
+
+	'Ensure no themes applied' : function(browser) {
+		browser
+			.url(appURL) 
+			.waitForElementVisible('/html/body', 10000)
+			.setValue('//*[@id="username"]', newUserName)
+			.setValue('//*[@id="password"]', newUserPass)
+			.click('//*[@id="login-form"]/button')
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.assert.cssClassNotPresent('/html/body', 'theme-water')
+			.assert.cssClassNotPresent('/html/body', 'theme-fire')
+			.assert.cssClassNotPresent('/html/body', 'theme-earth')
+			.assert.cssClassNotPresent('/html/body', 'theme-air')
+			.end();
+	},
+
+	'Set user\'s theme (trying all themes)' : function(browser) {
+		browser
+			.url(appURL) 
+			.waitForElementVisible('/html/body', 10000)
+			.setValue('//*[@id="username"]', newUserName)
+			.setValue('//*[@id="password"]', newUserPass)
+			.click('//*[@id="login-form"]/button')
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.click('//*[@id="theme-dropdown"]')
+			.waitForElementVisible('//*[@id="theme-original"]', 10000)
+			.assert.elementPresent('//*[@id="theme-fire"]')
+			.assert.elementPresent('//*[@id="theme-water"]')
+			.assert.elementPresent('//*[@id="theme-air"]')
+			.assert.elementPresent('//*[@id="theme-earth"]')
+			.click('//*[@id="theme-fire"]')
+			.assert.cssClassPresent('/html/body', 'theme-fire')
+			.click('//*[@id="theme-dropdown"]')
+			.click('//*[@id="theme-water"]')
+			.assert.cssClassPresent('/html/body', 'theme-water')
+			.click('//*[@id="theme-dropdown"]')
+			.click('//*[@id="theme-earth"]')
+			.assert.cssClassPresent('/html/body', 'theme-earth')
+			.click('//*[@id="theme-dropdown"]')
+			.click('//*[@id="theme-air"]')
+			.assert.cssClassPresent('/html/body', 'theme-air')
+			.end();
+	}, 
+
+	'Ensure user selected theme is persistent': function(browser) {
+		browser
+			.url(appURL) 
+			.waitForElementVisible('/html/body', 10000)
+			.setValue('//*[@id="username"]', newUserName)
+			.setValue('//*[@id="password"]', newUserPass)
+			.click('//*[@id="login-form"]/button')
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.click('//*[@id="theme-dropdown"]')
+			.waitForElementVisible('//*[@id="theme-original"]', 10000)
+			.assert.elementPresent('//*[@id="theme-fire"]')
+			.assert.elementPresent('//*[@id="theme-water"]')
+			.assert.elementPresent('//*[@id="theme-air"]')
+			.assert.elementPresent('//*[@id="theme-earth"]')
+			.click('//*[@id="theme-fire"]')
+			.assert.cssClassPresent('/html/body', 'theme-fire')
+			.click('//*[@id="logout"]')
+			.waitForElementVisible('/html/body', 10000)
+			.setValue('//*[@id="username"]', newUserName)
+			.setValue('//*[@id="password"]', newUserPass)
+			.click('//*[@id="login-form"]/button')
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.assert.cssClassPresent('/html/body', 'theme-fire')
+			.end();
 	}
 }

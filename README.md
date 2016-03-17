@@ -2,6 +2,7 @@
 - Our Trello page 
     - for iteration 1 (task tracking): https://trello.com/b/mpbIdgMg/iteration-1
     - for iteration 2: https://trello.com/b/JOCDOuCr
+    - for iteration 3: https://trello.com/b/O1QovCWC
 - To run the server:
     - `cd` into `Gradr/code/server`
     - run `sudo ./get_started.sh` to install all dependencies
@@ -16,6 +17,9 @@
     - `cd` into `Gradr/code/server`
     - run `nightwatch`
     - Google Chrome will open and close multiple times while tests run
+- _(NEW)_ Two test accounts that have "matched" with each other are live on the server
+    - test_account1 and test_account2 are the usernames
+    - passwords are same as usernames
 
 ### Getting started and setting up the dev environment:
 - Set up a virtual machine running Ubuntu (or use your Ubuntu machine)

@@ -44,6 +44,14 @@ var removeUser = function(userID) {
     return userDAO.removeUser(userID);
 }
 
+var setTheme = function(userID, theme) {
+    return userDAO.setTheme(userID, theme);
+}
+
+var getTheme = function(userID) {
+    return userDAO.getTheme(userID);
+}
+
 module.exports = {
     init: init,
     getUser: getUser,
@@ -53,5 +61,7 @@ module.exports = {
     getRandomBatch: getRandomBatch,
     getAllUsers: getAllUsers,
     removeUser: removeUser,
-    createUserProfile:createUserProfile
+    createUserProfile:createUserProfile,
+    setTheme: setTheme,
+    getTheme: getTheme
 }
