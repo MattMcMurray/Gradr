@@ -31,6 +31,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     testCompile 'org.json:json:20140107'
     testCompile 'org.mockito:mockito-core:1.+'
+    androidTestCompile 'com.google.mockwebserver:mockwebserver:20130706'
     //Credit for the swipe interface go to owner of this project https://github.com/wenchaojiang/AndroidSwipeableCardStack
     compile 'com.android.support:appcompat-v7:23.2.0'
     compile 'com.android.support:design:23.2.0'
