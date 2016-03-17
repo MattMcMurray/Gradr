@@ -104,6 +104,8 @@ public class SwipeActivity extends AppCompatActivity {
             matchesIntent.putExtra("username", username);
             matchesIntent.putExtra("id", userId);
             startActivity(matchesIntent);
+        } else if (id == R.id.action_theme) {
+            ThemeSelector.showThemeDialog(this);
         } else if (id == R.id.action_profile) {
             System.out.println("NOT IMPLEMENTED");
         }
