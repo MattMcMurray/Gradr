@@ -6,6 +6,9 @@ MessagesInterface.prototype = {
 	},
 	saveMessage: function(messageObject) {
 		throw "function saveMessage() not implemented";
+	},
+	getAllMessages: function(sender, receiver) {
+		throw "function getAllMessages() not implemented";
 	}
 }
 
