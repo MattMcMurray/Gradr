@@ -59,9 +59,6 @@ public class SwipeActivity extends AppCompatActivity {
             finish(); //Basically, we kill the app.
         }
 
-//        toolbar =  (Toolbar) findViewById(R.id.tool_bar);
-//        setSupportActionBar(toolbar);
-
         //Initialize the card view
         stackOCards = (CardStack) findViewById(R.id.container);
         stackOCards.setContentResource(R.layout.card_layout);

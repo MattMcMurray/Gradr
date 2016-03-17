@@ -37,10 +37,8 @@ public class MatchListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeSelector.onActivityChangeTheme(this);
         setContentView(R.layout.match_list_activity);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
 
         Intent starter = getIntent();
         userId = starter.getIntExtra("id", -1);
