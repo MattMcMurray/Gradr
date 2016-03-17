@@ -17,4 +17,29 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <!-- Default theme -->
+    <style name="page_background_default">
+        <item name="android:src">@drawable/footer_lodyas</item>
+    </style>
+
+    <!-- Earth theme -->
+    <style name="page_background_earth">
+        <item name="android:src">@drawable/upfeathers</item>
+    </style>
+
+    <!-- Air theme -->
+    <style name="page_background_air">
+        <item name="android:src">@drawable/new_year_background</item>
+    </style>
+
+    <!-- Water theme -->
+    <style name="page_background_water">
+        <item name="android:src">@drawable/waves</item>
+    </style>
+
+    <!-- Fire theme -->
+    <style name="page_background_fire">
+        <item name="android:src">@drawable/stardust</item>
+    </style>
+
 </resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Default" parent="Theme.AppCompat.Light">
+        <item name="pageBackground">@style/page_background_default</item>
+    </style>
+    <style name="Theme.Earth" parent="Theme.AppCompat.Light">
+        <item name="pageBackground">@style/page_background_earth</item>
+    </style>
+    <style name="Theme.Air" parent="Theme.AppCompat.Light">
+        <item name="pageBackground">@style/page_background_air</item>
+    </style>
+    <style name="Theme.Water" parent="Theme.AppCompat.Light">
+        <item name="pageBackground">@style/page_background_water</item>
+    </style>
+    <style name="Theme.Fire" parent="Theme.AppCompat.Light">
+        <item name="pageBackground">@style/page_background_fire</item>
+    </style>
+</resources>
