@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.content.Intent;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -79,8 +80,16 @@ public class ProfileActivity extends AppCompatActivity {
         mUsernameView = (TextView) findViewById(R.id.label_username);
         mUsernameView.setText(username);
 
+        Button mSaveButton = (Button) findViewById(R.id.login_button);
+        mSaveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                save();
+            }
+        });
+
         showProgress(true);
-        new ProfileHelper(userId).execute();
+        new LoadProfileHelper(userId).execute();
 
     }
 
@@ -113,10 +122,10 @@ public class ProfileActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public class ProfileHelper extends AsyncTask<String, Void, Void> {
+    public class LoadProfileHelper extends AsyncTask<String, Void, Void> {
         private int id;
 
-        ProfileHelper(int id) {
+        LoadProfileHelper(int id) {
             this.id = id;
         }
 
@@ -167,6 +176,36 @@ public class ProfileActivity extends AppCompatActivity {
         }
     }
 
+    public class SaveProfileHelper extends AsyncTask<String, Void, Void> {
+        /* TO DO*/
+
+        private int id;
+
+        SaveProfileHelper(int id) {
+            this.id = id;
+        }
+
+        @Override
+        protected Void doInBackground(String... params) {
+            String stringUrl = getString(R.string.http_address_server) + "/api/getUser?user=" + username;
+            System.out.println("string irl: " + stringUrl);
+            try {
+                JSONObject json = GetRequester.doAGetRequest(stringUrl);
+                if (json == null) {
+                    System.out.println("JSON was null for obtaining user info");
+                } else {
+                    System.out.println("GOT ONE: " + json.toString());
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR while obtaining user info");
+                System.out.println(e.toString());
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+    }
+
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     private void showProgress(final boolean show) {
         // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
@@ -198,6 +237,11 @@ public class ProfileActivity extends AppCompatActivity {
             mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
             mProfileFormView.setVisibility(show ? View.GONE : View.VISIBLE);
         }
+    }
+
+    private void save()
+    {
+
     }
 
     private void setBirthdate() {
