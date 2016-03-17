@@ -96,8 +96,8 @@ public class MatchListActivity extends AppCompatActivity {
 //            startActivity(matchesIntent);
         } else if (id == R.id.action_profile) {
             Intent profileIntent = new Intent(this, ProfileActivity.class);
-            profileIntent.putExtra("username", "caleb");
-            profileIntent.putExtra("id", 205);
+            profileIntent.putExtra("username", username);
+            profileIntent.putExtra("id", id);
             startActivity(profileIntent);
             finish();
         }

@@ -23,6 +23,14 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <ProgressBar
+        android:id="@+id/profile_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
     <ScrollView
         android:id="@+id/profile_scroll"
         android:layout_width="match_parent"
@@ -37,14 +45,31 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/label_username"
-            android:textColor="#91FBFF"
-            android:id="@+id/label_username"
-            android:textSize="18pt" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/label_username"
+                android:textColor="#91FBFF"
+                android:id="@+id/label_username"
+                android:textSize="18pt"
+                android:layout_alignParentLeft="true" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/action_save"
+                android:id="@+id/button"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/blue_button"
+                />
+
+        </RelativeLayout>
+
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"

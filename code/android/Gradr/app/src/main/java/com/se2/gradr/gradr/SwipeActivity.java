@@ -107,8 +107,8 @@ public class SwipeActivity extends AppCompatActivity {
             finish();
         } else if (id == R.id.action_profile) {
             Intent profileIntent = new Intent(this, ProfileActivity.class);
-            profileIntent.putExtra("username", "caleb");
-            profileIntent.putExtra("id", 205);
+            profileIntent.putExtra("username", username);
+            profileIntent.putExtra("id", userId);
             startActivity(profileIntent);
             finish();
         }
