@@ -1,0 +1,171 @@
+/**************/
+/* WATER THEME */
+/***************/
+
+body.theme-water  .navbar-inverse {
+	background-color: #0A2D46;
+}
+
+body.theme-water {
+	background: url("/img/waves.png");
+	color: #080417;
+}
+
+body.theme-water .logo {
+	background: rgba(0, 0, 0, .5); /* Black w/ 50% opacity */
+	padding-bottom: 20px;
+	border-radius: 30px;
+}
+
+body.theme-water #home {
+	color: white;
+}
+
+body.theme-water #home:hover {
+	color: #01518A;
+}
+
+body.theme-water .btn-warning {
+	background-color: black;
+	border-color: black;
+}
+
+body.theme-water .lead {
+	color: #0A2D46;
+}
+
+/**************/
+/* FIRE THEME */
+/**************/
+
+body.theme-fire  .navbar-inverse {
+	background-color: #A6170A;
+}
+
+body.theme-fire {
+	background: url("/img/stardust.png");
+	color: #F28A2E;
+}
+
+body.theme-fire #home {
+	color: white;
+}
+
+body.theme-fire #logout {
+	color: white;
+}
+
+body.theme-fire #home:hover {
+	color: #F28A2E;
+}
+
+body.theme-fire .btn-warning {
+	background-color: #D94B18;
+	border-color: #D94B18;
+}
+
+body.theme-fire .btn-primary {
+	background-color: #0D0D0D;
+	border-color: #A6170A;
+	border-width: 2px;
+}
+
+/***************/
+/* EARTH THEME */
+/***************/
+
+body.theme-earth  .navbar-inverse {
+	background-color: #401E00;
+}
+
+body.theme-earth {
+	background: url("/img/upfeathers.png");
+	color: #136902;
+}
+
+body.theme-earth .logo {
+	background: rgba(0, 0, 0, .5); /* Black w/ 50% opacity */
+	padding-bottom: 20px;
+	border-radius: 30px;
+}
+
+body.theme-earth #home {
+	color: #136928;
+}
+
+body.theme-earth #home:hover {
+	color: #1C6F77;
+}
+
+body.theme-earth #logout {
+	color: white;
+}
+
+body.theme-earth #logout:hover {
+	color: #1C6F77;
+}
+
+body.theme-earth .btn-warning {
+	background-color: #0A3700;
+	border-color: #0A3700;
+}
+
+body.theme-earth .btn-primary {
+	background-color: #401E00;
+	border-color: #401E00;
+	border-width: 2px;
+}
+
+body.theme-earth .lead {
+	color: #136902;
+}
+
+/*************/
+/* AIR THEME */
+/*************/
+
+body.theme-air  .navbar-inverse {
+	background-color: #330420;
+}
+
+body.theme-air {
+	background: url("/img/new_year_background.png");
+	color: #136902;
+}
+
+body.theme-air .logo {
+	background: rgba(0, 0, 0, .5); /* Black w/ 50% opacity */
+	padding-bottom: 20px;
+	border-radius: 30px;
+}
+
+body.theme-air #home {
+	color: #FFEE00;
+}
+
+body.theme-air #home:hover {
+	color: #DB0085;
+}
+
+body.theme-air #logout {
+	color: white;
+}
+
+body.theme-air #logout:hover {
+	color: #DB0085;
+}
+
+body.theme-air .btn-warning {
+	background-color: #0A3700;
+	border-color: #0A3700;
+}
+
+body.theme-air .btn-primary {
+	background-color: #401E00;
+	border-color: #401E00;
+	border-width: 2px;
+}
+
+body.theme-air .lead {
+	color: #413D05;
+}
