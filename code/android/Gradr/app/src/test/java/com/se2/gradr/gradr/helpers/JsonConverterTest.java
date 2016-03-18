@@ -1,18 +1,16 @@
 package com.se2.gradr.gradr.helpers;
 
-import junit.framework.TestCase;
-
 import com.se2.gradr.gradr.User;
-import com.se2.gradr.gradr.Message;
-import com.se2.gradr.gradr.Rating;
 
 import org.json.JSONObject;
+import org.junit.Before;
+import org.junit.Test;
 
-public class JsonConverterTest extends TestCase {
+import static org.junit.Assert.*;
+
+public class JsonConverterTest {
     JSONObject jsonFull, jsonEmpty, jsonMissing1, jsonMissing2;
-    JSONObject jsonRatingFull, jsonRatingMissing, jsonRatingEmpty;
-    JSONObject jsonMessageFull, jsonMessageMissing;
-
+    @Before
     public void setUp() throws Exception {
         jsonFull = new JSONObject();
         jsonFull.put("id", 402);
@@ -35,27 +33,9 @@ public class JsonConverterTest extends TestCase {
 
         jsonMissing2 = new JSONObject();
         jsonMissing2.put("username", "KeaneKKK");
-
-        jsonRatingFull = new JSONObject();
-        jsonRatingFull.put("rating", "5");
-        jsonRatingFull.put("comment", "star");
-
-        jsonRatingMissing = new JSONObject();
-        jsonRatingMissing.put("rating", "3");
-
-        jsonRatingEmpty = new JSONObject();
-
-        jsonMessageFull = new JSONObject();
-        jsonMessageFull.put("message", "Hi");
-        jsonMessageFull.put("createdAt", "2016-03-03T10:35:35");
-        jsonMessageFull.put("sender", "205");
-        jsonMessageFull.put("receiver", "201");
-
-        jsonMessageMissing = new JSONObject();
-        jsonMessageMissing.put("message", "Bye");
-        jsonMessageMissing.put("sender", "201");
     }
 
+    @Test
     public void testUserFromJsonFull() throws Exception {
         User test = JsonConverter.userFromJson(jsonFull);
         assertTrue(test.toString().equals("KeaneK402"));
@@ -71,6 +51,7 @@ public class JsonConverterTest extends TestCase {
         assertTrue(test.getHelpDescription().equals("Help"));
     }
 
+    @Test
     public void testUserFromJsonEmpty() throws Exception {
         User test = JsonConverter.userFromJson(jsonEmpty);
         assertTrue(test.toString().equals("KeaneKK403"));
@@ -86,6 +67,7 @@ public class JsonConverterTest extends TestCase {
         assertTrue(test.getHelpDescription().equals(""));
     }
 
+    @Test
     public void testUserFromJsonMissing() throws Exception {
         User test = JsonConverter.userFromJson(jsonMissing1);
         assertTrue(test == null);
@@ -93,36 +75,5 @@ public class JsonConverterTest extends TestCase {
         test = JsonConverter.userFromJson(jsonMissing2);
         assertTrue(test == null);
     }
-
-    public void testRatingFromJsonFull() throws Exception {
-        Rating test = JsonConverter.ratingFromJson(jsonRatingFull);
-        assertEquals(test.getScore(), 5);
-        assertEquals(test.getComment(), "star");
-    }
-
-    public void testRatingFromJsonMissing() throws Exception {
-        Rating test = JsonConverter.ratingFromJson(jsonRatingMissing);
-        assertEquals(test.getScore(), 3);
-        assertEquals(test.getComment(), "");
-    }
-
-    public void testRatingFromJsonEmpty() throws Exception {
-        try {
-            Rating test = JsonConverter.ratingFromJson(jsonRatingEmpty);
-            fail("Should of erred");
-        } catch (Exception e) {}
-    }
-
-    public void testMessageFromJsonFull() throws Exception {
-        Message test = JsonConverter.messageFromJson(jsonMessageFull);
-        assertEquals(test.getMessage(), "Hi");
-        assertEquals(test.getSender(), 205);
-    }
-
-    public void testMessageFromJsonMissing() throws Exception {
-        try {
-            Message test = JsonConverter.messageFromJson(jsonMessageMissing);
-            fail("Should of erred");
-        } catch (Exception e) {}
-    }
 }
+
