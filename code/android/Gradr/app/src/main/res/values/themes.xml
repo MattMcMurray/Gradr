@@ -2,7 +2,7 @@
 <resources>
     <style name="Theme.Default" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="pageBackground">@style/page_background_default</item>
-        <item name="colorPrimary">#000000</item>
+        <item name="colorPrimary">#282828</item>
         <item name="titleTextColor">#FFFFFF</item>
         <item name="actionMenuTextColor">#FFFFFF</item>
     </style>
