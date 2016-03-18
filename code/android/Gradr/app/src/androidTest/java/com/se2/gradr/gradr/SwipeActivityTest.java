@@ -2,9 +2,11 @@ package com.se2.gradr.gradr;
 
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Point;
 import android.provider.ContactsContract;
 import android.test.ActivityInstrumentationTestCase2;
 import android.util.DisplayMetrics;
+import android.view.Display;
 import android.widget.EditText;
 
 import com.robotium.solo.Solo;
@@ -45,7 +47,37 @@ public class SwipeActivityTest extends ActivityInstrumentationTestCase2<SwipeAct
     }
 
     public void testPassMatch() throws Exception {
+        float fromX, fromY, toX, toY;
 
+        Display display = getActivity().getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        int height = size.y;
+
+        fromX = width / 2;
+        fromY = height / 2;
+        toX = width;
+        toY = height / 2;
+        solo.drag(fromX, toX, fromY, toY, 10);
+        assertTrue(solo.waitForText("Pass"));
+    }
+
+    public void testFailMatch() throws Exception {
+        float fromX, fromY, toX, toY;
+
+        Display display = getActivity().getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        int height = size.y;
+
+        fromX = width / 2;
+        fromY = height / 2;
+        toX = 0;
+        toY = height / 2;
+        solo.drag(fromX, toX, fromY, toY, 10);
+        assertTrue(solo.waitForText("Fail"));
     }
 
     @Override
