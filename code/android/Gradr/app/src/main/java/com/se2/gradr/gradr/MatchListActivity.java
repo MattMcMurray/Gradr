@@ -85,7 +85,9 @@ public class MatchListActivity extends AppCompatActivity {
 
 
         if (id == R.id.action_logout) {
-            System.out.println("NOT IMPLEMENTED");
+            Intent logoutIntent = new Intent(this, LoginActivity.class);
+            logoutIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(logoutIntent);
         } else if (id == R.id.action_matches) {
             //Do nothing, we're already there...
         } else if (id == R.id.action_theme) {
