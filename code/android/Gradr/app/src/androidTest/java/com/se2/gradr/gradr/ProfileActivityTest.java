@@ -72,5 +72,6 @@ public class ProfileActivityTest extends ActivityInstrumentationTestCase2<Profil
     @Override
     public void tearDown() throws Exception {
         solo.finishOpenedActivities();
+        super.tearDown();
     }
 }

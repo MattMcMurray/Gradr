@@ -39,5 +39,6 @@ public class LoginActivityTest extends ActivityInstrumentationTestCase2<LoginAct
     @Override
     public void tearDown() throws Exception {
         solo.finishOpenedActivities();
+        super.tearDown();
     }
 }

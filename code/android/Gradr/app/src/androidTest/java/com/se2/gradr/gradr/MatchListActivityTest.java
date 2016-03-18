@@ -87,5 +87,6 @@ public class MatchListActivityTest extends ActivityInstrumentationTestCase2<Matc
     @Override
     public void tearDown() throws Exception {
         solo.finishOpenedActivities();
+        super.tearDown();
     }
 }

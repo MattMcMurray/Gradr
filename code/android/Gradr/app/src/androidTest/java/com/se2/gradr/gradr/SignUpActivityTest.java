@@ -55,5 +55,6 @@ public class SignUpActivityTest extends ActivityInstrumentationTestCase2<SignUpA
     @Override
     public void tearDown() throws Exception {
         solo.finishOpenedActivities();
+        super.tearDown();
     }
 }
