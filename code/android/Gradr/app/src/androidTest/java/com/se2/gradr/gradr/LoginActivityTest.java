@@ -1,6 +1,8 @@
 package com.se2.gradr.gradr;
 
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.test.ActivityInstrumentationTestCase2;
+import android.widget.EditText;
 
 import com.robotium.solo.Solo;
 
@@ -19,8 +21,19 @@ public class LoginActivityTest extends ActivityInstrumentationTestCase2<LoginAct
         solo = new Solo(getInstrumentation(), getActivity());
     }
 
-    public void testLogo() throws Exception {
-        Assert.assertTrue(solo.searchText("Gradr"));
+    public void testValidLogin() throws Exception {
+        solo.enterText((EditText) solo.getView(R.id.email), "test_user_1");
+        solo.enterText((EditText) solo.getView(R.id.password), "test_user_1");
+        solo.clickOnButton("Login");
+        assertTrue(solo.waitForActivity(SwipeActivity.class));
+    }
+
+    public void testInvalidLogin() throws Exception {
+        solo.enterText((EditText) solo.getView(R.id.email), "wrong_user");
+        solo.enterText((EditText) solo.getView(R.id.password), "wrong_password");
+        solo.clickOnButton("Login");
+        assertTrue(solo.waitForText("This password is incorrect"));
+        solo.assertCurrentActivity("LoginActivity", LoginActivity.class);
     }
 
     @Override
