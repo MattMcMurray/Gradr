@@ -8,6 +8,34 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/message_display"
+        android:isScrollContainer="true"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/text_margin"
+        android:hint="@string/message_prompt"
+        android:id="@+id/message_box"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="@dimen/text_margin"
+        android:text="@string/send_button"
+        android:id="@+id/send_button"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:text="@string/refresh_button"
+        android:id="@+id/refresh_button"
+        />
 
 </FrameLayout>

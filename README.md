@@ -15,10 +15,13 @@
 - To run Nightwatch (selenium) tests:
     - install Nighwatch globally `sudo npm install -g nightwatch`
     - `cd` into `Gradr/code/server`
+    - delete any old versions of the db
+    - run `sudo node main.js` to initialize the db
+    - run `sudo sqlite3 study_database.sqlite < dbscripts/testusers.sql` to prepopulate
     - run `nightwatch`
     - Google Chrome will open and close multiple times while tests run
 - _(NEW)_ Two test accounts that have "matched" with each other are live on the server
-    - test_account1 and test_account2 are the usernames
+    - test_user_1 and test_user_2 are the usernames
     - passwords are same as usernames
 
 ### Getting started and setting up the dev environment:
