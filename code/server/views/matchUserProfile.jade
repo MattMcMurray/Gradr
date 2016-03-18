@@ -4,9 +4,13 @@ block stylesheets
 	link(href='/css/index.css', rel='stylesheet')
 	link(href='/css/swipe.css', rel='stylesheet')
 	link(href='/css/ratings.css', rel='stylesheet')
+	link(href='/css/chat.css', rel='stylesheet')
 
 block scripts
 	script(src='/js/matchUserProfile.js')
+	script(src='/js/chat.js')
+	script(src='/js/chatbar.js') 
+
 
 
 block content
@@ -62,3 +66,10 @@ block content
 					.tab-pane.attr#contactInfo(role="tabpanel")
 						h4 Email: !{email}
 						h4 City: !{city}
+						.panel.panel-default
+							.panel-body.chat
+								ul#messages
+								form(action="")
+									input#m(autocomplete="off")
+									button Send
+

@@ -47,6 +47,6 @@ function cleanComment(comment) {
 	return comment.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
-module.exports = {
-	cleanComment
+module.exports = {		
+	cleanComment		
 }

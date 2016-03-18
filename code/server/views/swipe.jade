@@ -3,9 +3,10 @@ extends ./base.jade
 block stylesheets
     link(href='/css/swipe.css', rel='stylesheet')
     link(href='/css/style.css', rel='stylesheet')
+    link(href='/css/chat.css', rel='stylesheet')
 
 block content
-    .row.vcenter
+    .row
         .container
             .thumbnail#userCard
                 img(src='').img-thumbnail#userImage
@@ -24,4 +25,5 @@ block content
                                 //- li#gender
                                 li#location
 block scripts
-   script(src='/js/swipe.js') 
+   script(src='/js/swipe.js')
+   script(src='/js/chatbar.js') 

@@ -117,16 +117,16 @@ describe('User', function() {
             user.getRandom(111, 2).then(function(data) {
                 assert.that(data).is.not.null();
                 assert.that(data.length).is.equalTo(2);
-                done();
             });
+            done();
         });
 
         it('gets a different random set of users', function(done) {
             user.getRandom(444).then(function(data) {
                 assert.that(data).is.not.null();
                 assert.that(data.length).is.equalTo(3);
-                done();
             });
+            done();
         });
     });
 

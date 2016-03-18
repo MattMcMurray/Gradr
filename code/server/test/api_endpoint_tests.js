@@ -5,6 +5,7 @@ var api = require('../routes/api.js');
 var stubUser = require('../data_access/UserDataAccess.js');
 var stubLikes = require('../data_access/UserMatchDataAccess.js');
 var stubRating = require('../data_access/RatingDataAccess.js');
+var stubMessages = require('../data_access/MessagesDataAccess.js');
 //////////////////////////////////////////
 // ALL API TESTS SHOULD GO IN THIS FILE // 
 //////////////////////////////////////////
@@ -13,6 +14,7 @@ describe('api', function() {
     stubUser.init('stub');
     stubLikes.init('stub');
     stubRating.init('stub');
+    stubMessages.init('stub');
     // This is just a description, not the actual route the test will use
     describe('GET /api/getUser', function() {
         it('requests a user from the api', function(done) {
@@ -207,6 +209,143 @@ describe('api', function() {
                 if(err) done(err);
                 assert.that(res.body.matches).is.not.null();
                 assert.that(res.body.matches.length).is.equalTo(0);
+                done();
+            });
+        });
+    });
+
+    describe('GET /api/getAllMessages', function() {
+        it('gets all messages from 205 or 206', function(done) {
+            request(app)
+            .get('/api/getAllMessages?sender=205&receiver=206')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.messages).is.not.null();
+                assert.that(res.body.messages.length).is.equalTo(3);
+                done();
+            });
+        });
+
+        it('gets all messages from 205 or 206', function(done) {
+            request(app)
+            .get('/api/getAllMessages?sender=206&receiver=205')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.messages).is.not.null();
+                assert.that(res.body.messages.length).is.equalTo(3);
+                done();
+            });
+        });
+
+        it('gets all messages from 405 or 406', function(done) {
+            request(app)
+            .get('/api/getAllMessages?sender=405&receiver=406')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.messages).is.not.null();
+                assert.that(res.body.messages.length).is.equalTo(0);
+                done();
+            });
+        });
+    });
+
+    describe('POST /api/saveMessage', function() {
+        it('saves message', function(done) {
+            request(app)
+            .post('/api/saveMessage')
+            .send({message:'msg'})
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body).is.not.null();
+                assert.that(res.body.message).is.not.null();
+                done();
+            });
+        });
+    });
+
+    describe('GET /api/getMessages', function() {
+        it('gets messages from 205 to 206', function(done) {
+            request(app)
+            .get('/api/getMessages?sender=205&receiver=206')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.messages).is.not.null();
+                assert.that(res.body.messages.length).is.equalTo(2);
+                done();
+            });
+        });
+
+        it('gets messages from 205 to 206', function(done) {
+            request(app)
+            .get('/api/getMessages?sender=205&receiver=206')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.messages).is.not.null();
+                assert.that(res.body.messages.length).is.equalTo(2);
+                done();
+            });
+        });
+
+        it('gets messages from 206 to 205', function(done) {
+            request(app)
+            .get('/api/getMessages?sender=206&receiver=205')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.messages).is.not.null();
+                assert.that(res.body.messages.length).is.equalTo(1);
+                done();
+            });
+        });
+
+        it('gets messages from 405 to 206', function(done) {
+            request(app)
+            .get('/api/getMessages?sender=405&receiver=206')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.messages).is.not.null();
+                assert.that(res.body.messages.length).is.equalTo(0);
+                done();
+            });
+        });
+
+        it('gets messages from 205 to 406', function(done) {
+            request(app)
+            .get('/api/getMessages?sender=205&receiver=406')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.messages).is.not.null();
+                assert.that(res.body.messages.length).is.equalTo(0);
+                done();
+            });
+        });
+
+        it('gets messages from 405 to 406', function(done) {
+            request(app)
+            .get('/api/getMessages?sender=405&receiver=406')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.messages).is.not.null();
+                assert.that(res.body.messages.length).is.equalTo(0);
                 done();
             });
         });

@@ -101,10 +101,15 @@ public class SwipeActivity extends AppCompatActivity {
             matchesIntent.putExtra("username", username);
             matchesIntent.putExtra("id", userId);
             startActivity(matchesIntent);
+            finish();
         } else if (id == R.id.action_theme) {
             ThemeSelector.showThemeDialog(this);
         } else if (id == R.id.action_profile) {
-            System.out.println("NOT IMPLEMENTED");
+            Intent profileIntent = new Intent(this, ProfileActivity.class);
+            profileIntent.putExtra("username", username);
+            profileIntent.putExtra("id", userId);
+            startActivity(profileIntent);
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

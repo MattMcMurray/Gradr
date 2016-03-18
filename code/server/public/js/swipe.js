@@ -5,11 +5,14 @@ $(function() {
     var username = sessionStorage.getItem('username');
     var user_id = sessionStorage.getItem('user_id');
 
+    
+
     if (!username || !user_id) {
         location.replace('/');
     }
 
 });
+
 
 $('#likeButton').click(function(e) {
     e.preventDefault();

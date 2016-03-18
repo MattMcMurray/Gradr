@@ -1,0 +1,43 @@
+Schedule Updates:
+
+	For Iteration 3 we planned the following:
+
+		Communication (13 hours)
+		Big User Story: I would like a way to communicate with matched study partners after we both accepted each other. Preferably it would be a built-in chat window.
+				- I want to be able to send a message to someone I've matched with (6 hours | HIGH) 				- COMPLETE
+				- I want to be able to see messages that someone I've matched with has sent to me (3 hours | HIGH)	- COMPLETE
+				- I want to know if someone has sent me a message when I've been offline (4 hours | Low)			- COMPLETE
+
+		Settings (15 hours)
+		Big User Story: I would like to manage settings for my account like notifiJcations and themes.
+			- I want to be able to choose a background (4 hours | HIGH)		- COMPLETE
+			- I want to be able to choose a colour theme (5 hours | Low)	- COMPLETE
+			- I want to be able to customize notifications (6 hours | Low)	- INCOMPLETE (notifications not implemented in earlier iterations)
+
+		Picture (10 hours) (NOT IMPLEMENTED)
+		Big User Story: I would like to upload a picture to my profile so matched study partners can recognize me.
+			- I want to be able to set an image to be displayed whenever someone looks at my profile (6 hours | HIGH*)
+			- I want to be able to see other people's profile pictures (4 hours | HIGH*)
+
+
+		Due to co-op interviews and the CS games, the team didn't have as much time to complete tasks as originally 
+		anticipated. This meant that we had to prioritize communication and settings, since they were deemed to be of
+		higher priority than picture uploads. This means we will carry over picture uploading to the next iteration as 
+		one of our final features implemented.
+
+For the next iteration, we would like to implement:
+
+	Picture (Carried over from last iteration)
+	Big User Story: I would like to upload a picture to my profile so matched study partners can recognize me.
+		- I want to be able to set an image to be displayed whenever someone looks at my profile (6 hours | HIGH)
+		- I want to be able to see other people's profile pictures (4 hours | HIGH)
+
+	Rejections
+	Big User Story: I would like to see a list of all matches where I matched with a potential study partner, but they didn’t match.
+		- I want to see a list of people I wanted to study with, but who didn't match with me (4 hours | HIGH)
+		- I want to ask the user to optionally provide a reason why they chose to not match with me (5 hours | MED)
+
+	Leaderboard
+	Big User Story: I want a leaderboard so I can compete with friends for most matches.
+		- I want to see which of my matches have the highest matching ratio (6 hours | HIGH)
+		- I want to be able to see where I rank on a 'global' scale (5 hours | LOW)

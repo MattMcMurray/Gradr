@@ -7,9 +7,9 @@ Mathieu McMurray
 -"Swiping" front-end as well as a good chunk of the back end
 -UML diagram for iter1
 -Storing a user session on login
--Web theme (front & back end)
--Plan for iteration 3
+-Web themes (front & back end)
 -Android unit tests
+-Plan for iteration3
 
 Caleb Mueller
 -Nightwatch tests
@@ -17,9 +17,8 @@ Caleb Mueller
 -Logo design
 -New User creation
 -Get matches functionality
--Profile settings & signup pages on Android
+-Signup & profile settings pages on Android
 -Robotium testing
-
 
 Keane Kraus
 -Backend and api of User
@@ -27,8 +26,9 @@ Keane Kraus
 -Minor work on Profile page
 -Tests for removeUser, api, user match
 -Hotfixes
--Android chat functionality
--Android unit tests
+-Android chat UI and business logic
+-Android unit tests (with Matt)
+-Testing for chat api and backend
 
 Steven Bairos-Novak
 -Vision statement
@@ -36,8 +36,9 @@ Steven Bairos-Novak
 -Profile edit page
 -User rating API & tests
 -Stubs for Users, UserMatches, Likes
-- Match, swiping, profile view, & ratings pages on Android
-	- server backend for Android functionality on these pages
+-Sign in, Matches List, Swiping, Match Profile, & Rating on Android
+	- backend API methods to enable Android functionality on these pages & the tests for it
+
 
 Jorell Linsangan
 -Login page
@@ -52,5 +53,5 @@ Evan Hunzinger
 -Implemented user matches page
 -Added feature to bold the menu item related to the current page
 -Various tests
--Theme customization on Android
--Robotium testing
+-Android app customization
+-Robotium tests
