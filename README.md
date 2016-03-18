@@ -51,7 +51,20 @@
 - run the run_tests script -- `./run_tests.sh`
 - To stub the user table and the matches table, run `sudo node main.js --stub_all`.
   - You can also stub the user or matches tables individually by replacing `--stub_all` with `--stub_users` or `--stub_likes` respectively
-    
+
+### Running Android Unit Tests
+ - Go into Android Studio and load the project.
+ - Click on Run>Edit Configurations
+ - Go to Android Tests and click the green plus
+ - Select Android Test
+ - Give it a name at the top.
+ - Select “app” under Module
+ - Leave Test as “All in Module”
+ - Set Target Device to preference (either USB or emulator)
+ - Click Apply
+ - Make sure the test is selected, then click OK
+ - Click on Run>Run Test (should be the first option)
+ - Wait for the test results to be displayed in a panel at the bottom
     
 ### Fixing Merge Conflicts
 Sometimes, when trying to merge your feature back into the iteration branch, you will run into merge conflicts.
