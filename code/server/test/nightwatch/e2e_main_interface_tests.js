@@ -203,5 +203,44 @@ module.exports = {
 			.waitForElementVisible('//*[@id="userCard"]', 10000)
 			.assert.cssClassPresent('/html/body', 'theme-fire')
 			.end();
+	},
+
+	'Ensure proper chat functionality': function (browser) {
+		// There are two users that are in the db fill script we can use here
+		var user1 = "test_user_1";
+		var user2 = "test_user_2";
+		var msg = "Hello test_user_2!";
+
+		browser
+			.url(appURL)
+			.waitForElementVisible('/html/body', 10000)
+			.setValue('//*[@id="username"]', user1)
+			.setValue('//*[@id="password"]', user1)
+			.click('//*[@id="login-form"]/button')
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.click('//*[@id="matchesLink"]')
+			.waitForElementVisible('//*[@id="matchesContainer"]/a/div/div', 100000)
+			.click('//*[@id="matchesContainer"]/a/div/div/img')
+			.waitForElementVisible('/html/body/div[2]/div/div', 10000)
+			.click('//*[@id="userTabs"]/li[3]/a')
+			.waitForElementVisible('//*[@id="m"]', 10000)
+			.setValue('//*[@id="m"]', msg)
+			.click('//*[@id="contactInfo"]/div/div/form/button')
+			.waitForElementVisible('//*[@id="messages"]/li[1]', 10000)
+			.assert.elementPresent('//*[@id="messages"]/li[2]') // Warning user that other user is not online
+			.click('//*[@id="logout"]')
+			.waitForElementVisible('/html/body', 10000)
+			.setValue('//*[@id="username"]', user2)
+			.setValue('//*[@id="password"]', user2)
+			.click('//*[@id="login-form"]/button')
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.click('//*[@id="matchesLink"]')
+			.waitForElementVisible('//*[@id="matchesContainer"]/a/div/div', 100000)
+			.click('//*[@id="matchesContainer"]/a/div/div/img')
+			.waitForElementVisible('/html/body/div[2]/div/div', 10000)
+			.click('//*[@id="userTabs"]/li[3]/a')
+			.waitForElementVisible('//*[@id="m"]', 10000)
+			.assert.containsText('//*[@id="messages"]/li[1]', msg)
+			.end();
 	}
 }
