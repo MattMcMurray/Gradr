@@ -1,5 +1,6 @@
 package com.se2.gradr.gradr;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -106,7 +107,10 @@ public class SignUpActivity extends LoginActivity {
             focusView.requestFocus();
         } else {
             new RegisterAccountHelper(username, password, confirmPassword).execute();
-            finish();
+
+            Intent loginIntent = new Intent(this, LoginActivity.class);
+            loginIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(loginIntent);
         }
     }
 
