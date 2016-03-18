@@ -103,7 +103,6 @@ public class SwipeActivity extends AppCompatActivity {
             matchesIntent.putExtra("username", username);
             matchesIntent.putExtra("id", userId);
             startActivity(matchesIntent);
-            finish();
         } else if (id == R.id.action_theme) {
             ThemeSelector.showThemeDialog(this);
         } else if (id == R.id.action_profile) {
@@ -111,7 +110,6 @@ public class SwipeActivity extends AppCompatActivity {
             profileIntent.putExtra("username", username);
             profileIntent.putExtra("id", userId);
             startActivity(profileIntent);
-            finish();
         }
 
         return super.onOptionsItemSelected(item);
