@@ -100,9 +100,20 @@ public class ViewMatchActivity extends AppCompatActivity implements ViewMatchFra
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_logout) {
+            Intent logoutIntent = new Intent(this, LoginActivity.class);
+            logoutIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(logoutIntent);
+        } else if (id == R.id.action_matches) {
+            //That's the only way for us to get to this activity, so we'll just return
+            finish();
+        } else if (id == R.id.action_profile) {
+            Intent profileIntent = new Intent(this, ProfileActivity.class);
+            profileIntent.putExtra("username", username);
+            profileIntent.putExtra("id", userId);
+            startActivity(profileIntent);
+        }
 
         return super.onOptionsItemSelected(item);
     }
