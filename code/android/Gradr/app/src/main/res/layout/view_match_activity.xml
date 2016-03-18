@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="@drawable/backrepeat"
+    style="?pageBackground"
     tools:context="com.se2.gradr.gradr.ViewMatchActivity">
 
     <android.support.design.widget.AppBarLayout

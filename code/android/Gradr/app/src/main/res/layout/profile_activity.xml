@@ -6,7 +6,7 @@
 
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    android:background="@drawable/backrepeat"
+    style="?pageBackground"
     tools:context="com.se2.gradr.gradr.MatchListActivity">
 
     <ProgressBar
