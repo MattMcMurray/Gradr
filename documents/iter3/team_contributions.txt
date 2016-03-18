@@ -36,8 +36,8 @@ Steven Bairos-Novak
 -Profile edit page
 -User rating API & tests
 -Stubs for Users, UserMatches, Likes
--Matches, swiping, profile details (other users), & rating pages on Android
-	- backend API methods to enable Android functionality on these pages
+-Sign in, Matches List, Swiping, Match Profile, & Rating on Android
+	- backend API methods to enable Android functionality on these pages & the tests for it
 
 
 Jorell Linsangan
