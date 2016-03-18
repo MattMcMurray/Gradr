@@ -87,19 +87,16 @@ public class MatchListActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
-            System.out.println("NOT IMPLEMENTED");
+            Intent logoutIntent = new Intent(this, LoginActivity.class);
+            logoutIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(logoutIntent);
         } else if (id == R.id.action_matches) {
             //Do nothing, we're already there...
-//            Intent matchesIntent = new Intent(this, MatchListActivity.class);
-//            matchesIntent.putExtra("username", username);
-//            matchesIntent.putExtra("id", userId);
-//            startActivity(matchesIntent);
         } else if (id == R.id.action_profile) {
             Intent profileIntent = new Intent(this, ProfileActivity.class);
             profileIntent.putExtra("username", username);
             profileIntent.putExtra("id", id);
             startActivity(profileIntent);
-            finish();
         }
 
         return super.onOptionsItemSelected(item);
