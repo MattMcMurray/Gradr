@@ -2,9 +2,15 @@ package com.se2.gradr.gradr;
 
 import android.content.Intent;
 import android.test.ActivityInstrumentationTestCase2;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.robotium.solo.Solo;
+
+import java.sql.Time;
+import java.util.Calendar;
 
 /**
  * Created by caleb on 3/18/16.
@@ -55,11 +61,27 @@ public class MatchListActivityTest extends ActivityInstrumentationTestCase2<Matc
         assertTrue(solo.waitForText("test_user_2"));
     }
 
-    public void testChat() throws Exception {
+    public void testRatingSubmission() throws Exception {
         assertTrue(solo.waitForText("Test User2"));
         solo.clickOnText("Test User2");
         assertTrue(solo.waitForActivity(ViewMatchActivity.class));
-        solo.clickOnText("CHAT");
+        assertTrue(solo.waitForText("Test User2"));
+        solo.clickOnText("RATINGS");
+        solo.enterText((EditText) solo.getView(R.id.rating_comment), "terrible");
+        solo.pressSpinnerItem(0, 1);
+        solo.clickOnButton("Submit");
+        solo.clearEditText((EditText) solo.getView(R.id.rating_comment));
+        assertTrue(solo.waitForText("terrible"));
+        assertTrue(solo.waitForText("2.0"));
+        //check overwrite
+        solo.enterText((EditText) solo.getView(R.id.rating_comment), "good");
+        solo.pressSpinnerItem(0,3);
+        solo.clickOnButton("Submit");
+        solo.clearEditText((EditText) solo.getView(R.id.rating_comment));
+        assertTrue(solo.waitForText("good"));
+        assertTrue(solo.waitForText("5.0"));
+
+
     }
 
     @Override
