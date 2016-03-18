@@ -5,7 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 
 public class ThemeSelector {
-    private static int sTheme;
+    private static int sTheme = 0;
     private static AlertDialog themeDialog;
     public static final CharSequence[] themes = {"Default", "Earth", "Air", "Water", "Fire"};
 
@@ -18,7 +18,7 @@ public class ThemeSelector {
     public static void showThemeDialog(final Activity activity) {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         builder.setTitle("Set default theme");
-        builder.setSingleChoiceItems(themes, -1, new DialogInterface.OnClickListener() {
+        builder.setSingleChoiceItems(themes, sTheme, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 changeTheme(activity, which);

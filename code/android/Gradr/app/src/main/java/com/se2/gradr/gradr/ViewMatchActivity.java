@@ -105,7 +105,11 @@ public class ViewMatchActivity extends AppCompatActivity implements ViewMatchFra
         } else if (id == R.id.action_theme) {
             ThemeSelector.showThemeDialog(this);
         } else if (id == R.id.action_profile) {
-            System.out.println("NOT IMPLEMENTED");
+            Intent profileIntent = new Intent(this, ProfileActivity.class);
+            profileIntent.putExtra("username", username);
+            profileIntent.putExtra("id", userId);
+            startActivity(profileIntent);
+            finish();
         }
 
         return super.onOptionsItemSelected(item);
