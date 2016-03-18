@@ -57,10 +57,8 @@ public class ViewMatchActivity extends AppCompatActivity implements ViewMatchFra
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeSelector.onActivityChangeTheme(this);
         setContentView(R.layout.view_match_activity);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         Intent starter = getIntent();
         userId = starter.getIntExtra("id", -1);
@@ -95,9 +93,6 @@ public class ViewMatchActivity extends AppCompatActivity implements ViewMatchFra
     //Executes calls when you click the toolbar
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -108,6 +103,8 @@ public class ViewMatchActivity extends AppCompatActivity implements ViewMatchFra
         } else if (id == R.id.action_matches) {
             //That's the only way for us to get to this activity, so we'll just return
             finish();
+        } else if (id == R.id.action_theme) {
+            ThemeSelector.showThemeDialog(this);
         } else if (id == R.id.action_profile) {
             Intent profileIntent = new Intent(this, ProfileActivity.class);
             profileIntent.putExtra("username", username);
