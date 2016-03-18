@@ -62,6 +62,7 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeSelector.onActivityChangeTheme(this);
         setContentView(R.layout.profile_activity);
 
         Intent starter = getIntent();
@@ -71,9 +72,6 @@ public class ProfileActivity extends AppCompatActivity {
         if (username == null || username.length() < 1 || userId < 0) {
             finish(); //Go back, we won't allow access to this without having the username and id
         }
-
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         mAboutView = (AutoCompleteTextView) findViewById(R.id.tb_about);
         mHelpView = (AutoCompleteTextView) findViewById(R.id.tb_help);
@@ -125,6 +123,8 @@ public class ProfileActivity extends AppCompatActivity {
             matchesIntent.putExtra("username", username);
             matchesIntent.putExtra("id", userId);
             startActivity(matchesIntent);
+        } else if (id == R.id.action_theme) {
+            ThemeSelector.showThemeDialog(this);
         } else if (id == R.id.action_profile) {
             //Do nothing, we're already there...
         }
