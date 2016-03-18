@@ -38,11 +38,9 @@
     <string name="title_activity_view_match">ViewMatchActivity</string>
     <string name="section_format">Hello World from section: %1$d</string>
 
-<<<<<<< HEAD
     <string name="send_button">Send</string>
     <string name="message_prompt">Type message here...</string>
     <string name="refresh_button">Refresh</string>
-=======
     <string name="title_activity_profile">Profile</string>
     <string name="prompt_about">About You</string>
     <string name="prompt_help">I Need Help With</string>
@@ -59,5 +57,4 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
->>>>>>> iteration3
 </resources>
