@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/footer_lodyas">
+    style="?pageBackground">
 
     <com.wenchao.cardstack.CardStack
         android:id="@+id/container"
@@ -24,7 +24,6 @@
         android:shadowDy="1.0"
         android:text="Pass"
         android:id="@+id/passView"
-        android:layout_below="@+id/view"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="114dp"
         android:textSize="50dp"
@@ -42,34 +41,10 @@
         android:shadowDy="1.0"
         android:text="Fail"
         android:id="@+id/failView"
-        android:layout_below="@+id/view"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="114dp"
         android:textSize="50dp"
         android:gravity="center"
         android:visibility="gone"/>
-
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        android:id="@+id/view">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/tool_bar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary" >
-        </android.support.v7.widget.Toolbar>
-
-    </android.support.design.widget.AppBarLayout>
-
-    <!--<android.support.design.widget.FloatingActionButton-->
-        <!--android:id="@+id/fab"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="bottom|end"-->
-        <!--android:layout_margin="@dimen/fab_margin"-->
-        <!--android:src="@android:drawable/ic_dialog_email" />-->
 
 </RelativeLayout>

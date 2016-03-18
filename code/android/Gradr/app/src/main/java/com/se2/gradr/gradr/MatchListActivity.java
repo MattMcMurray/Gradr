@@ -37,10 +37,8 @@ public class MatchListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeSelector.onActivityChangeTheme(this);
         setContentView(R.layout.match_list_activity);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
 
         Intent starter = getIntent();
         userId = starter.getIntExtra("id", -1);
@@ -85,17 +83,20 @@ public class MatchListActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+
         if (id == R.id.action_logout) {
-            System.out.println("NOT IMPLEMENTED");
+            Intent logoutIntent = new Intent(this, LoginActivity.class);
+            logoutIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(logoutIntent);
         } else if (id == R.id.action_matches) {
             //Do nothing, we're already there...
-//            Intent matchesIntent = new Intent(this, MatchListActivity.class);
-//            matchesIntent.putExtra("username", username);
-//            matchesIntent.putExtra("id", userId);
-//            startActivity(matchesIntent);
+        } else if (id == R.id.action_theme) {
+            ThemeSelector.showThemeDialog(this);
         } else if (id == R.id.action_profile) {
-            System.out.println("NOT IMPLEMENTED");
+            Intent profileIntent = new Intent(this, ProfileActivity.class);
+            profileIntent.putExtra("username", username);
+            profileIntent.putExtra("id", id);
+            startActivity(profileIntent);
         }
 
         return super.onOptionsItemSelected(item);

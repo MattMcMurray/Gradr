@@ -2,6 +2,7 @@
 - Our Trello page 
     - for iteration 1 (task tracking): https://trello.com/b/mpbIdgMg/iteration-1
     - for iteration 2: https://trello.com/b/JOCDOuCr
+    - for iteration 3: https://trello.com/b/O1QovCWC
 - To run the server:
     - `cd` into `Gradr/code/server`
     - run `sudo ./get_started.sh` to install all dependencies
@@ -14,8 +15,27 @@
 - To run Nightwatch (selenium) tests:
     - install Nighwatch globally `sudo npm install -g nightwatch`
     - `cd` into `Gradr/code/server`
+    - delete any old versions of the db
+    - run `sudo node main.js` to initialize the db
+    - run `sudo sqlite3 study_database.sqlite < dbscripts/testusers.sql` to prepopulate
     - run `nightwatch`
     - Google Chrome will open and close multiple times while tests run
+- _(NEW)_ Two test accounts that have "matched" with each other are live on the server
+    - test_user_1 and test_user_2 are the usernames
+    - passwords are same as usernames
+- Running Android Unit Tests
+ - Go into Android Studio and load the project.
+ - Click on Run>Edit Configurations
+ - Go to Android Tests and click the green plus
+ - Select Android Test
+ - Give it a name at the top.
+ - Select “app” under Module
+ - Leave Test as “All in Module”
+ - Set Target Device to preference (either USB or emulator)
+ - Click Apply
+ - Make sure the test is selected, then click OK
+ - Click on Run>Run Test (should be the first option)
+ - Wait for the test results to be displayed in a panel at the bottom
 
 ### Getting started and setting up the dev environment:
 - Set up a virtual machine running Ubuntu (or use your Ubuntu machine)
@@ -48,7 +68,6 @@
 - To stub the user table and the matches table, run `sudo node main.js --stub_all`.
   - You can also stub the user or matches tables individually by replacing `--stub_all` with `--stub_users` or `--stub_likes` respectively
     
-    
 ### Fixing Merge Conflicts
 Sometimes, when trying to merge your feature back into the iteration branch, you will run into merge conflicts.
 
@@ -68,6 +87,9 @@ Sometimes, when trying to merge your feature back into the iteration branch, you
     - `git merge my-feature-branch`
   - Check that everything looks good and delete the temporary merging branch
     - `git branch -D temp_merging_branch`
+
+### Note on chat
+When you log out, the messages you sent wont be seen anymore. You will only see the messages from your match.
     
 All of this seems like a lot of work, but it will keep the merge history looking pretty good and will reduce headaches when there are many conflicts to resolve.
     

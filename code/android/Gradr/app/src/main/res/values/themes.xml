@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Default" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="pageBackground">@style/page_background_default</item>
+        <item name="colorPrimary">#282828</item>
+        <item name="titleTextColor">#FFFFFF</item>
+        <item name="actionMenuTextColor">#FFFFFF</item>
+    </style>
+    <style name="Theme.Earth" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="pageBackground">@style/page_background_earth</item>
+        <item name="colorPrimary">#4D2600</item>
+        <item name="titleTextColor">#009900</item>
+        <item name="actionMenuTextColor">#009900</item>
+    </style>
+    <style name="Theme.Air" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="pageBackground">@style/page_background_air</item>
+        <item name="colorPrimary">#993399</item>
+        <item name="titleTextColor">#009900</item>
+        <item name="actionMenuTextColor">#009900</item>
+    </style>
+    <style name="Theme.Water" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="pageBackground">@style/page_background_water</item>
+        <item name="colorPrimary">#6699FF</item>
+        <item name="titleTextColor">#FFFFFF</item>
+        <item name="actionMenuTextColor">#FFFFFF</item>
+    </style>
+    <style name="Theme.Fire" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="pageBackground">@style/page_background_fire</item>
+        <item name="colorPrimary">#CC0000</item>
+        <item name="titleTextColor">#FF9933</item>
+        <item name="actionMenuTextColor">#FF9933</item>
+    </style>
+</resources>

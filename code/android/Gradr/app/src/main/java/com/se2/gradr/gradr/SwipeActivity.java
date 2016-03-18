@@ -49,6 +49,7 @@ public class SwipeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ThemeSelector.onActivityChangeTheme(this);
         setContentView(R.layout.swipe_activity);
 
         Intent starter = getIntent();
@@ -57,9 +58,6 @@ public class SwipeActivity extends AppCompatActivity {
         if (username == null || username.length() < 1 || userId < 0) {
             finish(); //Basically, we kill the app.
         }
-
-        toolbar =  (Toolbar) findViewById(R.id.tool_bar);
-        setSupportActionBar(toolbar);
 
         //Initialize the card view
         stackOCards = (CardStack) findViewById(R.id.container);
@@ -96,16 +94,22 @@ public class SwipeActivity extends AppCompatActivity {
 
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
-            System.out.println("NOT IMPLEMENTED");
+            Intent logoutIntent = new Intent(this, LoginActivity.class);
+            logoutIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(logoutIntent);
         } else if (id == R.id.action_matches) {
             Intent matchesIntent = new Intent(this, MatchListActivity.class);
             matchesIntent.putExtra("username", username);
             matchesIntent.putExtra("id", userId);
             startActivity(matchesIntent);
+        } else if (id == R.id.action_theme) {
+            ThemeSelector.showThemeDialog(this);
         } else if (id == R.id.action_profile) {
-            System.out.println("NOT IMPLEMENTED");
+            Intent profileIntent = new Intent(this, ProfileActivity.class);
+            profileIntent.putExtra("username", username);
+            profileIntent.putExtra("id", userId);
+            startActivity(profileIntent);
         }
 
         return super.onOptionsItemSelected(item);
@@ -294,7 +298,8 @@ public class SwipeActivity extends AppCompatActivity {
                 postParams.put("liker_id", likerId);
                 postParams.put("likee_id", params[1]);
 
-                JSONObject json = PostRequester.doAPostRequest(stringUrl, postParams);
+                String jsonString = PostRequester.doAPostRequest(stringUrl, postParams);
+                JSONObject json = new JSONObject(jsonString);
                 if (json == null) {
                     System.out.println("JSON was null for like/dislike");
                 }

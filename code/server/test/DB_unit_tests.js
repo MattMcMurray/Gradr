@@ -2,6 +2,7 @@ var app = require('../main.js');
 var userMatches = require('../data_access/UserMatchDataAccess.js');
 var User = require('../data_access/UserDataAccess.js');
 var ratings = require('../data_access/RatingDataAccess.js');
+var messages = require('../data_access/MessagesDataAccess.js');
 var request = require('supertest');
 var assert = require('assertthat'); // View README for documentation https://github.com/thenativeweb/assertthat
 
@@ -11,6 +12,7 @@ describe('Database query tests', function() {
 	userMatches.init('db');
 	User.init('db');
 	ratings.init('db');
+	messages.init('db');
 	
 	describe('Rating queries', function() {
 
@@ -135,6 +137,67 @@ describe('Database query tests', function() {
 			});
 		});
 
+	});
+
+	describe('Message queries', function() {
+		describe('getMessages', function() {
+			it('returns messsages from 202', function(done) {
+				messages.getMessages(202, 201).then(function(data) {
+					assert.that(data).is.not.null();
+					assert.that(data.length).is.equalTo(1);
+					done();
+				});
+			});
+
+			it('returns messsages from 201', function(done) {
+				messages.getMessages(201, 202).then(function(data) {
+					assert.that(data).is.not.null();
+					assert.that(data.length).is.equalTo(2);
+					done();
+				});
+			});
+
+			it('returns messsages from 402', function(done) {
+				messages.getMessages(402, 201).then(function(data) {
+					assert.that(data).is.not.null();
+					assert.that(data.length).is.equalTo(0);
+					done();
+				});
+			});
+		});
+
+		describe('getAllMessages', function() {
+			it('returns messages from either 202 or 201', function(done) {
+				messages.getAllMessages(202, 201).then(function(data) {
+					assert.that(data).is.not.null();
+					assert.that(data.length).is.equalTo(3);
+					done();
+				});
+			});
+
+			it('returns messages from either 402 or 201', function(done) {
+				messages.getAllMessages(402, 201).then(function(data) {
+					assert.that(data).is.not.null();
+					assert.that(data.length).is.equalTo(0);
+					done();
+				});
+			});
+		});
+
+		describe('saveMessage', function() {
+			it('saves a message from 202 to 201', function(done) {
+				var messageObject = {
+					message: 'Bye',
+					sender: 202,
+					receiver: 201,
+					sent: true
+				};
+				messages.saveMessage(messageObject).then(function(data) {
+					assert.that(data).is.not.null();
+					done();
+				})
+			})
+		})
 	});
 
 	describe('User queries', function(){

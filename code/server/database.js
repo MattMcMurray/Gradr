@@ -6,11 +6,11 @@ var sequelize = new Sequelize('study_database', 'softeng2', 'thisisencrypted', {
     host: 'localhost',
     dialect: 'sqlite',
 
-    pool: {
-        max: 5,
-        min: 0,
-        idle: 10000
-    },
+    // pool: {
+    //     max: ,
+    //     min: 0,
+    //     idle: 10000
+    // },
 
     //Sqlite only
     storage: './study_database.sqlite'

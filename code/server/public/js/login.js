@@ -6,11 +6,13 @@ $('#login-form').on('submit', function(event){
     url: '/api/login',
     data: {username: $('#username').val(), password: $('#password').val()},
     success: function(data){
+      
       sessionStorage.setItem('username', data.user.username);
       sessionStorage.setItem('user_id', data.user.id);
       $('.anonymous').show();
 
       location.href = data.url;
+    
 
     },
     error: function(data) {

@@ -48,7 +48,7 @@ public class PostRequesterTest extends TestCase{
     public void testPostRequester() {
         String reqUrlString = mServer.getUrl("/").toString();
         try {
-            response = PostRequester.doAPostRequest(reqUrlString, sendData);
+            response = new JSONObject(PostRequester.doAPostRequest(reqUrlString, sendData));
             req = mServer.takeRequest();
         } catch (Exception e) {
             Log.e("EXCEPTION", "Exception thrown in PostRequesterTest:" + e.getMessage());

@@ -2,11 +2,16 @@
 var api = require('./routes/api.js');
 var pages = require('./routes/index.js');
 
+
 // npm modules
 var express = require('express');
 var app = express();
 var body_parser = require('body-parser');
 var parseArgs = require('minimist');
+var http = require('http').Server(app);
+var io = require("socket.io")(http);
+
+require("./services/chat.js")(io);
 
 app.use(body_parser.urlencoded({ extended: true })); // tell node how we want to parse form data
 app.use(body_parser.json()); // tell node to use json for form parsing
@@ -24,9 +29,11 @@ app.use('/', pages.router); // tell node to use index.js for front facing pages
 var args = parseArgs(process.argv.slice(2));
 processOptions(args);
 
-var server = app.listen(port, function() {
+var server = http.listen(port, function() {
     console.log("App running on port " + server.address().port);
 });
+
+
 
 function processOptions(args) {
     var options = ['fill_database', 'clear_database'];

@@ -12,6 +12,7 @@ html(lang='en')
 
     // Bootstrap core CSS
     link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/color-themes.css', rel='stylesheet')
 
     block stylesheets
 
@@ -23,7 +24,7 @@ html(lang='en')
     //if lt IE 9
     script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
     script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
-
+    
   body(background="/img/footer_lodyas.png")
     nav.navbar.navbar-inverse.navbar-fixed-top
         .container-fluid
@@ -33,9 +34,33 @@ html(lang='en')
                 span.icon-bar
                 span.icon-bar
             a.navbar-brand#home(href='/main') Gradr
-            a.navbar-brand.anonymous(href='/profile') Profile
-            a.navbar-brand.anonymous#matchesLink(href='/') Matches
-            a.navbar-brand.navbar-right.anonymous#logout(href="/") Logout
+
+            .collapse.navbar-collapse#navbar-collapse
+                ul.nav.navbar-nav
+                    li
+                        a.navbar-brand.anonymous(href='/profile') Profile
+                    li
+                        a.navbar-brand.anonymous#matchesLink(href='/') Matches
+
+                ul.nav.navbar-nav.navbar-right
+                    li.dropdown
+                        a.navbar-brand.dropdown-toggle(data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false")#theme-dropdown
+                            | Themes
+                            span.caret
+                        ul.dropdown-menu
+                            li 
+                                a#theme-original Original Theme
+                            li 
+                                a#theme-earth Earth Theme
+                            li 
+                                a#theme-air Air Theme
+                            li 
+                                a#theme-water Water Theme
+                            li 
+                                a#theme-fire Fire Theme
+                    li
+                        a.navbar-brand.anonymous#logout(href="/") Logout
+
     .container.text-center
         .logo
             img(src='/img/gradr_logo.png')
@@ -48,8 +73,10 @@ html(lang='en')
     // ==================================================
     // Placed at the end of the document so the pages load faster
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    script(src='https://cdn.socket.io/socket.io-1.4.5.js')    
     script(src='/js/bootstrap.min.js')
     script(src='/js/login.js')
     script(src='/js/gradr.js')
     script(src='/js/matchList.js')
+    script(src='/js/themeSwitcher.js')
     block scripts

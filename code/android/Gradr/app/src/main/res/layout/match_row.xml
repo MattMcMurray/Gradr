@@ -20,17 +20,20 @@
             android:id="@+id/match_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Steven Bairos-Novak"/>
+            android:text="Steven Bairos-Novak"
+            android:textColor="#000000"/>
         <TextView
             android:id="@+id/match_school"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="UManitoba"/>
+            android:text="UManitoba"
+            android:textColor="#000000"/>
         <TextView
             android:id="@+id/match_courses"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="COMP 4390"/>
+            android:text="COMP 4390"
+            android:textColor="#000000"/>
 
     </LinearLayout>
 
