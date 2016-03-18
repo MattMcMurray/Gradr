@@ -95,7 +95,6 @@ public class MatchListActivity extends AppCompatActivity {
             profileIntent.putExtra("username", username);
             profileIntent.putExtra("id", id);
             startActivity(profileIntent);
-            finish();
         }
 
         return super.onOptionsItemSelected(item);
