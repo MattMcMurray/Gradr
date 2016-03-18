@@ -87,6 +87,9 @@ Sometimes, when trying to merge your feature back into the iteration branch, you
     - `git merge my-feature-branch`
   - Check that everything looks good and delete the temporary merging branch
     - `git branch -D temp_merging_branch`
+
+### Note on chat
+When you log out, the messages you sent wont be seen anymore. You will only see the messages from your match.
     
 All of this seems like a lot of work, but it will keep the merge history looking pretty good and will reduce headaches when there are many conflicts to resolve.
     
