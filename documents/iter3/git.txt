@@ -1,0 +1,15 @@
+jorell: <@jorell|jorell> has joined the channel
+jorell: <@jorell|jorell> set the channel purpose: All git discussions here
+keanek: <@keanek|keanek> has joined the channel
+evan: <@evan|evan> has joined the channel
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+caleb: <@caleb|caleb> has joined the channel
+steve: <@steve|steve> has joined the channel
+
+
+jorell: <!channel>: Should we delete all teh branches that have been merged?
+
+
+mattmcmurray: Nawh, its good to have them for history and it doesn't cost anything to have them there 
+
+
