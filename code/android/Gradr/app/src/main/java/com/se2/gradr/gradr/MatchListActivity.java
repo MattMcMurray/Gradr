@@ -83,15 +83,11 @@ public class MatchListActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+
         if (id == R.id.action_logout) {
             System.out.println("NOT IMPLEMENTED");
         } else if (id == R.id.action_matches) {
             //Do nothing, we're already there...
-//            Intent matchesIntent = new Intent(this, MatchListActivity.class);
-//            matchesIntent.putExtra("username", username);
-//            matchesIntent.putExtra("id", userId);
-//            startActivity(matchesIntent);
         } else if (id == R.id.action_theme) {
             ThemeSelector.showThemeDialog(this);
         } else if (id == R.id.action_profile) {

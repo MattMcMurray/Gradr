@@ -94,7 +94,6 @@ public class SwipeActivity extends AppCompatActivity {
 
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
             System.out.println("NOT IMPLEMENTED");
         } else if (id == R.id.action_matches) {
