@@ -106,4 +106,13 @@ UserMatchDB.prototype.removeUser = function(userId) {
     });
 }
 
+UserMatchDB.prototype.getLeaders = function() {
+    return UserMatch.findAndCountAll({
+        where: {
+            likes: true
+        },
+        group: "likee_id"
+    });
+}
+
 module.exports = UserMatchDB;

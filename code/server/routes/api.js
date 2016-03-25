@@ -75,6 +75,8 @@ router.get('/userBatch', function(req, res) {
 
 });
 
+/*UserMatch api calls*/
+
 router.get('/getPotentialMatches', function(req, res) {
 	UserMatchDAO.getMatches(req.query.userId).then(function(ids) {
 		UserDAO.getUsersById(ids).then(function(users) {
@@ -99,6 +101,17 @@ router.post('/dislikeUser', function(req, res) {
 		
 		res.json(result);
 	});
+});
+
+
+router.get('/getLeaders', function(req,res) {
+	UserMatchDAO.getLeaders().then(function(leaders) {
+		if (leaders.error) {
+			res.status(500)
+		}
+
+		res.json(leaders);
+	})
 });
 
 // Getting a specific user
@@ -208,6 +221,8 @@ router.post('/saveMessage', function(req,res) {
 		res.json(message);
 	})
 });
+
+/*Theme api call*/
 
 router.post('/setTheme', function (req, res) {
 	UserDAO.setTheme(req.body.userId, req.body.theme).then(function(result) {

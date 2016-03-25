@@ -16,6 +16,9 @@ UserMatchInterface.prototype = {
     },
     isMatch: function(liker_id, likee_id) {
         throw "function isMatch() not implemented";
+    },
+    getLeaders: function() {
+        throw "function getLeader() not implemented";
     }
 }
 
