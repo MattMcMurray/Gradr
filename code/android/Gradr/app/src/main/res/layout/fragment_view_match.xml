@@ -1,0 +1,82 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="?pageBackground"
+    tools:context="com.se2.gradr.gradr.fragments.ViewMatchFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:id="@+id/match_image"
+            android:src="@drawable/loading"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/match_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="name placeholder"
+            android:layout_below="@+id/match_image"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/match_school"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="school placeholder"
+            android:layout_below="@+id/match_name"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/match_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="city placeholder"
+            android:layout_below="@+id/match_school"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/match_country"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="country placeholder"
+            android:layout_below="@+id/match_city"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/match_courses"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="courses placeholder"
+            android:layout_below="@+id/match_country"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/match_generalDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="generalDescription placeholder"
+            android:layout_below="@+id/match_courses"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/match_helpDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="helpDescription placeholder"
+            android:layout_below="@+id/match_generalDescription"
+            android:layout_centerHorizontal="true" />
+
+
+    </RelativeLayout>
+
+</FrameLayout>

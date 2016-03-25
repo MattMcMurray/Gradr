@@ -42,6 +42,9 @@ var User = DBConnection.define('users', {
     }, 
     dateOfBirth: {
         type: Sequelize.DATE
+    },
+    theme: {
+        type: Sequelize.INTEGER
     }
 });
 
@@ -108,6 +111,25 @@ UserDB.prototype.createUserProfile = function(userData) {
     });
 };
 
+UserDB.prototype.setTheme = function (userID, theme) {
+    return User.update({
+        theme: theme
+    },
+    {
+        where: { id: userID }
+    });
+};
+
+UserDB.prototype.getTheme = function (userID) {
+    return User.findOne({
+        attributes: ['theme'],
+
+        where: {
+            id: userID
+        }
+    });
+};
+
 UserDB.prototype.getRandom = function(currUserID) {
     return UserMatchDAO.getPreviouslyRatedIds(currUserID).then(function(prevRatedUsers) {
         var idCondition;
@@ -127,6 +149,33 @@ UserDB.prototype.getRandom = function(currUserID) {
                 }
             }).then(function(users){
                 return users[Math.floor(Math.random() * users.length)];
+        });
+    });
+};
+
+UserDB.prototype.getRandomBatch = function(currUserID, size) {
+    return UserMatchDAO.getPreviouslyRatedIds(currUserID).then(function(prevRatedUsers) {
+        var idCondition;
+        if(prevRatedUsers.length == 0) {
+            idCondition = {
+                $ne: currUserID
+            };
+        } else {
+            idCondition = {
+                $ne: currUserID,
+                $notIn: prevRatedUsers
+            };
+        }
+        return User.findAll({
+                where: {
+                    id: idCondition
+                }
+            }).then(function(users){
+                if (users.length <= size) {
+                    return users;
+                }
+                var startPos = Math.floor(Math.random() * (users.length - size));
+                return users.slice(startPos, startPos + size);
         });
     });
 };

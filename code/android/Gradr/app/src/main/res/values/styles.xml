@@ -1,0 +1,45 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!-- Default theme -->
+    <style name="page_background_default">
+        <item name="android:background">@drawable/footer_lodyas</item>
+    </style>
+
+    <!-- Earth theme -->
+    <style name="page_background_earth">
+        <item name="android:background">@drawable/upfeathers</item>
+    </style>
+
+    <!-- Air theme -->
+    <style name="page_background_air">
+        <item name="android:background">@drawable/new_year_background</item>
+    </style>
+
+    <!-- Water theme -->
+    <style name="page_background_water">
+        <item name="android:background">@drawable/waves</item>
+    </style>
+
+    <!-- Fire theme -->
+    <style name="page_background_fire">
+        <item name="android:background">@drawable/stardust</item>
+    </style>
+
+</resources>

@@ -1,0 +1,62 @@
+jorell: <@jorell|jorell> has joined the channel
+jorell: <@jorell|jorell> set the channel purpose: \u2026.
+evan: <@evan|evan> has joined the channel
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+caleb: <@caleb|caleb> has joined the channel
+steve: <@steve|steve> has joined the channel
+keanek: <@keanek|keanek> has joined the channel
+
+
+jorell: <!channel>: Does anyone want a guide to using node.js are you guys okay using the internet?
+caleb: It would be nice to see how to interact with our particular setup, at least for me
+mattmcmurray: I'll write some example api routes and a simple hello world welcome page. Probably tonight or tomorrow night 
+mattmcmurray: Once the boiler plate is done, nodejs is dead simple 
+mattmcmurray: I'll prolly get a dbwrapper module ready as well 
+jorell: what do you mean?
+mattmcmurray: Hard to explain, but basically prof said we need a clear divide between layers so it would make the dB layer distinct
+jorell: ahh
+mattmcmurray: Basically an \"api\" for our db
+jorell: I thought you were going to write a ORM for mysql =))
+jorell: or sqlite
+mattmcmurray: Fuck that noise 
+jorell: I just pushed something to the iter1 branch
+jorell: main.js. Basically setups up the endpoints and starts the server.  Our only rest url right now is GET \/api which will give you {message: \u201cHello World\u201d}
+mattmcmurray: I might merge in `project_setup` or I might scrap it, since I'm not huge on there being no folder structure
+evan: Are we meeting today?
+jorell: we are not.
+jorell: <@mattmcmurray>: I prefer that you just set up the folder structure.
+mattmcmurray: Cool, I'll do that 
+jorell: actually, I\u2019ll try to start a folder struct right now. You can just change it if you think there\u2019s a better way to do it.
+mattmcmurray: Cool. Use lowercase and underscores if you don't mind
+
+
+jorell: would you guys agree that we should have a file for each route?
+jorell: so for users we have
+jorell: routes\/user_routes.js
+mattmcmurray: Personally I think that's too much
+mattmcmurray: I think one for API and one for front-facing
+jorell: Fo shizzle
+mattmcmurray: And then in the API, we just make sure we group things nicely. All user routes are together, all settings routes, etc etc
+jorell: Sounds good.
+jorell: <@mattmcmurray>: any idea for a user accounts module\/
+mattmcmurray: Haven't really looked into it much. Got some work to do for HCI and algs. I'll look into it when I'm done with that stuff
+jorell: Oh don\u2019t worry about it. Just wondering if you had something off of the top of your head.
+jorell: I\u2019ll do that now.
+mattmcmurray: Word. Post your findings and we can discuss the merits of each
+jorell: <https:\/\/stormpath.com\/blog\/choosing-nodejs-authentication-strategy\/>
+jorell: Learn the common ways Node.js developers implement user management and authentication and determine what is best for you.
+jorell: <http:\/\/passportjs.org>
+jorell: Simple, unobtrusive authentication for Node.js
+mattmcmurray: Passport is what norima used, it was pretty straightforward from what I remember
+jorell: sweet.
+jorell: hha
+jorell: I\u2019ll try it out.
+evan: It got a little messier with oauth integration, but they also used oauth in a non conventional way. 
+jorell: Are we doing oauth though? haha
+evan: I can't even remember what bare passport looked like
+mattmcmurray: Yeah, oauth made it a pain, but we could use facebook or something to make our lives really easy
+mattmcmurray: or google or whatever
+evan: Could be a nice feature, but probably not
+evan: Yeah, if we used it the way it's supposed to be used it'd be easier
+
+

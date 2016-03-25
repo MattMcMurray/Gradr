@@ -146,6 +146,16 @@ UserStub.prototype.getRandom = function(currUserID) {
     });
 };
 
+UserStub.prototype.getRandomBatch = function(currUserID, size) {
+    return new Promise(function(resolve, reject) {
+        if (currUserID == 111) {
+            resolve(users.slice(1,3));
+        } else {
+            resolve(users);
+        }
+    });
+}
+
 UserStub.prototype.removeUser = function(userID) {
     var removed = null;
     for (var i = 0; i < userList.length; i++) {
@@ -158,7 +168,7 @@ UserStub.prototype.removeUser = function(userID) {
     return new Promise(function(resolve, reject) {
         resolve(removed);
     });
-}
+};
 
 module.exports = UserStub;
 

@@ -112,6 +112,24 @@ describe('User', function() {
         });
     });
 
+    describe('User getRandomBatch', function() {
+        it('gets a random set of users', function(done) {
+            user.getRandom(111, 2).then(function(data) {
+                assert.that(data).is.not.null();
+                assert.that(data.length).is.equalTo(2);
+            });
+            done();
+        });
+
+        it('gets a different random set of users', function(done) {
+            user.getRandom(444).then(function(data) {
+                assert.that(data).is.not.null();
+                assert.that(data.length).is.equalTo(3);
+            });
+            done();
+        });
+    });
+
     describe('User removeUser', function() {
         it('removes a user', function(done) {
             user.removeUser(333).then(function(data) {

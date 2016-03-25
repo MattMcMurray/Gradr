@@ -36,8 +36,20 @@ var getRandom = function(currUserID) {
     return userDAO.getRandom(currUserID);
 }
 
+var getRandomBatch = function(currUserID, size) {
+    return userDAO.getRandomBatch(currUserID, size);
+}
+
 var removeUser = function(userID) {
     return userDAO.removeUser(userID);
+}
+
+var setTheme = function(userID, theme) {
+    return userDAO.setTheme(userID, theme);
+}
+
+var getTheme = function(userID) {
+    return userDAO.getTheme(userID);
 }
 
 module.exports = {
@@ -46,7 +58,10 @@ module.exports = {
     getUsersById: getUsersById,
     createUser: createUser,
     getRandom: getRandom,
+    getRandomBatch: getRandomBatch,
     getAllUsers: getAllUsers,
     removeUser: removeUser,
-    createUserProfile:createUserProfile
+    createUserProfile:createUserProfile,
+    setTheme: setTheme,
+    getTheme: getTheme
 }

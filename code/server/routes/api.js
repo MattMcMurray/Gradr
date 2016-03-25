@@ -5,7 +5,9 @@ var app = _express();
 var UserDAO = require('../data_access/UserDataAccess.js');
 var UserMatchDAO = require('../data_access/UserMatchDataAccess.js');
 var RatingDAO = require('../data_access/RatingDataAccess.js');
+var MessagesDAO = require('../data_access/MessagesDataAccess.js');
 var authenticator = require("../mixins/authenticator.js");
+
 
 initializeDAOs('db');
 
@@ -50,7 +52,7 @@ router.post("/login", function(req,res) {
 
 
 // Get a random user; useful for matching process
-router.get('/randomUser', function(req, res){
+router.get('/randomUser', function(req, res) {
 	UserDAO.getRandom(req.query.currUserId).then(function(user) {
 		if (user != null) {
 			res.json({username: user.username, userID: user.id, school: user.school, firstname: user.firstname, lastname: user.lastname, helpDescription: user.helpDescription})	
@@ -59,6 +61,18 @@ router.get('/randomUser', function(req, res){
 		}
 		
 	});
+});
+
+// Get a set of random users; useful for matching process
+router.get('/userBatch', function(req, res) {
+	UserDAO.getRandomBatch(req.query.currUserId, parseInt(req.query.batchSize)).then(function(users) {
+		if (users != null) {
+			res.json({users: users});
+		} else {
+			res.json({message: "Something went wrong"});
+		}
+	});
+
 });
 
 router.get('/getPotentialMatches', function(req, res) {
@@ -176,6 +190,50 @@ router.post('/deleteUser', function(req, res) {
 	});
 });
 
+/* Messages API Calls*/
+router.get('/getMessages', function(req,res) {
+	MessagesDAO.getMessages(req.query.sender, req.query.receiver).then(function(messages) {
+		res.json({'messages': messages});
+	});
+});
+
+router.get('/getAllMessages', function(req,res) {
+	MessagesDAO.getAllMessages(req.query.sender, req.query.receiver).then(function(messages) {
+		res.json({'messages': messages});
+	});
+});
+
+router.post('/saveMessage', function(req,res) {
+	MessagesDAO.saveMessage(req.body).then(function(message){
+		res.json(message);
+	})
+});
+
+router.post('/setTheme', function (req, res) {
+	UserDAO.setTheme(req.body.userId, req.body.theme).then(function(result) {
+		if (result.error) {
+			res.status(500).send("Internal server error");
+		} else {
+			res.json({
+				status: 'OK'
+			});
+		}
+	});
+});
+
+router.get('/getTheme', function (req, res) {
+	UserDAO.getTheme(req.query.user).then(function (result) {
+		if (result.error) {
+			res.status(500).send("Internal server error");
+		} else {
+			res.json({
+				status: 'OK',
+				theme: result.dataValues.theme
+			});
+		}
+	});
+});
+
 function getCredentials(req){
 	return {username: req.body.username, password: req.body.password};
 }
@@ -192,6 +250,7 @@ function initializeDAOs(mode) {
 	UserDAO.init(mode);
 	UserMatchDAO.init(mode);
 	RatingDAO.init(mode);
+	MessagesDAO.init(mode);
 }
 
 module.exports = {

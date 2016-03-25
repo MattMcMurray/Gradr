@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="?pageBackground">
+
+    <com.wenchao.cardstack.CardStack
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding = "20dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#008000"
+        android:shadowColor="#000000"
+        android:shadowRadius="20.0"
+        android:shadowDx="1.0"
+        android:shadowDy="1.0"
+        android:text="Pass"
+        android:id="@+id/passView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="114dp"
+        android:textSize="50dp"
+        android:gravity="center"
+        android:visibility="gone"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FF0000"
+        android:shadowColor="#000000"
+        android:shadowRadius="20.0"
+        android:shadowDx="1.0"
+        android:shadowDy="1.0"
+        android:text="Fail"
+        android:id="@+id/failView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="114dp"
+        android:textSize="50dp"
+        android:gravity="center"
+        android:visibility="gone"/>
+
+</RelativeLayout>

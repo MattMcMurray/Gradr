@@ -5,13 +5,14 @@ $(function() {
     var username = sessionStorage.getItem('username');
     var user_id = sessionStorage.getItem('user_id');
 
+    
+
     if (!username || !user_id) {
         location.replace('/');
-    } else {
-        // TODO iteration2: verify authenticity of logged in user; right now security basically doesn't exist
     }
 
 });
+
 
 $('#likeButton').click(function(e) {
     e.preventDefault();
