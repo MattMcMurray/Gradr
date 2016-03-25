@@ -4,6 +4,7 @@
     - for iteration 2: https://trello.com/b/JOCDOuCr
     - for iteration 3: https://trello.com/b/O1QovCWC
 - To run the server:
+    - use a UNIX based system
     - `cd` into `Gradr/code/server`
     - run `sudo ./get_started.sh` to install all dependencies
     - run `sudo node main.js`
