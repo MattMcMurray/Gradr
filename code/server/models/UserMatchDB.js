@@ -108,6 +108,7 @@ UserMatchDB.prototype.removeUser = function(userId) {
 
 UserMatchDB.prototype.getLeaders = function() {
     return UserMatch.findAndCountAll({
+        attributes: ['likee_id'],
         where: {
             likes: true
         },

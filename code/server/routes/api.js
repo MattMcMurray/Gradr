@@ -106,12 +106,28 @@ router.post('/dislikeUser', function(req, res) {
 
 router.get('/getLeaders', function(req,res) {
 	UserMatchDAO.getLeaders().then(function(leaders) {
-		if (leaders.error) {
-			res.status(500)
+		var ids = [];
+		var results = [];
+		for (var i = 0; i < leaders.rows.length; i++) {
+			ids.push(leaders.rows[i].likee_id);
 		}
+		console.log(ids);
+		UserDAO.getUsersById(ids).then(function(users) {
 
-		res.json(leaders);
-	})
+			if (leaders.error || users.error) {
+				res.status(500)
+			}
+
+			for(var i = 0; i < leaders.rows.length; i ++) {
+				results.push({count: leaders.count[i].count, user: users[i]})
+			}
+
+			results.sort(function(a,b) { return parseFloat(b.count) - parseFloat(a.count) } );
+
+			res.json({leaders:results});
+		});
+		
+	});
 });
 
 // Getting a specific user
