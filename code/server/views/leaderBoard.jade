@@ -1,0 +1,24 @@
+extends ./base.jade
+
+block stylesheets
+	link(href='/css/index.css', rel='stylesheet')
+
+
+
+block content
+	.container
+		table.table
+			thead
+				tr
+					th Username
+					th Number of likes
+			tbody
+				for leader in leaders
+					tr
+						td !{leader.user.username}
+						td !{leader.count}
+
+
+
+
+

@@ -32,11 +32,16 @@ var isMatch = function(liker_id, likee_id) {
     return userMatchDAO.isMatch(liker_id, likee_id);
 }
 
+var getLeaders = function() {
+    return userMatchDAO.getLeaders();
+}
+
 module.exports = {
     init: init,
     addUserMatch: addUserMatch,
     getMatches: getMatches,
     getPreviouslyRatedIds: getPreviouslyRatedIds,
     removeUser: removeUser,
-    isMatch: isMatch
+    isMatch: isMatch,
+    getLeaders: getLeaders
 }
