@@ -28,7 +28,7 @@ router.get("/matches", function(req, res) {
 	});
 });
 
-router.get("/leaderBoard", function(req,res) {
+router.get("/leaders", function(req,res) {
 	UserMatchDAO.getLeaders().then(function(leaders) {
 		var ids = [];
 		var results = [];
