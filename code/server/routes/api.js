@@ -55,7 +55,7 @@ router.post("/login", function(req,res) {
 router.get('/randomUser', function(req, res) {
 	UserDAO.getRandom(req.query.currUserId).then(function(user) {
 		if (user != null) {
-			res.json({username: user.username, userID: user.id, school: user.school, firstname: user.firstname, lastname: user.lastname, helpDescription: user.helpDescription})	
+			res.json({username: user.username, userID: user.id, school: user.school, firstname: user.firstname, lastname: user.lastname, helpDescription: user.helpDescription, picture: user.picture})	
 		} else {
 			res.json({message: "Something went wrong"});
 		}
@@ -242,7 +242,7 @@ function getProfileDate(req) {
 	return {username: req.body.username, firstname: req.body.firstname, lastname: req.body.lastname, 
 		address: req.body.address, city: req.body.city, country: req.body.country, school: req.body.school, 
 		courses: req.body.courses, generalDescription: req.body.generalDescription, helpDescription: req.body.helpDescription, 
-		dateOfBirth: req.body.dateOfBirth};
+		dateOfBirth: req.body.dateOfBirth, picture: req.body.picture};
 }
 
 // Initialize as either 'db' or 'stub'
