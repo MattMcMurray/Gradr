@@ -217,6 +217,7 @@ describe('Database query tests', function() {
 				User.getUsersById(1).then(function(user){
 					assert.that(user).is.not.null();
 					assert.that(user.length).is.equalTo(1);
+					console.log(user[0]);
 					assert.that(user[0].username).is.equalTo('jhudson0');
 					assert.that(user[0].firstname).is.equalTo('Joyce');
 					assert.that(user[0].lastname).is.equalTo('Hudson');

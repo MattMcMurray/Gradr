@@ -557,5 +557,17 @@ describe('api', function() {
             });
         });
     });
+
+    describe('GET /api/getLeaders', function() {
+        it('retrieves a list of leaders', function(done){
+            request(app)
+            .get('/api/getLeaders')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                done();
+            });
+        });
+    });
     
 });
