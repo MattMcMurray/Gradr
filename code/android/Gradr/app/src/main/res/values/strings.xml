@@ -19,10 +19,10 @@
         completions."
     </string>
     <!-- Steve's localhost -->
-    <!--<string name="http_address_server">"http://192.168.100.105"</string>-->
+    <string name="http_address_server">"http://192.168.100.107"</string>
    <!-- <string name="http_address_server">"140.193.193.188"-->
-    <string name="http_address_server">"http://ec2-52-26-203-11.us-west-2.compute.amazonaws.com"
-    </string>
+    <!--<string name="http_address_server">"http://ec2-52-26-203-11.us-west-2.compute.amazonaws.com"-->
+    <!--</string>-->
     <!--<string name="http_address_server">"http://10.0.2.2:1080"</string>-->
     <string name="title_activity_swipe">Find new study buddies</string>
 

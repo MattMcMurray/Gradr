@@ -12,13 +12,18 @@
         android:title="Matches"
         app:showAsAction="ifRoom" />
     <item
+        android:id="@+id/action_leaders"
+        android:orderInCategory="300"
+        android:title="Leaderboard"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/action_theme"
-        android:orderInCategory="200"
+        android:orderInCategory="400"
         android:title="Theme"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_logout"
-        android:orderInCategory="200"
+        android:orderInCategory="500"
         android:title="Logout"
         app:showAsAction="never" />
 </menu>
