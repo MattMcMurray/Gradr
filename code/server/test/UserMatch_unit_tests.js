@@ -167,4 +167,14 @@ describe('UserMatch', function() {
             });
         });
     });
+
+    describe('UserMatch getLeaders', function() {
+        it('get leaders', function(done) {
+            userMatch.getLeaders().then(function(data) {
+                assert.that(data).is.not.null();
+                assert.that(data.length).is.not.equalTo(0);
+                done();
+            });
+        });
+    });
 });
