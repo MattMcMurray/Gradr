@@ -120,6 +120,13 @@ UserMatchStub.prototype.isMatch = function(liker_id, likee_id) {
     });
 };
 
+UserMatchStub.prototype.getLeaders = function() {
+    return new Promise(function(resolve, reject) {
+        console.log("BOOOOM!");
+        resolve([1,2,3,4]);
+    });
+}
+
 //Helper function
 function getMatch(liker_id, likee_id) {
     for (var i = 0; i < userMatches.length; i++) {
@@ -129,6 +136,8 @@ function getMatch(liker_id, likee_id) {
     }
     return null;
 }
+
+
 
 
 

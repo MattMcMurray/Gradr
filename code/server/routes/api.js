@@ -126,6 +126,7 @@ router.get('/getLeaders', function(req,res) {
 
 			results.sort(function(a,b) { return parseFloat(b.count) - parseFloat(a.count) } );
 
+			console.log("Returning shit");
 			res.json({leaders:results});
 		});
 		
