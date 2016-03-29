@@ -66,7 +66,6 @@ UserDB.prototype.getUser = function(username) {
 
 UserDB.prototype.getUsersById = function(userIDs) {
     return User.findAll({
-        attributes: ['username', 'firstname', 'lastname'],
         where:{
             id: userIDs
         }
