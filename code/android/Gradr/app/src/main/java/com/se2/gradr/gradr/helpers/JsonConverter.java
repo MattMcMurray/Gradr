@@ -52,10 +52,14 @@ public class JsonConverter {
         if (json.has("helpDescription")) {
             helpDescription = json.getString("helpDescription");
         }
+        String picture = "";
+        if (json.has("helpDescription")) {
+            picture = json.getString("picture");
+        }
 
         User user = new User(json.getString("username"),
                 json.getInt("id"), firstname, lastname, city,
-                country, school, courses, generalDescription, helpDescription);
+                country, school, courses, generalDescription, helpDescription, picture);
         return user;
     }
 

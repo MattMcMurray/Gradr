@@ -126,7 +126,7 @@ public class SwipeActivity extends AppCompatActivity {
             //Get images loading on background thread
             User user = getItem(position);
             ImageView imageView = (ImageView) contentView.findViewById(R.id.userImage);
-            String url = getString(R.string.cat_api_url) + Math.random();
+            String url = user.getPicture();
             new ImageDownloader(url).execute(imageView);
 
             //Set the values on the User's card

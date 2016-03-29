@@ -18,6 +18,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.se2.gradr.gradr.helpers.GetRequester;
 import com.se2.gradr.gradr.helpers.PostRequester;
@@ -49,8 +50,8 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView mCityView;
     private TextView mCountryView;
     private TextView mCoursesView;
-
     private TextView mDobView;
+    private TextView mPictureView;
 
     private LinearLayout mProfileFormView;
     private ProgressBar mProgressView;
@@ -84,6 +85,7 @@ public class ProfileActivity extends AppCompatActivity {
         mProfileFormView = (LinearLayout) findViewById(R.id.profile_form);
         mProgressView = (ProgressBar) findViewById(R.id.profile_progress);
         mDobView = (AutoCompleteTextView) findViewById(R.id.tb_dob);
+        mPictureView = (AutoCompleteTextView) findViewById(R.id.tb_picture);
 
         mUsernameView = (TextView) findViewById(R.id.label_username);
         mUsernameView.setText(username);
@@ -92,7 +94,9 @@ public class ProfileActivity extends AppCompatActivity {
         mSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                save();
+                if (validate()) {
+                    save();
+                }
             }
         });
 
@@ -177,7 +181,8 @@ public class ProfileActivity extends AppCompatActivity {
                         mCityView.setText(user.getString("city"));
                         mCountryView.setText(user.getString("country"));
                         mCoursesView.setText(user.getString("courses"));
-                        mDobView.setText(user.getString("dateOfBirth").substring(0,10));
+                        mDobView.setText(user.getString("dateOfBirth").substring(0, 10));
+                        mPictureView.setText(user.getString("picture"));
                     } catch (Exception e) {
                         System.out.println("Error parsing returned JSON: " + e.getMessage());
                     }
@@ -193,10 +198,12 @@ public class ProfileActivity extends AppCompatActivity {
         /* TO DO*/
 
         private int id;
-        private String username, about, help, school, firstName, lastName, city, country, courses;
+        private String username, about, help, school, firstName, lastName, city, country, courses, picture;
         private Date dob;
 
-        SaveProfileHelper(int id, String username, String about, String help, String school, String firstName, String lastName, String city, String country, String courses, Date dob) {
+        SaveProfileHelper(int id, String username, String about, String help, String school,
+                          String firstName, String lastName, String city, String country,
+                          String courses, Date dob, String picture) {
             this.id = id;
             this.username = username;
             this.about = about;
@@ -208,6 +215,7 @@ public class ProfileActivity extends AppCompatActivity {
             this.country = country;
             this.courses = courses;
             this.dob = dob;
+            this.picture = picture;
         }
 
         @Override
@@ -227,6 +235,7 @@ public class ProfileActivity extends AppCompatActivity {
                 profileInfo.put("country",country);
                 profileInfo.put("courses",courses);
                 profileInfo.put("dateOfBirth",dob);
+                profileInfo.put("picture",picture);
 
                 System.out.println("SENDING - " + profileInfo.toString());
 
@@ -279,7 +288,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void save()
     {
-        String about, help, school, firstName, lastName, city, country, courses;
+        String about, help, school, firstName, lastName, city, country, courses, picture;
         Date dob;
 
         showProgress(true);
@@ -292,6 +301,7 @@ public class ProfileActivity extends AppCompatActivity {
         city = mCityView.getText().toString();
         country = mCountryView.getText().toString();
         courses = mCoursesView.getText().toString();
+        picture = mPictureView.getText().toString();
 
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         try {
@@ -300,7 +310,7 @@ public class ProfileActivity extends AppCompatActivity {
             {
                 throw new ParseException("Not a valid date", -1);
             }
-            new SaveProfileHelper(userId,username,about,help,school,firstName,lastName,city,country,courses,dob).execute();
+            new SaveProfileHelper(userId,username,about,help,school,firstName,lastName,city,country,courses,dob,picture).execute();
             new LoadProfileHelper(userId).execute();
         } catch (ParseException e){
             System.out.println("Date formatted incorrectly: " + e.getMessage());
@@ -309,5 +319,20 @@ public class ProfileActivity extends AppCompatActivity {
             showProgress(false);
         }
 
+    }
+
+    private boolean validate() {
+        boolean isValid;
+        String pattern = "/^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$/";
+        String url = mPictureView.getText().toString();
+
+        isValid = url.matches(pattern);
+
+        if (!isValid) {
+            Toast toast = Toast.makeText(getApplicationContext(), R.string.error_invalid_url, Toast.LENGTH_SHORT);
+            toast.show();
+        }
+
+        return isValid;
     }
 }
