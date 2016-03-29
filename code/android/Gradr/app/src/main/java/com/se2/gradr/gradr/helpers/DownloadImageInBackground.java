@@ -2,6 +2,7 @@ package com.se2.gradr.gradr.helpers;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Rect;
 import android.os.AsyncTask;
 import android.widget.ImageView;
 
@@ -44,12 +45,15 @@ public class DownloadImageInBackground extends AsyncTask<ImageView, Void, Bitmap
             URL theUrl = new URL(url);
             HttpURLConnection con = (HttpURLConnection)theUrl.openConnection();
             InputStream is = con.getInputStream();
-            result = BitmapFactory.decodeStream(is);
+
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inSampleSize = 4;
+            result = BitmapFactory.decodeStream(is, null, options);
             if (null != result)
                 return result;
 
         } catch(Exception e) {
-            System.out.println("ERRROR FOR IMAGE AT URL " + url);
+            System.out.println("ERROR FOR IMAGE AT URL " + url);
             System.out.println(e.toString());
         }
         return result;

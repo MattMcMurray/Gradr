@@ -97,6 +97,7 @@ public class ViewMatchFragment extends Fragment {
 
     public void populateFields() {
         ImageView imageView = (ImageView) rootView.findViewById(R.id.match_image);
+        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         match.setImage(imageView);
 
         TextView tv = (TextView) rootView.findViewById(R.id.match_name);

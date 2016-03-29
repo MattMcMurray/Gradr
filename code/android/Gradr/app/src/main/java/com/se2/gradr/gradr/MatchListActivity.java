@@ -131,6 +131,7 @@ public class MatchListActivity extends AppCompatActivity {
             }
             UserAndImage user = matches.get(position);
             ImageView imageView = (ImageView) view.findViewById(R.id.match_image);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
             user.setImage(imageView);
 
             TextView v =(TextView) (view.findViewById(R.id.match_name));

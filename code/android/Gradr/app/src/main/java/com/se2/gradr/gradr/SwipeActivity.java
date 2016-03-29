@@ -344,7 +344,9 @@ public class SwipeActivity extends AppCompatActivity {
                 URL theUrl = new URL(url);
                 HttpURLConnection con = (HttpURLConnection)theUrl.openConnection();
                 InputStream is = con.getInputStream();
-                result = BitmapFactory.decodeStream(is);
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inSampleSize = 6;
+                result = BitmapFactory.decodeStream(is, null, options);
                 if (null != result)
                     return result;
 
