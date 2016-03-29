@@ -122,8 +122,17 @@ UserMatchStub.prototype.isMatch = function(liker_id, likee_id) {
 
 UserMatchStub.prototype.getLeaders = function() {
     return new Promise(function(resolve, reject) {
-        console.log("BOOOOM!");
-        resolve([1,2,3,4]);
+        resolve({rows: 
+            [ 
+            {likee_id: '222'}, 
+            {likee_id: '333'}
+            ],
+            count: 
+            [
+            {count: 2},
+            {count: 3}
+            ]
+        });
     });
 }
 

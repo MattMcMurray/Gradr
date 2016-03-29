@@ -114,19 +114,15 @@ router.get('/getLeaders', function(req,res) {
 		console.log(ids);
 		UserDAO.getUsersById(ids).then(function(users) {
 
-
 			if (leaders.error || users.error) {
 				res.status(500)
 			}
-
 			for(var i = 0; i < leaders.rows.length; i ++) {
 				delete users[i].dataValues.password
 				results.push({count: leaders.count[i].count, user: users[i]})
 			}
-
 			results.sort(function(a,b) { return parseFloat(b.count) - parseFloat(a.count) } );
 
-			console.log("Returning shit");
 			res.json({leaders:results});
 		});
 		

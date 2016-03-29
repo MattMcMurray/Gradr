@@ -58,9 +58,14 @@ UserStub.prototype.getUser = function(username) {
 UserStub.prototype.getUsersById = function(userIDs) {
     var results = [];
     for (var i = 0; i < userIDs.length; i++) {
-        var found = findUser('id', userIDs[i])
+        var found = findUser('id', userIDs[i]);
         if (found)
             results.push(found);
+    }
+
+    var users = [];
+    for (var i = 0; i < results.length; i++) {
+        users.push({dataValues: results[i]});
     }
 
     return new Promise(function(resolve, reject) {
@@ -68,7 +73,7 @@ UserStub.prototype.getUsersById = function(userIDs) {
             dataValues: results
         };*/
 
-        resolve(results);
+        resolve(users);
     });
 };
 

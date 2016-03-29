@@ -147,10 +147,11 @@ describe('api', function() {
             .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function(err, res) {
                 if (err) done(err); // exit if there's an error
+                console.log(res.body.matches);
                 assert.that(res.body.matches).is.not.null();
                 assert.that(res.body.matches.length).is.equalTo(1);
-                assert.that(res.body.matches[0].id).is.not.null();
-                assert.that(res.body.matches[0].id).is.equalTo(222);
+                assert.that(res.body.matches[0].dataValues.id).is.not.null();
+                assert.that(res.body.matches[0].dataValues.id).is.equalTo(222);
                 done();
             });
         });
