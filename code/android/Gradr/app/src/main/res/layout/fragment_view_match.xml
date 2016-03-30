@@ -24,7 +24,8 @@
             android:layout_height="wrap_content"
             android:text="name placeholder"
             android:layout_below="@+id/match_image"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:paddingTop="10dp"/>
 
         <TextView
             android:id="@+id/match_school"
