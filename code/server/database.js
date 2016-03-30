@@ -16,22 +16,19 @@ var sequelize = new Sequelize('study_database', 'softeng2', 'thisisencrypted', {
     storage: './study_database.sqlite'
 });
 
-var fillDatabase = function(env) {
-    executeSQLScript(setPath(env));
+var fillDatabase = function() {
+    executeSQLScript(setPath('testusers'));
+    executeSQLScript(setPath('testratings'));
+    executeSQLScript(setPath('testmatches'));
+    executeSQLScript(setPath('testmessages'));
 }
 
 var clearDatabase = function(env) {
-    executeSQLScript(setPath(env));
+    executeSQLScript(setPath('clear_database'));
 }
 
-
-function setPath(env) {
-    var path ='./dbscripts/testusers.sql';
-    if (env == 'test') {
-        path = "../" + path;
-    }
-
-    return path;
+function setPath(name) {
+    return './dbscripts/' + name + '.sql';
 }
 
 function executeSQLScript(filename) {

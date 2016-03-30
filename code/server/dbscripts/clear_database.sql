@@ -1,4 +1,7 @@
-delete from ratings;
-delete from user_matches;
-delete from users;
-update sqlite_sequence set seq=1;
+PRAGMA foreign_keys = OFF;
+
+DROP TABLE ratings;
+DROP TABLE messages;
+DROP TABLE user_matches;
+DROP TABLE users;
+UPDATE sqlite_sequence SET seq=1;
