@@ -131,7 +131,7 @@ public class MatchListActivity extends AppCompatActivity {
             }
             UserAndImage user = matches.get(position);
             ImageView imageView = (ImageView) view.findViewById(R.id.match_image);
-            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
             user.setImage(imageView);
 
             TextView v =(TextView) (view.findViewById(R.id.match_name));
@@ -139,11 +139,11 @@ public class MatchListActivity extends AppCompatActivity {
             if (name == null || name.length() < 2) {
                 name = user.getUsername();
             }
-            v.setText("name = " + name);
+            v.setText("Name: " + name);
             v = (TextView)(view.findViewById(R.id.match_school));
-            v.setText("School = " + user.getSchool());
+            v.setText("School: " + user.getSchool());
             v = (TextView)(view.findViewById(R.id.match_courses));
-            v.setText("Courses = " + user.getCourses());
+            v.setText("Courses: " + user.getCourses());
 
             return view;
         }

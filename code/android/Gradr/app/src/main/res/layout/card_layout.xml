@@ -22,14 +22,14 @@
         android:text="uname"
         android:paddingLeft="15dp"
         android:paddingTop="32dp"
-        android:textSize="32dp"
+        android:textSize="18dp"
         android:textStyle="bold"/>
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="hello world"
-        android:textSize="24dp"
+        android:textSize="14dp"
         android:paddingLeft="40dp"
         />
     <TextView
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="blaaaaah"
-        android:textSize="24dp"
+        android:textSize="14dp"
         android:paddingLeft="40dp"
         />
     <TextView
@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="hello world"
-        android:textSize="24dp"
+        android:textSize="14dp"
         android:paddingLeft="40dp"
         />
 
