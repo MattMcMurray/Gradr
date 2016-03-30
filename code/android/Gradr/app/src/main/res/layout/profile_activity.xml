@@ -211,7 +211,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/prompt_picture"
-                android:inputType="date"
+                android:inputType="text"
                 android:maxLines="1"
                 android:singleLine="true"
                 android:background="@drawable/edittext_rounded_corners"

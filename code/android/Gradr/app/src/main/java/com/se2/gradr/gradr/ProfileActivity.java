@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
@@ -323,10 +324,9 @@ public class ProfileActivity extends AppCompatActivity {
 
     private boolean validate() {
         boolean isValid;
-        String pattern = "/^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$/";
         String url = mPictureView.getText().toString();
 
-        isValid = url.matches(pattern);
+        isValid = Patterns.WEB_URL.matcher(url).matches();
 
         if (!isValid) {
             Toast toast = Toast.makeText(getApplicationContext(), R.string.error_invalid_url, Toast.LENGTH_SHORT);
