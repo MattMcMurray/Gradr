@@ -24,7 +24,7 @@ var fillDatabase = function() {
 }
 
 var clearDatabase = function(env) {
-    executeSQLScript(setPath('clear_database'));
+    executeSQLScript(setPath('drop_database'));
 }
 
 function setPath(name) {

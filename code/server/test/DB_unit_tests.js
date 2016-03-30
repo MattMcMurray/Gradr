@@ -141,16 +141,16 @@ describe('Database query tests', function() {
 
 	describe('Message queries', function() {
 		describe('getMessages', function() {
-			it('returns messsages from 202', function(done) {
-				messages.getMessages(202, 201).then(function(data) {
+			it('returns messsages from 52', function(done) {
+				messages.getMessages(52, 51).then(function(data) {
 					assert.that(data).is.not.null();
 					assert.that(data.length).is.equalTo(1);
 					done();
 				});
 			});
 
-			it('returns messsages from 201', function(done) {
-				messages.getMessages(201, 202).then(function(data) {
+			it('returns messsages from 51', function(done) {
+				messages.getMessages(51, 52).then(function(data) {
 					assert.that(data).is.not.null();
 					assert.that(data.length).is.equalTo(2);
 					done();
@@ -158,7 +158,7 @@ describe('Database query tests', function() {
 			});
 
 			it('returns messsages from 402', function(done) {
-				messages.getMessages(402, 201).then(function(data) {
+				messages.getMessages(402, 51).then(function(data) {
 					assert.that(data).is.not.null();
 					assert.that(data.length).is.equalTo(0);
 					done();
@@ -167,16 +167,16 @@ describe('Database query tests', function() {
 		});
 
 		describe('getAllMessages', function() {
-			it('returns messages from either 202 or 201', function(done) {
-				messages.getAllMessages(202, 201).then(function(data) {
+			it('returns messages from either 52 or 51', function(done) {
+				messages.getAllMessages(52, 51).then(function(data) {
 					assert.that(data).is.not.null();
 					assert.that(data.length).is.equalTo(3);
 					done();
 				});
 			});
 
-			it('returns messages from either 402 or 201', function(done) {
-				messages.getAllMessages(402, 201).then(function(data) {
+			it('returns messages from either 402 or 51', function(done) {
+				messages.getAllMessages(402, 51).then(function(data) {
 					assert.that(data).is.not.null();
 					assert.that(data.length).is.equalTo(0);
 					done();
@@ -185,11 +185,11 @@ describe('Database query tests', function() {
 		});
 
 		describe('saveMessage', function() {
-			it('saves a message from 202 to 201', function(done) {
+			it('saves a message from 52 to 51', function(done) {
 				var messageObject = {
 					message: 'Bye',
-					sender: 202,
-					receiver: 201,
+					sender: 52,
+					receiver: 51,
 					sent: true
 				};
 				messages.saveMessage(messageObject).then(function(data) {
@@ -300,7 +300,7 @@ describe('Database query tests', function() {
 			it('returns a set of random users that aren\'t the requesting user and have not been rated by the requester. giant request', function(done) {
 				User.getRandomBatch(1, 1000).then(function(users){
 					assert.that(users).is.not.null();
-					assert.that(users.length).is.greaterThan(200); //Should have all users, since we want to freely add more test users, this will ensure we have them all
+					assert.that(users.length).is.greaterThan(50); //Should have all users, since we want to freely add more test users, this will ensure we have them all
 					done();
 				});
 			});
