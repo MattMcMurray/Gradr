@@ -129,6 +129,11 @@ public class ProfileActivity extends AppCompatActivity {
             ThemeSelector.showThemeDialog(this);
         } else if (id == R.id.action_profile) {
             //Do nothing, we're already there...
+        } else if (id == R.id.action_leaders) {
+            Intent leaderIntent = new Intent(this, LeaderBoardActivity.class);
+            leaderIntent.putExtra("username", username);
+            leaderIntent.putExtra("id", userId);
+            startActivity(leaderIntent);
         }
 
         return super.onOptionsItemSelected(item);

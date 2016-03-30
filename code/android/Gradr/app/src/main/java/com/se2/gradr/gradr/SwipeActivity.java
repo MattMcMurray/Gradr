@@ -110,6 +110,11 @@ public class SwipeActivity extends AppCompatActivity {
             profileIntent.putExtra("username", username);
             profileIntent.putExtra("id", userId);
             startActivity(profileIntent);
+        } else if (id == R.id.action_leaders) {
+            Intent leaderIntent = new Intent(this, LeaderBoardActivity.class);
+            leaderIntent.putExtra("username", username);
+            leaderIntent.putExtra("id", userId);
+            startActivity(leaderIntent);
         }
 
         return super.onOptionsItemSelected(item);
@@ -340,7 +345,7 @@ public class SwipeActivity extends AppCompatActivity {
 
         protected Bitmap download(String url) {
             Bitmap result =null;
-            try{
+            try {
                 URL theUrl = new URL(url);
                 HttpURLConnection con = (HttpURLConnection)theUrl.openConnection();
                 InputStream is = con.getInputStream();

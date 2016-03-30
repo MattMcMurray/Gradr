@@ -12,17 +12,14 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.se2.gradr.gradr.MatchListActivity;
 import com.se2.gradr.gradr.R;
 import com.se2.gradr.gradr.Rating;
 import com.se2.gradr.gradr.User;
 import com.se2.gradr.gradr.UserAndImage;
-import com.se2.gradr.gradr.ViewMatchActivity;
 import com.se2.gradr.gradr.helpers.GetRequester;
 import com.se2.gradr.gradr.helpers.JsonConverter;
 import com.se2.gradr.gradr.helpers.PostRequester;
@@ -32,7 +29,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -177,14 +173,14 @@ public class RateMatchFragment extends Fragment {
         public View getView(int position, View convertView, ViewGroup parent) {
             View view = convertView;
             if (view == null) {
-                view = inflater.inflate(R.layout.rating_row, null);
+                view = inflater.inflate(R.layout.ranking_row, null);
             }
             Rating rating = ratings.get(position);
 
-            TextView textView = (TextView) view.findViewById(R.id.rating_int);
+            TextView textView = (TextView) view.findViewById(R.id.ranking_int);
             textView.setText("" + rating.getScore());
 
-            textView = (TextView) view.findViewById(R.id.comment);
+            textView = (TextView) view.findViewById(R.id.ranking_text);
             textView.setText(rating.getComment());
 
             return view;
