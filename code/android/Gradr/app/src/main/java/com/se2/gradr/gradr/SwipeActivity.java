@@ -115,6 +115,8 @@ public class SwipeActivity extends AppCompatActivity {
             leaderIntent.putExtra("username", username);
             leaderIntent.putExtra("id", userId);
             startActivity(leaderIntent);
+        } else if (id == R.id.action_rejections) {
+            Intent rejectionIntent = new Intent(this, MatchListActivity.class);
         }
 
         return super.onOptionsItemSelected(item);

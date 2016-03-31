@@ -12,6 +12,11 @@
         android:title="Matches"
         app:showAsAction="ifRoom" />
     <item
+        android:id="@+id/action_rejections"
+        android:orderInCategory="250"
+        android:title="Rejections"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_leaders"
         android:orderInCategory="300"
         android:title="Leaderboard"
