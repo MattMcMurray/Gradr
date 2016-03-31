@@ -1,3 +1,6 @@
+var getUrl = window.location;
+var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[0];
+
 $(function() {
     getNewUser();
 
@@ -34,6 +37,9 @@ var userCallback = function(data) {
     $('#lastName').html(toTitleCase(data.lastname));
     $('#helpDescript').html(toTitleCase(data.helpDescription));
     $('#userImage').attr('src', data.picture);
+    if (data.picture == '') {
+        $('#userImage').attr('src', baseUrl + 'api/profilePicPlaceholder');
+    }
 }
 
 // Capitalizes the first letter of each word

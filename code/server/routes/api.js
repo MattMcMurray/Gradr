@@ -50,6 +50,10 @@ router.post("/login", function(req,res) {
 	});
 });
 
+router.get('/profilePicPlaceholder', function (req, res) {
+	var path = require('path');
+	res.sendFile('unknown-user.png', { root: path.join(__dirname, '../public/img') });
+});
 
 // Get a random user; useful for matching process
 router.get('/randomUser', function(req, res) {
