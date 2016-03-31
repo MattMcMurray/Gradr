@@ -82,7 +82,7 @@ describe('api', function() {
         it('updates a user profile', function(done) {
             request(app)
             .post('/api/ProfileUpdate')
-            .send({'username': 'mattmcmurray', 'firstname': 'matt', 'lastname': 'mcmurray', 'city': 'Brandon', 'country': 'Canada', 'school': 'Red River College', 'courses': 'Distributed Systems', 'generalDescription': '', 'helpDescription': '', 'dateOfBirth': null})
+            .send({'username': 'mattmcmurray', 'firstname': 'matt', 'lastname': 'mcmurray', 'city': 'Brandon', 'country': 'Canada', 'school': 'Red River College', 'courses': 'Distributed Systems', 'generalDescription': '', 'helpDescription': '', 'dateOfBirth': null, 'picture': 'http://test.com/image.jpg'})
             .expect(200)
             .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function(err, res) {
@@ -102,6 +102,7 @@ describe('api', function() {
                     assert.that(res.body.user.firstname).is.equalTo("matt");
                     assert.that(res.body.user.lastname).is.equalTo("mcmurray");
                     assert.that(res.body.user.city).is.equalTo("Brandon");
+                    assert.that(res.body.user.picture).is.equalTo("http://test.com/image.jpg");
                     done();
                 });
             });
