@@ -6,6 +6,10 @@ block stylesheets
 
 block content
     div.container.pad-top
+        if isRejections
+            div.alert.alert-danger(role="alert") 
+                strong Rejected!
+                |  Aw man, these users don't want to study with you :(
         div#matchesContainer
             each user in matches
                 a(href="/MatchProfile?user=#{user.id}" value="#{user.id}")

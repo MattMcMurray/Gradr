@@ -63,6 +63,19 @@ UserMatchDB.prototype.getMatches = function(userId) {
     });
 };
 
+UserMatchDB.prototype.getRejections = function(userId) {
+    return DBConnection.query(
+        'SELECT um2.liker_id as userId FROM user_matches um2 WHERE um2.liker_id IN (SELECT um1.likee_id FROM user_matches um1 WHERE um1.liker_id = :userId AND um1.likes) AND likee_id= :userId AND NOT um2.likes',
+        { replacements: {userId: userId}, type: DBConnection.QueryTypes.SELECT}).then(function(users) {
+            var ids = [];
+            for (var i=0; i < users.length; i++) {
+                ids[i] = users[i].userId;
+            }
+
+            return ids;
+    });
+}
+
 UserMatchDB.prototype.getPreviouslyRatedIds = function(userId) {
     return UserMatch.findAll({
         where: {

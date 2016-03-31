@@ -11,8 +11,10 @@ function UserMatchStub() {
     userMatches.push({liker_id: 333, likee_id: 222, likes: false});
     userMatches.push({liker_id: 444, likee_id: 111, likes: true});
     userMatches.push({liker_id: 555, likee_id: 111, likes: false});
+    userMatches.push({liker_id: 555, likee_id: 666, likes: false});
+    userMatches.push({liker_id: 666, likee_id: 555, likes: true});
 
-    users = [111, 222, 333, 444, 555];
+    users = [111, 222, 333, 444, 555, 666];
 }
 
 UserMatchStub.prototype = new UserMatchInterface();
@@ -73,6 +75,33 @@ UserMatchStub.prototype.getMatches = function(userId) {
         resolve(ids);
     });
 };
+
+UserMatchStub.prototype.getRejections = function (userId) {
+    var potentialRejections = [];
+    for (var i = 0; i < userMatches.length; i++) {
+        if (userMatches[i].likee_id == userId && userMatches[i].likes == false) {
+            potentialRejections.push(userMatches[i].liker_id);
+        }
+    }
+
+
+    var ids = [];
+    for (var i = 0; i < userMatches.length; i++) {
+        if (userMatches[i].liker_id == userId && userMatches[i].likes == true) {
+            for (var j = 0; j < potentialRejections; j++) {
+                if (userMatches[i].likee_id == potentialRejections[j]) {
+                    ids.push(potentialRejections);
+                    break;
+                }
+            }
+        }
+    }
+
+    return new Promise(function(resolve, reject) {
+        var rejections = {users: ids};
+        resolve(ids);
+    });
+}
 
 UserMatchStub.prototype.getPreviouslyRatedIds = function(userID) {
     var matches = [];
