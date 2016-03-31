@@ -9,11 +9,9 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.se2.gradr.gradr.fragments.ChatMatchFragment;
-import com.se2.gradr.gradr.fragments.RateMatchFragment;
 import com.se2.gradr.gradr.fragments.ViewMatchFragment;
 
-public class ViewMatchActivity extends ViewStudentActivity implements RateMatchFragment.OnFragmentInteractionListener, ChatMatchFragment.OnFragmentInteractionListener{
+public class ViewRejectorActivity extends ViewStudentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +35,7 @@ public class ViewMatchActivity extends ViewStudentActivity implements RateMatchF
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_matches) {
+        if (id == R.id.action_rejections) {
             //That's the page we just came from
             finish();
             return true;
@@ -65,12 +63,6 @@ public class ViewMatchActivity extends ViewStudentActivity implements RateMatchF
                 case 0:
                     ViewMatchFragment vmf = ViewMatchFragment.newInstance(userId, username, currStudent.getUser());
                     return vmf;
-                case 1:
-                    RateMatchFragment rmf = RateMatchFragment.newInstance(userId, username, currStudent.getUser());
-                    return rmf;
-                case 2:
-                    ChatMatchFragment cmf = ChatMatchFragment.newInstance(userId, username, currStudent.getUser());
-                    return cmf;
                 default:
                     return ViewStudentActivity.PlaceholderFragment.newInstance(position + 1);
             }
@@ -79,21 +71,13 @@ public class ViewMatchActivity extends ViewStudentActivity implements RateMatchF
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            // Can only see their profile.
+            return 1;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "VIEW";
-                case 1:
-                    return "RATINGS";
-                case 2:
-                    return "CHAT";
-            }
-            return null;
+            return "YOU MAY ONLY VIEW REJECTOR PROFILES, NO RATING OR CHATTING";
         }
     }
 }

@@ -13,7 +13,6 @@ import android.widget.TextView;
 import com.se2.gradr.gradr.R;
 import com.se2.gradr.gradr.User;
 import com.se2.gradr.gradr.UserAndImage;
-import com.se2.gradr.gradr.ViewMatchActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -72,7 +71,7 @@ public class ViewMatchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_view_match, container, false);
+        rootView = inflater.inflate(R.layout.fragment_view_student, container, false);
         populateFields();
         return rootView;
     }

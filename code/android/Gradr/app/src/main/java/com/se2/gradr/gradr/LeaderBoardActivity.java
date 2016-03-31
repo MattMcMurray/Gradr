@@ -71,7 +71,7 @@ public class LeaderBoardActivity extends AppCompatActivity {
             logoutIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(logoutIntent);
         } else if (id == R.id.action_matches) {
-            Intent matchesIntent = new Intent(this, MatchListActivity.class);
+            Intent matchesIntent = new Intent(this, StudentListActivity.class);
             matchesIntent.putExtra("username", username);
             matchesIntent.putExtra("id", userId);
             startActivity(matchesIntent);
@@ -84,6 +84,12 @@ public class LeaderBoardActivity extends AppCompatActivity {
             startActivity(profileIntent);
         } else if (id == R.id.action_leaders) {
             //Do nothing, we're already there.
+        }  else if (id == R.id.action_rejections) {
+            Intent rejectionIntent = new Intent(this, StudentListActivity.class);
+            rejectionIntent.putExtra("username", username);
+            rejectionIntent.putExtra("id", userId);
+            rejectionIntent.putExtra("rejections", true);
+            startActivity(rejectionIntent);
         }
 
         return super.onOptionsItemSelected(item);

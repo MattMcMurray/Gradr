@@ -34,11 +34,15 @@
             android:label="@string/title_activity_swipe"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MatchListActivity"
+            android:name=".StudentListActivity"
             android:label="@string/title_activity_match_list"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ViewMatchActivity"
+            android:label="@string/title_activity_view_match"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ViewRejectorActivity"
             android:label="@string/title_activity_view_match"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
