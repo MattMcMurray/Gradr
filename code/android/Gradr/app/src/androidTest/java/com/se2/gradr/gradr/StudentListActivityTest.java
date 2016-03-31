@@ -27,6 +27,7 @@ public class StudentListActivityTest extends ActivityInstrumentationTestCase2<St
         Intent i = new Intent();
         i.putExtra("username","test_user_1");
         i.putExtra("id", 202);
+        i.putExtra("rejections", false);
         setActivityIntent(i);
         solo = new Solo(getInstrumentation(), getActivity());
     }
