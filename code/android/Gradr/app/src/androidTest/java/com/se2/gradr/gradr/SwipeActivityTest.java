@@ -36,7 +36,7 @@ public class SwipeActivityTest extends ActivityInstrumentationTestCase2<SwipeAct
 
     public void testMatchesButton() throws Exception {
         solo.clickOnView(getActivity().findViewById(R.id.action_matches));
-        assertTrue(solo.waitForActivity(MatchListActivity.class));
+        assertTrue(solo.waitForActivity(StudentListActivity.class));
     }
 
     public void testThemes() throws Exception {

@@ -352,6 +352,9 @@ public class SwipeActivity extends AppCompatActivity {
         protected Bitmap download(String url) {
             Bitmap result =null;
             try {
+                if (url.equals("")) {
+                    url = getString(R.string.http_address_server) + "/api/profilePicPlaceholder";
+                }
                 URL theUrl = new URL(url);
                 HttpURLConnection con = (HttpURLConnection)theUrl.openConnection();
                 InputStream is = con.getInputStream();
