@@ -288,6 +288,22 @@ describe('Database query tests', function() {
 			});
 		});
 
+		describe('themes', function() {
+			it('sets a theme for a user', function(done) {
+				User.setTheme(1, 4).then(function(data) {
+					assert.that(data).is.not.null();
+					done();
+				});
+			});
+
+			it('gets the theme', function(done) {
+				User.getTheme(1).then(function(data) {
+					assert.that(data.dataValues.theme).is.equalTo(4);
+					done();
+				});
+			});
+		});
+
 		describe('getRandomBatch', function() {
 			it('returns a set of random users that aren\'t the requesting user and have not been rated by the requester. normal case', function(done) {
 				User.getRandomBatch(1, 10).then(function(users){
