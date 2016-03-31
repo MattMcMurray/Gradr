@@ -13,17 +13,16 @@ import android.widget.TextView;
 import com.se2.gradr.gradr.R;
 import com.se2.gradr.gradr.User;
 import com.se2.gradr.gradr.UserAndImage;
-import com.se2.gradr.gradr.ViewMatchActivity;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ViewMatchFragment.OnFragmentInteractionListener} interface
+ * {@link ViewStudentFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ViewMatchFragment#newInstance} factory method to
+ * Use the {@link ViewStudentFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ViewMatchFragment extends Fragment {
+public class ViewStudentFragment extends Fragment {
 
     private int userId;
     private String username;
@@ -34,7 +33,7 @@ public class ViewMatchFragment extends Fragment {
     //We call findViewById on this guy
     private View rootView;
 
-    public ViewMatchFragment() {
+    public ViewStudentFragment() {
         // Required empty public constructor
     }
 
@@ -45,10 +44,10 @@ public class ViewMatchFragment extends Fragment {
      * @param userId ID of the current signed in user
      * @param username username of the current signed in user
      * @param match a User object containing info about the match we're investigating
-     * @return A new instance of fragment ViewMatchFragment.
+     * @return A new instance of fragment ViewStudentFragment.
      */
-    public static ViewMatchFragment newInstance(int userId, String username, User match) {
-        ViewMatchFragment fragment = new ViewMatchFragment();
+    public static ViewStudentFragment newInstance(int userId, String username, User match) {
+        ViewStudentFragment fragment = new ViewStudentFragment();
         Bundle args = new Bundle();
         args.putInt("id", userId);
         args.putString("username", username);
@@ -72,7 +71,7 @@ public class ViewMatchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootView = inflater.inflate(R.layout.fragment_view_match, container, false);
+        rootView = inflater.inflate(R.layout.fragment_view_student, container, false);
         populateFields();
         return rootView;
     }
