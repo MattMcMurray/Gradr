@@ -102,7 +102,7 @@ function validateForm() {
 function checkURL(url) {
 	var re = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
 	
-	if (!re.exec(url)) {
+	if (url.length > 0 && !re.exec(url)) {
 		return false;
 	}
 

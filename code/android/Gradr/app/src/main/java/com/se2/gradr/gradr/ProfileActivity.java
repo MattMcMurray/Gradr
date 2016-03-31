@@ -334,10 +334,11 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private boolean validate() {
-        boolean isValid;
+        boolean isValid = true;
         String url = mPictureView.getText().toString();
 
-        isValid = Patterns.WEB_URL.matcher(url).matches();
+        if (url.length() > 0)
+            isValid = Patterns.WEB_URL.matcher(url).matches();
 
         if (!isValid) {
             Toast toast = Toast.makeText(getApplicationContext(), R.string.error_invalid_url, Toast.LENGTH_SHORT);
