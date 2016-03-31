@@ -9,7 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.se2.gradr.gradr.fragments.ViewMatchFragment;
+import com.se2.gradr.gradr.fragments.ViewStudentFragment;
 
 public class ViewRejectorActivity extends ViewStudentActivity {
 
@@ -61,7 +61,7 @@ public class ViewRejectorActivity extends ViewStudentActivity {
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position) {
                 case 0:
-                    ViewMatchFragment vmf = ViewMatchFragment.newInstance(userId, username, currStudent.getUser());
+                    ViewStudentFragment vmf = ViewStudentFragment.newInstance(userId, username, currStudent.getUser());
                     return vmf;
                 default:
                     return ViewStudentActivity.PlaceholderFragment.newInstance(position + 1);

@@ -11,7 +11,7 @@ import android.view.MenuItem;
 
 import com.se2.gradr.gradr.fragments.ChatMatchFragment;
 import com.se2.gradr.gradr.fragments.RateMatchFragment;
-import com.se2.gradr.gradr.fragments.ViewMatchFragment;
+import com.se2.gradr.gradr.fragments.ViewStudentFragment;
 
 public class ViewMatchActivity extends ViewStudentActivity implements RateMatchFragment.OnFragmentInteractionListener, ChatMatchFragment.OnFragmentInteractionListener{
 
@@ -63,7 +63,7 @@ public class ViewMatchActivity extends ViewStudentActivity implements RateMatchF
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position) {
                 case 0:
-                    ViewMatchFragment vmf = ViewMatchFragment.newInstance(userId, username, currStudent.getUser());
+                    ViewStudentFragment vmf = ViewStudentFragment.newInstance(userId, username, currStudent.getUser());
                     return vmf;
                 case 1:
                     RateMatchFragment rmf = RateMatchFragment.newInstance(userId, username, currStudent.getUser());

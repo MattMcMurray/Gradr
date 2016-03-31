@@ -33,9 +33,9 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ViewMatchFragment.OnFragmentInteractionListener} interface
+ * {@link RateMatchFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ViewMatchFragment#newInstance} factory method to
+ * Use the {@link RateMatchFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class RateMatchFragment extends Fragment {
@@ -68,7 +68,7 @@ public class RateMatchFragment extends Fragment {
      * @param userId ID of the current signed in user
      * @param username username of the current signed in user
      * @param match a User object containing info about the match we're investigating
-     * @return A new instance of fragment ViewMatchFragment.
+     * @return A new instance of fragment RateMatchFragment.
      */
     public static RateMatchFragment newInstance(int userId, String username, User match) {
         RateMatchFragment fragment = new RateMatchFragment();

@@ -23,9 +23,9 @@ import android.widget.TextView;
 
 import com.se2.gradr.gradr.fragments.ChatMatchFragment;
 import com.se2.gradr.gradr.fragments.RateMatchFragment;
-import com.se2.gradr.gradr.fragments.ViewMatchFragment;
+import com.se2.gradr.gradr.fragments.ViewStudentFragment;
 
-public class ViewStudentActivity extends AppCompatActivity implements ViewMatchFragment.OnFragmentInteractionListener {
+public class ViewStudentActivity extends AppCompatActivity implements ViewStudentFragment.OnFragmentInteractionListener {
 
     //currUser info
     protected int userId;

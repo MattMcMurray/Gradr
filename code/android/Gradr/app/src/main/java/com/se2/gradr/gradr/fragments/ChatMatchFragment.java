@@ -29,9 +29,9 @@ import java.util.Comparator;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link ViewMatchFragment.OnFragmentInteractionListener} interface
+ * {@link ChatMatchFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link ViewMatchFragment#newInstance} factory method to
+ * Use the {@link ChatMatchFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class ChatMatchFragment extends Fragment {
@@ -65,7 +65,7 @@ public class ChatMatchFragment extends Fragment {
      * @param userId ID of the current signed in user
      * @param username username of the current signed in user
      * @param match a User object containing info about the match we're investigating
-     * @return A new instance of fragment ViewMatchFragment.
+     * @return A new instance of fragment ChatMatchFragment.
      */
     public static ChatMatchFragment newInstance(int userId, String username, User match) {
         ChatMatchFragment fragment = new ChatMatchFragment();
