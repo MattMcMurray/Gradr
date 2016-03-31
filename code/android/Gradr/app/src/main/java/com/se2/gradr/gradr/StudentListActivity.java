@@ -29,12 +29,10 @@ import java.util.ArrayList;
  */
 public class StudentListActivity extends AppCompatActivity {
     private static String MATCHES_API = "/api/getPotentialMatches";
-    //TODO: change this to the actual rejections API
-    private static String REJECTIONS_API = "/api/getPotentialMatches";
+    private static String REJECTIONS_API = "/api/getRejections";
 
     private static String MATCHES_JSON_ARRAY_NAME = "matches";
-    //TODO: change this to the actual rejections Json array name
-    private static String REJECTIONS_JSON_ARRAY_NAME = "matches";
+    private static String REJECTIONS_JSON_ARRAY_NAME = "rejections";
 
     private int userId;
     private String username;
