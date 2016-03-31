@@ -80,7 +80,7 @@ public class LeaderBoardActivity extends AppCompatActivity {
         } else if (id == R.id.action_profile) {
             Intent profileIntent = new Intent(this, ProfileActivity.class);
             profileIntent.putExtra("username", username);
-            profileIntent.putExtra("id", id);
+            profileIntent.putExtra("id", userId);
             startActivity(profileIntent);
         } else if (id == R.id.action_leaders) {
             //Do nothing, we're already there.

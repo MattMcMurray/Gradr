@@ -43,7 +43,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ViewRejectorActivity"
-            android:label="@string/title_activity_view_match"
+            android:label="@string/title_activity_view_rejector"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ProfileActivity"

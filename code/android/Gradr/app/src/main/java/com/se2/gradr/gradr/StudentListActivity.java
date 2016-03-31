@@ -60,6 +60,7 @@ public class StudentListActivity extends AppCompatActivity {
         String url = getString(R.string.http_address_server);
         String jsonArrayName;
         if (isRejectionPage) {
+            setTitle("View Rejectors");
             url += REJECTIONS_API + "?userId=" + userId;
             jsonArrayName = REJECTIONS_JSON_ARRAY_NAME;
         } else {
@@ -122,7 +123,7 @@ public class StudentListActivity extends AppCompatActivity {
         } else if (id == R.id.action_profile) {
             Intent profileIntent = new Intent(this, ProfileActivity.class);
             profileIntent.putExtra("username", username);
-            profileIntent.putExtra("id", id);
+            profileIntent.putExtra("id", userId);
             startActivity(profileIntent);
         } else if (id == R.id.action_leaders) {
             Intent leaderIntent = new Intent(this, LeaderBoardActivity.class);
