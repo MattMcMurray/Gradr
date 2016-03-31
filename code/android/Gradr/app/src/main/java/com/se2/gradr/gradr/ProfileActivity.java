@@ -102,7 +102,7 @@ public class ProfileActivity extends AppCompatActivity {
         mDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                deleteAccount();
+                confirmDeleteAccount();
             }
         });
 
@@ -211,7 +211,6 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     public class SaveProfileHelper extends AsyncTask<String, Void, Void> {
-        /* TO DO*/
 
         private int id;
         private String username, about, help, school, firstName, lastName, city, country, courses;
@@ -332,7 +331,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
-    private void deleteAccount() {
+    private void confirmDeleteAccount() {
         new AlertDialog.Builder(this)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle("Delete Account")
@@ -341,6 +340,7 @@ public class ProfileActivity extends AppCompatActivity {
                 {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        deleteAccount();
                         finish();
                     }
 
@@ -349,4 +349,43 @@ public class ProfileActivity extends AppCompatActivity {
                 .show();
     }
 
+    private void deleteAccount() {
+
+        new DeleteAccountHelper().execute();
+        Intent logoutIntent = new Intent(this,LoginActivity.class);
+        logoutIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(logoutIntent);
+    }
+
+    public class DeleteAccountHelper extends AsyncTask<String, Void, Void> {
+
+        int id;
+
+        DeleteAccountHelper() {
+            this.id = userId;
+        }
+
+        @Override
+        protected Void doInBackground(String... params) {
+            String stringUrl = getString(R.string.http_address_server) + "/api/deleteUser";
+
+            try {
+                JSONObject profileInfo   = new JSONObject();
+                profileInfo.put("userId",id);
+
+                System.out.println("SENDING - " + profileInfo.toString());
+
+                String jsonString = PostRequester.doAPostRequest(stringUrl,profileInfo);
+                if (jsonString == null) {
+                    System.out.println("JSON was null for deleting user");
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR while deleting user");
+                System.out.println(e.toString());
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+    }
 }
