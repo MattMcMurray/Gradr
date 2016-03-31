@@ -68,6 +68,11 @@ block content
                             input.form-control.birthdate-component#birthDate(disabled='disabled' placeholder='Day')
                             input.form-control.birthdate-component#birthYear(disabled='disabled' placeholder='Year')
                         .form-group
+                            label(for='picture')
+                                | Profile Picture
+                            input.form-control.user-entry#picture(type='text'
+                            disabled='disabled')
+                        .form-group
                             button.btn.btn-warning#deleteAccountButton Delete Account
 
 block scripts

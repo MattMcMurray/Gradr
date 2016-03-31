@@ -15,7 +15,7 @@ block content
                 a(href="/MatchProfile?user=#{user.id}" value="#{user.id}")
                     div.col-sm-6.col-md-4
                         div.thumbnail
-                            img(src='http://thecatapi.com/api/images/get?format=src&type=jpg&size=small')
+                            img(src=user.picture)
                             div.caption
                                 h4 #{user.firstname} #{user.lastname}
                                 p <b>School:</b> #{user.school}

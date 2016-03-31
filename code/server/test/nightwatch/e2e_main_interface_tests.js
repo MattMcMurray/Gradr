@@ -208,6 +208,8 @@ module.exports = {
 	'Ensure test_user_1 & test_user_2 are matched': function (browser) {
 		var user1 = 'test_user_1';
 		var user2 = 'test_user_2';
+		var user1ID = 52;
+		var user2ID = 53;
 
 		browser
 			.url(appURL)
@@ -219,7 +221,7 @@ module.exports = {
 			.click('//*[@id="matchesLink"]')
 			.waitForElementVisible('//*[@id="matchesContainer"]/a/div/div', 100000)
 			.assert.elementPresent('//*[@id="matchesContainer"]/a')
-			.assert.attributeContains('//*[@id="matchesContainer"]/a', 'value', '203')
+			.assert.attributeContains('//*[@id="matchesContainer"]/a', 'value', user2ID)
 			.click('//*[@id="logout"]')
 			// Now verify test_user_2 also sees the match
 			.waitForElementVisible('/html/body', 10000)
@@ -230,13 +232,14 @@ module.exports = {
 			.click('//*[@id="matchesLink"]')
 			.waitForElementVisible('//*[@id="matchesContainer"]/a/div/div', 100000)
 			.assert.elementPresent('//*[@id="matchesContainer"]/a')
-			.assert.attributeContains('//*[@id="matchesContainer"]/a', 'value', '202')
+			.assert.attributeContains('//*[@id="matchesContainer"]/a', 'value', user1ID)
 			.end();
 	},
 
 	'Ensure test_user_3 sees the rejection from test_user_2': function (browser) {
 		var user2 = 'test_user_2';
 		var user3 = 'test_user_3';
+		var user2ID = 53;
 
 		browser
 			.url(appURL)
@@ -248,7 +251,7 @@ module.exports = {
 			.click('//*[@id="rejectionsLink"]')
 			.waitForElementVisible('//*[@id="matchesContainer"]/a/div/div', 100000)
 			.assert.elementPresent('//*[@id="matchesContainer"]/a')
-			.assert.attributeContains('//*[@id="matchesContainer"]/a', 'value', '203')
+			.assert.attributeContains('//*[@id="matchesContainer"]/a', 'value', user2ID)
 			.end();
 	},
 
@@ -257,6 +260,7 @@ module.exports = {
 		var user1 = 'test_user_1';
 		var user2 = 'test_user_2';
 		var msg = 'Hello test_user_2!';
+
 
 		browser
 			.url(appURL)

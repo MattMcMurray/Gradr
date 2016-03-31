@@ -25,10 +25,11 @@ public class User implements Serializable {
     private String generalDescription;
     private String helpDescription;
     private Date birthdate;
+    private String picture;
 
     public User(String username, int id, String firstName, String lastName,
-                String city, String country, String school,
-                String courses, String generalDescription, String helpDescription) {
+                String city, String country, String school, String courses,
+                String generalDescription, String helpDescription, String picture) {
         this.username = username;
         this.id = id;
         this.firstName = firstName;
@@ -39,6 +40,7 @@ public class User implements Serializable {
         this.courses = courses;
         this.generalDescription = generalDescription;
         this.helpDescription = helpDescription;
+        this.picture = picture;
     }
 
     public User(String username, int id, String firstName, String lastName,
@@ -154,4 +156,8 @@ public class User implements Serializable {
     public int getId() {
         return id;
     }
+
+    public String getPicture() { return picture; }
+
+    public void setPicture(String picture) { this.picture = picture; }
 }
