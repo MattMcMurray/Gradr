@@ -12,6 +12,7 @@ function UserStub() {
         firstname: 'steve',
         lastname: 'bairosns',
         id: 111,
+        theme: 1,
     };
 
     user2 = {
@@ -22,6 +23,7 @@ function UserStub() {
         id: 222,
         firstname: 'matt',
         lastname: 'mcmurray',
+        theme: 2,
     };
 
     user3 = {
@@ -174,6 +176,33 @@ UserStub.prototype.removeUser = function(userID) {
         resolve(removed);
     });
 };
+
+UserStub.prototype.getTheme = function(userID) {
+    var user = findUser('id', userID);
+    if (user) {
+        return new Promise(function(resolve, reject) {
+            resolve({dataValues: {theme: user.theme}});
+        });
+    }
+    else {
+        return new Promise(function(resolve, reject) {
+            reject({error: 'No user with the id'});
+        });
+    }    
+}
+
+UserStub.prototype.setTheme = function(userID, theme) {
+    var user = findUser('id', userID);
+    if (user) {
+        user.theme = theme;
+    }
+    else {
+        user = {};
+    }
+    return new Promise(function(resolve, reject) {
+        resolve(user);
+    });
+}
 
 module.exports = UserStub;
 

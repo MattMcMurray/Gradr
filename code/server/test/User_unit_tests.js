@@ -130,6 +130,37 @@ describe('User', function() {
         });
     });
 
+    describe('User getTheme', function() {
+        it('gets a theme', function(done) {
+            user.getTheme(111).then(function(data) {
+                assert.that(data).is.not.null();
+                assert.that(data).is.equalTo(1);
+                done();
+            });
+        });
+
+        it('gets a second theme', function(done) {
+            user.getTheme(222).then(function(data) {
+                assert.that(data).is.not.null();
+                assert.that(data).is.equalTo(2);
+                done();
+            });
+        });
+    });
+
+    describe('User setTheme', function() {
+        it('sets a theme', function(done) {
+            user.setTheme(111, 3).then(function(data) {
+                assert.that(data).is.not.null();
+                user.getTheme(111).then(function(data) {     
+                    assert.that(data).is.not.null();
+                    assert.that(data).is.equalTo(3);
+                    done();
+                });
+            });
+        });
+    });
+
     describe('User removeUser', function() {
         it('removes a user', function(done) {
             user.removeUser(333).then(function(data) {
