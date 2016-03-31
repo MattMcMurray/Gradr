@@ -15,11 +15,11 @@ import java.util.Calendar;
 /**
  * Created by caleb on 3/18/16.
  */
-public class MatchListActivityTest extends ActivityInstrumentationTestCase2<MatchListActivity> {
+public class StudentListActivityTest extends ActivityInstrumentationTestCase2<StudentListActivity> {
     private Solo solo;
 
-    public MatchListActivityTest() {
-        super(MatchListActivity.class);
+    public StudentListActivityTest() {
+        super(StudentListActivity.class);
     }
 
     @Override
@@ -27,6 +27,7 @@ public class MatchListActivityTest extends ActivityInstrumentationTestCase2<Matc
         Intent i = new Intent();
         i.putExtra("username","test_user_1");
         i.putExtra("id", 202);
+        i.putExtra("rejections", false);
         setActivityIntent(i);
         solo = new Solo(getInstrumentation(), getActivity());
     }
