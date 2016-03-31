@@ -72,7 +72,6 @@ router.get('/userBatch', function(req, res) {
 			res.json({message: "Something went wrong"});
 		}
 	});
-
 });
 
 /*UserMatch api calls*/
@@ -84,6 +83,14 @@ router.get('/getPotentialMatches', function(req, res) {
 		});
 	});
 });
+
+router.get('/getRejections', function (req, res) {
+	UserMatchDAO.getRejections(req.query.userId).then(function(ids) {
+		UserDAO.getUsersById(ids).then(function(users) {
+			res.json({rejections: users});
+		});
+	});
+})
 
 router.post('/likeUser', function(req, res) {
 	UserMatchDAO.addUserMatch(req.body.liker_id, req.body.likee_id, true).then(function(result) {
