@@ -29,8 +29,8 @@ describe('User', function() {
             user.getUsersById([111, 222]).then(function(data) {
                 assert.that(data).is.not.null();
                 assert.that(data.length).is.equalTo(2);
-                assert.that(data[0].username).is.equalTo('bairosns');
-                assert.that(data[1].username).is.equalTo('mattmcmurray');
+                assert.that(data[0].dataValues.username).is.equalTo('bairosns');
+                assert.that(data[1].dataValues.username).is.equalTo('mattmcmurray');
                 done();
             });
         });

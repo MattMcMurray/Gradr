@@ -7,8 +7,8 @@
         android:id="@+id/match_image"
         android:layout_weight="0.3"
         android:layout_width="400dp"
-        android:layout_height="match_parent"
-        android:src="@drawable/loading" />
+        android:layout_height="400dp"
+        android:src="@drawable/loading2" />
 
     <LinearLayout
         android:layout_weight="0.6"
