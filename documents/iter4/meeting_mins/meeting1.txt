@@ -1,0 +1,12 @@
+Members attending:
+Evan H
+Steve B
+Matt M
+Keane K
+Jorell L
+Caleb M
+
+- Setting deadline to finish features by Sunday night
+- Big user stories for this iteration claimed by Jorell, Matt, & Evan
+	- Other members will support or write tests
+- Caleb will work on presentation
