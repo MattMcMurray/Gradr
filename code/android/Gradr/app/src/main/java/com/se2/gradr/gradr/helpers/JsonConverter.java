@@ -53,7 +53,7 @@ public class JsonConverter {
             helpDescription = json.getString("helpDescription");
         }
         String picture = "";
-        if (json.has("helpDescription")) {
+        if (json.has("picture")) {
             picture = json.getString("picture");
         }
 

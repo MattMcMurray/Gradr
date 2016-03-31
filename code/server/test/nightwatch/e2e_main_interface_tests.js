@@ -221,7 +221,7 @@ module.exports = {
 			.click('//*[@id="matchesLink"]')
 			.waitForElementVisible('//*[@id="matchesContainer"]/a/div/div', 100000)
 			.assert.elementPresent('//*[@id="matchesContainer"]/a')
-			.assert.attributeContains('//*[@id="matchesContainer"]/a[3]', 'value', user2ID)
+			.assert.attributeContains('//*[@id="matchesContainer"]/a', 'value', user2ID)
 			.click('//*[@id="logout"]')
 			// Now verify test_user_2 also sees the match
 			.waitForElementVisible('/html/body', 10000)
@@ -271,7 +271,7 @@ module.exports = {
 			.waitForElementVisible('//*[@id="userCard"]', 10000)
 			.click('//*[@id="matchesLink"]')
 			.waitForElementVisible('//*[@id="matchesContainer"]/a/div/div', 100000)
-			.click('//*[@id="matchesContainer"]/a[3]/div/div/img')
+			.click('//*[@id="matchesContainer"]/a/div/div/img')
 			.waitForElementVisible('/html/body/div[2]/div/div', 10000)
 			.click('//*[@id="userTabs"]/li[3]/a')
 			.waitForElementVisible('//*[@id="m"]', 10000)

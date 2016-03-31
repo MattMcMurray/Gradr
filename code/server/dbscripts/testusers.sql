@@ -53,11 +53,6 @@ insert into users (username, password, firstname, lastname, city, country, schoo
 
 
 insert into users (username, password, firstname, lastname, city, country, school, courses, generalDescription, helpDescription, dateOfBirth, theme, picture, createdAt, updatedAt) values ('test_user_1','$2a$10$2gl23gZKykfAz1j4G6RZYehyMHEyTl.Q4M5icXhmYE0kq7KzabvZW','','','','','','','','',NULL, 0, 'https://i.imgur.com/JhpSsz6.jpg', '2016-03-17 23:06:02.313 +00:00','2016-03-17 23:06:02.313 +00:00');
-insert into users (username, password, firstname, lastname, city, country, school, courses, generalDescription, helpDescription, dateOfBirth, theme, picture, createdAt, updatedAt) values ('test_user_2','$2a$10$p4JryEW2sv.I0E5RXZgPXuuza8K3j6sU7I/caidC4b/JKSz64gY36','','','','','','','','',NULL, 0, 'https://i.imgur.com/Lew00d7.jpg', '2016-03-17 23:06:41.705 +00:00','2016-03-17 23:06:41.705 +00:00');
+insert into users (username, password, firstname, lastname, city, country, school, courses, generalDescription, helpDescription, dateOfBirth, theme, picture, createdAt, updatedAt) values ('test_user_2','$2a$10$p4JryEW2sv.I0E5RXZgPXuuza8K3j6sU7I/caidC4b/JKSz64gY36','Test','User2','Dauphin','Canada','Sniper School','','','',NULL, 0, 'https://i.imgur.com/Lew00d7.jpg', '2016-03-17 23:06:41.705 +00:00','2016-03-17 23:06:41.705 +00:00');
 INSERT INTO `users` (`id`,`username`,`password`,`firstname`,`lastname`,`city`,`country`,`school`,`courses`,`generalDescription`,`helpDescription`,`dateOfBirth`,`createdAt`,`updatedAt`) VALUES (NULL,'test_user_3','$2a$10$e4unQ6A0.1IG1Xszzs6/N.0DuYLc7ntkUAjlLO27/5eWBFyBBLtyK','','','','','','','','',NULL,'2016-03-31 17:48:32.920 +00:00','2016-03-31 17:48:32.920 +00:00');
 
-insert into user_matches (liker_id, likee_id, likes, createdAt, updatedAt) values (52, 53, 1, '2016-02-01 03:22:27.833 +00:00', '2016-02-01 03:22:27.833 +00:00');
-
-insert into user_matches (liker_id, likee_id, likes, createdAt, updatedAt) values (53, 52, 1, '2016-02-01 03:23:27.833 +00:00', '2016-02-01 03:22:27.833 +00:00');
-insert into user_matches (liker_id, likee_id, likes, createdAt, updatedAt) values (53, 54, 0, '2016-02-01 03:23:27.833 +00:00', '2016-02-01 03:22:27.833 +00:00');
-insert into user_matches (liker_id, likee_id, likes, createdAt, updatedAt) values (54, 53, 1, '2016-02-01 03:23:27.833 +00:00', '2016-02-01 03:22:27.833 +00:00');
