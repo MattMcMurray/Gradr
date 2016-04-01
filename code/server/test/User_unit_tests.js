@@ -135,7 +135,7 @@ describe('User', function() {
         it('gets a theme', function(done) {
             user.getTheme(111).then(function(data) {
                 assert.that(data).is.not.null();
-                assert.that(data).is.equalTo(1);
+                assert.that(data.dataValues.theme).is.equalTo(1);
                 done();
             });
         });
@@ -143,7 +143,7 @@ describe('User', function() {
         it('gets a second theme', function(done) {
             user.getTheme(222).then(function(data) {
                 assert.that(data).is.not.null();
-                assert.that(data).is.equalTo(2);
+                assert.that(data.dataValues.theme).is.equalTo(2);
                 done();
             });
         });
@@ -155,7 +155,7 @@ describe('User', function() {
                 assert.that(data).is.not.null();
                 user.getTheme(111).then(function(data) {     
                     assert.that(data).is.not.null();
-                    assert.that(data).is.equalTo(3);
+                    assert.that(data.dataValues.theme).is.equalTo(3);
                     done();
                 });
             });
