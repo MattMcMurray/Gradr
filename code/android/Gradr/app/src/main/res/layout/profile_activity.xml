@@ -202,6 +202,23 @@
 
         </android.support.design.widget.TextInputLayout>
 
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <AutoCompleteTextView
+                android:id="@+id/tb_picture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/prompt_picture"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:background="@drawable/edittext_rounded_corners"
+                android:editable="false" />
+
+        </android.support.design.widget.TextInputLayout>
+
         <Button
             style="?android:textAppearanceSmall"
             android:id="@+id/delete_button"

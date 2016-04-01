@@ -43,7 +43,7 @@ public class UserAndImage {
             }
             imageRequestInTransit = true;
             System.out.println("Making request for " + user.getUsername());
-            String url = "http://thecatapi.com/api/images/get?format=src&type=jpg&size=small" + Math.random();
+            String url = user.getPicture();
             new DownloadImageInBackground(url, this).execute(iv);
             //We don't ever unset the imageInTransit flag because even once we get the image back, we don't want to ever load a second image for this user
         }
