@@ -216,15 +216,19 @@ router.get('/getRatings', function(req, res) {
 });
 
 router.post('/deleteUser', function(req, res) {
-	UserMatchDAO.removeUser(req.body.userId).then(function(result) {
-		UserDAO.removeUser(req.body.userId).then(function(result) {
-			if(result.error)
-				res.stats(500);
-			else {
-				res.json({
-					url: '/'
+	RatingDAO.removeUser(req.body.userId).then(function(result) {
+		MessagesDAO.removeUser(req.body.userId).then(function(result) {
+			UserMatchDAO.removeUser(req.body.userId).then(function(result) {
+				UserDAO.removeUser(req.body.userId).then(function(result) {
+					if(result.error)
+						res.stats(500);
+					else {
+						res.json({
+							url: '/'
+						});
+					}
 				});
-			}
+			});
 		});
 	});
 });
