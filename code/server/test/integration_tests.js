@@ -183,7 +183,7 @@ describe('Integration Tests', function() {
             .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function(err, res) {
                 if(err) done(err);
-                assert.that(res.body.theme).is.null();
+                assert.that(res.body.theme).is.equalTo(0);
                 assert.that(res.body.status).is.equalTo('OK');
                 done();
             });
