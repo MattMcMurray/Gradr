@@ -1,5 +1,7 @@
 $('#userTabs a').click(function(event) {
 	event.preventDefault();
+	var chat = $("#messages");
+	chat.scrollTop(chat[0].scrollHeight);
 	$(this).tab('show');
 
 });

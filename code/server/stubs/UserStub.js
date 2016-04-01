@@ -109,7 +109,8 @@ UserStub.prototype.createUser = function(credentials) {
                     courses: '',
                     generalDescription: '',
                     helpDescription: '',
-                    dateOfBirth: null
+                    dateOfBirth: null,
+                    picture: ''
         };
 
         return new Promise(function(resolve, reject) {
@@ -132,6 +133,7 @@ UserStub.prototype.createUserProfile = function(userData) {
     user.generalDescription = userData.generalDescription;
     user.helpDescription = userData.helpDescription;
     user.dateOfBirth = userData.dateOfBirth;
+    user.picture = userData.picture;
 };
 
 UserStub.prototype.getRandom = function(currUserID) {

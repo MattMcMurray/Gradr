@@ -1,3 +1,6 @@
+var getUrl = window.location;
+var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[0];
+
 $(function() {
     getNewUser();
 
@@ -33,7 +36,10 @@ var userCallback = function(data) {
     $('#firstName').html(toTitleCase(data.firstname));
     $('#lastName').html(toTitleCase(data.lastname));
     $('#helpDescript').html(toTitleCase(data.helpDescription));
-
+    $('#userImage').attr('src', data.picture);
+    if (data.picture == '') {
+        $('#userImage').attr('src', baseUrl + 'api/profilePicPlaceholder');
+    }
 }
 
 // Capitalizes the first letter of each word
@@ -45,8 +51,6 @@ function toTitleCase(str) {
 }
 
 function getNewUser() {
-    // Have to append random numbers at the end of URI to force img refresh
-    $('#userImage').attr('src', 'http://thecatapi.com/api/images/get?format=src&type=jpg&size=small' + Math.random());
     postData = {
         currUserId: sessionStorage.getItem('user_id')
     };

@@ -23,7 +23,16 @@ router.get("/profile", function(req, res) {
 router.get("/matches", function(req, res) {
 	UserMatchDAO.getMatches(req.query.user).then(function(users){
 		UserDAO.getUsersById(users).then(function(users){
-			res.render('../views/matches', { matches: users });
+			res.render('../views/matches', { matches: users, isRejections: false });
+		});
+	});
+});
+
+router.get("/rejections", function(req, res) {
+	console.log("Session: " + req.session);
+	UserMatchDAO.getRejections(req.query.user).then(function(users) {
+		UserDAO.getUsersById(users).then(function(users) {
+			res.render('../views/matches', {matches: users, isRejections: true});
 		});
 	});
 });

@@ -15,18 +15,20 @@ import java.util.Calendar;
 /**
  * Created by caleb on 3/18/16.
  */
-public class MatchListActivityTest extends ActivityInstrumentationTestCase2<MatchListActivity> {
+
+public class StudentListActivityTest extends ActivityInstrumentationTestCase2<StudentListActivity> {
     private Solo solo;
 
-    public MatchListActivityTest() {
-        super(MatchListActivity.class);
+    public StudentListActivityTest() {
+        super(StudentListActivity.class);
     }
 
     @Override
     public void setUp() throws Exception {
         Intent i = new Intent();
         i.putExtra("username","test_user_1");
-        i.putExtra("id", 202);
+        i.putExtra("id", 52);
+        i.putExtra("rejections", false);
         setActivityIntent(i);
         solo = new Solo(getInstrumentation(), getActivity());
     }
@@ -49,16 +51,11 @@ public class MatchListActivityTest extends ActivityInstrumentationTestCase2<Matc
         assertTrue(solo.waitForText("Sniper School"));
         assertTrue(solo.waitForText("Dauphin"));
         assertTrue(solo.waitForText("Canada"));
-        assertTrue(solo.waitForText("Sniping 101, Stealth 1010"));
-        assertTrue(solo.waitForText("I am super smrt."));
-        assertTrue(solo.waitForText("Nothing, I don't even know why I'm here"));
         solo.clickOnText("RATINGS");
         assertTrue(solo.waitForText("Average rating"));
         assertTrue(solo.waitForText("Test User2"));
         solo.clickOnText("CHAT");
         solo.clickOnButton("Refresh");
-        assertTrue(solo.waitForText("test_user_1"));
-        assertTrue(solo.waitForText("test_user_2"));
     }
 
     public void testRatingSubmission() throws Exception {

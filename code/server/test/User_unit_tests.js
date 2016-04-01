@@ -76,7 +76,7 @@ describe('User', function() {
 
     describe('User createUserProfile', function() {
         it('fills out a profile fields', function(done) {
-            user.createUserProfile({'username':'bairosns', 'firstname': 'steve', 'lastname': 'bairosns' , 'city': 'Winnipeg', 'country': 'Canada', 'school': 'uofm', 'courses': '4350', 'generalDescription': 'test', 'helpDescription': 'test', 'dateOfBirth': null});
+            user.createUserProfile({'username':'bairosns', 'firstname': 'steve', 'lastname': 'bairosns' , 'city': 'Winnipeg', 'country': 'Canada', 'school': 'uofm', 'courses': '4350', 'generalDescription': 'test', 'helpDescription': 'test', 'dateOfBirth': null, 'picture': 'http://test.com/image.jpg'});
             user.getUser('bairosns').then(function(data) {
                 assert.that(data.dataValues).is.not.null();
                 assert.that(data.dataValues.username).is.equalTo('bairosns');
@@ -89,6 +89,7 @@ describe('User', function() {
                 assert.that(data.dataValues.helpDescription).is.equalTo('test');
                 assert.that(data.dataValues.city).is.equalTo('Winnipeg');
                 assert.that(data.dataValues.dateOfBirth).is.null();
+                assert.that(data.dataValues.picture).is.equalTo('http://test.com/image.jpg');
                 done();
             });
         });

@@ -20,6 +20,10 @@ var getMatches = function(userID) {
     return userMatchDAO.getMatches(userID);
 }
 
+var getRejections = function(userID) {
+    return userMatchDAO.getRejections(userID);
+}
+
 var getPreviouslyRatedIds = function(userID) {
     return userMatchDAO.getPreviouslyRatedIds(userID);
 }
@@ -40,6 +44,7 @@ module.exports = {
     init: init,
     addUserMatch: addUserMatch,
     getMatches: getMatches,
+    getRejections: getRejections,
     getPreviouslyRatedIds: getPreviouslyRatedIds,
     removeUser: removeUser,
     isMatch: isMatch,
