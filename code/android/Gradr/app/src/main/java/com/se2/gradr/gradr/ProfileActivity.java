@@ -3,6 +3,8 @@ package com.se2.gradr.gradr;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -98,6 +100,14 @@ public class ProfileActivity extends AppCompatActivity {
                 if (validate()) {
                     save();
                 }
+            }
+        });
+
+        Button mDeleteButton = (Button) findViewById(R.id.delete_button);
+        mDeleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                confirmDeleteAccount();
             }
         });
 
@@ -207,7 +217,6 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     public class SaveProfileHelper extends AsyncTask<String, Void, Void> {
-        /* TO DO*/
 
         private int id;
         private String username, about, help, school, firstName, lastName, city, country, courses, picture;
@@ -331,6 +340,64 @@ public class ProfileActivity extends AppCompatActivity {
             showProgress(false);
         }
 
+    }
+
+    private void confirmDeleteAccount() {
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Delete Account")
+                .setMessage("Are you sure you want to delete your account? This cannot be undone!")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        deleteAccount();
+                        finish();
+                    }
+
+                })
+                .setNegativeButton("No", null)
+                .show();
+    }
+
+    private void deleteAccount() {
+
+        new DeleteAccountHelper().execute();
+        Intent logoutIntent = new Intent(this,LoginActivity.class);
+        logoutIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(logoutIntent);
+    }
+
+    public class DeleteAccountHelper extends AsyncTask<String, Void, Void> {
+
+        int id;
+
+        DeleteAccountHelper() {
+            this.id = userId;
+        }
+
+        @Override
+        protected Void doInBackground(String... params) {
+            String stringUrl = getString(R.string.http_address_server) + "/api/deleteUser";
+
+            try {
+                JSONObject profileInfo = new JSONObject();
+                profileInfo.put("userId", id);
+
+                System.out.println("SENDING - " + profileInfo.toString());
+
+                String jsonString = PostRequester.doAPostRequest(stringUrl, profileInfo);
+                if (jsonString == null) {
+                    System.out.println("JSON was null for deleting user");
+                }
+            } catch (Exception e) {
+                System.out.println("ERROR while deleting user");
+                System.out.println(e.toString());
+                e.printStackTrace();
+            }
+
+            return null;
+        }
     }
 
     private boolean validate() {

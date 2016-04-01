@@ -55,6 +55,7 @@
     <string name="label_username">Username</string>
     <string name="action_save">Save</string>
     <string name="error_invalid_date">Invalid date</string>
+    <string name="action_delete_account">Delete Account</string>
     <string name="error_invalid_url">Please enter a valid URL</string>
 
     <!-- TODO: Remove or change this placeholder text -->
