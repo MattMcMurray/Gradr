@@ -533,6 +533,75 @@ describe('api', function() {
         });
     });
 
+    describe('GET /api/getTheme', function() {
+        it('retrieves the theme integer', function(done) {
+            request(app)
+            .get('/api/getTheme?user=222')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if (err) done(err);
+                assert.that(res.body).is.not.null();
+                assert.that(res.body.theme).is.equalTo(2);
+                done();
+            });
+        });
+
+        it('retrieves a second theme integer', function(done) {
+            request(app)
+            .get('/api/getTheme?user=111')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if (err) done(err);
+                assert.that(res.body).is.not.null();
+                assert.that(res.body.theme).is.equalTo(1);
+                done();
+            });
+        });
+
+        it('retrieves a third theme integer', function(done) {
+            request(app)
+            .get('/api/getTheme?user=111')
+            .expect(500)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                console.log(res.body);
+                assert.that(res.body).is.not.null();
+                done();
+            });
+        });
+    });
+
+    describe('POST /api/setTheme', function() {
+        it('sets the theme of a user', function(done) {
+            request(app)
+            .post('/api/setTheme')
+            .send({userId: '111', theme: 3})
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if (err) done(err);
+                assert.that(res.body).is.not.null();
+                assert.that(res.body.status).is.equalTo('OK');
+                done();
+            });
+        });
+
+        it('sets the theme of a non-existant user', function(done) {
+            request(app)
+            .post('/api/setTheme')
+            .send({userId: '444', theme: 3})
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if (err) done(err);
+                assert.that(res.body).is.not.null();
+                done();
+            });
+        });
+    });
+
     describe('POST /api/deleteUser', function() {
         it('deletes a user', function(done) {
             request(app)
@@ -572,5 +641,4 @@ describe('api', function() {
             });
         });
     });
-    
 });
