@@ -293,5 +293,68 @@ module.exports = {
 			.waitForElementVisible('//*[@id="m"]', 10000)
 			.assert.containsText('//*[@id="messages"]/li[1]', msg)
 			.end();
+	},
+
+	'Ensure leaderboard is accurate': function (browser) {
+		var firstPlaceUser = 'test_user_2';
+		var uknownPlaceUser = 'test_user_1';
+
+		browser
+			.url(appURL)
+			.waitForElementVisible('/html/body', 10000)
+			.setValue('//*[@id="username"]', newUserName)
+			.setValue('//*[@id="password"]', newUserPass)
+			.click('//*[@id="login-form"]/button')
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.click('//*[@id="leadersLink"]')					
+			.waitForElementVisible('/html/body/div[2]/table', 10000)
+			.assert.elementPresent('/html/body/div[2]/table/tbody/tr[1]/td[1]')
+			.assert.containsText('/html/body/div[2]/table/tbody/tr[1]/td[1]', firstPlaceUser)
+			// test_user_1 will be either in 2nd or 3rd place
+			// Assert that they are at least SOMEWHERE in the table
+			.assert.containsText('/html/body/div[2]/table', uknownPlaceUser)
+			.end();
+	},
+
+	'Ensure user image changes are reflected': function (browser) {
+		var user1 = 'test_user_1';
+		var user2 = 'test_user_2';
+		var originalImgSrc = 'https://i.imgur.com/Lew00d7.jpg';
+		var updatedImgSrc = 'https://i.imgur.com/UwW5cCn.jpg';
+
+		browser
+			.url(appURL)
+			.waitForElementVisible('/html/body', 10000)
+			.setValue('//*[@id="username"]', user1)
+			.setValue('//*[@id="password"]', user1)
+			.click('//*[@id="login-form"]/button')
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.click('//*[@id="matchesLink"]')
+			.waitForElementVisible('//*[@id="matchesContainer"]/a/div/div', 100000)
+			.assert.attributeContains('//*[@id="matchesContainer"]/a/div/div/img', 'src', originalImgSrc)
+			.click('//*[@id="logout"]')
+			.waitForElementVisible('/html/body', 10000)
+			.setValue('//*[@id="username"]', user2)
+			.setValue('//*[@id="password"]', user2)
+			.click('//*[@id="login-form"]/button')
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.click('//*[@id="navbar-collapse"]/ul[1]/li[1]/a')
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.click('//*[@id="editButton"]')
+			.clearValue('//*[@id="picture"]')
+			.setValue('//*[@id="picture"]', updatedImgSrc)
+			.moveToElement('/html/body/div[1]/div', 0, 0)
+			.click('//*[@id="editButton"]')
+			.waitForElementVisible('//*[@id="logout"]', 10000)
+			.click('//*[@id="logout"]')
+			.waitForElementVisible('/html/body', 10000)
+			.setValue('//*[@id="username"]', user1)
+			.setValue('//*[@id="password"]', user1)
+			.click('//*[@id="login-form"]/button')
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.click('//*[@id="matchesLink"]')
+			.waitForElementVisible('//*[@id="matchesContainer"]/a/div/div', 100000)
+			.assert.attributeContains('//*[@id="matchesContainer"]/a/div/div/img', 'src', updatedImgSrc)
+			.end();	
 	}
 }
