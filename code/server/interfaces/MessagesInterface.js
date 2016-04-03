@@ -9,7 +9,10 @@ MessagesInterface.prototype = {
 	},
 	getAllMessages: function(sender, receiver) {
 		throw "function getAllMessages() not implemented";
-	}
+	},
+	removeUser: function(userID) {
+    	throw "function removeUser() not implemented";
+    }
 }
 
 module.exports = MessagesInterface;

@@ -67,4 +67,22 @@ describe('Message', function() {
     		});
     	});
     });
+
+    describe('Message removeUser', function() {
+        it('remove user', function(done) {
+            message.removeUser(205).then(function(data) {
+                assert.that(data).is.not.null();
+                assert.that(data.length).is.equalTo(3);
+                done();
+            });
+        });
+
+        it('remove an non-existant user', function(done) {
+            message.removeUser(404).then(function(data) {
+                assert.that(data).is.not.null();
+                assert.that(data.length).is.equalTo(0);
+                done();
+            });
+        });
+    });
 });

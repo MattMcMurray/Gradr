@@ -101,4 +101,15 @@ RatingDB.prototype.getMyRatingFor = function(_rater_id, _ratee_id) {
     });
 };
 
+RatingDB.prototype.removeUser = function(userId) {
+    return Rating.destroy({
+        where: {
+            $or: {
+                ratee_id: userId,
+                rater_id: userId
+            }
+        }
+    });
+}
+
 module.exports = RatingDB;

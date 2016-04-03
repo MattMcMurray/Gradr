@@ -24,9 +24,14 @@ var getMyRatingFor = function (rater_id, ratee_id) {
     return ratingDAO.getMyRatingFor(rater_id, ratee_id);
 }
 
+var removeUser = function(userID) {
+    return ratingDAO.removeUser(userID);
+}
+
 module.exports = {
     init: init,
     addRating: addRating,
     getRatings: getRatings,
     getMyRatingFor: getMyRatingFor,
+    removeUser: removeUser
 }

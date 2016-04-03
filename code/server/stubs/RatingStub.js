@@ -51,5 +51,17 @@ RatingStub.prototype.getMyRatingFor = function(raterId, rateeId) {
     });
 };
 
+RatingStub.prototype.removeUser = function(userID) {
+    var ids = [1,2];
+
+    if (userID == 404) {
+        ids = [];
+    }
+
+    return new Promise(function(resolve, reject) {
+        resolve(ids);
+    });
+};
+
 
 module.exports = RatingStub;
