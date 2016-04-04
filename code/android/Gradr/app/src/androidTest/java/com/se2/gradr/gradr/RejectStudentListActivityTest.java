@@ -37,42 +37,6 @@ public class RejectStudentListActivityTest extends ActivityInstrumentationTestCa
         assertTrue(solo.waitForActivity(ViewRejectorActivity.class));
     }
 
-//    public void testMatchViewHasElements() throws Exception {
-//        assertTrue(solo.waitForText("Test User2"));
-//        solo.clickOnText("Test User2");
-//        assertTrue(solo.waitForActivity(ViewMatchActivity.class));
-//        assertTrue(solo.waitForText("Test User2"));
-//        assertTrue(solo.waitForText("Sniper School"));
-//        assertTrue(solo.waitForText("Dauphin"));
-//        assertTrue(solo.waitForText("Canada"));
-//        solo.clickOnText("RATINGS");
-//        assertTrue(solo.waitForText("Average rating"));
-//        assertTrue(solo.waitForText("Test User2"));
-//        solo.clickOnText("CHAT");
-//        solo.clickOnButton("Refresh");
-//    }
-//
-//    public void testRatingSubmission() throws Exception {
-//        assertTrue(solo.waitForText("Test User2"));
-//        solo.clickOnText("Test User2");
-//        assertTrue(solo.waitForActivity(ViewMatchActivity.class));
-//        assertTrue(solo.waitForText("Test User2"));
-//        solo.clickOnText("RATINGS");
-//        solo.enterText((EditText) solo.getView(R.id.rating_comment), "terrible");
-//        solo.pressSpinnerItem(0, 1);
-//        solo.clickOnButton("Submit");
-//        solo.clearEditText((EditText) solo.getView(R.id.rating_comment));
-//        assertTrue(solo.waitForText("terrible"));
-//        assertTrue(solo.waitForText("2.0"));
-//        //check overwrite
-//        solo.enterText((EditText) solo.getView(R.id.rating_comment), "good");
-//        solo.pressSpinnerItem(0,3);
-//        solo.clickOnButton("Submit");
-//        solo.clearEditText((EditText) solo.getView(R.id.rating_comment));
-//        assertTrue(solo.waitForText("good"));
-//        assertTrue(solo.waitForText("5.0"));
-//    }
-
     @Override
     public void tearDown() throws Exception {
         solo.finishOpenedActivities();
