@@ -636,7 +636,9 @@ describe('api', function() {
             .expect(200)
             .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function(err, res) {
-                
+                assert.that(res.body.leaders).is.not.null();
+                assert.that(res.body.leaders.length).is.equalTo(2);
+                assert.that(res.body.leaders[0].user.dataValues.username).is.equalTo('calebmueller');
                 done();
             });
         });

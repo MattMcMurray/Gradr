@@ -202,7 +202,8 @@ describe('UserMatch', function() {
         it('get leaders', function(done) {
             userMatch.getLeaders().then(function(data) {
                 assert.that(data).is.not.null();
-                assert.that(data.length).is.not.equalTo(0);
+                assert.that(data.rows.length).is.equalTo(2);
+                assert.that(data.count.length).is.equalTo(2);
                 done();
             });
         });
