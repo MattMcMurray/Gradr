@@ -23,7 +23,7 @@ public class ProfileActivityTest extends ActivityInstrumentationTestCase2<Profil
     public void setUp() throws Exception {
         Intent i = new Intent();
         i.putExtra("username","test_user_1");
-        i.putExtra("id", 202);
+        i.putExtra("id", 53);
         setActivityIntent(i);
         solo = new Solo(getInstrumentation(), getActivity());
 
