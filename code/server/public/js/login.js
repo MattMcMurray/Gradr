@@ -9,6 +9,7 @@ $('#login-form').on('submit', function(event){
       
       sessionStorage.setItem('username', data.user.username);
       sessionStorage.setItem('user_id', data.user.id);
+      sessionStorage.setItem('theme', data.user.theme);
       $('.anonymous').show();
 
       location.href = data.url;
