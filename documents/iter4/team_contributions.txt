@@ -21,6 +21,8 @@ Caleb Mueller
 -Get matches functionality
 -Signup & profile settings pages on Android
 -Robotium testing
+-Android styling and design
+-Presentation & sample presentation data
 
 Keane Kraus
 -Backend and api of User
