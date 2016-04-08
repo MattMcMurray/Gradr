@@ -1,5 +1,14 @@
 ### For the marker:
-- Our Trello page 
+- **(NEW)** -- We have **not** pre-populated the db with dozens of accounts for this iteration
+    - There are three test accounts to demonstrate the basics of the application
+        - `test_account_1`, `test_account_2`, & `test_account_3`
+        - passwords same as usernames
+- **(NEW)** -- If you want to see how matching works, **you will need to create multiple accounts and have them 'like' each other**.
+    - You will **not** match with a user unless they have also liked you
+- **(NEW)** -- Rejections show up if you have liked someone and they have disliked you
+
+---
+- Our Trello page
     - for iteration 1 (task tracking): https://trello.com/b/mpbIdgMg/iteration-1
     - for iteration 2: https://trello.com/b/JOCDOuCr
     - for iteration 3: https://trello.com/b/O1QovCWC
@@ -20,10 +29,6 @@
     - run `sudo node main.js --fill_database` to prepopulate (keep server running until tests finished)
     - run `nightwatch`
     - Google Chrome will open and close multiple times while tests run
-- Two test accounts that have "matched" with each other are live on the server
-    - test_user_1 and test_user_2 are the usernames
-    - **(NEW)** a third account has been added to demonstrate rejections: test_user_3
-    - passwords are same as usernames
 - Running Android Unit Tests
  - Go into Android Studio and load the project.
  - Click on Run>Edit Configurations
