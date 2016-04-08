@@ -56,6 +56,8 @@ Jorell Linsangan
 -Profile page for matches
 -Initial setup of the database including which ORM to use.
 -Web chat functionality
+-Leader board api and web interface. API unit test of leaderboard
+-Improved web chat to show history of conversation by user and match.
 
 Evan Hunzinger
 -Added a data access layer for accessing stub and database models
