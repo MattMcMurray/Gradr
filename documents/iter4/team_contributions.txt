@@ -10,6 +10,8 @@ Mathieu McMurray
 -Web themes (front & back end)
 -Android unit tests
 -Plan for iteration3
+-Rejections (front & back-end)
+-More nightwatch tests
 
 Caleb Mueller
 -Nightwatch tests
