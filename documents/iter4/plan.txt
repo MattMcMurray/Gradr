@@ -1,0 +1,21 @@
+Schedule Updates:
+
+	For Iteration 4 we planned the following:
+
+	Picture (Carried over from last iteration)
+	Big User Story: I would like to upload a picture to my profile so matched study partners can recognize me.
+		- I want to be able to set an image to be displayed whenever someone looks at my profile (6 hours | HIGH) - COMPLETED
+		- I want to be able to see other people's profile pictures (4 hours | HIGH) - COMPLETED
+
+	Rejections
+	Big User Story: I would like to see a list of all matches where I matched with a potential study partner, but they didn’t match.
+		- I want to see a list of people I wanted to study with, but who didn't match with me (4 hours | HIGH) - COMPLETED
+		- I want to ask the user to optionally provide a reason why they chose to not match with me (5 hours | MED) - NOT COMPLETED (Decided this is kind of a bad idea to allow. Could cause unpleasant experiences on our app.)
+
+	Leaderboard
+	Big User Story: I want a leaderboard so I can compete with friends for most matches.
+		- I want to see which of my matches have the highest matching ratio (6 hours | HIGH) - COMPLETED (The ratio was kind of a bad idea since it would cause someone with only one match to top the board. Went with a total count instead.)
+		- I want to be able to see where I rank on a 'global' scale (5 hours | LOW) - COMPLETED
+		
+For this iteration, we completed all our big stories, and almost all the detailed stories as well. Additionally, we did several graphical improvements on our android app, as well as some usability improvements on the website.
+We're definitely proud of how smoothly this final iteration went overall!
