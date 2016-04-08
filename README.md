@@ -3,15 +3,17 @@
     - There are three test accounts to demonstrate the basics of the application
         - `test_account_1`, `test_account_2`, & `test_account_3`
         - passwords same as usernames
-- **(NEW)** -- If you want to see how matching works, **you will need to create multiple accounts and have them 'like' each other**.
+- **(NEW)** -- If you want to see how matching works, **you will need to create multiple accounts and have them 'like' each other**. This should be easy since there's only 3 users now.
     - You will **not** match with a user unless they have also liked you
 - **(NEW)** -- Rejections show up if you have liked someone and they have disliked you
+- On the previous iteration, it was mentioned that we were lacking stories. We've implemented 10 stories in total, so that should be enough. Additionally, a lot of work has gone into the appearance of the web and mobile app. For instance the swiping functionality on android was not an easy task, there was a lot of work and trying different things to make it work the way it does. So just know not all of our work for each iteration is solely dedicated to the current stories we're adding.
 
 ---
 - Our Trello page
     - for iteration 1 (task tracking): https://trello.com/b/mpbIdgMg/iteration-1
     - for iteration 2: https://trello.com/b/JOCDOuCr
     - for iteration 3: https://trello.com/b/O1QovCWC
+    - for iteration 4: https://trello.com/b/EN7wMuOx
 - To run the server:
     - `cd` into `Gradr/code/server`
     - run `sudo ./get_started.sh` to install all dependencies
@@ -95,9 +97,6 @@ Sometimes, when trying to merge your feature back into the iteration branch, you
     - `git merge my-feature-branch`
   - Check that everything looks good and delete the temporary merging branch
     - `git branch -D temp_merging_branch`
-
-### Note on chat
-When you log out, the messages you sent wont be seen anymore. You will only see the messages from your match.
     
 All of this seems like a lot of work, but it will keep the merge history looking pretty good and will reduce headaches when there are many conflicts to resolve.
     
