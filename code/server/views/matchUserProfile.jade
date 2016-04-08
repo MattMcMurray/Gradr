@@ -40,9 +40,10 @@ block content
 						h4 Courses: !{user.courses}
 						
 					.tab-pane#reviews(role="tabpanel")
-							
 						.comments
-							h4.attr Here's what people had to say about !{user.firstname}.
+							if ratings.average > 0
+								h4.attr !{user.firstname}'s overall rating is !{ratings.average}/5.
+							h4.attr Here's what people had to say about !{user.firstname}:
 							each review in ratings.reviews
 								ul
 									li !{review.comment} - !{review.rating}/5
@@ -64,12 +65,11 @@ block content
 
 
 					.tab-pane.attr#contactInfo(role="tabpanel")
-						h4 Email: !{email}
-						h4 City: !{city}
+						h4 City: !{user.city}
 						.panel.panel-default
 							.panel-body.chat
 								ul#messages
-								form(action="")
+								form#messageBox(action="")
 									input#m(autocomplete="off")
 									button Send
 

@@ -45,11 +45,10 @@ function processOptions(args) {
     for (var arg in args) {
         switch (arg) {
             case options[0]:
-                console.log("filling db");
-                db.fillDatabase(args.env);
+                db.fillDatabase();
                 break;
             case options[1]:
-                db.clearDatabase(args.env);
+                db.clearDatabase();
                 break;
             default:
                 console.log("Invalid option name specified. [%s]", arg);

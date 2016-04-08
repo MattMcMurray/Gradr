@@ -65,4 +65,15 @@ MessagesDB.prototype.saveMessage = function(messageObject) {
 	return Messages.create(messageObject);
 }
 
+MessagesDB.prototype.removeUser = function(userId) {
+    return Messages.destroy({
+        where: {
+            $or: {
+                sender: userId,
+                receiver: userId
+            }
+        }
+    });
+}
+
 module.exports = MessagesDB;

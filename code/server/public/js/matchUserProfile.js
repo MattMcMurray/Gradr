@@ -1,5 +1,7 @@
 $('#userTabs a').click(function(event) {
 	event.preventDefault();
+	var chat = $("#messages");
+	chat.scrollTop(chat[0].scrollHeight);
 	$(this).tab('show');
 
 });
@@ -16,7 +18,7 @@ $("#submitComment").click(function(event){
 
 		comment = cleanComment(comment);
 
-		console.log($("#profileId").attr('val'));
+		console.log($("#profileId").html());
 		$.ajax({
 			type:'post',
 			url: '/api/rateUser',
@@ -26,14 +28,9 @@ $("#submitComment").click(function(event){
 				ratee_id: $("#profileId").html(),
 				rating: $("#rating").val(),
 
-			},
-			sucess: function(data){
-				location.reload();
-			},
-			error: function(error){
-				console.log(error);
 			}
 		});
+		location.reload();
 	} else {
 		var cBox = $("#commentBox");
 		if (!cBox.hasClass("invalid")){

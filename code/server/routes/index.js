@@ -23,10 +23,49 @@ router.get("/profile", function(req, res) {
 router.get("/matches", function(req, res) {
 	UserMatchDAO.getMatches(req.query.user).then(function(users){
 		UserDAO.getUsersById(users).then(function(users){
-			res.render('../views/matches', { matches: users });
+			res.render('../views/matches', { matches: users, isRejections: false });
 		});
 	});
 });
+
+router.get("/rejections", function(req, res) {
+	console.log("Session: " + req.session);
+	UserMatchDAO.getRejections(req.query.user).then(function(users) {
+		UserDAO.getUsersById(users).then(function(users) {
+			res.render('../views/matches', {matches: users, isRejections: true});
+		});
+	});
+});
+
+router.get("/leaders", function(req,res) {
+	UserMatchDAO.getLeaders().then(function(leaders) {
+		var ids = [];
+		var results = [];
+
+		for (var i = 0; i < leaders.rows.length; i++) {
+			ids.push(leaders.rows[i].likee_id);
+		}
+		console.log(ids);
+		UserDAO.getUsersById(ids).then(function(users) {
+			if (leaders.error || users.error) {
+			res.status(500)
+			}
+
+			for(var i = 0; i < leaders.rows.length; i ++) {
+				
+				if(users[i]) results.push({count: leaders.count[i].count, user: users[i]})
+				
+			}
+
+			results.sort(function(a,b) { return parseFloat(b.count) - parseFloat(a.count) } );
+
+
+
+			res.render('leaderBoard', {leaders: results});
+		});
+		
+	});
+})
 
 router.get("/matchProfile", function(req,res){
 	UserDAO.getUsersById(req.query.user).then(function(users) {

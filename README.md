@@ -18,11 +18,12 @@
     - `cd` into `Gradr/code/server`
     - delete any old versions of the db
     - run `sudo node main.js` to initialize the db
-    - run `sudo sqlite3 study_database.sqlite < dbscripts/testusers.sql` to prepopulate
+    - run `sudo node main.js --fill_database` to prepopulate (keep server running until tests finished)
     - run `nightwatch`
     - Google Chrome will open and close multiple times while tests run
-- _(NEW)_ Two test accounts that have "matched" with each other are live on the server
+- Two test accounts that have "matched" with each other are live on the server
     - test_user_1 and test_user_2 are the usernames
+    - **(NEW)** a third account has been added to demonstrate rejections: test_user_3
     - passwords are same as usernames
 - Running Android Unit Tests
  - Go into Android Studio and load the project.

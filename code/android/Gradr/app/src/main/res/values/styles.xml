@@ -19,7 +19,7 @@
 
     <!-- Default theme -->
     <style name="page_background_default">
-        <item name="android:background">@drawable/footer_lodyas</item>
+        <item name="android:background">@drawable/footer_lodyas_tile</item>
     </style>
 
     <!-- Earth theme -->

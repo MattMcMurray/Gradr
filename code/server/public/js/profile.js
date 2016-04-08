@@ -2,7 +2,6 @@ var edit_mode = false;
 var username = '';
 
 $(function() {
-
 	$('#location').val('University Of Manitoba');
 	//I should really check here if the sessionStorage is null and redirect if it is...
 	if (sessionStorage.getItem('username') == null) {
@@ -47,33 +46,68 @@ $('#deleteAccountButton').click(function(e) {
 $('#editButton').click(function(e) {
 	e.preventDefault();
 	getUserInfo();
+	
 	if (edit_mode) {
-		//May want to instead, make an ajax call to update DB and then refresh page instead of doing this
-		toggleDisable('.user-entry', edit_mode);
-		swapClass('#editIcon', 'fa-check', 'fa-pencil');
+		if (validateForm()) {
+			//May want to instead, make an ajax call to update DB and then refresh page instead of doing this
+			toggleDisable('.user-entry', edit_mode);
+			swapClass('#editIcon', 'fa-check', 'fa-pencil');
 
-		var user = getUserInfo();
+			var user = getUserInfo();
 
-		$.ajax({
-			type: 'POST',
-			url: '/api/ProfileUpdate',
-			data: user,
-			success: function (data) {
-				window.location.replace('/profile');
-			},
-			error: function(error) {
-				//TODO: Tell the user about the error.
-				console.log('couldn\'t update');
-				console.log(error);
-			}
-		});
-	} else {
+			$.ajax({
+				type: 'POST',
+				url: '/api/ProfileUpdate',
+				data: user,
+				success: function (data) {
+					window.location.replace('/profile');
+				},
+				error: function(error) {
+					//TODO: Tell the user about the error.
+					console.log('couldn\'t update');
+					console.log(error);
+				}
+			});
+		}
+		else {
+			return;
+		}
+	} 
+	else {
 		toggleDisable('.user-entry', edit_mode);
 		toggleDisable('.birthdate-component', edit_mode);
 		swapClass('#editIcon', 'fa-pencil', 'fa-check');
 	}
+
 	edit_mode = !edit_mode;
 });
+
+function validateForm() {
+	var isValid = false;
+	var $picture = $('#picture');
+	var errorSpan = '<span class="glyphicon glyphicon-remove form-control-feedback">';
+
+	if (checkURL($picture.val())) {
+		isValid = true;
+	}
+	else {
+		$picture.parent().addClass('has-error has-feedback');
+		$picture.parent().append(errorSpan);
+		$picture.focus();
+	}
+
+	return isValid;
+}
+
+function checkURL(url) {
+	var re = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+	
+	if (url.length > 0 && !re.exec(url)) {
+		return false;
+	}
+
+	return true;
+};
 
 var userCallback = function(data) {
 	if (data == null) {

@@ -175,6 +175,181 @@ describe('Integration Tests', function() {
                 done();
             });
         });
+
+        it('Get theme of the user', function(done) {
+            request(app)
+            .get('/api/getTheme?user=' + userID)
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.theme).is.equalTo(0);
+                assert.that(res.body.status).is.equalTo('OK');
+                done();
+            });
+        });
+
+        it('Set theme of the user', function(done) {
+            request(app)
+            .post('/api/setTheme')
+            .send({'userId': userID, 'theme': 2})
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.status).is.equalTo('OK');
+                done();
+            });
+        });
+
+        it('Get theme the verify the change', function(done) {
+            request(app)
+            .get('/api/getTheme?user=' + userID)
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.theme).is.equalTo(2);
+                assert.that(res.body.status).is.equalTo('OK');
+                done();
+            });
+        });
+
+        it('Save a message for retrieval', function(done) {
+            request(app)
+            .post('/api/saveMessage')
+            .send({'message': 'Test message', 'sender': userID, 'receiver': 1, 'sent': true})
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.message).is.not.null();
+                done();
+            });
+        });
+
+        it('Gets the message', function(done) {
+            request(app)
+            .get('/api/getMessages?sender=' + userID + '&receiver=1')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.messages).is.not.null();
+                assert.that(res.body.messages.length).is.equalTo(1);
+                assert.that(res.body.messages[0].message).is.equalTo('Test message');
+                done();
+            });
+        });
+
+        it('Gets the message with all messages', function(done) {
+            request(app)
+            .get('/api/getAllMessages?sender=' + userID + '&receiver=1')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.messages).is.not.null();
+                assert.that(res.body.messages.length).is.equalTo(1);
+                assert.that(res.body.messages[0].message).is.equalTo('Test message');
+                done();
+            });
+        });
+
+        it('Like user 1', function(done) {
+            request(app)
+            .post('/api/likeUser')
+            .send({'liker_id': userID, 'likee_id': 1})
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.result).is.not.null();
+                done();
+            });
+        });
+
+        it('Dislike user 2', function(done) {
+            request(app)
+            .post('/api/dislikeUser')
+            .send({'liker_id': userID, 'likee_id': 2})
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.result).is.not.null();
+                done();
+            });
+        });
+
+        it('set up match for rating', function(done) {
+            request(app)
+            .post('/api/likeUser')
+            .send({'liker_id': 1, 'likee_id': userID})
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.result).is.not.null();
+                done();
+            });
+        })
+
+        it('create a rating for the user', function(done) {
+            request(app)
+            .post('/api/rateUser')
+            .send({'rater_id': 1, 'ratee_id': userID, 'rating': 4, 'comment': 'Test rating'})
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.result).is.not.null();
+                done();
+            });
+        });
+
+        it('create a rating for the user\'s friend', function(done) {
+            request(app)
+            .post('/api/rateUser')
+            .send({'rater_id': userID, 'ratee_id': 1, 'rating': 5, 'comment': 'Test rating'})
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body.result).is.not.null();
+                done();
+            });
+        });
+
+        it('get the rating', function(done) {
+            request(app)
+            .get('/api/getRatings?ratee_id=' + userID)
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body).is.not.null();
+                assert.that(res.body.average).is.equalTo(4);
+                assert.that(res.body.reviews.length).is.equalTo(1);
+                done();
+            });
+        });
+
+        it('get the rating for the user\'s friend', function(done) {
+            request(app)
+            .get('/api/getMyRatingFor?ratee_id=1&rater_id=' + userID)
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if(err) done(err);
+                assert.that(res.body).is.not.null();
+                assert.that(res.body.rating).is.equalTo(5);
+                assert.that(res.body.comment).is.equalTo('Test rating');
+                done();
+            });
+        });
+
+        
     });
 
     describe('Deleting the user', function() {

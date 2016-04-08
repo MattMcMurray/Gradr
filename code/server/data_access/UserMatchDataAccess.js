@@ -20,6 +20,10 @@ var getMatches = function(userID) {
     return userMatchDAO.getMatches(userID);
 }
 
+var getRejections = function(userID) {
+    return userMatchDAO.getRejections(userID);
+}
+
 var getPreviouslyRatedIds = function(userID) {
     return userMatchDAO.getPreviouslyRatedIds(userID);
 }
@@ -32,11 +36,17 @@ var isMatch = function(liker_id, likee_id) {
     return userMatchDAO.isMatch(liker_id, likee_id);
 }
 
+var getLeaders = function() {
+    return userMatchDAO.getLeaders();
+}
+
 module.exports = {
     init: init,
     addUserMatch: addUserMatch,
     getMatches: getMatches,
+    getRejections: getRejections,
     getPreviouslyRatedIds: getPreviouslyRatedIds,
     removeUser: removeUser,
-    isMatch: isMatch
+    isMatch: isMatch,
+    getLeaders: getLeaders
 }

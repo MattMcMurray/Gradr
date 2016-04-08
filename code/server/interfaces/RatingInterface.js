@@ -10,6 +10,9 @@ RatingInterface.prototype = {
     },
     getMyRatingFor: function(raterId, rateeId) {
         throw "function getMyRatingFor() not implemented";
+    },
+    removeUser: function(userID) {
+    	throw "function removeUser() not implemented";
     }
 }
 
