@@ -40,6 +40,8 @@ public class MatchStudentListActivityTest extends ActivityInstrumentationTestCas
     public void testViewMatchActivity() throws Exception {
         solo.clickOnText("Joyce Hudson");
         assertTrue(solo.waitForActivity(ViewMatchActivity.class));
+        solo.goBack();
+        assertTrue(solo.waitForActivity(StudentListActivity.class));
     }
 
     @Override

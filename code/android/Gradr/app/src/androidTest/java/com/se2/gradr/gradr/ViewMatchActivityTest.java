@@ -53,7 +53,7 @@ public class ViewMatchActivityTest extends ActivityInstrumentationTestCase2<View
 
     public void testChatFragment() throws Exception {
         solo.clickOnText("CHAT");
-        assertTrue(solo.waitForText("Hello Joyce"));
+        assertTrue(solo.waitForText("Hello Joyce", 1, 30000));
 
         solo.enterText((EditText) solo.getView(R.id.message_box), "Testy test");
         solo.clickOnView(solo.getView(R.id.send_button));

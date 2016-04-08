@@ -44,6 +44,10 @@ public class SwipeActivityTest extends ActivityInstrumentationTestCase2<SwipeAct
         solo.clickOnText("Fire");
         assertTrue(solo.waitForDialogToClose());
         assertTrue(solo.waitForActivity(SwipeActivity.class));
+        solo.clickOnMenuItem("Theme", true);
+        solo.clickOnText("Default");
+        assertTrue(solo.waitForDialogToClose());
+        assertTrue(solo.waitForActivity(SwipeActivity.class));
     }
 
     public void testPassMatch() throws Exception {

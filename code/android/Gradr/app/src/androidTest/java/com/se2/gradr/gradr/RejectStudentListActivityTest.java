@@ -35,6 +35,8 @@ public class RejectStudentListActivityTest extends ActivityInstrumentationTestCa
     public void testViewRejectActivity() throws Exception {
         solo.clickOnText("Justin Flores");
         assertTrue(solo.waitForActivity(ViewRejectorActivity.class));
+        solo.goBack();
+        assertTrue(solo.waitForActivity(StudentListActivity.class));
     }
 
     @Override
