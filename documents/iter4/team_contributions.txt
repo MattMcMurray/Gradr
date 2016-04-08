@@ -44,6 +44,10 @@ Steven Bairos-Novak
 -Stubs for Users, UserMatches, Likes
 -Sign in, Matches List, Swiping, Match Profile, & Rating on Android
 	- backend API methods to enable Android functionality on these pages & the tests for it
+-Many, many bug fixes on web and Android
+-Leaderboard, Rejections on Android
+-Refactored Android activities to reduce code duplication
+-Basically did 90% of the code reviews for the last few iterations
 
 Jorell Linsangan
 -Login page
