@@ -35,10 +35,10 @@ socket.on('send messages to user', function(messages){
 
 });
 
-socket.on('error message', function(msg) {
-	$('#messages').append($('<li class=\'error\'>').text(msg));
-	chat.scrollTop(chat[0].scrollHeight);
-});
+// socket.on('error message', function(msg) {
+// 	$('#messages').append($('<li class=\'error\'>').text(msg));
+// 	chat.scrollTop(chat[0].scrollHeight);
+// });
 
 socket.on('online matches', function(onlineMatches) {
 
