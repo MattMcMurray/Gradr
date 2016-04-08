@@ -30,7 +30,9 @@
     - run `nightwatch`
     - Google Chrome will open and close multiple times while tests run
 - Running Android Unit Tests
- - Go into Android Studio and load the project.
+ - Start the local web server by running `sudo node main.js` (to ensure the local DB has the test data, run that node command with the `--clear_database` option, exit the process, and the run it again with the `--fill_database` option)
+ - Go into Android Studio and load the project
+ - Make sure to change the `http_address_server` element in the strings.xml resource file (`/code/android/Gradr/app/src/main/res/values/strings.xml`) to your own local IP
  - Click on Run>Edit Configurations
  - Go to Android Tests and click the green plus
  - Select Android Test
