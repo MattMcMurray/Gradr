@@ -31,6 +31,8 @@ Keane Kraus
 -Android chat UI and business logic
 -Android unit tests (with Matt)
 -Testing for chat api and backend
+-Fix deleting ratings and messages
+-Added more integration, unit tests, and database tests
 
 Steven Bairos-Novak
 -Vision statement
