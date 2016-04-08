@@ -3,7 +3,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:padding="10dp"
+    android:background="@drawable/user_card">
 
     <ImageView
         android:layout_width="match_parent"
@@ -11,32 +13,40 @@
         android:id="@+id/userImage"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.70"
-        android:src="@drawable/loading"/>
-
+        android:src="@drawable/loading2"/>
 
     <TextView
         android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="uname"
-        />
+        android:paddingLeft="15dp"
+        android:paddingTop="32dp"
+        android:textSize="18dp"
+        android:textStyle="bold"/>
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="hello world"
+        android:textSize="14dp"
+        android:paddingLeft="40dp"
         />
     <TextView
         android:id="@+id/city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="hello world"
+        android:text="blaaaaah"
+        android:textSize="14dp"
+        android:paddingLeft="40dp"
         />
     <TextView
         android:id="@+id/courses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="hello world"
+        android:textSize="14dp"
+        android:paddingLeft="40dp"
         />
 
 </LinearLayout>

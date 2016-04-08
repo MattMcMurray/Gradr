@@ -45,6 +45,9 @@ var User = DBConnection.define('users', {
     },
     theme: {
         type: Sequelize.INTEGER
+    },
+    picture: {
+        type: Sequelize.STRING
     }
 });
 
@@ -90,7 +93,9 @@ UserDB.prototype.createUser = function(userData) {
         courses: '',
         generalDescription: '',
         helpDescription: '',
-        dateOfBirth: null
+        dateOfBirth: null,
+        theme: 0,
+        picture: ''
     });
 };
 
@@ -104,7 +109,8 @@ UserDB.prototype.createUserProfile = function(userData) {
         courses: userData.courses,
         generalDescription: userData.generalDescription,
         helpDescription: userData.helpDescription,
-        dateOfBirth: userData.dateOfBirth
+        dateOfBirth: userData.dateOfBirth,
+        picture: userData.picture
     },
     {
         where: { username: userData.username}

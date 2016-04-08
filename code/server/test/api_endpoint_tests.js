@@ -82,7 +82,7 @@ describe('api', function() {
         it('updates a user profile', function(done) {
             request(app)
             .post('/api/ProfileUpdate')
-            .send({'username': 'mattmcmurray', 'firstname': 'matt', 'lastname': 'mcmurray', 'city': 'Brandon', 'country': 'Canada', 'school': 'Red River College', 'courses': 'Distributed Systems', 'generalDescription': '', 'helpDescription': '', 'dateOfBirth': null})
+            .send({'username': 'mattmcmurray', 'firstname': 'matt', 'lastname': 'mcmurray', 'city': 'Brandon', 'country': 'Canada', 'school': 'Red River College', 'courses': 'Distributed Systems', 'generalDescription': '', 'helpDescription': '', 'dateOfBirth': null, 'picture': 'http://test.com/image.jpg'})
             .expect(200)
             .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function(err, res) {
@@ -102,57 +102,12 @@ describe('api', function() {
                     assert.that(res.body.user.firstname).is.equalTo("matt");
                     assert.that(res.body.user.lastname).is.equalTo("mcmurray");
                     assert.that(res.body.user.city).is.equalTo("Brandon");
+                    assert.that(res.body.user.picture).is.equalTo("http://test.com/image.jpg");
                     done();
                 });
             });
         });
     });
-
-    // describe('POST /login', function() {
-
-    //     it('logins in a user', function(done) {
-    //         request(app)
-    //         .post('/api/login')
-    //         .send({'username': 'jjorell', 'password': 'hello1'})
-    //         .expect(200)
-    //         .expect('Content-Type', 'application/json; charset=utf-8')
-    //         .end(function(err, res) {
-    //             if(err) done(err);
-    //             assert.that(res.body.user).is.not.null();
-    //             assert.that(res.body.user.username).is.equalTo('jjorell');
-    //             assert.that(res.body.url).is.equalTo('/main');
-    //             done();
-    //         });
-    //     });
-
-    //     it('fails logins in a user because of username', function(done) {
-    //         request(app)
-    //         .post('/api/login')
-    //         .send({'username': 'MichaelMcDoesntExist', 'password': 'kraus'})
-    //         .expect(500)
-    //         .expect('Content-Type', 'application/json; charset=utf-8')
-    //         .end(function(err, res) {
-    //             if(err) done(err);
-    //             assert.that(res.body.message).is.not.null();
-    //             assert.that(res.body.message).is.equalTo('Oops! Something went wrong. Invalid username/password.');
-    //             done();
-    //         });
-    //     });
-
-    //     it('fails logins in a user because of password', function(done) {
-    //         request(app)
-    //         .post('/api/login')
-    //         .send({'username': 'jjorell', 'password': 'this password'})
-    //         .expect(500)
-    //         .expect('Content-Type', 'application/json; charset=utf-8')
-    //         .end(function(err, res) {
-    //             if(err) done(err);
-    //             assert.that(res.body.message).is.not.null();
-    //             assert.that(res.body.message).is.equalTo('Oops! Something went wrong. Invalid username/password.');
-    //             done();
-    //         });
-    //     });
-    // });
 
     describe('GET /randomUser', function() {
         it('gets a random user', function(done) {
@@ -193,10 +148,11 @@ describe('api', function() {
             .expect('Content-Type', 'application/json; charset=utf-8')
             .end(function(err, res) {
                 if (err) done(err); // exit if there's an error
+                console.log(res.body.matches);
                 assert.that(res.body.matches).is.not.null();
                 assert.that(res.body.matches.length).is.equalTo(1);
-                assert.that(res.body.matches[0].id).is.not.null();
-                assert.that(res.body.matches[0].id).is.equalTo(222);
+                assert.that(res.body.matches[0].dataValues.id).is.not.null();
+                assert.that(res.body.matches[0].dataValues.id).is.equalTo(222);
                 done();
             });
         });
@@ -577,6 +533,75 @@ describe('api', function() {
         });
     });
 
+    describe('GET /api/getTheme', function() {
+        it('retrieves the theme integer', function(done) {
+            request(app)
+            .get('/api/getTheme?user=222')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if (err) done(err);
+                assert.that(res.body).is.not.null();
+                assert.that(res.body.theme).is.equalTo(2);
+                done();
+            });
+        });
+
+        it('retrieves a second theme integer', function(done) {
+            request(app)
+            .get('/api/getTheme?user=111')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if (err) done(err);
+                assert.that(res.body).is.not.null();
+                assert.that(res.body.theme).is.equalTo(1);
+                done();
+            });
+        });
+
+        it('retrieves a third theme integer', function(done) {
+            request(app)
+            .get('/api/getTheme?user=111')
+            .expect(500)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                console.log(res.body);
+                assert.that(res.body).is.not.null();
+                done();
+            });
+        });
+    });
+
+    describe('POST /api/setTheme', function() {
+        it('sets the theme of a user', function(done) {
+            request(app)
+            .post('/api/setTheme')
+            .send({userId: '111', theme: 3})
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if (err) done(err);
+                assert.that(res.body).is.not.null();
+                assert.that(res.body.status).is.equalTo('OK');
+                done();
+            });
+        });
+
+        it('sets the theme of a non-existant user', function(done) {
+            request(app)
+            .post('/api/setTheme')
+            .send({userId: '444', theme: 3})
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                if (err) done(err);
+                assert.that(res.body).is.not.null();
+                done();
+            });
+        });
+    });
+
     describe('POST /api/deleteUser', function() {
         it('deletes a user', function(done) {
             request(app)
@@ -599,6 +624,21 @@ describe('api', function() {
             .end(function(err, res) {
                 if(err) done(err);
                 assert.that(res.body.user).is.null();
+                done();
+            });
+        });
+    });
+
+    describe('GET /api/getLeaders', function() {
+        it('retrieves a list of leaders', function(done){
+            request(app)
+            .get('/api/getLeaders')
+            .expect(200)
+            .expect('Content-Type', 'application/json; charset=utf-8')
+            .end(function(err, res) {
+                assert.that(res.body.leaders).is.not.null();
+                assert.that(res.body.leaders.length).is.equalTo(2);
+                assert.that(res.body.leaders[0].user.dataValues.username).is.equalTo('calebmueller');
                 done();
             });
         });

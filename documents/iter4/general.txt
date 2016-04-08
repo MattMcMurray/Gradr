@@ -1,0 +1,2029 @@
+jorell: <@jorell|jorell> has joined the channel
+evan: <@evan|evan> has joined the channel
+mattmcmurray: <@mattmcmurray|mattmcmurray> has joined the channel
+mattmcmurray: Wuddup
+mattmcmurray: We should probably try and have legit sprint planning meetings once a week. That was my group's downfall in SE1
+jorell: <!channel> I\u2019m down with that. Are you guys free anytime tomorrow so we can just get a head start on this?
+keanek: <@keanek|keanek> has joined the channel
+keanek: I've got class from 1:30-2:20pm tomorrow, I could hang around afterwards.
+steve: <@steve|steve> has joined the channel
+steve: im free at that time as well.
+jorell: Cool. I'll be there for that time then. Hopefully <@mattmcmurray> and <@evan> will both be free as well :simple_smile:
+caleb: <@caleb|caleb> has joined the channel
+caleb: Yup, I have an hour free at 2:20
+evan: I can meet at 220 too
+
+
+mattmcmurray: Same here 
+evan: Where did we want to meet?
+mattmcmurray: Resource room?
+evan: Works for me
+mattmcmurray: Grabbing coffee and I'll be up in 5 mins
+jorell: Student ids please.
+caleb: <!everyone>:  give me student ID plz
+mattmcmurray: 7695520
+steve: 7712818
+evan: 7618382
+evan: set up a reminder to \u201cResearch meteor framework and flask framework\u201d in this channel at 5pm Sunday, January 10th, Central Standard Time. 
+
+
+jorell: <!channel>: if we go the study buddy tindr. We can call it Nrds?
+jorell: Have you guys joined the trello?
+jorell: Nvm, figured it out. 
+caleb: I'm proud of you, <@jorell>
+
+
+USLACKBOT: Reminder: Research meteor framework and flask framework.
+
+
+jorell: <!channel>: resource room?
+mattmcmurray:  :thumbsup: 
+caleb: if you insist
+evan: Just got out of class, be there soon
+mattmcmurray: I'll be throwing all the meeting notes into this one document. I'll just append a couple pages each time we have a meeting. <https:\/\/docs.google.com\/document\/d\/1zamOyRtMqXNgGAJmXcRp66_HBTKQA3h-N-MVJcS5tWQ\/edit?usp=sharing>
+
+
+mattmcmurray: I have to take off a bit early today, are you guys okay with meeting tomorrow at 2:30 to discuss vision statement and tasks?
+caleb: I think that's okay with me
+evan: Yeah that works for me too
+mattmcmurray: Perf
+mattmcmurray: I'm gonna set up the github tonight, so when you all have the chance, send me your usernames in a direct message 
+mattmcmurray: <!channel> 
+jorell: Since we\u2019re using NodeJS we have to agree on a programming pattern.
+jorell: *design patterns. haha
+mattmcmurray: As in like MVC vs. 3 layer, etc?
+jorell: Nope. That\u2019s more of architecture. Like how we\u2019re actually writing the code.
+mattmcmurray: Gotcha. Yeah, let's talk about that at tomorrow's meeting as well. 
+jorell: <https:\/\/addyosmani.com\/resources\/essentialjsdesignpatterns\/book\/#designpatternsjavascript>
+jorell: An open-source book on JavaScript Design Patterns
+mattmcmurray: I'll read through that tonight 
+evan: Did we want to outline a structured git workflow based off of sprint iterations, or are we just gonna pull out of master and merge back?
+caleb: I think we're at least going to have a dev branch for each iteration, and will get merged with master each iteration
+caleb: beyond that not sure
+mattmcmurray: I was thinking similar to Norima, <@evan> 
+jorell: Another topic for tomorrow.
+mattmcmurray: A branch for each iteration and feature branches are merged in. 
+mattmcmurray: But yeah, something to talk about tomorrow for sure 
+evan: Yeah, that makes the most sense to me if we have to revert to a previous version for some reason . But yeah we can talk about it tomorrow.
+keanek: Meeting at the resource room again tomorrow?
+mattmcmurray: Yup yup
+
+
+mattmcmurray: GitHub page is all set up and meeting notes are updated <https:\/\/github.com\/MattMcMurray\/softeng2>
+mattmcmurray: softeng2 - A project for Software Engineering 2 at the University of Manitoba
+steve: sweet, im going to get started on the vision statment. anyone know how we're supposed to send messages on githhub? we're supposed to communicate using github aren't we?
+
+
+caleb: wait, really?
+steve: Yeah they want to see everything you've talked about 
+caleb: can we just get a transcript off of slack and put it in the repo?
+mattmcmurray: I think he means as far as issue tracking goes. But we should clarify in class today
+jorell: I\u2019m going to be missing class today. Can someone let me know if he mentions anything important? Term test dates specifically.
+mattmcmurray: Will do
+evan: Same here, just landed in Toronto
+mattmcmurray: Yeah man. I can send you guys my onenote page of notes for today
+jorell: :heart:
+mattmcmurray: I'm gonna try and get a skeleton hello world app set up in the repo tonight and make sure there's a script to install all dependencies so we can hit the ground running for iteration 1
+mattmcmurray: Also, do we want to use a styling framework? E.g., bootstrap, materialize, etc.?
+mattmcmurray: <http:\/\/getbootstrap.com|getbootstrap.com> 
+mattmcmurray: <http:\/\/materializecss.com|materializecss.com>
+mattmcmurray: Class was pretty boring. Nothing super important. I feel like only one slide was really worthwhile 
+jorell: <@steve>: suggested than instead of having a check an x, we can have pass and fail or A+ or F
+jorell: haha
+jorell: study
+mattmcmurray: Hahah yeah I like that
+evan: Can we incorporate gold stars anywhere too for that elementary flair?
+jorell: That coulde be party of our rating system?
+steve: :+1: 
+mattmcmurray: Guys, this is going to be the best SE2 project OF ALL TIME
+jorell: YEAAAHP
+jorell: I like how materialize looks
+jorell: I really dont want to deal with CSS too much.
+keanek: I messed around with Bootstrap a bit at my last work term.  But all of the css was written previously, I was just calling it as necessary.
+mattmcmurray: Bootstrap and materialize are super similar. Basically they just provide pre-written CSS and JavaScript that you can call. We can talk about it tomorrow or next week or something
+jorell: So I have sqlite working with nodejs already.
+jorell: haha
+mattmcmurray: Prof recommended sqlite today lol
+mattmcmurray: I have a very simple demo API up on a branch on GitHub if any of you are curious to see what the routing looks like
+mattmcmurray: <https:\/\/github.com\/MattMcMurray\/softeng2\/tree\/project_setup>
+mattmcmurray: softeng2 - A project for Software Engineering 2 at the University of Manitoba
+jorell: I have a small app on my laptop that does database stuff using Sequelize.
+jorell: I\u2019ll add to this testing Sequelize.
+mattmcmurray: Excellent
+jorell: apparently var keyword limits a variable\u2019s scope to its module
+mattmcmurray: You can export it. Something like `export = { myVar }`
+jorell: if you don\u2019t use var, it becomes global.
+mattmcmurray: I'd have to check the docs, but I think it's possible 
+jorell: its weird..
+mattmcmurray: Oh yeah that sounds familiar 
+jorell: I went and created channel\u2019s for the topics that we might need.
+jorell: this way, we\u2019ll have things more organized and it wont be a cluster fuck when we want to look for something specific. haha
+jorell: <@mattmcmurray> was your hello world app working?
+mattmcmurray: Yup. It only responds to ajax requests though. Use postman or a similar chrome extension to send a get request. Full instructions are in the readme
+steve: i uploaded a first draft of the vision statement. it's not my best work but its something
+steve: i write in a very verbose way so it's a bit longer than 1\/2 a page, but it should be pretty easy to cut down. i just wanted to address all the points we wrote down
+jorell: Ahh, the ajax request was my problem. I was just accessing the routes through the browser.
+jorell: lol nvm. I wasn\u2019t adding \/api =))
+jorell: I was just straight up localhost:8080\/
+jorell: Yo, so I
+jorell: \u2018m just gonna straight up push to the project_setup repo. I forgot to make a feature branch. haha
+
+
+steve: <@jorell> you coming today? 
+jorell: To what <@steve> 
+steve: The meeting today at 2;30 in resource room
+jorell: I didn't know there was a meeting 
+mattmcmurray: All good man, I'm tired af and want to go home anyway. We'll meet on Monday to finalise detailed user stories
+
+
+steve: alright so i dont at all understand how to use vagrant and shit.
+steve: i downloaded it and unzipped it with 7zip and then went into the folder and did vagrant up and nothing happened.
+mattmcmurray: I'll bring my laptop tomorrow and we can work through everything together. 
+jorell: Yeah I'm not using vagrant as well :)) osx ftw
+mattmcmurray: If you've got a computer you can use any Unix system on, you can just run that setup script there. I dual boot into Ubuntu most of the time 
+jorell: Oh yeah. That i know. Haha 
+jorell: Meeting tomorrow at 2:20?
+evan: I'm back in Winnipeg now, I'll probably stay up for a while to catch up with what I missed here. I had some poor experiences with vagrant with this ucosp project, but you're saying you made a setup script for UNIX systems <@mattmcmurray>?
+jorell: The setup script is for installing node and its dependencies <@evan>
+evan: Sweet
+jorell: on a unix system. haha
+evan: I've got an Ubuntu VM on my surface so I should be good to go
+jorell: :computer:
+mattmcmurray: <@evan> I channelled my inner James and wrote a shell setup script lol
+mattmcmurray: <!channel>: You definitely don't need to use vagrant, it's just my favourite tool. If you want just a vanilla VirtualBox VM, that will work just as well!
+evan: He'd be so proud :')
+mattmcmurray: Man, I learned a ton from James. We both really share an interest for security
+evan: I might try vagrant out again because I like the idea of it, but there was just an issue for those running Windows 10 this weekend. Apparently there's an existing bug with the ansible provision or something.
+mattmcmurray: Yeah, I'm actually troubleshooting that now lol
+mattmcmurray: fucking windows 10 has been nothing but nightmares. Shoulda stuck with 7
+evan: Yeah he's a smart guy, great to work with
+evan: I know... It's been a pain for some dev work on the surface, but the UI is so much better on the surface than 8.1
+evan: I just do most of my dev on the surface in the Ubuntu VM anyways 
+mattmcmurray: Yeah, I really like the look and feel of Win10, but it's just been a nightmare as far as compatibility goes. It made my gaming keyboard unusable for my desktop... :disappointed:
+evan: I learned a lot of sweet terminal extensions for Linux from James to make Linux dev a delight
+mattmcmurray: yeah I didn't know about `sudo !!` before James showed it to me
+mattmcmurray: And i exclusively use terminator and oh-my-zsh now
+jorell: Man, I\u2019m rewritting my resume haha
+jorell: I lost my word copy for it.
+jorell: So Im totally just redoing it.
+mattmcmurray: <@jorell>: Did you have any trouble with sqlite3? When I try to run the server I get\n```\nvagrant@precise32:\/vagrant$ node server.js \nmodule.js:340\n    throw err;\n    ^\n\nError: Cannot find module 'sqlite3'\n    at Function.Module._resolveFilename (module.js:338:15)\n    at Function.Module._load (module.js:289:25)\n    at Module.require (module.js:366:17)\n    at require (module.js:385:17)\n    at Object.&lt;anonymous&gt; (\/vagrant\/database\/databaseTest.js:3:15)\n    at Module._compile (module.js:435:26)\n    at Object.Module._extensions..js (module.js:442:10)\n    at Module.load (module.js:356:32)\n    at Function.Module._load (module.js:313:12)\n    at Module.require (module.js:366:17)\n    at require (module.js:385:17)\n    at Object.&lt;anonymous&gt; (\/vagrant\/server.js:11:1)\n    at Module._compile (module.js:435:26)\n    at Object.Module._extensions..js (module.js:442:10)\n    at Module.load (module.js:356:32)\n    at Function.Module._load (module.js:313:12)\nvagrant@precise32:\/vagrant$ npm install sqlite3\n```
+jorell: install sqlite3
+jorell: it looks like its not installed?
+mattmcmurray: When I try to install sqlite3 I get a multi-hundred line stack trace
+jorell: hmm..
+mattmcmurray: ends like this \n```\nFailed to execute '\/usr\/bin\/nodejs \/usr\/lib\/node_modules\/npm\/node_modules\/node-gyp\/bin\/node-gyp.js build --fallback-to-build --module=\/vagrant\/node_modules\/sqlite3\/lib\/binding\/node-v46-linux-ia32\/node_sqlite3.node --module_name=node_sqlite3 --module_path=\/vagrant\/node_modules\/sqlite3\/lib\/binding\/node-v46-linux-ia32' (1)\nnpm ERR! Linux 3.2.0-23-generic-pae\nnpm ERR! argv \"\/usr\/bin\/nodejs\" \"\/usr\/bin\/npm\" \"install\" \"sqlite3\"\nnpm ERR! node v4.2.4\nnpm ERR! npm  v2.14.12\nnpm ERR! code ELIFECYCLE\n\nnpm ERR! sqlite3@3.1.1 install: `node-pre-gyp install --fallback-to-build`\nnpm ERR! Exit status 1\nnpm ERR! \nnpm ERR! Failed at the sqlite3@3.1.1 install script 'node-pre-gyp install --fallback-to-build'.\nnpm ERR! This is most likely a problem with the sqlite3 package,\nnpm ERR! not with npm itself.\nnpm ERR! Tell the author that this fails on your system:\nnpm ERR!     node-pre-gyp install --fallback-to-build\nnpm ERR! You can get their info via:\nnpm ERR!     npm owner ls sqlite3\nnpm ERR! There is likely additional logging output above.\n\nnpm ERR! Please include the following file with any support request:\nnpm ERR!     \/vagrant\/npm-debug.log\n```
+mattmcmurray: gonna keep troubleshooting
+mattmcmurray: thinking it might be a vagrant issue, gonna try on local machine
+mattmcmurray: yup, was a vagrant issue... Weird
+jorell: So no to vagrant? haha
+jorell: or are you going to keep trying?
+
+
+evan: Hey team, it totally slipped my mind that I have a standing biweekly meeting with Andrea Bunt at 230 starting tomorrow for my industrial project class, and then I've got Physio right after. I'm gonna have to miss another meeting, please let me know if there's something I can do, I don't like missing two meetings in a row.
+mattmcmurray:  I also won't be able to make it. I've completely lost my voice and my head is pounding. All that's left is detailed user stories. If you guys need anything, I'll check slack periodically but I'm gonna try and sleep this cold off. Sorry guys 
+mattmcmurray: <@jorell> I'm gonna try just using a normal virtualbox VM to see if that works better today
+mattmcmurray: Okay, so looks like npm and vagrant don't get along well. So it's probably best to just run a normal Ubuntu VM. Does everyone know how or should I try and find a guide somewhere?
+evan: It's pretty straightforward, I think everyone should be fine.
+mattmcmurray: Yeah, I figured everyone would have a pretty good idea. If anyone needs help, just holler. I got an ubuntu VM working on Win10 this morning and the sample project on the github repo worked well
+evan: Should we all use nodeenv to make a virtual environments for node? Might save some headaches with node dependencies.
+jorell: Isn\u2019t it only useful when you have other node projects going on?
+mattmcmurray: Yeah, if we're running VMs I don't think it would really serve any benefit
+mattmcmurray: If you're running on your local linux machine, then I'd say go for it, but otherwise it just might be an extra step
+jorell: Atleast I\u2019m assuming nodeenv works similarly to virtualenv for python
+mattmcmurray: Yeah, I think that's what it's based off of
+evan: That's true, if our VM is specific for our project then it's unnecessary
+evan: Not sure if anyone was using a preexisting single Ubuntu VM though
+jorell: I would have used nodeenv if I knew it existed :stuck_out_tongue:
+evan: I might use it, only because I don't want to set up another fresh VM to save time setting up my basic environment again
+mattmcmurray: word
+jorell: So we actually have to figure out what CI tools we want. haha
+mattmcmurray: I've never used any, but Travis CI is the one I see the most
+jorell: we\u2019re saying Travis CI for now
+mattmcmurray: Sounds good
+jorell: Pushed what we did this meeting.
+mattmcmurray: Awesome. I'll make sure everything looks good and submit to d2l sometime tomorrow
+jorell: suhweet
+mattmcmurray: Go team :100: 
+steve: can someone who knows what why we chose the technologies, go over the Technologies.txt document. I feel like some of the justifications are not great... (NodeJS server reason: sequelize)
+steve: there's also no reasoning for sqlite
+evan: I can make some additions to that
+steve: ok dont do it yet though. im about to commit some edits
+jorell: Ill add things to sequelize.
+jorell: I kinda chose that.
+steve: ok i just committed
+jorell: Make your changes first <@evan> 
+evan: I'm waiting for a bus right now, I'll make the changes in about 30 min
+steve: can i delete the detailed stories for the 3 big stories that we aren't going to be doing in iteration 1. I thought you guys said you were going to delete them but then nobody did?
+jorell: Yeah
+steve: Ok last 2 things: \n1) has anyone read the vision statement yet? Its in the admin docs folder. \n2) Can we remove the \"As a user,\" from the start of every Big user story? That's not how users speak, it doesn't add anything useful (they're called big USER stories) and i could've sworn braico said not to include that in your stories???
+jorell: I have, I thought the vision statement was pretty good. And yes, I agree to that.
+evan: Hey <@steve>, I think you only half completed a point
+evan: About node that is
+evan: npm sorry
+evan: \"- Already comes with NodeJS and it\"
+jorell: Sorry, I think that was me. haha
+evan: Oh I thought the blame said steve, nm
+jorell: I think you can just remove the and it
+jorell: haha
+steve: It was probably me. I split some points into 2 points
+evan: OK
+steve: Just forgot to erase the bit in between
+evan: OK I pushed some changes onto the technolgies.txt file
+evan: @jorrell did you want to add something about Sequelize? I'm not familiar with that...
+jorell: I\u2019m probably just adding a small bit.
+jorell: Pulled your changes now. Also you spelled my name wrong :stuck_out_tongue: @Evvan
+evan: Oh jeez that's embarrassing... I even did it wrong with an auto-complete menu
+evan: I'm a jerk, I'm sorry
+jorell: such a jerk
+evan: It's like I intentionally tried to spell it wrong
+jorell: I think I\u2019m actually jsut going to get rid of sequelize. Because if we talk about sequelize, I ahve to talk about express and body-parser as well.
+evan: I'm cool with that
+mattmcmurray: Same. I don't think we need to mention modules. Just core stack
+evan: Yeah that's a good point
+jorell: cool. I pushed the latest copy. haha
+evan: I just read the vision statement, I think it's good, but I think this line should be the opener. It's too grandiose to be in the middle... \"Since the dawn of time, finding a study partner that is as motivated and intelligent as oneself has been a pain point of the post-secondary education experience.\"
+evan: The big user stories and detailed user stories look good to me as well.
+mattmcmurray: We need to get David Attenborough to read that and upload an audio clip of our vision statement
+jorell: We missed our chance. He did an AMA last week.
+evan: Maybe we can splice together some clips to form that sentence
+jorell: he\u2019s probably used all those words on film
+mattmcmurray: I'll get on it ASAP
+evan: Perfect
+evan: Is all we need now the project plan?
+jorell: There\u2019s a project plan?
+jorell: Oh cost and stuff.
+jorell: We did cost and priority today.
+jorell: I think the release plan we kinda skipped.
+jorell: Wanna quickly discuss it tomorrow?
+evan: I can't tell if it's something different, but yeah we should talk about it tomorrow
+mattmcmurray: Yup
+evan: In one part of the document he makes it sound like it's just the plan for iteration 1 (which would be the detailed user stories I'm assuming) but later on he makes it look like it's something different
+jorell: Are you all going to class tomorrow?
+evan: I'll be there
+jorell: We\u2019re learning Java Spring!
+jorell: YAY \/s
+steve: ive updated the vision statement according to evan's comments. most of it's the same. the paragraph on line 4 has changed dramatically though
+jorell: <@steve>: I like Study buggy better.
+steve: it was an honest mistake
+
+
+mattmcmurray: Are we meeting after class? I think I'm gonna skip to get some work done. Literally could not care less about Java spring 
+evan: I CNT for a class after soft eng so I wouldn't be able to meet anyways.
+mattmcmurray: We just have to finish detailed stories, correct?
+steve: Detailed stories are done, we did them yesterday 
+mattmcmurray: right, it was release plan we wanted to talk about 
+evan: There's the project plan I'm not sure about
+mattmcmurray: I'll come to class and we can chat 
+jorell: Just come to the CSSA.
+mattmcmurray: Kk. Class is done at 11:15. I'll come there right after 
+caleb: I can't be there today, I'm not actually there :stuck_out_tongue:
+mattmcmurray: Jorrell and I can figure it out. Ill make up for the work I missed yesterday 
+caleb: sounds good :thumbsup:
+jorell: Sooo
+jorell: What do you guys think the \u201crelease plan\u201d is?
+jorell: I\u2019m leaning towards which feature gets released in each iteration?
+evan: Judging by the outline, I would say the project plan is \"detailed stories (at least for iteration 1) and their effort estimation per iteration\"
+evan: So if we give our detailed user stories for the first iteration, it seems that covers it
+evan: Because we included the costs and priorities as part of our detailed user stories
+jorell: That makes sense. Well, matt and I did something like a release sched. I think we\u2019ll include that still just to be safe.
+mattmcmurray: Everything should be good to go. I'm gonna make sure the folder structure looks good and do a once over for typos when I get home and submit to D2L. Do we have a group number?
+steve: By the way, what kind of server are we using? I don't think I saw that in our technologies document? Are we gonna use Apache or does nodejs take care of that and I just don't know about it? 
+steve: I think we're group G 
+jorell: gangsta
+evan: Express is what we're using for our server, it's typically what's used with node.
+jorell: Isn\u2019t express just a library?
+jorell: or like a node module?
+evan: It's a node module for running a server
+mattmcmurray: Express + Node is our server software 
+mattmcmurray: Node can run a server on its own, express is way easier and more full featured though 
+evan: Oh yeah that's right
+steve: Is express in the document? If not can someone add it
+mattmcmurray: I'll take a look when I get home 
+evan: I feel like we should just change the header from NodeJS to NodeJS\/Express because they run hand in hand
+mattmcmurray: Yeah, that's what I'll do 
+mattmcmurray: So I moved all the documents into a `softeng2\/documents\/iteration0` to clean things up. And made sure all the filenames used underscores and lower-case letters, just for consistency. I removed the redundant \"As a user\" at the beginning of stories and added Express to the server description
+mattmcmurray: anything else you guys can think of?
+jorell: I can\u2019t.
+mattmcmurray: There's no spot to submit in umlearn yet, I'll check again later tonight and email the prof if it isn't up by tomorrow at 9am.
+evan: Sounds good to me
+
+
+jorell: App name and tag line
+jorell: Grader: Getting that A instead of the D.
+mattmcmurray: **Gradr
+mattmcmurray: &gt;&gt;&gt; Mathieu McMurray\n\nThis email is to confirm that Itr0 Submissions has received your file submission.\n\nReceived: Wednesday, January 20, 2016 11:44 AM CST\nOrg Unit: COMP-4350-A01 - Software Engineering 2\nFile(s): GROUPG_ITER0.pdf
+mattmcmurray: Iteration 0 is submitted. We are good to go.
+mattmcmurray: mergin iter 0 back into master branch and setting up iteration 1
+mattmcmurray: dev server is up
+mattmcmurray: <http:\/\/52.26.203.11\/api\/>
+caleb: are we meeting today?
+steve: I think so? We're just going to do it like scrum right? 
+caleb: that's what I thought
+mattmcmurray: I've got a meeting w\/ Lisa so I can't today. Sorry guys. 
+jorell: Lets just scratch today\u2019s meeting?
+mattmcmurray: We're pretty ahead of schedule. I think we should be okay skipping today 
+caleb: kk
+
+
+caleb: TIL that we need to add the prof and TAs to Trello
+jorell:  haha true...
+jorell: Am I missing anything?
+mattmcmurray: Not really. Talking about software architecture. Pretty high level. Slides should be self explanatory
+
+
+jorell: Are we meeting today?
+mattmcmurray: I've got a doctors appt at 3 so I won't be able to
+evan: I can't today
+jorell: Cool cool.
+mattmcmurray: <http:\/\/52.26.203.11\/> index page is working
+jorell: I like it.
+mattmcmurray: I got jade working nicely. And separated front-facing routes and api. We're basically ready to get cracking on features for iteration 1. 
+jorell: Sweeet
+jorell: There\u2019s a npm package that allows for real time changes, so you dont have to restart the server everytime
+jorell: npm install -g nodemon
+mattmcmurray: I generally edit in vim, so I have to exit the server regardless
+mattmcmurray: unless I'm running multiple terminals
+jorell: you are a true hipster <@mattmcmurray>
+mattmcmurray: vim makes life so easy man
+mattmcmurray: I install vim emulators on whatever text editor I use
+jorell: lol
+evan: Terminator man!!
+caleb: <!here|@here> requesting code review for pull request, plz thx
+mattmcmurray: <@evan> I have terminator installed on my machine, but don't wanna carry my laptop back and forth to school, so I'm stuck with what's on the school machines :disappointed:
+
+
+jorell: Meeting tomorrow at 2:20 boys! We\u2019ll talk about what we need done for iteration 1 this week.
+caleb: Also, we have made an executive decision that we will be using single quotes ' for strings instead of \"\n\nBoth work in Javascript, but we gotta have standards. Otherwise we're not better than the bad guys
+
+
+jorell: Nice nice. 
+jorell: Is this just a stub?
+mattmcmurray: Yeah, just front-end. I created a new branch. Haven't pushed anything yet though
+jorell: Cool. Caleb and I were trying to get passport working last night.
+mattmcmurray: <http:\/\/52.26.203.11\/main> Grabs a new random cat gif every time you refresh
+jorell: Amazing 
+mattmcmurray: Heads up, apparently the cat pic API has some NSFW pictures...
+mattmcmurray: The page is basically done, we just need to add AJAX calls when (dis)liking
+mattmcmurray: and when rendering the page,  to grab a user profile
+mattmcmurray: <https:\/\/github.com\/MattMcMurray\/softeng2\/pull\/8>
+mattmcmurray: Mostly template and stylesheet changes. Simply replace static content w\/ content grabbed through AJAX calls when the time comes.
+evan: Slick!
+evan: I'd look at the pull request but I gotta go take notes for a class right now, see you guys in an hoour
+mattmcmurray: No rush mang
+mattmcmurray: Can you guys see the Trello board I created? Not sure if it was added to the team or not Trello board Iteration 1 - <https:\/\/trello.com\/b\/mpbIdgMg\/iteration-1>.
+caleb: <@mattmcmurray>: yup, I can see it
+keanek: Moving the get_started script in the main folder and running main.js in sudo gets the server running.  I can get to a login page :simple_smile:
+mattmcmurray: Awesome. Yeah, that was dumb on my part to move it to a different directory. I'll change the script so it should work no matter what dir it's in
+mattmcmurray: to get to the 'swiping' page, just append `\/main` to the end of the uri
+mattmcmurray: <http:\/\/52.26.203.11\/main> Now grabs random user info from an API + Like &amp; dislike buttons make an ajax call to get a new user
+jorell: I\u2019m just going to use btoa as our encryption
+jorell: if that\u2019s cool?
+jorell: nvm, using bcrypt.
+
+
+evan: I won't be in class today, could anyone please let me know if I miss anything?
+mattmcmurray: Will do
+evan: Thanks man
+jorell: You should Skype us in. Hah
+mattmcmurray: Lol <@jorell> have you even come to this class more than once?!
+jorell: Im going today. Just going to be late.
+jorell: I need my booster juice.
+mattmcmurray: Gotta get that bj
+jorell: I was tempted to text my girlfriend that I was going to get a bj. Realized that it might not go so well.
+caleb: scandelous
+
+
+evan: If we're meeting today I won't be able to make it, I've gotta do some prep work for my lab tonight
+jorell: I'll be right be there! I'm just dying after a run. Hahaha
+mattmcmurray: Me and <@evan> will coordinate our parts and make sure they're done for Friday. Make sure to take meeting minutes today. 
+
+
+caleb: <!channel>: I have a pull request for user creation, so that should be merged into itr1 soon. FYI there's currently no feedback with regards to if it succeeded or not
+mattmcmurray: Cool! I'll take a look this afternoon. Good job, man
+caleb: ^_^
+mattmcmurray: <@caleb> please make sure you aren't hardcoding localhost as a URL
+jorell: I said it was okay
+jorell: What would be a better solution, <@mattmcmurray> ?
+caleb: can that url be made a relative one?
+mattmcmurray: Why not just use relative path? `url: '\/api\/NewUser'`
+mattmcmurray: That way we don't have to do a ton of refactoring when we deploy to server 
+jorell: That is true.
+mattmcmurray: I'll submit the issue to github. Close it once the paths have been fixed
+jorell: I\u2019ll make the fixes
+jorell: I\u2019m about to make a pull request
+jorell: But for the url that we\u2019re sendign the requests to, localhost is fine?
+caleb: pretty sure that would need to change as well
+caleb: well
+mattmcmurray: No, that won't work. If the client isn't in the same machine as the server, it'll fail
+jorell: I mean for now.
+caleb: I guess ideally, we need it to know if it's running locally or not
+caleb: but I guess we can do that later, when we deploy
+mattmcmurray: But why not just eliminate technical debt right away?
+mattmcmurray: Using relative path is standard 
+jorell: I understand that.
+jorell: Alright, will make the change.
+mattmcmurray: Thank you 
+jorell: Actually, what\u2019s a good way to handle the url to the server?
+jorell: O
+mattmcmurray: What do you mean?
+jorell: because for the ajax call, we have $.ajax({ url: <http:\/\/localhost:80\/api\/something> \u2026.}
+jorell: since this is happening client side, how do we indicate that where the server is?
+jorell: so we can just do \u2026.url:\u201d\/api\/something\u201d...
+mattmcmurray: JS knows what location its at already
+jorell: It\u2019ll know where the server is?
+mattmcmurray: So it will append `\/api\/something` to the domain
+jorell: ahhh
+jorell: did not know that. haha
+mattmcmurray: So if its running local, itll append it to localhost. If its running remote, itll append it to the server's IP
+jorell: makes sense.
+mattmcmurray: And if you want to be explicit, you can do `window.location + '\/api\/something'`\n\nNot 100% sure about that syntax though, so maybe Google it if it doesn't work 
+jorell: will do.
+mattmcmurray: Thanks guys 
+mattmcmurray: <!channel> meet tomorrow at the usual time to discuss progress? 
+jorell: yup
+jorell: Made a pull request
+evan: Yup I can make that
+jorell: <@keanek>: you said yesterday that you added fields to the users table. Did you commit push that?
+keanek: I'll grab the new changes and merge them into my user table first.
+mattmcmurray: <@jorell> <@caleb> : when a user logs in, is session stored anywhere? Like, is there a way for me to check that a user is logged in on the 'swiping' page
+jorell: Not yet.
+mattmcmurray: K cool. I merged the login pull request. Looks really good man
+jorell: Just wanted to get something out.
+mattmcmurray: Yeah, makes sense.
+mattmcmurray: has anyone been able to get AUTOINCREMENT to work for primary keys? Sequelize keeps inserting NULL instead of an int value for me
+mattmcmurray: since usernames need to be unique anyway, it's not a huge issue for now, but this could be a problem in the near future
+jorell: I'll look at it when I get home. 
+mattmcmurray: sounds good. Just submitted a pull request for getUser(). It's like 6 lines of code lol
+steve: ship it
+steve: how are we doing pull requests? should i merge it or what?
+mattmcmurray: Actually I have to make another quick change first. But yeah, when I resubmit, if you think it looks good, just go ahead and merge
+jorell: Ship it!
+jorell: Why?
+steve: forget you saw anything
+steve: i was confused why there was no message \"site running on port ___\" when i ran sudo node main.js
+steve: been sitting here waiting for it for like 5 minutes lol
+jorell: Haha
+jorell: Our app isn't that slow. :p
+steve: lol yeah, its just that we don't have a message
+steve: we had that at amazon, that's why i was so confused
+steve: also, are our cat pictures not just cats anymore?
+jorell: What are they? Boobies?
+mattmcmurray: Also, I'm dumb. Sequelize DOES insert a primary key, it's just not listed in the statement that's printed to the console
+mattmcmurray: crisis averted
+mattmcmurray: <@steve>: should still be cats unless someone changed it
+jorell: Lol 
+steve: typical jorrell breaking all the rules
+mattmcmurray: lolol I think it just pulls things tagged with 'cat' on google search tbh
+jorell: The api goofed. But the message is oddly appropriate.
+steve: yeah, looks like the api is just trolling
+mattmcmurray: ok fixed my goof <https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/24>
+mattmcmurray: Simple RESTful api method. To get a user: <http:\/\/domain\/api\/getUser?user=username_you_want_to_lookup>
+steve: nobody looked into the session stuff yet eh?
+steve: i realize now that i kind of need that lol
+mattmcmurray: not yet, I was thinking of doing that soon though. For now maybe we should just save a cookie with user id on login?
+mattmcmurray: I'm gonna actually switch from what I was doing to session stuff
+mattmcmurray: Work on making a stub for now with fake (static) data, and I'll let you know as soon as I'm done
+mattmcmurray: user data will look something like \n```\n{\n  \"user\": {\n    \"id\": 1,\n    \"username\": \"mattmcmurray\",\n    \"createdAt\": \"2016-01-29T02:20:25.966Z\",\n    \"updatedAt\": \"2016-01-29T02:20:25.966Z\"\n  }\n}\n```\nWith some more keys in the future. Look at Keane's branch to see what he's got in the works as far as user data goes
+mattmcmurray: okay, that was easy lol
+mattmcmurray: Submitting a pull request for session storage right meow
+jorell: Noice
+mattmcmurray: K done and done
+mattmcmurray: definitely not even close to secure, but YOLO
+jorell: Fuck security. We like to live dangerously.
+mattmcmurray: OWASP can lick my balls
+jorell:  Hahaha
+mattmcmurray: Mostly done the backend stuff for user rating system
+mattmcmurray: _another one bites the dust plays softly_
+jorell: very nice
+jorell: <@mattmcmurray>: Just looked at the session storage
+jorell: =))
+steve: hey guys, about our whole concept, are people going to only be able to match if they're in the same class or can anyone match with anyone?
+jorell: I had the idea that they can match with anyone.
+jorell: They just decide who might be a good study partner.
+steve: do people actually study with people who aren't even in the same class???
+steve: im a solo studier, i don't understand study buddies at all tbh
+jorell: haha
+jorell: Maybe? Probably like people with the same study habits.
+jorell: I\u2019m adding validation to user sign up.
+jorell: <!channel>: made a pull request
+
+
+mattmcmurray:  sometimes I study with my friend who's training to be a paramedic. For me its more about accountability
+mattmcmurray: Following <@evan>'s suggestion from monday, let's think about [mocha](<https:\/\/mochajs.org\/>) as our testing framework
+mattmcmurray: welp, that formatting didn't work..
+mattmcmurray: (Mocha)[<https:\/\/mochajs.org\/>]
+mattmcmurray: That either apparently
+jorell: Running a bit late. I'm omw.
+caleb: hurry, before we sit on all the chairs
+mattmcmurray: Granted access to repo to prof and markers so we're good on that front
+evan: I've got the like\/dislike button working now for hard coded data, right now I'm passing IDs through the POST (since my like\/dislike table is based of user IDs). What do you guys think would be best, to keep track of the user IDs on the client side and pass that data through the POST or send the usernames through the POST and figure out the IDs on the server side to add the record to the table?
+jorell: Integer ids?
+jorell: Or username IDs?
+evan: Integers
+jorell: So from what I remember, when we display a user, the server sends the user\u2019s username.
+jorell: So why not just use that?
+evan: Well our primary key on the users table is the integer id, so that's what I use in the like\/dislike table. It'll have to be converted to an id at some point, but I'm thinking it would make the most sense server side
+jorell: We should actually change the PK to username
+jorell: cause its unique
+evan: That's what I was thinking as I was typing it out.. I can do that
+evan: I'm not sure if that's the best practice though, because in the real world, primary keys can't change and usernames should be able to be modified
+jorell: that\u2019s true.
+jorell: Very true..
+evan: What does everyone else think?
+steve: i think we should probably keep PK as the integer ID
+steve: its already stored in the session and it seems easier
+steve: actually, idk because getUser is done by username
+steve: at the very least, we need username as a candidate key
+jorell: That\u2019s what I\u2019m thinking. Keep username unique still but use the ID as PK
+jorell: This way, we can still query user\u2019s via their username.
+evan: Yeah we should add that constraint to the user model
+evan: NM, it's already there
+steve: btw anyone know if there's any parts of the code that user the getUser API call?
+jorell: what
+jorell: uses?
+steve: yeah
+steve: i want to modify it
+evan: The get random user API route?
+jorell: the get random user uses a different call.
+jorell: it does User.findAll or something
+steve: yeah
+evan: I don't see the get user API route
+steve: i just don't get why we have to do req.query.user
+steve: when i could just put req.user and not have the username nested inside the 'user' field inside the 'query' field inside the ajax request
+evan: I always thought with GET requests they were automatically put in the querystring
+steve: oh are they?
+evan: I think so
+evan: And then for POST requests they were always in the body
+steve: alright ill test it out and see
+jorell: Yeah,
+jorell: when you do \/api\/something?user=something
+jorell: it automatically gets placed in req.query
+steve: ah yes, you guys are correct
+evan: Just sent off a pull request for liking\/disliking
+jorell: I\u2019ll check it out when I finish applying haha
+evan: Sweet
+steve: so im not quite ready for a pull request yet since i need keane's updated user model stuff, but i finally got my remote branch up if you want to look at the profile stuff
+steve: the branch is dev-steve
+jorell: I
+jorell: I\u2019m thinking of writing a script to fill our database with random users so that we can test the like\/dislike feature better.
+jorell: Also, we should change like\/dislike to pass\/fail (just on the client side)
+
+
+steve: alright so we have a serious problem with people doing the same thing twice.
+evan: I think it was just a bit of miscommunication about the requirements for the tasks on Trello
+evan: I thought each task for a given API call was a full-stack implementation of the feature, but others probably thought differently
+steve: but like there was jorrell and caleb both did the username validation stuff, then keane and i both did the profile UI
+steve: like we need a better way to alert everyone what we're doing so others don't do it too
+evan: When we take out a task on Trello we should say exactly what we plan on doing (if the task name is unclear), and if you take out a task that seems overlapping with another persons task, you should get in contact with that person to ensure you don't replicate tasks
+evan: It's important that we really utilize Trello and adhere to that to ensure we know what everyone is working on
+steve: i guess the issue is that some of these trello cards aren't really developer tasks, there closer to user stories
+evan: Yeah exactly
+evan: When we plan the next iteration we should make sure that they're developer tasks
+steve: pull request for profiles is up. note that i havent added all the fields yet, shouldn't be hard now though
+jorell: Fields?
+jorell: Database fields or user input fields
+steve: user input fields
+jorell: I\u2019m going to work on hiding the \u201cprofile\u201d tab in the navbar if you\u2019re not logged in.
+jorell: While working on logging out.
+evan: So I've got a SQL script that deletes all records from the users table and adds 200 users. It doesn't create the table, I didn't want to have to deal with separate schemas, so it still only generates the table when the server runs. SQL scripts can be run as `sqlite3 dbfilename &lt; scriptfilename`. Can I just push it onto iteration1 branch?
+jorell: I dont see why not?
+jorell: Made a pull request for logout.
+
+
+evan: Are we meeting today? I'll be late if we do, I have a meeting with Andrea today for UCOSP.
+mattmcmurray: Yeah, a wrap up and integrations\/testing planning 
+evan: OK, meeting should only be 15 minutes, I'll be there after.
+evan: Just a heads up for everyone, I have these biweekly on Mondays.
+evan: I just made a commit to iteration1, I emptied out the database, added the script that you can use `sqlite3` to append to the tables if you want, and uncommented those sync operations in the models.
+mattmcmurray: Sweet. I'm gonna try and do a deploy to my AWS tonight 
+evan: I'm gonna look into making options when we run the server so filling the database can be a little more elegant than executing that sqlite3 command too
+mattmcmurray: Added a folder for tests in `\/code\/server`
+mattmcmurray: Writing a sample API endpoint test right now. I'll let you know when I'm done and it's working as expected
+mattmcmurray: unit tests will be a bit different obviously, but Mocha's docs are great and there's lots of tutorials online
+mattmcmurray: So the default assertion library that comes with mocha has a pretty serious bug in it right now, luckily you can plug in any assertion framework. After some research, <https:\/\/github.com\/thenativeweb\/assertthat> looks to be the most simple and powerful. It has C style assertions which I figured everybody would know. All this to say, make sure you run `npm install` when you pull down the new code to make sure you've got all the libraries you need.
+mattmcmurray: assertthat provides fluent TDD.
+mattmcmurray: Also, I'm going to add the test users to the database, commit it, then add it to the .gitignore so that the version in the repo always contains the test data
+mattmcmurray: If you wanna keep local changes to your db, just `git stash` before the pull and `git stash pop` after the pull
+jorell: :thumbsup:
+
+
+evan: I've been having some issues executing raw sql files with sequelize and the sqlite3 packages, it seems that it doesn't like multiple sql operations in one string. Even splitting by semicolons and doing each insert separately is still giving me a sqlite formatting error. It's close though!
+evan: I put out a pull request for processing arguments when we run our node script, right now it just has `--clear_database` and `--fill_database` options, but we can implement more as we see fit.
+evan: Also I should note that right now it just focuses on the users table, we can alter the scripts to add test data for user_matches as well later on
+jorell: Sweeet 
+keanek: Tomorrow morning I'm going to start hammering away at the api unit tests.
+evan: Just a note that I'm working on the like\/dislike api test
+
+
+evan: Are we meeting today?
+steve: I'd like to
+mattmcmurray: I won't be able to make it unfortunately
+jorell: Im at home dying 
+evan: That's cool matt, I would like to meet too for anyone else who can
+steve: Are you gonna come then Evan? 
+steve: can someone at class tomorrow ask if we can just draw the UML diagrams????
+caleb: we need UMLs for this iteration?
+steve: damn
+steve: that didn't copy well at all
+jorell: lol
+jorell: where did you copy this from?
+steve: design section
+jorell: there you go
+jorell: you can uml
+jorell: haha
+steve: also, they will want access to our messaging so i suggest if you said anything you don't want seen, to delete it
+steve: wtf jorell, i know? im asking if we need to use visual studio to make it or not???
+jorell: I misread your original question
+jorell: I thought you were asking if we can use a uml diagram
+jorell: Question: Should we add the .sqlite file to the git ignore?
+jorell: because everytime it chagnes we\u2019d have to commit it.
+steve: you don't have to commit it
+steve: just stash it
+jorell: cool
+
+
+caleb: <!channel>: who set up sequelize?
+jorell: I did. What's up? <@caleb> 
+caleb: we need something that pulls it all together
+caleb: sequelize doesn't like requiring whichever other data models one particular model happens to require
+caleb: we don't have any index like they describe we should have here: <http:\/\/docs.sequelizejs.com\/en\/1.7.0\/articles\/express\/>
+jorell: Oh i didnt even see this page.
+jorell: I can just work on this today. 
+caleb: Okay. My only current problem on the issue i'm working on relies on that, so I'll shelve it until you're done
+jorell: What is your issue?
+caleb: I showed you last night
+caleb: that screencap happens when I have two models requiring each other
+jorell: Ahh 
+jorell: Alright. I'll restructure sequelize asap.
+mattmcmurray: I'm skipping class to work on the project. I'll prolly be in the resource room or CSSA 
+caleb: i'm in the resource room right now
+caleb: come there
+caleb: empty except for max
+mattmcmurray: Kk. I'll come right after HCI
+jorell: Im also skipping class because I'm sick and going to work on the project.
+steve: guys, we need to submit logs of what we're saying in this external tool. id recommend deleting anything you don't want the prof to see now
+caleb: do we have a way to easily export from slack?
+steve: i have no clue
+jorell: <https:\/\/get.slack.help\/hc\/en-us\/articles\/201658943-Exporting-your-team-s-Slack-history>
+jorell: Team Owners and Admins can access data exports from the Export Data page at <http:\/\/my.slack.com\/services\/export|my.slack.com\/services\/export>. Downloading an export When you request an export, Slack will generate a .zip file contain...
+evan: I'll come to, resource room?
+caleb: yee
+evan: K, I'm still at home, but I'll be there a bit after 1130
+jorell: Can I skype in?
+evan: Missed my bus... I'll be a little late
+caleb: <@jorell>: sure, once people get here I'll call you
+keanek: We got 15\/15 on iter0!!!
+caleb: woooooooo!
+keanek: We are supposed to draw our arch sketch in class right now.
+caleb: have fun!!!!!! ^_^
+caleb: why?
+caleb: like as an exercise?
+keanek: prof wants to see if it is being done right.
+caleb: is steve there?
+keanek: No, he skipped cause doc appoint
+mattmcmurray: kk I'll come down and help
+steve: yeah sorry, im going to the doctor soon
+mattmcmurray: Ok, UML is 80% complete. I'll finish it up, scan it, and put it in the docs tonight
+mattmcmurray: So I have the 3 integration tests and UML diagrams tonight. My plate is pretty full, but that's a good chunk of what we have left to do
+jorell: you da real mvp.
+mattmcmurray: As for integration tests, basically I'm just going to test the API communicating with the DB. So it's only one seam (which is technically what integration tests are supposed to be). I believe the only unit tests that are left are logout() api method and direct DB interaction unit tests. Does that make sense?
+jorell: Yeah, I\u2019m doing logout api and db interactions
+mattmcmurray: perf
+caleb: everyone come up after class
+caleb: we're going to discuss a few major changes
+mattmcmurray: <@jorell>: figured out what caused that red wall of text from caleb's branch
+mattmcmurray: hot fixing and merging straight into iteration 1 now
+caleb: :confetti_ball:
+mattmcmurray: Just a head's up everyone, I won't be available after 7pm tonight
+mattmcmurray: <@jorell>: I think you created the slack, ya? You'll need to export the messages and add them to the `\/docs\/iteration1` folder
+jorell: Fo shizzi
+mattmcmurray: Thanks snoop dawg
+mattmcmurray: If someone can take a look at this before I leave at 7, that would be ideal. That way I can make changes if necessary. <https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/45>
+mattmcmurray: Test output is now piped to log files in test_output directory run_tests.sh does all appropriate set up and tear down for both unit and integrations tests
+steve: Looking 
+jorell: Forgot to say, I merged it alreay.
+steve: That's why I couldn't find it l
+steve: ol
+mattmcmurray: lmao
+mattmcmurray: Just finishing UML diagram rn
+jorell: So I\u2019m running into a problem where I\u2019m getting a foreign key constraint failed
+jorell: this is adding to the usermatches table <@evan>
+mattmcmurray: do you have the latest version of iteration 1? That sounds like the problem I patched earlier
+jorell: i do.
+mattmcmurray: committing UML directly to iteration1 branch
+mattmcmurray: <https:\/\/i.imgur.com\/vRF9b47.jpg>
+jorell: I can\u2019t edit my user profile.
+mattmcmurray: Lemme take a look
+mattmcmurray: is the server spitting out any errors?
+jorell: nope
+jorell: I just can\u2019t enable the fields
+mattmcmurray: here's the error in the chrome console `Uncaught SyntaxError: missing ) after argument list`, I'm sure it's an easy fix
+mattmcmurray: give me 2 seconds
+mattmcmurray: lol `\tconsole.log('couldn't update');` There's the error
+jorell: lol yeah, I should have checked the console.
+mattmcmurray: When caleb did a search and replace for `\"` to `'`, it messed that up
+mattmcmurray: just need to escape the `'` --&gt; `\\'`
+jorell: yeah
+jorell: I need evaaan haha
+mattmcmurray: I'll leave that up to you mang
+mattmcmurray: I think he's in class or something? He should be back soon enough
+jorell: oh that sounds horrible
+evan: I'm here, what did you do get the error?
+jorell: just adding a match
+jorell: in my test
+jorell: hmmm
+jorell: im just realizing that it might not be the models fault
+evan: Are the users you're adding in the users table?
+jorell: yup
+jorell: I\u2019m now trying to just add users
+jorell: Its not the models fault.
+evan: Not sure why else you would get that constraint error...
+jorell: exactly
+evan: What is it?
+jorell: I think its the test
+jorell: because I also am failing \u2018getUser'
+jorell: User.getUser();
+jorell: can anyone try writing a mocha test for db queries
+jorell: even just one, I just want to see if its my dependencies
+evan: I'll try
+jorell: this is what I currently have.
+evan: I'm getting that error too
+evan: I'll investigate
+jorell: Stupid sqlite
+jorell: or sequelize haha
+mattmcmurray: not gonna lie, sequelize has been nothing but a pain in my ass lol
+jorell: yup
+jorell: sorry
+mattmcmurray: no worries man, there was no way we could have known beforehand
+evan: I copied the SQL statement that it failed on and executed it in my sqlite client with no issue..
+jorell: yeah, I tried liking and disliking using the app
+jorell: with no issue
+jorell: So mocha and sequelize doesn\u2019t play nice.
+evan: I can't figure it out
+evan: The weird thing is that if I add that same record and run the test again, it still executes both a SELECT and an INSERT. If the data is in there already, the INSERT should never happen.
+evan: FUCK I figured it out
+evan: sequelize is creating the database off a relative path, an empty database is being generated in the \/test directory, and the tests are using that, so there isn't any data in it
+mattmcmurray: Lol
+mattmcmurray: When in doubt, check relative paths 
+jorell: lol
+jorell: Good job <@evan>
+jorell: that\u2019s why that .sqlite file is there.
+jorell: So the slack chat exported as .json files..
+steve: can you still kind of follow what was said?
+jorell: kinda ish
+jorell: i pushed it to rhe rpot
+jorell: the repo
+jorell: its in the docs
+
+
+jorell: Who\u2019s submitting the iteration?
+caleb: how do we submit it?
+mattmcmurray: Don't the graders just fork the repo?
+jorell: no idea.
+jorell: haha
+jorell: ah yes
+jorell: it says at 4:00pm a snapschot of our repo will be taken
+mattmcmurray: K cool
+steve: Should we merge iteration1 into mainline or something? 
+caleb: I'm pretty sure it's self-explanatory which branch is the one we want graded
+mattmcmurray: <@steve> yeah I was planning on doing that, but I've set iter1 as the default branch so it's the one the markers will see when they snapshot. Maybe just merge into master to be safe though?
+steve: Umm I don't have access to a computer at the moment, can someone else do it? 
+jorell: Ill do it
+mattmcmurray: Thanks jorell
+jorell: I\u2019m going to spend a big chunk of the weekend refactoring our app.
+
+
+evan: <@mattmcmurray>: I made an iteration2 branch off of master, could you make it default?
+mattmcmurray: Yeah for sure
+
+
+evan: Hey team I won't be able to meet today, I've got physio after my last class. Just to keep you guys in the loop I'm in the process of making a data access layer for both of our models, should be able to push the submission for review tonight.
+mattmcmurray: Do we wanna postpone till Wednesday? Next week is reading week, so there's no tight deadlines
+caleb: works for me
+evan: I'm good with that
+evan: I won't be able to stay too long because I have my lab at 3;30, hasn't been a problem yet though
+jorell: Perf, ive just been messing around with refactoring our code so we don't have users requiring usermatches and usermatches requiring users
+keanek: Wednesday is fine with me.
+steve: ive got a pull request for a profile optimization and idiot-proofing the birthdate field if anyone is interested
+
+
+evan: Are we meeting today?
+jorell: If we are then I can't make it. I'm going to be working on machine learning. 
+evan: OK, I wouldn't mind getting some input about my implementation of the data access layer, I'm not sure if I'm doing it correctly. If we can't meet I'll just push my branch later and hopefully can get some eyes on it before doing a pull request.
+steve: I definitely think we should meet before we go on break for a week
+evan: If we can't get enough interest we could still meet during the week if everyone is in town
+steve: Well jorell is the only one who said he can't make it right now and he also won't be there in reading week. So I still want to do it now
+evan: I took the silence as no one wanting to meet, I'll come though
+steve: <@mattmcmurray> <@caleb> plz come we need to decide who's doing what, set a deadline and talk about front end tests
+evan: Oh crap I have a meeting with Andrea I just remembered, I'll come by the resource room after
+caleb: unfortunately, I'm not actually at school
+caleb: but I'll skype in, if someone can host me
+steve: Sure I can
+caleb: let me know when you're ready
+steve: Soonish. 
+steve: Matt has the developer tasks that we decided on last time so it might be more difficult 
+caleb: hmm, okay
+
+
+evan: I pushed my data access branch for people to check out, everything works, I just need to refactor the tests. I'll do that before I do a pull request.
+keanek: I can refactor the tests.
+evan: Alright I'll do a pull request
+evan: I just stepped out of my place, I'll do it in a bit
+evan: I put out a pull request for my branch. I approved Steve's pull request so there are no other existing pull requests, and no current merge conflicts with iteration2 branch. I'm hoping this can get looked at\/approved soon due to the large potential for merge conflicts due to some relatively big changes to the code. Let me know soon if there are things that should be changed.
+
+
+mattmcmurray: Hey guys, sorry I haven't put in much work for this iteration yet. OS is taking more time than I thought it would. I'll put in work this week for sure 
+steve: <@evan> made some comments on your pull request.
+steve: everyone else, i added the tasks we talked about at the meeting to trello
+evan: Thanks <@steve>, I pushed some revisions.
+jorell: Are we only allowing the users to choose 1 course?
+steve: on their profile? it's freetext, so i figured they'd just list all their courses
+steve: its not like we match based on courses so they can list as many as they want
+keanek: I meant it to be a pseudo list, like Steve said.  Too much trouble making it a real list with db tables and all.
+jorell: Cool cool.
+jorell: <@evan>: are you doign user ratings?
+steve: i am
+steve: check trello
+jorell: I should.
+steve: ok
+
+
+caleb: I've got a pull request up for the deleteUser call
+
+
+jorell: I should have my feature up tonight.
+jorell: Pull request up.
+
+
+caleb: iteration 2 deadline has been pushed to midnight of friday, as opposed to 4:00
+evan: Did we settle on what information we wanted for each user on the matches screen?
+evan: I should be able to push my feature by tonight too
+mattmcmurray: I don't think we ever finalised it
+mattmcmurray: I think maybe name, school, classes, and GPA were discussed
+evan: I have a card view set up right now, should we include a picture too?
+evan: Cards only make sense to me if there's a picture, but I know we didn't want to emphasise pictures so I can scrap that idea.
+
+
+evan: I made some comments on your pull request <@jorell>, I also think we both worked on one same part (user matches UI)
+evan: Wait nm, the code for user match list looks pretty bare bones, I guess you just did up a skeleton
+jorell: Yuuup. 
+jorell: Sorry I failed to mention that i was working on it as well, <@evan>. I needed it for user match profile.
+jorell: <!channel>: marks for iter1 are up. We got 2 points off.
+mattmcmurray: Out of how many?
+keanek: 25
+mattmcmurray: So 92%? I feel good about that 
+
+
+steve: important change: you need to deploy your front-end on a server too
+steve: we already did that though right?
+mattmcmurray: Yeah. I just need to update it to the newest iteration
+
+
+evan: Are we meeting today?
+evan: <!channel>^
+steve: Yes
+mattmcmurray: <!channel> resource room was full. Went to Linux lab
+caleb: ahhhh
+
+
+keanek: I tossed together a json parser for slack logs.
+mattmcmurray: Nice man
+mattmcmurray: Ive gotta run home after HCI, apparently the alarm is going off. If you guys talk to the prof after class about using selenium to test jQuery, lemme know what he says 
+steve: So I asked the prof about jquery issues. He said it should work with mocha. I asked if we could just use selenium and he said that it's not really the same thing if we use selenium 
+steve: We can make an appointment with the marker if we want to try and figure out why it won't work
+steve: He also mentioned Jasmin as another testing thing we could try
+steve: But yeah, we need to figure out why it won't work... 
+caleb: dang
+jorell: Im going to be a bit awol today. I did not realize that tonight is coop deadline.
+
+
+evan: Hey guys I won't be able to meet today, I've got a bunch of prep work I have to do for my lab tonight
+mattmcmurray: No worries man
+mattmcmurray: <!channel>: Head's up, as I was writing tests, I noticed that birthdate isn't being set when submitting profile updates. I think something might be weird with AJAX call or API method. If someone has time to look into it, that would be awesome
+keanek: I pushed a hotfix to the iteration2 branch.  Profile updating was asking for a username from an uninitialized variable.
+keanek: I pulled Jorell's code from the repo and made a few changes to it.  Should I just push it to his original branch?
+jorell: Sure
+
+
+mattmcmurray: Missing class again today to work on front end tests. Let me know if I miss anything important
+mattmcmurray: Sweet thanks man
+keanek: Jenkin's demo next class as well.
+mattmcmurray: Cool. I'll make sure to be there for that one
+evan: Now that Jorell's branch is merged I'll work on mine, I was hoping to do it at school but I forgot my flash drive with my VM on it. I'll have to work on it when I get home, shouldn't take too long, should have a pull request up before dinner time.
+evan: (It's already done, just gotta change a few things to merge nicely with what Jorell did)
+mattmcmurray: Cool. Gonna try and do server deploy tonight as well as finish front end tests
+mattmcmurray: Guys _please_ stop committing `study_database.sqlite`, it's making merging a living hell :disappointed:
+mattmcmurray: Latest iteration 2 is live on server <http:\/\/ec2-52-26-203-11.us-west-2.compute.amazonaws.com\/main>
+caleb: \"this webpage is unavailable\"
+caleb: ah, there we go
+caleb: now it's live
+mattmcmurray: interesting, I'm able to view it
+mattmcmurray: gotcha
+caleb: didn't we used to have feedback when you tried to make an account with a name that already existed?
+caleb: right now it does nothing
+mattmcmurray: Any message in the console?
+mattmcmurray: ```POST <http:\/\/ec2-52-26-203-11.us-west-2.compute.amazonaws.com\/api\/NewUser> 500 (Internal Server Error)send @ jquery.min.js:4m.extend.ajax @ jquery.min.js:4(anonymous function) @ signup.js:17m.event.dispatch @ jquery.min.js:3r.handle @ jquery.min.js:3\nsignup.js:38 Object {username: \"Username is already taken.\", password: \"\"}``` I'll look into it
+mattmcmurray: so it looks like the error div was removed from the template? I'll hotfix
+mattmcmurray: ok fixed <https:\/\/github.com\/MattMcMurray\/Gradr\/commit\/e51aea00aa31ae79759d4d6e839ab7d77d34bcf1>
+mattmcmurray: So what's left? I'm done with frontend tests, deploy is done. Is it just finishing up nightwatch then?
+caleb: I still want to do some more with nightwatch. but I don't believe that would do anything to prevent the build we put on AWS
+mattmcmurray: Yeah no need to have all the tests on the server. 
+mattmcmurray: All mocha tests are passing for me, which is great news 
+evan: Made my changes and all tests still passed, opened up a pull request
+mattmcmurray: I'll go take a look
+evan: I also did a feature in my branch that bolds the link in the nav bar if you're on that page
+mattmcmurray: nice
+evan: It's in the gradr.js which I made as a base script for all pages
+mattmcmurray: :thumbsup::skin-tone-2:
+jorell: Suhweet 
+mattmcmurray: Looks good and works well for me. Gonna run tests on my end and merge
+evan: Cool beans
+mattmcmurray: all tests passing, merging now
+keanek: Uploaded chat logs to iteration2
+steve: we need to meet tomorrow and talk about the plan for next iteration
+mattmcmurray: Sounds good
+steve: im starting it now, but we don't have any stories that we legitamitely wanted to do anymore, we hit everything already lol
+jorell: Looking at the profile page, I really think we should add pictures. I was talking to evan and I\u2019d be happy to just use the cat image url that was displayed when they liked each other.
+jorell: Also, messaging.
+mattmcmurray: Messaging would be cool
+jorell: The Jen and Greg team implemented their own so maybe it\u2019ll be esaier for us if we just found a library or something.
+jorell: I am realizing that developing in NodeJS is like creating frankenstein monster.
+mattmcmurray: That's really what most web dev is. Other, smarter people than me know how to build things better than me. So I take their things and smash them together 
+steve: so here's the remaining user stories to choose from. maybe think about them before the meeting
+steve: Communicate \nBig User Story: I would like a way to communicate with matched study partners after we both accepted each other.  Preferably it would be a built-in chat window.\n\nRejection\nBig User Story: I would like to see a list of all matches where I matched with a potential study partner, but they didn\u2019t match.\n\nSettings\nI would like to manage settings for my account like notifications and themes.\n\nLeaderboard\nI want a leaderboard so I can compete with friends for most matches.\n\nIQ Test\nI would like all new applicants to do an integrated IQ test.  The results should be stored in the in-depth information section of the profile.\n\nPicture:\nI would like to upload a picture to my profile so matched study partners can recognize me.
+
+
+mattmcmurray: <!channel> send an itemized list of everything you've done so far to Steve. He needs to make a list for the markers
+evan: Crap sorry guys I didn't realize we were meeting today, usually I get notifications for any activity in this slack and I didn't get any yesterday
+evan: I'll get those to Steve right now
+caleb: same as evan
+caleb: sorry for missing everyone, somehow never realized that it was a meeting day
+
+
+evan: Are we meeting today?
+steve: I may be too overwhelmed with machine learning today 
+mattmcmurray: I'm home sick, so it kinda works out
+mattmcmurray: At home sick, not homesick lol
+evan: That's cool, I could use the time to work on graphics
+jorell: Soooo
+jorell: Everyone get the softeng email?
+mattmcmurray: this is great news
+mattmcmurray: &gt;&gt;&gt; No code review\/bug report requirement for itr3. Also you implement the Android interface for your own project not the other teams. \n\nHadi
+steve: Holy shit yes 
+evan: That is the best news!
+keanek: Just saw the email.  This iteration just got a lot better.
+caleb: woah
+steve: just to let you guys know, he also changed the assignment so the android app has to support our iteration 3 stories as well...
+
+
+caleb: Meeting today? Feel like we should
+mattmcmurray: I think so
+evan: I'm good to meet
+jorell: <http:\/\/socket.io\/get-started\/chat\/>
+
+
+steve: im going to start the android app mmkay?
+caleb: mmkay
+mattmcmurray: u da real mvp
+steve: ugh android deprecated their old http libraries and the new ones are so convoluted
+caleb: I beliv in u stev
+steve: thx your belief pushed me to figure it out
+steve: it works now, it's just ugly as hell
+steve: but it's fast
+steve: so my android stuff should be pushed sometime this evening. i've got it making the login http POST, i just need to figure out what to add to the gitignore before i commit. ill do that later
+jorell: There's <http:\/\/gitignor.io|gitignor.io> 
+jorell: <http:\/\/Gitignor.io|Gitignor.io> tells you what to ignore for certain projects 
+steve: i've committed the android app. if someone has some time, try running it. right now, the only feedback for whether or not the sign in worked comes from some System.out.print() statements
+steve: <https:\/\/github.com\/wenchaojiang\/AndroidSwipeableCardStack>
+steve: AndroidSwipeableCardStack - A tinder like swipeable card stack component
+steve: im leaving this here so i can find the link in the future.
+
+
+evan: <https:\/\/hacks.mozilla.org\/2011\/03\/the-shortest-image-uploader-ever\/>
+evan: This looks like a clean and easy implementation to have users be able to upload profile pictures through our app and have them hosted on imgur through their API.
+evan: Android may be a bit trickier, but I'll investigate that some more
+steve: I would argue it should be the user's problem to upload the photo and we'll just display it
+mattmcmurray: Yeah, I tend to agree with Steve. Itll make our lives a lot easier 
+evan: It's definitely easier on us, but it does make it less user-friendly though
+steve: Tinder doesn't even have a native upload. You have to upload your photos on Facebook 
+evan: We can say we're better than Tinder then!
+evan: If I'm the minority on this, we can pass on it though
+keanek: I'd say it's something to look at if we have time.  
+
+
+jorell: I\u2019m running into a problem here\n\n```\nUserMatchDB.prototype.getMatches = function(userId) {\n    return DBConnection.query(\n        'SELECT um2.liker_id as userId FROM user_matches um2 WHERE um2.liker_id IN (SELECT um1.likee_id FROM user_matches um1 WHERE um1.liker_id = :userId AND um1.likes) AND um2.likee_id = :userId AND um2.likes',\n        { replacements: { userId: userId }, type: DBConnection.QueryTypes.SELECT } ).then(function(users) {\n            var ids = []\n            for(var i=0; i &lt; users.length; i++) {\n                ids[i] = users[i].userId;\n            }\n            return ids;\n    });\n};\n```
+jorell: ```\nTypeError: Cannot read property 'SELECT' of undefined```
+jorell: this is happening in ```DBConnection.QueryTypes.SELECT```
+
+
+steve: Why is the naming so inconsistent for the JSON returned from \/api\/randomUser???????
+steve: We have firstname, lastname (all lowercase) then we have generalDescription, helpDescription (camelCase) and then we have userID (don't we generally write it as userId with a lowercase D)
+caleb: well that's terrifying
+caleb: Did a bit of graphics work today. Since it's hard to see from pull requests, I'll demo it at the meeting tomorrow and merge in from there
+
+
+steve: i have another complaint about \/api\/randomUser
+steve: so the DB stores the user's ID in the variable named 'id' but then in the json we return it with the key 'userID'
+steve: so now with my userBatch API call that gets a set of users at once, I either have to go into each user and change their key 'id' to 'userID' to be consistent, or just leave it confusing and inconsistent
+steve: im probably gonna leave it inconsistent
+evan: Are we meeting today?
+jorell: Probably just something quick?
+evan: Cool
+caleb: Kk, where? can't use the resource room this week
+evan: Linux lab?
+steve: Yas
+jorell: yeah, im here already.
+jorell: yuuuus
+caleb: sounds good
+caleb: does someone have a microUSB with them?
+mattmcmurray: I have to meet with my HCI group, so I can't make it. Sorry guys
+steve: soooo i found a bug in the repo im using for the swiping page...
+steve: buuuuutttt the good news is that i found a way that makes it so a user would never notice.
+steve: except there might be occasions where there's one person left you need to match with, and they won't show up
+steve: everyone, just to let you know i committed a change that will cause the android app to crash upon sign in to remind whoever is using it to change the hard-coded address for the server to their own host address. i didn't want anyone to be stuck debugging for a while only to realize that's the problem
+steve: also, swipe page is finally \"done\" thank god
+
+
+caleb: you da man, stevar
+keanek: The next three lectures after today for softeng are guest lectures.
+jorell: oh my god
+caleb: time to never attend class again, wait in earnest for Brianna's quizlet notes?
+caleb: welp, nvm. Mandatory attendance, bonus marks for asking questions, testable material
+mattmcmurray: Ugh
+steve: <!channel>: starting the matches page on android
+
+
+steve: just pushed basic ViewMatch page
+
+
+jorell: Going to start working on the database for \u201cchat\"
+mattmcmurray: <!channel>: who made the logo? And is there any chance I could get an SVG copy?
+jorell: Caleb did.
+caleb: Svg copy?\n    
+mattmcmurray: Yeah. What software did you make the logo in? Photoshop, GIMP, Illustrator, etc. allow you to export to SVG
+caleb: Ahh. I need to see if I still have that
+caleb: I used <http:\/\/paint.net|paint.net>
+mattmcmurray: Don't worry about it man. I was just curious, cuz it would be cool to be able to modify the logo according to different colour schemes, but I found a work around
+caleb: Okay. I can still change the color with that file, if you still want that
+mattmcmurray: Nawh s'all good mang
+
+
+mattmcmurray: Meeting?
+mattmcmurray: I don't have anything to say, but I'm down to meet up if y'all want
+caleb: I'm about to walk home, in Frank Kennedy right now
+caleb: Anything that needs to be discussed? I still know my priorities right now
+evan: Can you guys come to Montreal? Steve jorell and I are there
+mattmcmurray: Oh ya lol
+mattmcmurray: I r dum
+caleb: Hehe
+
+
+mattmcmurray: I know you guys are mostly out of town, but web themes are done when someone has time to look it over <https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/62>
+mattmcmurray: Gradr - A project for Software Engineering 2 at the University of Manitoba -- Group G
+caleb: Similarly, android registration page is now working, pull request created
+
+
+steve: hey guys, am i the only one who feels absolutely fucked for this iteration?
+steve: its due friday at 4 which means we literally have 3 nights
+steve: and I've already put in probably over 25 hours into this app, trying to make sure api calls work and shit
+steve: and we still need to get profiles, ratings, chat and customization done in android and then test it.
+mattmcmurray: I'm done web themes. I can help out with android
+steve: like we're really fucking behind. there's no way in hell we're doing images this iteration
+steve: i feel like we need a feature freeze (with the exception of android chat because keane's blocking on that until jorell finishes web chat) like tonight so we can start testing android
+mattmcmurray: That's fair. Wanna meet up briefly after class today?
+steve: like the team? that might be a good idea
+evan: I can handle android themes, I've already got it started. I can begin looking into testing what we have so far with robotium as well.
+evan: I can't meet after class though, I notetake for a class right after soft eng
+evan: What's the status on web chat?
+jorell: <@evan>: chat is working when both parties are on the user match page.
+jorell: Im going to implement the database for it tonight.
+caleb: I can meet after class
+mattmcmurray: Quick standup outside the classroom or do we need to find a room?
+steve: Standup should be fine? 
+mattmcmurray: That's what I was thinking
+evan: Yeah I'm good for that
+caleb: Sure
+mattmcmurray: &gt;&gt;&gt; Good afternoon,\n\nDue to the timing of co-op interviews and the CS games, we've fallen a little behind on our iteration 3. We were hoping it would be possible to get an extension on the deadline for the iteration. Many of the other teams were also crippled by interviews and team members leaving the province for the CS games. Anything would be helpful and would be greatly appreciated.\n\nThank you in advance,\n\nMathieu
+mattmcmurray: I'll let you know what he says ASAP 
+steve: Soooo the 2 marks we lost were because the marker didn't match with anyone? 
+steve: That seems unfair, we implemented them, but he didn't figure it out
+keanek: It is kind of hard to force a two way match with directly altering the database, with all of our fake test data.
+caleb: Do we want to contest it?
+mattmcmurray: I think it would be worth talking to the prof about it
+mattmcmurray: I wouldn't submit a bad review to the play store because I didn't match with anyone on tindr
+keanek: Just wait until after he responds about the extension :)
+mattmcmurray: Lol definitely
+mattmcmurray: Okay nightwatch tests for customization are done and pushed. Pull request is ready. \n<@keanek> I can't figure out why persistence wasn't working for you. Try deleting the sqlite file and repopulating db to see if that helps. Let me know if it doesn't work.
+evan: Looking at the code it doesn't make sense to me either, the sync() method should be called to change the User table schema. I'm on my way home now so I'll test it out on my end too.
+mattmcmurray: Thanks mane
+evan: Keane was right, turns out that `sync()` only performs a `CREATE TABLE IF NOT EXISTS`
+evan: So I think we have two options, we can include migration tools (<http:\/\/sequelize.readthedocs.org\/en\/latest\/docs\/migrations\/>) or set the option `force: true` on our `sync()` call which will overwrite the table
+mattmcmurray:  Would forcing a sync cause any issues?
+evan: I want to do option 2, but the only thing is that every time the server reboots, we'll lose all information in the User table
+mattmcmurray: Is that an issue? Especially if we're filling it with data anyway?
+evan: If we create a user and then reboot we'd have to create it again, but I doubt it'd be a big issue on our AWS instance since that server is not going to rebooted that often
+evan: But if we're doing dev work locally we can just turn that flag off
+evan: (`force: true`)
+evan: I vote we still do option 2, having to handle different table schemas is something we don't have time for
+mattmcmurray: I agree
+evan: How fitting we had a presentation today about these issues haha
+steve: So is the issue that we added fields to the user table? 
+steve: If that's the case, can we add a string for imageURL so that were prepared for iteration 4 now? 
+mattmcmurray: Yeah for sure. I'll do that right now and just commit directly to iter3 branch
+steve: pushed viewing match ratings now
+steve: hey, make sure when you guys make commits, you set the server's address back to the AWS instance
+steve: alright, i pushed the rate user changes. im kind of going to be more hands off for this iteration, ive spent a lot of time on this app
+mattmcmurray: Yeah that's definitely fair. Thanks man
+mattmcmurray: &gt;&gt;&gt; Hi Mathieu\n\n\nUnfortunately the deadlines are fixed and the same for everybody. Changing the deadlines now will have consequences on the next iteration and seminar dates that we can not afford. \u00a0\n\nPart of the learning objectives is for you to manage risks as well.which means finding the best way of offering more limited features but in high quality.\n\n
+jorell: welp
+caleb: :disappointed:
+mattmcmurray: I tried 
+caleb: do we kick and scream about iteration 2 marks now? :stuck_out_tongue:
+mattmcmurray: We can do it. I believe in us
+jorell: Super close to finishing the changes to the chat feature.
+jorell: I\u2019ll finish it tomorrow morning. I need to do coop research.
+
+
+evan: I hit an unexpected hurdle last night that really slowed me down so I couldn't get android customisation done yet, but I'll get it done tonight and start implementing robotium tests as well. Sorry guys.
+mattmcmurray: All good. I'm staying home today to work on the project
+mattmcmurray: I've checked out \"Create profile viewing page in Android\" on Trello. Just to make sure there's no confusion, that's to view OTHER peoples profiles, correct?
+steve: I already did that oops
+mattmcmurray: Lol k good thing I double checked
+steve: Unless that's for viewing your own profile in which case Caleb's doing it
+mattmcmurray: Yeah Caleb has the \"profile settings\" page
+mattmcmurray: so all that's left is caleb's page and chat then? If so I'll start taking a look at junit tests I think
+steve: I guess so yeah 
+mattmcmurray: Cool. Testing it is
+keanek: I'll gather my junit tests up and push it to the repo, so you can see what I've done so far.
+mattmcmurray: Awesome. Thanks man
+mattmcmurray: I can also write the report for this iteration
+keanek: I converted all of my tests to instrumentation tests, as they are more useful to testing our code.  I found a link for trying to mock HTTP calls <http:\/\/codrspace.com\/bsphere\/unit-testing-android-http-connections\/>
+keanek: The branch is it3\/KK_Android_Unit_Tests
+mattmcmurray: :thumbsup: I'll go take a look and I'll let you know what I write tests for so that we don't double up by accident
+mattmcmurray: <@keanek>: how do you run tests in Android Studio again? It's been a while since I've used it
+keanek: Create a Config (for some reason my AS is not creating them automatically), I'm making them as individual classes at the moment.  Should be a drop down about 1\/3 of the screen from the left, next to a green run arrow.
+mattmcmurray: k cool
+mattmcmurray: k wrote some tests for UserImagePair, going to try and write some for the GetRequester and PostRequester using that link you provided
+keanek: I'll do some for DownloadImageInBackground
+mattmcmurray: sounds good
+keanek: Use androidTestCompile instead of instrumentTestCompile, I get less errors that way.
+mattmcmurray: Kk
+mattmcmurray: this mock http library is amazing
+mattmcmurray: I wish I knew about this during my first coop term
+keanek: I ran into some trouble with the download image, since it requires an imageview.  I'll look into trying to unit test it, but it might not work.\nGlad the link was useful.
+jorell: So I\u2019m trying to drop a table
+jorell: its not working ..
+jorell: trying with sync([force=true)
+keanek: sync({force=true}) drops the table and rebuilds it.  Could you just use sqlite3 to drop the table?
+mattmcmurray: K done the test cases for the stuff I mentioned this morning. I branched off of <@keanek> 's branch, so I'm gonna submit a pull request to merge with your unit test branch and when you're done your tests, everything can be merged back into the iteration3 branch. That make sense?
+keanek: Okay, makes sense.
+mattmcmurray: Cool. I'm gonna do that then I'm rushing to school to try and make it for OS
+jorell: Weeeeew
+jorell: Chat is working now. I\u2019m pumped.
+keanek: Awesome.  
+
+
+evan: So I've pushed what I have so far for Android customization (branch is `it3\/EH_Android_Customization`), I added an option to the ActionBar which can select the same styles as what Matt did for web, and those persist through Activity changes. Right now it just changes the look of the ActionBar and the background image, but I have it set up so other elements can easily be changed easily. I haven't sent out a pull request yet because the app doesn't actually save user preferences since that hasn't been merged into iteration3 branch yet, and profile page isn't there either, so I'll have to wait on those. The hard part is done though (setting up themes based off of inheritance so attributes of each of the activity\/fragment layout files can be changed dynamically at runtime), so once those are finished, the customization options can be done quickly. I'm going to start looking into Robotium tests in the mean time.
+jorell: Dude were you up all night?
+caleb: Profile page is successfully loading content right now, working on the saving. Hopefully will be done soon, then you can apply your changes
+keanek: Android chat is running.
+caleb: [thunderous applause]
+caleb: good job guys :thumbsup:
+evan: <@jorell> Almost
+mattmcmurray: Let's do a quick standup after class again today to figure out what's left to do before handin tomorrow
+caleb: UPDATE: profile page is now working for all values except for the date of birth, which requires a little parsing work
+caleb: Saving works :smile: definitely not as tidy as i'd like, but it's functional, with some more things I'd improve in iter4
+mattmcmurray: Which user stories should I mention for the last iteration? \nThese are the stories we haven't implemented yet.\n- Picture uploads\n- Viewing rejections\n- Leaderboard\n- IQ Test
+steve: Pictures for sure
+mattmcmurray: Yup. I was thinking pictures, rejections, and leaderboard (as low priority?)
+steve: Yeah, makes sense I think 
+mattmcmurray: KK cool
+mattmcmurray: Am I good to merge web themes in?
+jorell: I'll make a pull request for chat today.
+jorell: <@keanek>: you can probably merge into ny branch first?
+mattmcmurray: I've added team contributions for iter3 as well. Take a look and add anything I may have missed under your name
+caleb: <@evan>: I've made a pull request for the profile page
+evan: Cool
+evan: I'll take a look later, I notetake for another class after this
+caleb: cool cool
+mattmcmurray: if possible, let's try and merge in all features tonight. Tests don't matter too much, but I wanna try and get the server deploy done before bed tonight
+evan: Can do
+evan: I can't see it being an issue for android customization
+evan: The only thing is that I kind of have to wait until everything else is pushed in before I can customize the rest of the app
+jorell: <!channel>: merge request is up for chat. This is for both me and <@keanek>\u2019s work.
+keanek: Chat pull request also contains unit tests.
+mattmcmurray: Hmm for some reason all my changes to the contributions vanished... There's some git black magic going on
+jorell: :O
+jorell: did I fuck something up? :
+jorell: :confused:
+mattmcmurray: No, I looked at the history and it looks like my changes were never actually committed. It's no big deal, I'll re-add them
+mattmcmurray: ok all is fixed
+mattmcmurray: <@jorell>: I'm going to commit nighwatch tests for chat directly to your branch
+mattmcmurray: <!channel>: `module.exports` in front end JS causes errors in console but is necessary for testing. If you comment it out like someone did in `swipe.js`, all the tests will fail
+jorell: <@mattmcmurray>: ayt
+mattmcmurray: Ok I pushed nightwatch test for chat to the branch. There's a couple other random fixes for tests that were failing in there as well. Should be ready to merge.
+mattmcmurray: I'm leaving for training soon, so I will be MIA for the rest of the night. I'll do server deploy first thing in the morning
+mattmcmurray: all tests pass on Jorell's chat branch. Merging it into iter3 now
+
+
+evan: I'll push a branch with what I have with robotium before I go to bed
+evan: Alright I got some basic robotium tests pushed on a branch (no pull request yet), you can see it here <https:\/\/github.com\/MattMcMurray\/Gradr\/compare\/it3\/EH_Robotium>
+evan: Gradr - A project for Software Engineering 2 at the University of Manitoba -- Group G
+evan: I just tested LoginActivity and SignUpActivity for now, any other tests can be done by following the same template, it's fairly straightforward. I'm pretty beat though so I'm gonna head to bed and test SwipeActivity and Themes tomorrow morning.
+evan: Caleb, feel free to test any other Activities, if you have any questions of how to set it up just ask and I'll try to help out.
+keanek: <!channel>: It might be good if someone could try swap several themes and pages on the test tablet we got.  Doing so in my emulator results eventually (after several theme changes) to hit an out-of-memory error.
+keanek: As a test, I scaled the images down quite a bit.  They are a bit blurry, but I can't out-of-memory the application anymore.
+keanek: On a brighter note, all unit tests for Android and all tests for the server pass.
+mattmcmurray: What's the TL;DR of what's left to do?
+caleb: I'm about to write some robotium tests and run everything on the tablet
+mattmcmurray: Are features all done? We're just working on tests?
+keanek: Do you want me to commit the scaled down images?
+caleb: are we happy with how the cards looks, with just the tiny bit of text at the bottom, with no titles or formatting or anything?
+caleb: I'm realizing that we are all asking questions with no answers
+caleb: where would I find chat on android?
+caleb: everything else seems to be working fine, no problems with themse
+mattmcmurray: Once you match with someone, click their profile and its one of the tabs
+caleb: ah
+caleb: Sigh :confused: I really want to change the visuals on the cards, but I know we don't have time for that
+caleb: iteration 4
+mattmcmurray: Correct
+steve: The cards have been done for like a week and a half. Where were you? 
+caleb: I didn't realize that that was the final product
+caleb: thought they were going to be styled up to fit the rest of the app
+mattmcmurray: I mean appearance counts for 0% of our grade so I don't think it matters
+evan: I couldn't figure out out how to color them, i wanted to have a palette of colours that could be chosen from, but it looked the library just pulled random colours
+caleb: Alright. Dibs getting the app presentation-worthy for next iteration
+caleb: matches and things seems to be working well on the tablet
+caleb: I'd say all our functionality is there
+keanek: Chat logs uploaded
+steve: The cards appearance now wasn't intended to be the final product, I could've gone back you know if I hadn't been responsible for making 5 other pages on Android. Plus I believe there was someone else who said they were willing to do the styling 2 weeks ago... 
+steve: Thanks Keane, glad not all of my passive aggressiveness will be seen lol
+mattmcmurray: Is anybody still working on anything? Or are we good for handin?
+caleb: I finished a bunch of the robotium tests, evan just needed to finish up his own
+caleb: I tested, all of the robotium tests that I have access to are running successfully on the nexus 7
+caleb: pretty sure once <@evan> is done in his class, he'll be finishing those up, then we'll be good to go
+evan: Yeah I'm note taking until 230, just have themes and swiping to finish
+evan: What time is it due at?
+mattmcmurray: 4pm
+evan: Crap I always forget about the non-midnight due dates
+evan: I think I can still get it done prior to 3:45 though
+evan: Does anyone else have any robotium experience? I'm not sure how to verify the theme change.
+steve: If you can't figure it out, I'd say just verify that the dialog closed and nothing crashed lol
+caleb: haha
+evan: OK, tests for themes and swiping are in, pull request is out, Caleb is testing with the tablet
+evan: (they worked on my phone)
+evan: How do we submit?
+caleb: they take a snapshot of our repo at the due time
+caleb: we're done
+evan: What a relief
+steve: Did you merge it in? 
+caleb: yup
+caleb: merged in
+evan: I feel terrible for leaving my contribution to these last few days, I'm really sorry about it. I'll make sure that it won't happen for the last iteration.
+
+
+jorell: So are we using travis for CI?
+caleb: I don't even know him
+
+
+keanek: I can't remember if Jenkins was a suggestion or something we have to use.  Of course, there is no itr4 document on D2L yet.
+mattmcmurray: I believe it was just a suggestion. Really fucking frustrating that he takes so long to post the iteration documents
+jorell: Well
+jorell: CALEB MUTE YOUR SLACK
+caleb: :simple_smile:
+caleb: haha
+caleb: muted
+caleb: I like this
+caleb: so, for the presentation, I recently discovered that I know someone with a fog machine
+mattmcmurray: New plan
+mattmcmurray: Hack everyone's websites 
+caleb: anyone we want to throw under the bus?
+
+
+jorell: I
+jorell: I\u2019m going to start working on the api calls to our new features tomorrow
+jorell: G? ayt g
+caleb: I'm gonna tune up the android pages a bit
+jorell: UI?
+caleb: yeah
+caleb: not tonight...but soon
+caleb: gonna try make it all look consistent
+
+
+keanek: We're fucked.  The amazon site is broken, probably due to the user table not being reformed to allow for themes.
+caleb: I'm going to pretend I didn't read this and continue with my blissful weekend
+mattmcmurray: What? They worked fine when I deployed
+mattmcmurray: I'm gonna try and do some damage control and hope for the best
+mattmcmurray: <@keanek> they work fine for me. What browser are you using? I was dumb and didn't test cross browser
+mattmcmurray: Quick test on Firefox works. Not sure about IE and safari tho
+jorell: <@keanek>: what happened on your end?
+mattmcmurray: I'm wondering if somehow he got it in a weird state we weren't expecting? But the tables are definitely fine. There would be SQL errors in the logs otherwise
+jorell: That's why we have to do boundary analysis guys \/s
+mattmcmurray: Also, I'm assuming since the logs are at &gt;6000 lines, that the graders have probably already used the service
+mattmcmurray: lolol
+mattmcmurray: I have done boundary analysis in the tests
+mattmcmurray: I just didn't know that's what it was called until this week
+jorell: Did you do combinatorial testing? :))
+jorell: How about path coverage.
+jorell: Path coverage would have been adequate to catch the errors.
+jorell: \\s to all of this 
+mattmcmurray: hahah
+mattmcmurray: I'm heading out to grab breakfast. But I'll keep an eye on slack.
+keanek: I tried Chrome on windows, neither of the tester accounts would log in for me.
+keanek: Sort of works in explorer.  Maybe my chrome is broken...
+jorell: what are the test accounts?
+mattmcmurray: Should be listed on the readme
+keanek: They're in the read me on github
+jorell: I was able to log in with test_user_1
+jorell: on safari
+mattmcmurray: Same
+mattmcmurray: On mobile chrome 
+keanek: Must be my chrome.  Maybe my adblock is screwing with it.
+keanek: Sorry for the panic
+jorell: yeah. you shouldn\u2019t be using it on our site. We wont make money
+jorell: :stuck_out_tongue:
+mattmcmurray: No worries man. I'm just glad everything is working 
+jorell: Let us know what\u2019s happening on your end <@keanek>
+keanek: Whitelisting the site in my adblock makes everything work again.
+jorell: We never merged iteration 3 to master
+jorell: Is that a bad thing?
+steve: its the default, so not the end of the world
+jorell: cool.
+jorell: Should I merge it now?
+steve: sure
+jorell: Made a pull request, just want someone to look at it that I\u2019m doing the merge right.
+mattmcmurray: I'll create an iteration4 branch and make it the default rn
+steve: approved your pull request
+jorell: sweet
+mattmcmurray: default updated
+jorell: foudn the error
+jorell: keanne ran into
+jorell: its a database issue
+steve: fuck
+jorell: But its not happening on the ec2 instance
+jorell: its only happening locally
+mattmcmurray: Delete your DB file and repopulate
+jorell: exactly the solution
+mattmcmurray: Or force sync
+jorell: Soooo
+jorell: The query for getting users with the most matches is pretty complciated
+jorell: Steve suggested that instead of displaying the most matches, we can just do a leaderboard for people who has been liked the most
+jorell: Sound good to everyone?
+mattmcmurray: Yep, I'm on board with that
+mattmcmurray: It kinda makes sense too. Just because they didn't match, doesn't mean they're not popular. It means that user is more selective
+jorell: cool.
+jorell: That makes it exponentially easier
+jorell: implementing the page now
+
+
+jorell: I made a pull request 
+
+
+steve: Soooo we definitely need to meet today
+evan: Yup
+mattmcmurray: Yeah I was gonna suggest the same
+jorell: Yup 
+caleb: Cool cool 
+steve: Linux lab 
+jorell: <@steve> &amp; <@keanek>: Made the changes.
+jorell: <@keanek>: I managed to fix the problem with the end point test
+jorell: So don\u2019t worry about it.
+keanek: Oh, that's good.  I merged the original branch.
+steve: is anyone else's android app crashing consistently when they click on a match??????
+steve: i think somebody broke the build before we submitted iteration3
+steve: fuck
+mattmcmurray: Everything worked fine on my phone night before handin. Is the logcat printing any errors?
+steve: it worked the night before handin
+steve: im getting an out of memory exception
+steve: and it worked on my last commit before i went to bed
+steve: im going to figure out what happened
+steve: but somebody fucked up.
+jorell: i feel like this is a db thing again
+steve: its not
+jorell: oh
+steve: i rolled back to my commit the night before handin, it works
+jorell: what\u2019s the diff?
+steve: i run the current build, it crashes
+jorell: blame?
+steve: im working on it
+steve: there was like 15 commits between me going to bed and handin
+steve: which, btw is fucking unnacceptable
+mattmcmurray: Out of memory sounds like it might be segregated to the emulator. Gonna try it out on my tablet
+steve: so it looks like it was the theming that broke it
+evan: What was wrong with it?
+steve: i thought we had it working when i went to bed
+evan: Yeah it was working fine, and I didn't think we touched it after you went to bed, we only had tests
+steve: i can't open the viewMatchFragment on any commit after \"First working demo test.\"
+steve: including that one
+steve: on my phone or on emulator
+mattmcmurray: Works fine on my Nexus
+mattmcmurray: Like you can't open a match at all?
+evan: I'm at school right now and my dev environment is at home, I'll check it out when I get home. But maybe it's going to be another issue where it works on my phone and doesn't work on the tablet...
+evan: Never mind
+mattmcmurray: Tester was able to get in either on web or on mobile b\/c he wrote his name in the chat
+steve: yeah but couldve been on web
+mattmcmurray: Yeah true
+steve: im having weird inconsistencies now between phone and emulator wtf is going on
+mattmcmurray: Yeah everything works 100% on my tablet. Theme switching doesn't cause any errors either. 
+mattmcmurray: Android studio memory monitor shows less than 1GB used system wide 
+steve: are you on the iteration4 branch?
+steve: i really don't understand this
+steve: both my emulator and phone crash on iteration4
+mattmcmurray: I pulled the last commit on iteration3, which is what the markers would have 
+mattmcmurray: Emulator makes sense, I just don't understand why your phone is crashing too
+mattmcmurray: This project is giving me grey hair
+steve: alright, well im glad it works
+steve: guess its just on my end then
+steve: i can't figure it out
+steve: i found it
+mattmcmurray: I heard that GS6 has memory issues sometimes. Maybe reboot and try again?
+steve: matt, when you did it, were you using default theme?
+steve: because it doesn't work for me with default theme, only other themes on emulator
+mattmcmurray: Yeah I tried them all
+mattmcmurray: I'll cycle through them again
+steve: like, did you have default on and then click on one of your matches from the list?
+steve: that's what's doing it for me right now
+mattmcmurray: yeah
+steve: alright then i have no clue wtf is wrong on my end
+mattmcmurray: Yeah that's super weird. Snag that nexus 7 from Caleb tomorrow and hopefully that should make this problem go away
+steve: yeah, i honestly have no idea how this could even be an issue
+steve: like it's just an image
+steve: why would the background image matter?
+mattmcmurray: Who knows. That's the biggest issue with Android programming imho. Your app can run fine 99% of the time, but one small device detail could fuck everything up
+steve: i mean, this seems bigger though, considering its both my emulator and my phone
+steve: alright, i have no clue wtf is wrong, i can only reproduce it when the theme is default. i guess ill just leave it
+mattmcmurray: Wanna send me the logcat? I'm curious to see if I can replicate it
+mattmcmurray: just copy\/paste into a txt file or something
+steve: its cut off btw
+steve: you have to click on it and the click the \"see it in full\"
+steve: this is the ost interesting part
+steve: Failed to allocate a 92160012 byte allocation with 16777120 free bytes and 46MB until OOM
+steve: why is the so little memory?
+mattmcmurray: yeah that makes 0 sense
+mattmcmurray: adb was showing that my tablet allocated like 800mb
+mattmcmurray: So this guy had the same issue with bitmaps <https:\/\/stackoverflow.com\/questions\/32244851\/androidjava-lang-outofmemoryerror-failed-to-allocate-a-23970828-byte-allocatio>
+mattmcmurray: I want to show the Bitmap image in Image View from sd card which is stored already .After run my application is crash and getting OutOfMemoryError error of (java.lang.OutOfMemoryError: Failed to al...
+evan: That would actually make sense why it's only failing on default theme because that file is HUGE
+evan: Which is why I tried tiling it instead, but it failed on the tablet, so I took it out
+mattmcmurray: Should we go with plain background colours then?
+evan: There is a low res subsection of the background we can use instead
+steve: im gonna read the google bitmap tutorial first, see if i can shrink the load of all the images
+mattmcmurray: Sounds good. Still weird that it's only failing for you though
+keanek: That's the thing with IOS apps, you know exactly the hardware each phone has, since there's only a handful or two phones.
+keanek: Android is a mess of different phones.
+mattmcmurray: yup. With different memory, different screen sizes, different processor, etc etc
+steve: cool. got things downsampling and i don't have the error anymore. i just need to figure out how to stretch the images back to a reasonable size
+steve: alright, i just pushed the downscaling work that i did. still isn't enough though. we definitely need to use a shittier quality background asap to stop the crashes
+steve: for me to recreate a crash now, i need to view one match's profile, then go back and then try to view another match's profile with the default background so it is slightly better off now
+steve: image quality is a bit worse, the \"loading image\" image looks like absolute shit now, but it may have made a slight difference so that's good i guess
+steve: pull request up for android leaderboard
+steve: :100:
+
+
+caleb: um, not entirely sure what happened on web, but the checkbox for \"remember me\" is in a very curious location
+steve: Can we just remove it? It doesn't work
+caleb: I feel like that's probably the best plan
+
+
+evan: Just an update for everyone, pictures are working on web, I did some DB maintenance to fix executing scripts from command line options (and also modified clear_database so that running it will drop the tables so on each DB model the sequelize `sync` function will automatically get the schema up to date), I altered the testusers.sql script to add pictures and themes to the test users and also reduced the number of users to 50 (and also modified the tests because of this so they all pass). Right now I'm stuck on android because with the new profile pictures it continuously crashes from OOM exceptions. I'll investigate that tonight.
+jorell: oomf
+steve: <@evan> merge my pull request. It uses the old smaller background and it greatly reduces the memory strain 
+evan: I'll give that a shot
+evan: I wasn't having these issues before though so I feel in this case the new pictures might also be the culprit
+steve: I wasn't having these issues before either though 
+steve: But changing the background made it a lot better, it even made the app run faster
+keanek: Making more integration tests led me to find a problem.  We can't delete anyone at the moment.  SQL foreign key constraints stop deletion if there is any messages linked to the user.  I presume this will also happen with matches and ratings as well, but I haven't tested those two yet.
+jorell: Maybe we can just soft delete?
+evan: We could do an on delete cascade
+keanek: We can delete a user who has likes.  But can't delete a user with ratings, since ratings require a two way match.
+keanek: I'll look into sequelize
+jorell:  Evan. Can you set up cascade deletes?
+evan: I can look into it when I get home
+jorell: Sweet. I just thought that you spend the most time messing with sequelize.
+evan: Yeah I think I know how to do it, shouldn't be hard (probably)
+steve: Famous last words
+mattmcmurray: So just working on rejections rn. Gonna refactor the matches page frontend to make it a bit more generic so I can reuse it for rejections (since they're basically the same thing, just opposite)
+jorell: God damn it matt 
+mattmcmurray: SORRY
+jorell: Your message made my phone vibrate as I was shooting a basketball 
+mattmcmurray: oh
+mattmcmurray: not sorry
+mattmcmurray: just playing that defence
+jorell: Im playing too much of this game. 
+mattmcmurray: Do we want to allow users to chat with their rejections?
+jorell: Nope 
+jorell: At least i dont think so 
+evan: Maybe they want to know what to improve haha
+mattmcmurray: k that's what I though. Just view the people who shut them down, right?
+jorell: Yup
+mattmcmurray: kk
+jorell: We should have m unpopular leader boards.
+mattmcmurray: lmao
+mattmcmurray: \"These are the shittiest people. Do not help them.\"
+jorell: Yup 
+mattmcmurray: Okay so rejections are done. I haven't written tests yet, so I won't make a pull request just yet but if anybody needs rejections, just merge my branch into yours. It works the exact same way as matches (so there's no API call, but I can add it in if anyone thinks it's necessary)
+mattmcmurray: I ran all the current tests and they pass
+steve: <@mattmcmurray>: im testing out your rejections stuff and it looks like i can still review and chat with my rejectors? did you say you had blocked this functionality or did you say you were going to?
+mattmcmurray: I thought I did, I might not have pushed a commit. I'll take a look when I get home 
+steve: also, did you make an API method for this? because i only see rejections showing up in index.js, and not in api.js
+jorell: He said he didn't.
+steve: oh. damn
+mattmcmurray: Yeah I mirrored the way matches worked, I can add an API method. Could be done before tomorrow afternoon
+steve: an API would be nice, ill get started on rejections anyways, ill just use the matches API for now until that's done
+mattmcmurray: Sounds good. When I'm done I'll take a look and rig everything together 
+steve: btw, if anyone pulls iteration4 the server is set to my IP address. ill change it next commit if i remember
+steve: so i've found a very subtle but interesting bug.
+steve: if you click \"matches\", then \"profile\", then \"matches\" again, nothing will show up on the match page
+steve: or like basically, if you click anything then go to profile, then go to matches, the matches won't work anymore
+steve: its really strange
+steve: it appears it is not something I've done, it just happens. strange. i guess ill take a look
+mattmcmurray: I think I know what might be happening if you don't figure it out. The way the navbar link to matches works is kinda weird. I was planning on changing it in the morning 
+mattmcmurray: The user ID is being sent as a GET variable and I'd rather use Ajax to load the matches in.
+steve: i figured it out actually
+mattmcmurray: What was up?
+steve: it is my fault but it dates back to when i first started the app
+steve: basically, i wasn't paying attention when i wrote the navbar code to call ProfileActivity i guess
+steve: and so, some of the calls would do putExtra(\"id\", id)
+steve: but we store the user ID in the variable called userId, not id
+steve: so it was passing some global variable called id that's part of the android system i guess?
+steve: so then when we called getMatches, it was using the android system's id which is not in our DB so it would return no matches
+steve: oh wait, i didn't write this code, git blames caleb. honest mistake though. i aint even mad, i learned about hidden variables in android systems
+mattmcmurray: Cool, glad it's worked out :thumbsup: 
+steve: INCOMING LARGE AMOUNT OF UPDATES, PLEASE READ
+steve: 1) i just pushed rejections to iteration4. deal with it
+steve: 2) <@mattmcmurray> , there's two TODOs in StudentListActivity, those should be all you need to change to integrate the rejections API
+mattmcmurray:  Will do. Thanks man
+steve: 3) i refactored a fuck ton of shit, and it probably broke some robotium tests. i dont know how to run them so i can't tell you which ones but <@evan> and <@caleb> please check them out at some point. The UI hasn't changed too much, but they may need to be renamed, because i renamed several classes
+steve: 4) <@caleb>, shouldn't there be a delete user button on the profile page?
+steve: 5) MatchListActivity is now called StudentListActivity. It is shared for doing rejection lists and match lists
+steve: 6) ViewMatchActivity is now called ViewStudentActivity because it's once again shared between viewing a rejection and viewing a match
+steve: 7) I'm just about to rename ViewMatchFragment to ViewStudentFragment for the exact same reason. the other 3 fragments should be the same. i just realized i forgot to rename it earlier
+steve: that's all i can think of right now
+mattmcmurray: Sounds good. Woo for reusability
+steve: oh and please for the the love of god, merge iteration4 into whatever branch you're working on right now, the conflicts are probably going to be hella bad. sorry
+evan: You were right <@steve>, the smaller background was all it needed, pictures work on Android
+evan: :+1:
+evan: Just gonna add some tests and I'll get a pull request up later tonight
+
+
+caleb: okay, I'm on the delete button
+caleb: <!channel>: is there anyone at the university right now? I'm done classes, but want to pass the Nexus off to someone who can get it to steve
+steve: at this point you may as well keep it
+steve: ive done most of my developing for this iteration
+caleb: okie dokie
+mattmcmurray: ```\nrouter.get('\/getPotentialMatches', function(req, res) {\n\tUserMatchDAO.getMatches(req.query.userId).then(function(ids) {\n\t\tUserDAO.getUsersById(ids).then(function(users) {\n\t\t\tres.json({matches: users});\n\t\t});\n\t});\n});\n````\nI'm a little confused why this API route is called `getPotentialMatches()` shouldn't it just be `getMatches()` or is there something I'm missing?
+steve: it should be. there was a miscommunication in iteration1 and it was named improperly
+mattmcmurray: Oh right, I remember that now. K hooking up API to StudentListActivity now
+mattmcmurray: Was anybody able to reach the server running on their local machine while connected to the U of M network?
+steve: did you check that the server in strings.xml is set to the actual server?
+steve: because if you didn't pull iteration4, its probably still set to my IP
+mattmcmurray: Yeah, I figured it out. My laptop is connected to WPA and my phone was connected to SECURE
+steve: oh i see
+evan: I opened a pull request for pictures
+evan: Also a heads up, the Android tests are broken now with the refactoring of StudentListActivity
+evan: I didn't want to fix that in my branch though
+evan: What was the change there besides the name?
+steve: it accepts a flag that tells it whether it should open a rejection page or a match page when you click on a student in the list
+steve: and depending on that flag, it also calls a different api if its a rejection student list or a match student list
+evan: Oh so it's just part of the intent?
+steve: there's a new extra in the intent
+steve: and then there's an if statement right after that branches based on that extra
+evan: OK, I'll open a new branch and fix that
+mattmcmurray: <!channel>: made a short google form to get everybody's feedback so it can be integrated into the presentation. <http:\/\/goo.gl\/forms\/OIN6R47nFg>
+mattmcmurray: Just want to get some feedback from everybody to ensure our presentation is accurate and represents the entire group's thoughts. If you have any criticisms, try and be as constructive as possible.
+mattmcmurray: Just writing unit &amp; nightwatch tests for rejections then I'll create a pull request
+evan: Opened another pull request for the robotium test fix, it's very short
+caleb: created a pull request for the first round of styling changes, while I switch focuses
+mattmcmurray: Rejections is up as well. I will take a look at all the other open pull requests
+mattmcmurray: Just making a quick modification so that a generic image is displayed if the user has no image saved to their profile
+mattmcmurray: <@evan>
+evan: That is a great idea
+mattmcmurray: Ok, done. I also merge iteration4 in and pushed that so the pull request can be merged when ready. Can somebody who knows how to run the android tests all at once run them and then merge after they pass?
+steve: I just merged yours. 
+steve: I didn't run the tests though 
+mattmcmurray: All the web unit tests passed on my branch and the relevant android unit tests as well. Just need to check evan's branch, I'm just not sure how to run the entire test suite
+evan: You should be able to right click the folder holding all the test files and select 'Run all tests' or something
+caleb: ^this
+mattmcmurray: Kk
+mattmcmurray: almost done fixing everything test related in evan's branch, then I'll merge
+caleb: delete account button working
+caleb: &amp; made pull request
+mattmcmurray: <@caleb>: just a head's up, the robotium tests you wrote for the MatchListActivity (now StudentListActivity) had assertions checking for info that wasn't in the database fill script. You were testing on temporary information. You can't just write assertions for what's _currently_ in the database, you have to make sure it's in the database fill script
+mattmcmurray: I'm fixing those tests now
+caleb: ahh, thanks for catching that
+mattmcmurray: Okay, Evan's branch should finally be ready to merge. Can somebody pull it down and make sure all tests pass for them as well. They all pass for me, but sometimes things change from machine to machine. I had to make a lot of changes and I want to make sure nothing broke
+mattmcmurray: Nightwatch, Mocha, and all android tests
+caleb: I'll pull it down and run it on the device
+caleb: at least, not sure if my station is set up to run nightwatch and mocha, since I haven't in a long while. I'll do the android, at least :confused:
+mattmcmurray: okay, make sure you point it at a local server that has had its db wiped &amp; filled
+mattmcmurray: not the remote server
+mattmcmurray: I'm more worried about the android tests anyway
+caleb: <@mattmcmurray>: looks like somewhere along the line we added an extra user, which bumped up the ids of all the test users. So I changed the injected test data and the tests all pass now
+mattmcmurray: No, 50 users were removed. You're testing against a locally run server, right?
+caleb: yup
+caleb: created a brand new db, ran all 4 db setup scripts
+caleb: we expected test_user_1 to be userId 52, but it was 53
+mattmcmurray: Aiight, that's kinda strange but if it works, it works 
+caleb: and that it does :thumbsup::skin-tone-4:
+mattmcmurray: Did you use the `--fill_database` flag or run them manually? Manually will assign slightly different IDs
+caleb: I did them manually, cause I had forgotten what the flag was. Hang on, I'll check
+mattmcmurray: Ah ya, those IDs should be correct with the flag 
+caleb: ahhh, so they are
+mattmcmurray: You'll have to:\n1. Delete the DB\n2. Run `sudo node main.js` to create the tables\n3. Kill the server then restart it with `sudo node main.js --fill_database`
+mattmcmurray: Kk sounds good
+caleb: yup, did that, seems to have worked
+caleb: okay, we need to revert my changes to the branch (not sure how to do that from here), but it seems good
+caleb: Or I could just manually switch it back
+mattmcmurray: Did you push already?
+caleb: unfortunately yes
+mattmcmurray: If so, just manually revert. 
+caleb: kk
+caleb: okay, tests all pass, reverted changes pushed
+mattmcmurray: tests pass on my desktop at home too. Merging branch now
+mattmcmurray: Should I merge the Android Styling branch as well?
+steve: yeah, you can
+steve: i approved of it
+mattmcmurray: will do
+mattmcmurray: Other than the one remaining pull request, what's left to do for this iteration?
+keanek: I have some more integration and database tests.  I'll need to test them with the new changes to iter4 though.
+steve: We need several robotium tests to be done
+mattmcmurray: I'm gonna probably try and write a few more nightwatch tests to cover images and leaderboards either tomorrow or saturday morning as well
+mattmcmurray: We're 100% feature done though, right? I'm not missing anything?
+caleb: I still have more styling to do with the app, and I'd like to get an actual date picker working on the profile page, but nothing that's an absolute must-have at this stage
+jorell: Im done my features.
+steve: date pickers for birthdates are a usability nightmare, i wouldn't recommend it
+steve: since you have to scroll back like 20+ years for average users
+steve: people on the internet recommend the approach i took on the website, where you give a dropdown for month and for the other 2, you just use text boxes
+mattmcmurray: Yeah, I'd tend to agree with that.
+mattmcmurray: I hate having to scroll down too far
+steve: also, datepickers are usually only recommended when the day of the week actually matters like when booking flights
+caleb: fair point
+steve: originally, i was going to do a date picker on the website but the internet talked me out of it
+mattmcmurray: Okay, I'm signing out for the night. I might check-in a bit later, but I've gotta focus on some other school work.
+caleb: merge conflicts for my delete button pull requests have been fixed, if anyone wants to look at it. It's a pretty simple review, I'd imagine
+
+
+keanek: Found a fix for the deletion problems.
+keanek: Need to implement stubs and tests, then I'll make a pull request.
+keanek: Two new pull requests, one for tests and the other for deleting.
+steve: i think we should have a meeting today, just to go over what's left for this weekend
+caleb: it's a good idea, but I'm actually not at the university today
+mattmcmurray: I'm also not on campus today. Sorry man
+steve: ok well can everyone update trello, and i still wouldn't mind talking with the people who are on campus
+mattmcmurray: Definitely
+caleb: Did we ever implement that default \"I don't have a picture yet\" picutre?
+evan: Matt added that to my pull request
+evan: Also I'm here <@steve> so I'll come by
+caleb: <@evan>: <@steve> , could you use your meeting today to take pictures of yourselves in a large variety of stock photo poses for presentation purposes?
+steve: Absolutely 
+jorell: cssa?
+caleb: Ideally, pictures of studying would be useful. Studying and having a great time, naturally 
+steve: Sure cssa and sure studying 
+
+
+steve: Here are the photos from our photoshoot. <https:\/\/www.dropbox.com\/sh\/2wl4lswdbhw5mx5\/AABiPlQR0vnGl_o6Z0CYuAUca?dl=0>
+steve: Shared with Dropbox
+caleb: these are beautiful :heart:
+steve: hopefully that's enough. we found a feature on my phone that you can take a moving image and got distracted trying to take those instead
+steve: and then my phone wont let me upload them so we can't even show them off
+caleb: hahaha
+caleb: these will be more than sufficient
+caleb: Now the challenge will be to keep a straight face while presenting
+caleb: Are we okay if I share a link to the site on the UmanitobaCS slack group to get some quotes about the site for the presentation?
+mattmcmurray: I'd rather not tbh
+mattmcmurray: I'm paying for all traffic at this point 
+mattmcmurray: Sorry man
+caleb: kk, no worries
+mattmcmurray: Can I just merge my nightwatch tests directly into iteration4? They pass on both my machines
+jorell: Sure. That's what roll backs are for.
+mattmcmurray: Wait.. we got our mark for iter2 right? I can't find it in the repo
+caleb: don't think so. I see only two commits by non-team members on the contributors section
+steve: I think he committed it to an old branch 
+mattmcmurray: I feel like I remember seeing the feedback for iter2 though?
+steve: It's in there somewhere 
+mattmcmurray: Yeah, I'm digging through the old ones
+mattmcmurray: ah it's on the iter1 branch
+caleb: Here's the presentation as it stands right now. Does anyone have any feedback and\/or other things that we should be including in the retrospective? It seems to me to be lacking a bit right now
+jorell: Is it just me or is Steve's name not on there?
+caleb: Whoooooooooooops
+caleb: how did that happen?
+caleb: wait
+caleb: no, it's there
+caleb: Matt's just isn't
+caleb: okay, I have fixed that
+
+
+keanek: <@caleb>: My last name is 'Kraus'.
+caleb: Yeah, added that shortly after sharing it here
+caleb: Any non-name related feedback?
+caleb: <!channel>: ^^
+keanek: Looks good to me, aside from the line 'Rushing lead to bugs' on The Bad slide.  I think it would sound better with led instead of lead.
+steve: When I first looked at it, the \"targets usually met\" kind of confused me, \"goals\" might be a better word? 
+caleb: noted, noted
+steve: Also, shouldn't it be \"a few members WENT above and beyond\" since it's retrospective, should be about the past? 
+caleb: gotcha
+caleb: so, I'm preparing what to go through in terms of demoing the web page
+caleb: just loaded up the matches to see a matches board filled with boobs (and a cat in the background)
+caleb: here's hoping that doesn't happen in the presentation
+steve: I feel like that might actually help us lol
+caleb: hahaha
+steve: It seems like anything goes with this guy
+caleb: how recent is the version running on the server right now? I might want to insert some data specifically for the presentation, have users with uploaded images
+mattmcmurray: Wasn't the cat API stripped out?
+caleb: Not on the AWS, at any rate
+mattmcmurray: It's iteration 3. I can do deploy of iteration 4 tomorrow morning
+caleb: okay, that would be great, thank you
+evan: My name is Evan, not Ethan.
+caleb: Did i really
+caleb: okay wow, I messed up everything to do with the names, I don't know what is wrong with me
+caleb: I know you're evan
+caleb: obviously
+caleb: sigh]
+caleb: who wants to be on the other end of my chatting during class?
+mattmcmurray: I can do it
+steve: <!channel>: so what's the status with robotium tests and unit testing the leaderboard API? Are we going to meet our goal of finishing tonight?
+keanek: Just made a pull request for leaderboard API tests.
+evan: I have a lot do to for my industrial project by tomorrow, I can try to get the robotium tests done for after midnight
+jorell: Ill have my tests up tonight. Im just studying for databases and other stuff right now.
+steve: <@jorell>: it looks like keane did it already
+steve: the leaderboard API tests
+jorell: Oh cool. Thanks <@keanek>. I wrote an API endpoint test which keane make work because I apparently didn\u2019t know how stubs worked. Is this the leaderboard unit test that we\u2019re talking about?
+caleb: Presentation is scripted, probably won't be submitting a pull request for this one
+caleb: does anyone have any ideas for making it the best presentation ever and getting us the bonus mark? :stuck_out_tongue:
+
+
+evan: I've got everything tested now on Android, although some may be minimally right now, and there's a pull request up for it. I ran all tests without issue on my phone. We've got time to add more test cases if we want, but at least we have all the activities\/fragments are being tested, so adding more test cases shouldn't take long.
+evan: At least I think I hit everything, I'm tired
+steve: Sick, thanks man 
+steve: <!channel> we're meeting today right to prepare for the presentation and stuff? 
+caleb: I think we definitely should 
+evan: I won't be able to meet right at 2:30, I have my last meeting with Andrea at that time for Review Board to give her a demo of what I did this semester, I'm not totally sure  how long it's going to be, but I can come right after
+mattmcmurray: Yup works for me
+keanek: I'll be there.
+mattmcmurray: OK iteration4 is deployed. Website is much snappier w\/out that laggy Cat API
+caleb: sweet. I think at the meeting we'll add some users and matches for me to use during the presentation
+mattmcmurray: why not just use the test users?
+caleb: Could....do they have pictures?
+mattmcmurray: Yup. They're pictures of cats off imgur, but we could def use pictures of us or something
+mattmcmurray: thanks to evan's feature
+caleb: That would be good. Or a celebrity, so I can converse with Lebron James or something
+mattmcmurray: haha for sure. We'll get that sorted later
+evan: Still around?
+steve: We're dome
+keanek: The Best Team survey email looks really sketchy.  I thought it was spam at first glance.
+caleb: me too, Greg and I were mulling it over
+caleb: I copied the link address to sublime to make sure it was legit
+mattmcmurray: where did you find the link?
+caleb: got emailed to us
+mattmcmurray: hmm didn't get it yet. I'll keep an eye out for it
+caleb: it's from <mailto:servicedesk@umanitoba.ca|servicedesk@umanitoba.ca>
+jorell: 23\/25
+keanek: Nice
+jorell: Man, the other teams are getting fucked.
+mattmcmurray: Cruisin' for an A
+evan: On the last iteration?
+jorell: Yeah
+evan: Nice!!
+jorell: Still same complaint. Cant test matching.
+steve: So what do we do? Make it so there's no prepare users or something? 
+mattmcmurray: I guess either that, or have some of the fake users like the test accounts, but not have the test accounts like the fake users? So that when he likes them they show up in the matches?
+steve: But he wanted to make his own and then have them match 
+steve: We can't predict the accounts he's going to make
+mattmcmurray: I'll decrease it to like 5 test accounts then
+mattmcmurray: So that the app doesn't look totally empty if he only creates one account
+mattmcmurray: or if we get the other marker
+steve: I might add a big disclaimer to the readme explaining how to go about testing each of our features 
+mattmcmurray: Yeah that's a good idea. Slap it right at the top.
+steve: although, the only issue with ratings at the moment is that it doesn't auto-refresh
+steve: im gonna tackle this tonight after i eat
+steve: ok, i pushed a CR for refreshing the ratings page, and fixing the button's CSS
+steve: <@jorell>
+jorell: I'll check it out.
+steve: jk, it didn't work as a CR and was merged straight in
+steve: i forgot i was developing on mainline
+
+
+keanek: Just did the link thing Hadi emailed us about.
+caleb: <!channel>: problem
+caleb: submit button
+mattmcmurray: Not the end of the world if it works 
+jorell: I think steve fixed this
+jorell: Last night 
+steve: I fixed this, it's just not on the aws site
+mattmcmurray: K I'll update before class
+steve: Also make sure you manually refresh when you submit the rating
+steve: Oh OK that works too. Will that destroy the DB though? 
+caleb: okay. <@mattmcmurray> , could you also add a review for me? Just something saying \"he's a cool guy\"
+jorell: Did you fix the refresh program <@steve>?
+caleb: like an existing review of lebron
+jorell: Problem *
+steve: yes
+mattmcmurray: <@caleb>: I've got class rn. Can't you do it through the site?
+caleb: I was hoping to do it through another user
+caleb: OH
+caleb: I can do it with hot girl account
+steve: i found that the ajax error function is always being called because the server replies \"true\" and json can't parse straight strings, so i just made it so no matter what the page refreshes after making the ajax call because we weren't doing anything upon error anyways lol <@jorell>
+keanek: I just found a minor problem.  The website doesn't refresh the theme when logging in and out.  I set the theme as fire as test_user_1 and the theme was still fire when I logged out and back in as KeaneKraus.  If I open a new tab, everything works fine, just not when using the same tab multiple times.
+keanek: Looking at the code now.
+steve: i feel like that's not really an issue
+caleb: also email and city don't show up on the contact page
+caleb: just a blank City:
+caleb: and Email:
+steve: i knew it
+steve: i was trying to ask about this at the meeting but i thought maybe i was just imagining things
+caleb: like, we don't ever even get a user's email account
+steve: yeah, i thought this was the case. ill take a look
+caleb: thanks steve
+steve: i already see the error, this should be quick
+steve: wait, email isn't even a field on user profiles...
+caleb: i know... can we change it to country?
+steve: maybe ill just take away that field?
+caleb: whichever's easier
+keanek: Fixed the theme problems, just needed to set sessionStorage('theme') on login.
+steve: ok, that works too
+mattmcmurray: Ok pulled changes, submit button is fixed. Let me know when y'all push your changes and I'll pull again
+caleb: <@mattmcmurray>: I got the user stuff set up as I need, so as long as the DB doesn't change, that's all good
+mattmcmurray: Yep, I won't touch the db
+steve: alright, i've committed the fixed chat page
+steve: it was like 2 lines
+mattmcmurray: kk
+keanek: Pushed mine directly into iteration4.
+keanek: I pulled Steve's first
+steve: sweet
+mattmcmurray: Nice, pulling and restarting server now
+mattmcmurray: ok, we are good to go
+caleb: confirmed, both things working
+caleb: thanks team!
+mattmcmurray: Looks like we present thursday then
+caleb: :cry:
+keanek: Before Thursday, we'll probably need to reset the online database again.
+mattmcmurray: Yeah, I'll reset everything Friday morning
+caleb: Can we just save the database in its current state (copy the sqlite file somewhere), and then put it back in for presentation thursday?
+keanek: 10 big user stories done! 
+mattmcmurray: <@caleb>: 2 steps ahead of you. Made a copy of the db file and saved it to the server's home directory
+steve: Something I learned is that you need to be careful when you choose a github repo to incorporate into your project 
+mattmcmurray: As for lessons learned: Make sure to accurately define tasks. Leaving them too broad caused some work to be duplicated and functions to have non-descriptive names
+steve: The swipe page was very hard because the github had no documentation and it is often very unpredictable 
+steve: On Android 
+mattmcmurray: I second what Steve said. Had a similar experience in work terms
+jorell: Something I learned is to make sure to test all your features when new things get merged.
+jorell: soo do regression testing
+evan: I learned that we should rely on Trello a lot more since we had a decent amount of overlap in the beginning of the project
+caleb: okay, that's plenty, thank you
+steve: Additionally, learned the difficulties of memory management in android. Never really had to worry about size of images before using the android app
+steve: Lol
+caleb: oh yeah
+caleb: do we care about showing the technologies we used?
+jorell: Why not
+jorell: we could?
+caleb: Adds more presentation time
+jorell: you\u2019re at 5mins right?
+caleb: not including demo
+caleb: plus the new lessons learned slide
+jorell: ahh
+jorell: (Y)
+jorell: :thumbsup:
+jorell: I noticed something when viewing the app on mobile that the burger thing  doesn\u2019t work.
+mattmcmurray: Yeah, I saw that too. I'll take a look at it tomorrow night
+mattmcmurray: I'm thinking it's just a missing param on the hamburger
+mattmcmurray: something like `data-target=\"\"` is probably missing
+jorell: yeah
+jorell: it should be
+jorell: hopefully..
+mattmcmurray: before the presentation, I will change the security group to limit port 80 to only our machines
+mattmcmurray: also <@caleb> make sure you bring the nexus so I can return it
+caleb: but if I keep it, you get in trouble and I get a free nexus
+caleb: where do I lose here?
+mattmcmurray: I also now have evidence of you saying that in the form of a screenshot, so there's that
+caleb: curses. Well played
+caleb: I'll have it for thursday
+
+
+evan: We're meeting today right?
+steve: We could. Caleb and I are at the cssa 
+evan: Are there any finishing touches we need?
+jorell: Im pushing a couple of things tonight.
+jorell: Just removing the error thing for chat.
+steve: We should probably run all the tests and shit one last time and make sure shit still works
+evan: OK, I'm gonna come meet you in CSSA
+mattmcmurray: If someone has time to look at that hamburger menu issue on mobile that'd be awesome. I'm not sure I'll have time to fix it tonight. OS is killing me
+jorell: I'll take a look at it.
+mattmcmurray: Thanks man
+jorell: done
+jorell: How do I run the nightwatch test?
+mattmcmurray: cd into `\/code\/server`, make sure db is wiped and filled
+mattmcmurray: then just run `nightwatch`
+jorell: how do you wipe again? :stuck_out_tongue:
+caleb: delete it
+mattmcmurray: delete `study_database.sqlite` file
+mattmcmurray: then run `sudo node main.js` , `Ctrl-C`, `sudo node main.js --fill_database`
+mattmcmurray: don't quit the server the second time. It needs to be running for nightwatch to interact
+jorell: I need to global install nightwatch\/
+mattmcmurray: yup
+jorell: its giving me an error \u201cIs selenium server started\u201d?
+jorell: i have the app running
+mattmcmurray: It should auto-start selenium on its own. What dir are you in?
+jorell: server
+mattmcmurray: check that the selenium `.jar` file is in the `server\/bin\/` directory
+jorell: ah
+jorell: yeah
+jorell: its there
+mattmcmurray: It should be there, I committed it
+mattmcmurray: ok good
+mattmcmurray: you're not on windows right?
+jorell: nope
+jorell: do i have to have a browser open?
+mattmcmurray: No, it'll start it on its own. I can't figure out why it's not booting selenium up. I setup the config to auto-run selenium
+mattmcmurray: what's your branch? I'll just run the nightwatch tests on my laptop
+jorell: its not up yet.
+jorell: ill put it up there
+mattmcmurray: kk
+jorell: JL_quickfixes
+mattmcmurray: sweet, gimme just a minute to boot up
+mattmcmurray: alright so they fail
+mattmcmurray: but it's b\/c evan added some user matches
+mattmcmurray: so i need to fix that first before I can know if you made any breaking changes
+jorell: alright. I just removed the chat error
+jorell: don\u2019t worry about it for now. We don\u2019t have to submit till friday, right?
+mattmcmurray: yeah but OS is due friday as well
+jorell: oh shit
+jorell: i thought it was due tomorrow
+mattmcmurray: I'll deal with fixing tests tomorrow
+mattmcmurray: if I never have to write tests again, it'll be too soon
+jorell: ayt.
+jorell: good luck on os
+mattmcmurray: thanks man, I'll need it
+evan: <@mattmcmurray> I can take a look tonight
+evan: I thought I changes them so they worked, but I'll try again
+evan: Changed*
+mattmcmurray: Basically what's happening is in one (or more) of my tests, I was checking to see that the first match card had a specific id, but since you added a couple matches, sometimes nightwatch can't find the right user card
+mattmcmurray: should be an easy fix, I'm just zoned in on OS rn
+evan: I tried doing a video demo of android but I couldn't get it to run smoothly on my vm
+evan: I'll look into the tests now
+evan: Do you remember the test that failed <@mattmcmurray>?
+evan: <@mattmcmurray>: Are you sure that you pulled the most recent iteration4 branch and did a `--clear_database` then `--fill_database`? I just did that and ran through both web and Android tests and they all passed.
+jorell: I think he pulled my banch
+jorell: branch
+jorell: but my branch was from the latest itr4
+evan: What branch was yours?
+evan: <@jorell>
+jorell: jl_quickfixes
+evan: Your branch works fine for me too
+evan: We'll talk to Matt in the morning
+
+
+jorell: <@mattmcmurray>: are you pushing up the changes to aws?
+mattmcmurray: I'll do that shortly
+mattmcmurray: No changes on iteration 4 branch? Am I supposed to be pulling something else?
+jorell: Oops.
+jorell: Its still in my branch
+jorell: one sec, pull request so you can look at it quickly
+mattmcmurray: I'll just pull your branch. I'm in class rn
+jorell: ahh
+jorell: PR is up
+mattmcmurray: K should be your branch running on the server rn
+mattmcmurray: Can you check and make sure it looks good?
+caleb: everything I need for the presentation is there
+mattmcmurray: Come to me as soon as you get to class so I can add your IP to the security group <@caleb> 
+jorell:  Lol i was going to ask about this. I couldnt get to the site.
+mattmcmurray: <!channel> so whoever added stuff to the db scripts basically fucked up all my nightwatch tests
+mattmcmurray: and I really don't have much time to fix them tonight b\/c of OS
+mattmcmurray: any chance someone can take a look?
+evan: That was me, but I ran all the tests
+evan: And they all passed
+mattmcmurray: I don't understand how that's possible. test_user_1 and test_user_2 aren't even matched anymore
+mattmcmurray: and my tests rely heavily on them being matched. I've deleted and filled the db multiple times just to make sure
+evan: Wait are night watch tests part of the run_tests script?
+mattmcmurray: nope
+mattmcmurray: Yeah, so you changed the ids of all the test users
+mattmcmurray: which changed the test matches as well
+mattmcmurray: I'll fix it right now. Hopefully doesn't take long
+evan: Yeah I reduced the amount of test users because 200 seemed excessive, that was my bad, I thought we had nightwatch tests running on a headless browser in the run_tests script so I was under the impression they were passing
+evan: Sorry man
+mattmcmurray: right, but I had fixed it after that already
+mattmcmurray: the ids were 52, 53, &amp; 54
+mattmcmurray: but now they've been bumped up to 53, 54, &amp; 55
+mattmcmurray: It's no big deal, I'm not trying to place blame
+mattmcmurray: It's just good that we caught it before tomorrow's deadline
+evan: Yeah that was a secondary change I did because the test_users script wasn't running in order which is why I added the id parameter to that script
+evan: The user ids didn't line up with how we had them ordered in the script
+evan: But yeah, thanks for catching that
+mattmcmurray: I'
+mattmcmurray: I'm going to fix the matches relevant to the nightwatch tests, then I'm gonna have you make sure it doesn't fuck up any of the android tests when I'm done. Cool?
+evan: Sounds good
+mattmcmurray: Okay pull this branch, all mocha &amp; nightwatch tests pass. If the android tests pass as well, go ahead and merge it
+mattmcmurray: <https:\/\/github.com\/MattMcMurray\/Gradr\/pull\/88>
+mattmcmurray: Gradr - A project for Software Engineering 2 at the University of Manitoba -- Group G
+mattmcmurray: Let me know when you're done. I want to run all those nightwatch tests on jorell's branch before merging it in as well
+mattmcmurray: I'm moving onto OS, so I will be MIA for the rest of the night
+evan: I have my VM setup at home so I'll have to wait until I get home to do it, I'll make sure not to touch the scripts and make android tests work if they start to fail
+mattmcmurray: Yeah, no rush. We have until tomorrow at 4
+steve: <@mattmcmurray>: i just tried your pull request there. it all worked except the first \"Create a new account\" test was timing out. I upped the wait time up to 15 seconds and it worked for me. i think ill commit my change and push it?
+steve: and merge it to iteration4
+evan: I just got home, I can try too
+steve: Definitely make sure everything is good on Android. I can't test the robotium on my emulator because I get out of memory exceptions
+mattmcmurray: Yeah sometimes nightwatch tests timeout seemingly at random. I think it's just got to do with how quick the server can respond
+mattmcmurray: If you bumped it up and it works, all is well
+evan: I kept getting IllegalStateExceptions which had nothing to do with the database changes, but it looks like I fixed it by backing out of fragments before finishing each test that exits on a new fragment. I also increased the timeout on one test in particular (the chat fragment) because there was sometimes a huge delay when getting the past chat log, and that seems to be working more consistently now. I ran the test suite 3 times, all passed everytime. I also just pushed my commit on the iteration4 branch, changes were minimal. I think we're able to push those db changes onto the AWS now.
+
+

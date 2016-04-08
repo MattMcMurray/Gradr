@@ -1,3 +1,5 @@
+PRAGMA foreign_keys = OFF;
+
 insert into ratings (rater_id, ratee_id, rating, comment, createdAt, updatedAt) values (1, 11, 5, "Good guy", '2016-02-01 03:22:27.833 +00:00', '2016-02-01 03:22:27.833 +00:00');
 insert into ratings (rater_id, ratee_id, rating, comment, createdAt, updatedAt) values (2, 11, 5, "Good guy", '2016-02-01 03:22:27.833 +00:00', '2016-02-01 03:22:27.833 +00:00');
 insert into ratings (rater_id, ratee_id, rating, comment, createdAt, updatedAt) values (3, 11, 4, "Pretty good guy", '2016-02-01 03:22:27.833 +00:00', '2016-02-01 03:22:27.833 +00:00');

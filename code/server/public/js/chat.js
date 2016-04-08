@@ -2,31 +2,43 @@ var socket = io();
 
 socket.emit('online', {sender: $('#profileId').html() ,userId: sessionStorage.getItem('user_id')});
 
+var chat = $("#messages");
 $('form').submit(function(event){
 	event.preventDefault();
-
+	
 	console.log("send message");
 	socket.emit('private message',{sender: sessionStorage.getItem('user_id') ,receiver: $('#profileId').html() , body:$('#m').val()} );
-	$('#messages').append($('<li class=\'receiver\'>').text($("#m").val()));
+	$('#messages').append($('<li>').text("Me: " + $("#m").val()));
 	$("#m").val("");
+	chat.scrollTop(chat[0].scrollHeight);
 	return false;
 });
 
 socket.on('send message', function(msg){
-    $('#messages').append($('<li>').text(msg));
+    $('#messages').append($('<li>').text($(".username").html() + ": " + msg));
+    chat.scrollTop(chat[0].scrollHeight);
 });
 
 socket.on('send messages to user', function(messages){
-	console.log(messages);
+	
+	
 	for (var i = 0; i < messages.length; i++) {
-		console.log(messages[i].message);
-		$("#messages").append($('<li class=\'sender\'>').text(messages[i].message));
+		
+		if (messages[i].sender == sessionStorage.getItem('user_id')) {
+			$("#messages").append($('<li class="receiver">').text("Me" + ": " +messages[i].message));
+		} else {
+			$("#messages").append($('<li>').text($(".username").html() + ": "+ messages[i].message));
+		}
 	}
+
+	chat.scrollTop(chat.scrollHeight);
+
 });
 
-socket.on('error message', function(msg) {
-	$('#messages').append($('<li class=\'error\'>').text(msg));
-});
+// socket.on('error message', function(msg) {
+// 	$('#messages').append($('<li class=\'error\'>').text(msg));
+// 	chat.scrollTop(chat[0].scrollHeight);
+// });
 
 socket.on('online matches', function(onlineMatches) {
 

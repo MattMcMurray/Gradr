@@ -50,12 +50,16 @@ router.post("/login", function(req,res) {
 	});
 });
 
+router.get('/profilePicPlaceholder', function (req, res) {
+	var path = require('path');
+	res.sendFile('unknown-user.png', { root: path.join(__dirname, '../public/img') });
+});
 
 // Get a random user; useful for matching process
 router.get('/randomUser', function(req, res) {
 	UserDAO.getRandom(req.query.currUserId).then(function(user) {
 		if (user != null) {
-			res.json({username: user.username, userID: user.id, school: user.school, firstname: user.firstname, lastname: user.lastname, helpDescription: user.helpDescription})	
+			res.json({username: user.username, userID: user.id, school: user.school, firstname: user.firstname, lastname: user.lastname, helpDescription: user.helpDescription, picture: user.picture})	
 		} else {
 			res.json({message: "Something went wrong"});
 		}
@@ -72,8 +76,9 @@ router.get('/userBatch', function(req, res) {
 			res.json({message: "Something went wrong"});
 		}
 	});
-
 });
+
+/*UserMatch api calls*/
 
 router.get('/getPotentialMatches', function(req, res) {
 	UserMatchDAO.getMatches(req.query.userId).then(function(ids) {
@@ -82,6 +87,14 @@ router.get('/getPotentialMatches', function(req, res) {
 		});
 	});
 });
+
+router.get('/getRejections', function (req, res) {
+	UserMatchDAO.getRejections(req.query.userId).then(function(ids) {
+		UserDAO.getUsersById(ids).then(function(users) {
+			res.json({rejections: users});
+		});
+	});
+})
 
 router.post('/likeUser', function(req, res) {
 	UserMatchDAO.addUserMatch(req.body.liker_id, req.body.likee_id, true).then(function(result) {
@@ -98,6 +111,32 @@ router.post('/dislikeUser', function(req, res) {
 			res.status(500);
 		
 		res.json(result);
+	});
+});
+
+
+router.get('/getLeaders', function(req,res) {
+	UserMatchDAO.getLeaders().then(function(leaders) {
+		var ids = [];
+		var results = [];
+		for (var i = 0; i < leaders.rows.length; i++) {
+			ids.push(leaders.rows[i].likee_id);
+		}
+		console.log(ids);
+		UserDAO.getUsersById(ids).then(function(users) {
+
+			if (leaders.error || users.error) {
+				res.status(500)
+			}
+			for(var i = 0; i < leaders.rows.length; i ++) {
+				delete users[i].dataValues.password
+				results.push({count: leaders.count[i].count, user: users[i]})
+			}
+			results.sort(function(a,b) { return parseFloat(b.count) - parseFloat(a.count) } );
+
+			res.json({leaders:results});
+		});
+		
 	});
 });
 
@@ -177,15 +216,19 @@ router.get('/getRatings', function(req, res) {
 });
 
 router.post('/deleteUser', function(req, res) {
-	UserMatchDAO.removeUser(req.body.userId).then(function(result) {
-		UserDAO.removeUser(req.body.userId).then(function(result) {
-			if(result.error)
-				res.stats(500);
-			else {
-				res.json({
-					url: '/'
+	RatingDAO.removeUser(req.body.userId).then(function(result) {
+		MessagesDAO.removeUser(req.body.userId).then(function(result) {
+			UserMatchDAO.removeUser(req.body.userId).then(function(result) {
+				UserDAO.removeUser(req.body.userId).then(function(result) {
+					if(result.error)
+						res.stats(500);
+					else {
+						res.json({
+							url: '/'
+						});
+					}
 				});
-			}
+			});
 		});
 	});
 });
@@ -208,6 +251,8 @@ router.post('/saveMessage', function(req,res) {
 		res.json(message);
 	})
 });
+
+/*Theme api call*/
 
 router.post('/setTheme', function (req, res) {
 	UserDAO.setTheme(req.body.userId, req.body.theme).then(function(result) {
@@ -242,7 +287,7 @@ function getProfileDate(req) {
 	return {username: req.body.username, firstname: req.body.firstname, lastname: req.body.lastname, 
 		address: req.body.address, city: req.body.city, country: req.body.country, school: req.body.school, 
 		courses: req.body.courses, generalDescription: req.body.generalDescription, helpDescription: req.body.helpDescription, 
-		dateOfBirth: req.body.dateOfBirth};
+		dateOfBirth: req.body.dateOfBirth, picture: req.body.picture};
 }
 
 // Initialize as either 'db' or 'stub'

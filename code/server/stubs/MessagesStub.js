@@ -59,6 +59,23 @@ MessagesStub.prototype.saveMessage = function(messageObject) {
 	});
 }
 
+MessagesStub.prototype.removeUser = function(userID) {
+    var ids = [];
+
+    for (var i = 0; i < messageList.length; i++) {
+        if (messageList[i].receiver === userID || messageList[i].sender === userID) {
+            ids.push(i);
+        }
+    }
+
+    for (var i = ids.length - 1; i >= 0; i--) {
+        messageList.splice(ids[i], 1);
+    }
+
+    return new Promise(function(resolve, reject) {
+        resolve(ids);
+    });
+};
 
 module.exports = MessagesStub;
 

@@ -29,8 +29,8 @@ describe('User', function() {
             user.getUsersById([111, 222]).then(function(data) {
                 assert.that(data).is.not.null();
                 assert.that(data.length).is.equalTo(2);
-                assert.that(data[0].username).is.equalTo('bairosns');
-                assert.that(data[1].username).is.equalTo('mattmcmurray');
+                assert.that(data[0].dataValues.username).is.equalTo('bairosns');
+                assert.that(data[1].dataValues.username).is.equalTo('mattmcmurray');
                 done();
             });
         });
@@ -76,7 +76,7 @@ describe('User', function() {
 
     describe('User createUserProfile', function() {
         it('fills out a profile fields', function(done) {
-            user.createUserProfile({'username':'bairosns', 'firstname': 'steve', 'lastname': 'bairosns' , 'city': 'Winnipeg', 'country': 'Canada', 'school': 'uofm', 'courses': '4350', 'generalDescription': 'test', 'helpDescription': 'test', 'dateOfBirth': null});
+            user.createUserProfile({'username':'bairosns', 'firstname': 'steve', 'lastname': 'bairosns' , 'city': 'Winnipeg', 'country': 'Canada', 'school': 'uofm', 'courses': '4350', 'generalDescription': 'test', 'helpDescription': 'test', 'dateOfBirth': null, 'picture': 'http://test.com/image.jpg'});
             user.getUser('bairosns').then(function(data) {
                 assert.that(data.dataValues).is.not.null();
                 assert.that(data.dataValues.username).is.equalTo('bairosns');
@@ -89,6 +89,7 @@ describe('User', function() {
                 assert.that(data.dataValues.helpDescription).is.equalTo('test');
                 assert.that(data.dataValues.city).is.equalTo('Winnipeg');
                 assert.that(data.dataValues.dateOfBirth).is.null();
+                assert.that(data.dataValues.picture).is.equalTo('http://test.com/image.jpg');
                 done();
             });
         });
@@ -127,6 +128,37 @@ describe('User', function() {
                 assert.that(data.length).is.equalTo(3);
             });
             done();
+        });
+    });
+
+    describe('User getTheme', function() {
+        it('gets a theme', function(done) {
+            user.getTheme(111).then(function(data) {
+                assert.that(data).is.not.null();
+                assert.that(data.dataValues.theme).is.equalTo(1);
+                done();
+            });
+        });
+
+        it('gets a second theme', function(done) {
+            user.getTheme(222).then(function(data) {
+                assert.that(data).is.not.null();
+                assert.that(data.dataValues.theme).is.equalTo(2);
+                done();
+            });
+        });
+    });
+
+    describe('User setTheme', function() {
+        it('sets a theme', function(done) {
+            user.setTheme(111, 3).then(function(data) {
+                assert.that(data).is.not.null();
+                user.getTheme(111).then(function(data) {     
+                    assert.that(data).is.not.null();
+                    assert.that(data.dataValues.theme).is.equalTo(3);
+                    done();
+                });
+            });
         });
     });
 

@@ -23,7 +23,7 @@ public class ProfileActivityTest extends ActivityInstrumentationTestCase2<Profil
     public void setUp() throws Exception {
         Intent i = new Intent();
         i.putExtra("username","test_user_1");
-        i.putExtra("id", 202);
+        i.putExtra("id", 53);
         setActivityIntent(i);
         solo = new Solo(getInstrumentation(), getActivity());
 
@@ -36,6 +36,7 @@ public class ProfileActivityTest extends ActivityInstrumentationTestCase2<Profil
         solo.clearEditText((EditText) solo.getView(R.id.tb_country));
         solo.clearEditText((EditText) solo.getView(R.id.tb_courses));
         solo.clearEditText((EditText) solo.getView(R.id.tb_dob));
+        solo.clearEditText((EditText) solo.getView(R.id.tb_picture));
         //currently, birthdate is always required
     }
 
@@ -49,6 +50,7 @@ public class ProfileActivityTest extends ActivityInstrumentationTestCase2<Profil
         solo.enterText((EditText) solo.getView(R.id.tb_country), "England");
         solo.enterText((EditText) solo.getView(R.id.tb_courses), "Defense Against the Dark Arts, Potions");
         solo.enterText((EditText) solo.getView(R.id.tb_dob), "1995-07-04");
+        solo.enterText((EditText) solo.getView(R.id.tb_picture), "http://test.com/image.png");
         solo.clickOnButton("Save");
         assertTrue(solo.waitForText("1995-07-04"));
     }
@@ -67,6 +69,12 @@ public class ProfileActivityTest extends ActivityInstrumentationTestCase2<Profil
         solo.enterText((EditText) solo.getView(R.id.tb_dob), "1994/07/04");
         solo.clickOnButton("Save");
         assertTrue(solo.waitForText("Invalid date"));
+    }
+
+    public void testInvalidURL() throws Exception {
+        solo.enterText((EditText) solo.getView(R.id.tb_picture), "thisisnotalink");
+        solo.clickOnButton("Save");
+        assertTrue(solo.waitForText("Please enter a valid URL"));
     }
 
     @Override

@@ -24,7 +24,7 @@ public class SwipeActivityTest extends ActivityInstrumentationTestCase2<SwipeAct
     public void setUp() throws Exception {
         Intent i = new Intent();
         i.putExtra("username","test_user_1");
-        i.putExtra("id", 202);
+        i.putExtra("id", 53);
         setActivityIntent(i);
         solo = new Solo(getInstrumentation(), getActivity());
     }
@@ -36,12 +36,16 @@ public class SwipeActivityTest extends ActivityInstrumentationTestCase2<SwipeAct
 
     public void testMatchesButton() throws Exception {
         solo.clickOnView(getActivity().findViewById(R.id.action_matches));
-        assertTrue(solo.waitForActivity(MatchListActivity.class));
+        assertTrue(solo.waitForActivity(StudentListActivity.class));
     }
 
     public void testThemes() throws Exception {
         solo.clickOnMenuItem("Theme", true);
         solo.clickOnText("Fire");
+        assertTrue(solo.waitForDialogToClose());
+        assertTrue(solo.waitForActivity(SwipeActivity.class));
+        solo.clickOnMenuItem("Theme", true);
+        solo.clickOnText("Default");
         assertTrue(solo.waitForDialogToClose());
         assertTrue(solo.waitForActivity(SwipeActivity.class));
     }

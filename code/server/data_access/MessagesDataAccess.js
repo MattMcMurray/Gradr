@@ -24,9 +24,14 @@ var saveMessage = function(messageObject) {
 	return messagesDAO.saveMessage(messageObject);
 }
 
+var removeUser = function(userID) {
+    return messagesDAO.removeUser(userID);
+}
+
 module.exports = {
 	init: init,
 	getMessages: getMessages,
 	saveMessage: saveMessage,
-    getAllMessages: getAllMessages
+    getAllMessages: getAllMessages,
+    removeUser: removeUser
 }

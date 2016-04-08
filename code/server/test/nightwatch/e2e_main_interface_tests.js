@@ -205,11 +205,62 @@ module.exports = {
 			.end();
 	},
 
+	'Ensure test_user_1 & test_user_2 are matched': function (browser) {
+		var user1 = 'test_user_1';
+		var user2 = 'test_user_2';
+		var user1ID = 53;
+		var user2ID = 54;
+
+		browser
+			.url(appURL)
+			.waitForElementVisible('/html/body', 10000)
+			.setValue('//*[@id="username"]', user1)
+			.setValue('//*[@id="password"]', user1)
+			.click('//*[@id="login-form"]/button')
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.click('//*[@id="matchesLink"]')
+			.waitForElementVisible('//*[@id="matchesContainer"]/a[2]/div/div', 100000)
+			.assert.elementPresent('//*[@id="matchesContainer"]/a[2]')
+			.assert.attributeContains('//*[@id="matchesContainer"]/a[2]', 'value', user2ID)
+			.click('//*[@id="logout"]')
+			// Now verify test_user_2 also sees the match
+			.waitForElementVisible('/html/body', 10000)
+			.setValue('//*[@id="username"]', user2)
+			.setValue('//*[@id="password"]', user2)
+			.click('//*[@id="login-form"]/button')
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.click('//*[@id="matchesLink"]')
+			.waitForElementVisible('//*[@id="matchesContainer"]/a/div/div', 100000)
+			.assert.elementPresent('//*[@id="matchesContainer"]/a')
+			.assert.attributeContains('//*[@id="matchesContainer"]/a', 'value', user1ID)
+			.end();
+	},
+
+	'Ensure test_user_3 sees the rejection from test_user_2': function (browser) {
+		var user2 = 'test_user_2';
+		var user3 = 'test_user_3';
+		var user2ID = 54;
+
+		browser
+			.url(appURL)
+			.waitForElementVisible('/html/body', 10000)
+			.setValue('//*[@id="username"]', user3)
+			.setValue('//*[@id="password"]', user3)
+			.click('//*[@id="login-form"]/button')
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.click('//*[@id="rejectionsLink"]')
+			.waitForElementVisible('//*[@id="matchesContainer"]/a', 100000)
+			.assert.elementPresent('//*[@id="matchesContainer"]/a')
+			.assert.attributeContains('//*[@id="matchesContainer"]/a', 'value', user2ID)
+			.end();
+	},
+
 	'Ensure proper chat functionality': function (browser) {
 		// There are two users that are in the db fill script we can use here
-		var user1 = "test_user_1";
-		var user2 = "test_user_2";
-		var msg = "Hello test_user_2!";
+		var user1 = 'test_user_1';
+		var user2 = 'test_user_2';
+		var msg = 'Hello test_user_2!';
+
 
 		browser
 			.url(appURL)
@@ -220,14 +271,14 @@ module.exports = {
 			.waitForElementVisible('//*[@id="userCard"]', 10000)
 			.click('//*[@id="matchesLink"]')
 			.waitForElementVisible('//*[@id="matchesContainer"]/a/div/div', 100000)
-			.click('//*[@id="matchesContainer"]/a/div/div/img')
+			.click('//*[@id="matchesContainer"]/a[2]/div/div/img')
 			.waitForElementVisible('/html/body/div[2]/div/div', 10000)
 			.click('//*[@id="userTabs"]/li[3]/a')
 			.waitForElementVisible('//*[@id="m"]', 10000)
 			.setValue('//*[@id="m"]', msg)
 			.click('//*[@id="contactInfo"]/div/div/form/button')
 			.waitForElementVisible('//*[@id="messages"]/li[1]', 10000)
-			.assert.elementPresent('//*[@id="messages"]/li[2]') // Warning user that other user is not online
+			// .assert.elementPresent('//*[@id="messages"]/li[2]') // Warning user that other user is not online
 			.click('//*[@id="logout"]')
 			.waitForElementVisible('/html/body', 10000)
 			.setValue('//*[@id="username"]', user2)
@@ -242,5 +293,66 @@ module.exports = {
 			.waitForElementVisible('//*[@id="m"]', 10000)
 			.assert.containsText('//*[@id="messages"]/li[1]', msg)
 			.end();
+	},
+
+	'Ensure leaderboard is accurate': function (browser) {
+		var user1 = 'test_user_2';
+		var user2 = 'test_user_1';
+
+		browser
+			.url(appURL)
+			.waitForElementVisible('/html/body', 10000)
+			.setValue('//*[@id="username"]', newUserName)
+			.setValue('//*[@id="password"]', newUserPass)
+			.click('//*[@id="login-form"]/button')
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.click('//*[@id="leadersLink"]')					
+			.waitForElementVisible('/html/body/div[2]/table', 10000)
+			.assert.elementPresent('/html/body/div[2]/table/tbody/tr[1]/td[1]')
+			.assert.containsText('/html/body/div[2]/table', user1)
+			.assert.containsText('/html/body/div[2]/table', user2)
+			.end();
+	},
+
+	'Ensure user image changes are reflected': function (browser) {
+		var user1 = 'test_user_1';
+		var user2 = 'test_user_2';
+		var originalImgSrc = 'https://i.imgur.com/Lew00d7.jpg';
+		var updatedImgSrc = 'https://i.imgur.com/UwW5cCn.jpg';
+
+		browser
+			.url(appURL)
+			.waitForElementVisible('/html/body', 10000)
+			.setValue('//*[@id="username"]', user1)
+			.setValue('//*[@id="password"]', user1)
+			.click('//*[@id="login-form"]/button')
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.click('//*[@id="matchesLink"]')
+			.waitForElementVisible('//*[@id="matchesContainer"]/a[2]/div/div', 100000)
+			.assert.attributeContains('//*[@id="matchesContainer"]/a[2]/div/div/img', 'src', originalImgSrc)
+			.click('//*[@id="logout"]')
+			.waitForElementVisible('/html/body', 10000)
+			.setValue('//*[@id="username"]', user2)
+			.setValue('//*[@id="password"]', user2)
+			.click('//*[@id="login-form"]/button')
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.click('//*[@id="navbar-collapse"]/ul[1]/li[1]/a')
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.click('//*[@id="editButton"]')
+			.clearValue('//*[@id="picture"]')
+			.setValue('//*[@id="picture"]', updatedImgSrc)
+			.moveToElement('/html/body/div[1]/div', 0, 0)
+			.click('//*[@id="editButton"]')
+			.waitForElementVisible('//*[@id="logout"]', 10000)
+			.click('//*[@id="logout"]')
+			.waitForElementVisible('/html/body', 10000)
+			.setValue('//*[@id="username"]', user1)
+			.setValue('//*[@id="password"]', user1)
+			.click('//*[@id="login-form"]/button')
+			.waitForElementVisible('//*[@id="userCard"]', 10000)
+			.click('//*[@id="matchesLink"]')
+			.waitForElementVisible('//*[@id="matchesContainer"]/a[2]/div/div', 100000)
+			.assert.attributeContains('//*[@id="matchesContainer"]/a[2]/div/div/img', 'src', updatedImgSrc)
+			.end();	
 	}
 }

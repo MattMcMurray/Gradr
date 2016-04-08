@@ -23,7 +23,7 @@ module.exports = {
 			.setValue('//*[@id="password"]', newUserPass)
 			.setValue('//*[@id="confirmPassword"]', newUserPass)
 			.click('//*[@id="registerButton"]')
-			.waitForElementVisible('//*[@id="login-form"]/a', 1000) // redirect to login page
+			.waitForElementVisible('//*[@id="login-form"]/a', 10000) // redirect to login page
 			.end();
 	},
 

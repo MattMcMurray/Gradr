@@ -126,7 +126,37 @@ describe('UserMatch', function() {
                 done();
             });
         });
-        
+    });
+
+    describe('UserMatch getRejections', function() {
+        it('get all rejections for user 555', function(done) {
+            // should be no rejections for user 555
+            userMatch.getRejections(555).then(function(data) {
+                assert.that(data).is.not.null();
+                assert.that(data.length).is.equalTo(0);
+            });
+            done();
+        });
+
+        it('get all rejections for user 666', function(done) {
+            // 666 should be rejected by user 555
+            userMatch.getRejections(666).then(function(data) {
+                assert.that(data).is.not.null();
+                assert.that(data.length).is.equalTo(1);
+                assert.that(data[0]).is.equalTo(555);
+            });
+            done();
+        });
+
+
+         it('get rejections for non-existent user', function(done) {
+            // 404 does not exist
+            userMatch.getRejections(404).then(function(data) {
+                assert.that(data).is.not.null();
+                assert.that(data.length).is.equalTo(0);
+            });
+            done();
+        });
     });
 
     describe('UserMatch getPreviouslyRatedIds', function() {
@@ -163,6 +193,17 @@ describe('UserMatch', function() {
             userMatch.removeUser(404).then(function(data) {
                 assert.that(data).is.not.null();
                 assert.that(data.length).is.equalTo(0);
+                done();
+            });
+        });
+    });
+
+    describe('UserMatch getLeaders', function() {
+        it('get leaders', function(done) {
+            userMatch.getLeaders().then(function(data) {
+                assert.that(data).is.not.null();
+                assert.that(data.rows.length).is.equalTo(2);
+                assert.that(data.count.length).is.equalTo(2);
                 done();
             });
         });

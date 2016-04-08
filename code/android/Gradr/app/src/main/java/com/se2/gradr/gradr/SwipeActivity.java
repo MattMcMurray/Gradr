@@ -99,7 +99,7 @@ public class SwipeActivity extends AppCompatActivity {
             logoutIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(logoutIntent);
         } else if (id == R.id.action_matches) {
-            Intent matchesIntent = new Intent(this, MatchListActivity.class);
+            Intent matchesIntent = new Intent(this, StudentListActivity.class);
             matchesIntent.putExtra("username", username);
             matchesIntent.putExtra("id", userId);
             startActivity(matchesIntent);
@@ -110,6 +110,17 @@ public class SwipeActivity extends AppCompatActivity {
             profileIntent.putExtra("username", username);
             profileIntent.putExtra("id", userId);
             startActivity(profileIntent);
+        } else if (id == R.id.action_leaders) {
+            Intent leaderIntent = new Intent(this, LeaderBoardActivity.class);
+            leaderIntent.putExtra("username", username);
+            leaderIntent.putExtra("id", userId);
+            startActivity(leaderIntent);
+        } else if (id == R.id.action_rejections) {
+            Intent rejectionIntent = new Intent(this, StudentListActivity.class);
+            rejectionIntent.putExtra("username", username);
+            rejectionIntent.putExtra("id", userId);
+            rejectionIntent.putExtra("rejections", true);
+            startActivity(rejectionIntent);
         }
 
         return super.onOptionsItemSelected(item);
@@ -126,7 +137,7 @@ public class SwipeActivity extends AppCompatActivity {
             //Get images loading on background thread
             User user = getItem(position);
             ImageView imageView = (ImageView) contentView.findViewById(R.id.userImage);
-            String url = getString(R.string.cat_api_url) + Math.random();
+            String url = user.getPicture();
             new ImageDownloader(url).execute(imageView);
 
             //Set the values on the User's card
@@ -340,11 +351,16 @@ public class SwipeActivity extends AppCompatActivity {
 
         protected Bitmap download(String url) {
             Bitmap result =null;
-            try{
+            try {
+                if (url.equals("")) {
+                    url = getString(R.string.http_address_server) + "/api/profilePicPlaceholder";
+                }
                 URL theUrl = new URL(url);
                 HttpURLConnection con = (HttpURLConnection)theUrl.openConnection();
                 InputStream is = con.getInputStream();
-                result = BitmapFactory.decodeStream(is);
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inSampleSize = 6;
+                result = BitmapFactory.decodeStream(is, null, options);
                 if (null != result)
                     return result;
 

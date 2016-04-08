@@ -12,6 +12,7 @@ function UserStub() {
         firstname: 'steve',
         lastname: 'bairosns',
         id: 111,
+        theme: 1,
     };
 
     user2 = {
@@ -22,6 +23,7 @@ function UserStub() {
         id: 222,
         firstname: 'matt',
         lastname: 'mcmurray',
+        theme: 2,
     };
 
     user3 = {
@@ -58,9 +60,14 @@ UserStub.prototype.getUser = function(username) {
 UserStub.prototype.getUsersById = function(userIDs) {
     var results = [];
     for (var i = 0; i < userIDs.length; i++) {
-        var found = findUser('id', userIDs[i])
+        var found = findUser('id', userIDs[i]);
         if (found)
             results.push(found);
+    }
+
+    var users = [];
+    for (var i = 0; i < results.length; i++) {
+        users.push({dataValues: results[i]});
     }
 
     return new Promise(function(resolve, reject) {
@@ -68,7 +75,7 @@ UserStub.prototype.getUsersById = function(userIDs) {
             dataValues: results
         };*/
 
-        resolve(results);
+        resolve(users);
     });
 };
 
@@ -102,7 +109,8 @@ UserStub.prototype.createUser = function(credentials) {
                     courses: '',
                     generalDescription: '',
                     helpDescription: '',
-                    dateOfBirth: null
+                    dateOfBirth: null,
+                    picture: ''
         };
 
         return new Promise(function(resolve, reject) {
@@ -125,6 +133,7 @@ UserStub.prototype.createUserProfile = function(userData) {
     user.generalDescription = userData.generalDescription;
     user.helpDescription = userData.helpDescription;
     user.dateOfBirth = userData.dateOfBirth;
+    user.picture = userData.picture;
 };
 
 UserStub.prototype.getRandom = function(currUserID) {
@@ -169,6 +178,33 @@ UserStub.prototype.removeUser = function(userID) {
         resolve(removed);
     });
 };
+
+UserStub.prototype.getTheme = function(userID) {
+    var user = findUser('id', userID);
+    if (user) {
+        return new Promise(function(resolve, reject) {
+            resolve({dataValues: {theme: user.theme}});
+        });
+    }
+    else {
+        return new Promise(function(resolve, reject) {
+            reject({error: 'No user with the id'});
+        });
+    }    
+}
+
+UserStub.prototype.setTheme = function(userID, theme) {
+    var user = findUser('id', userID);
+    if (user) {
+        user.theme = theme;
+    }
+    else {
+        user = {};
+    }
+    return new Promise(function(resolve, reject) {
+        resolve(user);
+    });
+}
 
 module.exports = UserStub;
 
