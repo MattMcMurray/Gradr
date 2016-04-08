@@ -208,8 +208,8 @@ module.exports = {
 	'Ensure test_user_1 & test_user_2 are matched': function (browser) {
 		var user1 = 'test_user_1';
 		var user2 = 'test_user_2';
-		var user1ID = 52;
-		var user2ID = 53;
+		var user1ID = 53;
+		var user2ID = 54;
 
 		browser
 			.url(appURL)
@@ -219,9 +219,9 @@ module.exports = {
 			.click('//*[@id="login-form"]/button')
 			.waitForElementVisible('//*[@id="userCard"]', 10000)
 			.click('//*[@id="matchesLink"]')
-			.waitForElementVisible('//*[@id="matchesContainer"]/a/div/div', 100000)
-			.assert.elementPresent('//*[@id="matchesContainer"]/a')
-			.assert.attributeContains('//*[@id="matchesContainer"]/a', 'value', user2ID)
+			.waitForElementVisible('//*[@id="matchesContainer"]/a[2]/div/div', 100000)
+			.assert.elementPresent('//*[@id="matchesContainer"]/a[2]')
+			.assert.attributeContains('//*[@id="matchesContainer"]/a[2]', 'value', user2ID)
 			.click('//*[@id="logout"]')
 			// Now verify test_user_2 also sees the match
 			.waitForElementVisible('/html/body', 10000)
@@ -239,7 +239,7 @@ module.exports = {
 	'Ensure test_user_3 sees the rejection from test_user_2': function (browser) {
 		var user2 = 'test_user_2';
 		var user3 = 'test_user_3';
-		var user2ID = 53;
+		var user2ID = 54;
 
 		browser
 			.url(appURL)
@@ -249,7 +249,7 @@ module.exports = {
 			.click('//*[@id="login-form"]/button')
 			.waitForElementVisible('//*[@id="userCard"]', 10000)
 			.click('//*[@id="rejectionsLink"]')
-			.waitForElementVisible('//*[@id="matchesContainer"]/a/div/div', 100000)
+			.waitForElementVisible('//*[@id="matchesContainer"]/a', 100000)
 			.assert.elementPresent('//*[@id="matchesContainer"]/a')
 			.assert.attributeContains('//*[@id="matchesContainer"]/a', 'value', user2ID)
 			.end();
@@ -271,7 +271,7 @@ module.exports = {
 			.waitForElementVisible('//*[@id="userCard"]', 10000)
 			.click('//*[@id="matchesLink"]')
 			.waitForElementVisible('//*[@id="matchesContainer"]/a/div/div', 100000)
-			.click('//*[@id="matchesContainer"]/a/div/div/img')
+			.click('//*[@id="matchesContainer"]/a[2]/div/div/img')
 			.waitForElementVisible('/html/body/div[2]/div/div', 10000)
 			.click('//*[@id="userTabs"]/li[3]/a')
 			.waitForElementVisible('//*[@id="m"]', 10000)
@@ -296,8 +296,8 @@ module.exports = {
 	},
 
 	'Ensure leaderboard is accurate': function (browser) {
-		var firstPlaceUser = 'test_user_2';
-		var uknownPlaceUser = 'test_user_1';
+		var user1 = 'test_user_2';
+		var user2 = 'test_user_1';
 
 		browser
 			.url(appURL)
@@ -309,10 +309,8 @@ module.exports = {
 			.click('//*[@id="leadersLink"]')					
 			.waitForElementVisible('/html/body/div[2]/table', 10000)
 			.assert.elementPresent('/html/body/div[2]/table/tbody/tr[1]/td[1]')
-			.assert.containsText('/html/body/div[2]/table/tbody/tr[1]/td[1]', firstPlaceUser)
-			// test_user_1 will be either in 2nd or 3rd place
-			// Assert that they are at least SOMEWHERE in the table
-			.assert.containsText('/html/body/div[2]/table', uknownPlaceUser)
+			.assert.containsText('/html/body/div[2]/table', user1)
+			.assert.containsText('/html/body/div[2]/table', user2)
 			.end();
 	},
 
@@ -330,8 +328,8 @@ module.exports = {
 			.click('//*[@id="login-form"]/button')
 			.waitForElementVisible('//*[@id="userCard"]', 10000)
 			.click('//*[@id="matchesLink"]')
-			.waitForElementVisible('//*[@id="matchesContainer"]/a/div/div', 100000)
-			.assert.attributeContains('//*[@id="matchesContainer"]/a/div/div/img', 'src', originalImgSrc)
+			.waitForElementVisible('//*[@id="matchesContainer"]/a[2]/div/div', 100000)
+			.assert.attributeContains('//*[@id="matchesContainer"]/a[2]/div/div/img', 'src', originalImgSrc)
 			.click('//*[@id="logout"]')
 			.waitForElementVisible('/html/body', 10000)
 			.setValue('//*[@id="username"]', user2)
@@ -353,8 +351,8 @@ module.exports = {
 			.click('//*[@id="login-form"]/button')
 			.waitForElementVisible('//*[@id="userCard"]', 10000)
 			.click('//*[@id="matchesLink"]')
-			.waitForElementVisible('//*[@id="matchesContainer"]/a/div/div', 100000)
-			.assert.attributeContains('//*[@id="matchesContainer"]/a/div/div/img', 'src', updatedImgSrc)
+			.waitForElementVisible('//*[@id="matchesContainer"]/a[2]/div/div', 100000)
+			.assert.attributeContains('//*[@id="matchesContainer"]/a[2]/div/div/img', 'src', updatedImgSrc)
 			.end();	
 	}
 }
